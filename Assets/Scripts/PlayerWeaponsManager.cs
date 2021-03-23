@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerWeaponManager : MonoBehaviour
 {
 
-    public Transform DefaultWeaponPosition;
-    public Transform ADSWeaponPosition;
-    public Transform DownWeaponPosition;
-    public Transform WeaponParentSocket;
+    public Transform defaultWeaponPosition;
+    public Transform aDSWeaponPosition;
+    public Transform downWeaponPosition;
+    public Transform weaponParentSocket;
 
     WeaponController[] weaponSlots = new WeaponController[9]; // 9 available weapon slots
 
