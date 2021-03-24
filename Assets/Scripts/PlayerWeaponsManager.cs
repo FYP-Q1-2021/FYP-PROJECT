@@ -37,6 +37,8 @@ public class PlayerWeaponsManager : MonoBehaviour
     public float movingWeaponBobSpeed;
 
     Vector3 targetWeaponBobPosition;
+    float targetWeaponBobSmoothness;
+
     float idleCounter;
     float movementCounter;
     WeaponController[] weaponSlots = new WeaponController[9]; // 9 available weapon slots
@@ -61,24 +63,28 @@ public class PlayerWeaponsManager : MonoBehaviour
 
     void LateUpdate()
     {
+        UpdateWeaponBob();
+    }
+
+    void UpdateWeaponBob()
+    {
         Vector3 moveInput = inputHandler.GetMoveInput();
         if (moveInput.x == 0 && moveInput.z == 0)
         {
-            UpdateWeaponBob(idleCounter, idleWeaponBobIntensity, idleWeaponBobIntensity);
-            idleCounter += Time.deltaTime;
-            weaponParentSocket.localPosition = Vector3.Lerp(weaponParentSocket.localPosition, targetWeaponBobPosition, Time.deltaTime * idleWeaponBobSmoothness);
+            //UpdateWeaponBob(idleCounter, idleWeaponBobIntensity, idleWeaponBobIntensity);
+            idleCounter += Time.deltaTime * idleWeaponBobSpeed;
+            targetWeaponBobPosition = weaponParentOrigin + new Vector3(Mathf.Cos(idleCounter) * idleWeaponBobIntensity, Mathf.Sin(idleCounter * 2) * idleWeaponBobIntensity, 0);
+            targetWeaponBobSmoothness = Time.deltaTime * idleWeaponBobSmoothness;
+            
         }
         else
         {
-            UpdateWeaponBob(movementCounter, movingWeaponBobIntensity, movingWeaponBobIntensity);
-            movementCounter += Time.deltaTime * 2f;
-            weaponParentSocket.localPosition = Vector3.Lerp(weaponParentSocket.localPosition, targetWeaponBobPosition, Time.deltaTime * movingWeaponBobSmoothness);
+            //UpdateWeaponBob(movementCounter, movingWeaponBobIntensity, movingWeaponBobIntensity);
+            movementCounter += Time.deltaTime * movingWeaponBobSpeed;
+            targetWeaponBobPosition = weaponParentOrigin + new Vector3(Mathf.Cos(movementCounter) * idleWeaponBobIntensity, Mathf.Sin(movementCounter * 2) * idleWeaponBobIntensity, 0);
+            targetWeaponBobSmoothness = Time.deltaTime * movingWeaponBobSmoothness;
         }
-    }
-
-    void UpdateWeaponBob(float x, float xIntensity, float yIntensity)
-    {
-        targetWeaponBobPosition = weaponParentOrigin + new Vector3(Mathf.Cos(x) * xIntensity, Mathf.Sin(x * 2) * yIntensity , 0);
+        weaponParentSocket.localPosition = Vector3.Lerp(weaponParentSocket.localPosition, targetWeaponBobPosition, targetWeaponBobSmoothness);
     }
 
     void SwitchWeapon(bool ascendingOrder)
