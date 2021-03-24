@@ -26,7 +26,7 @@ public class PlayerCharacterController : MonoBehaviour
     public LayerMask groundMask;
     public float groundDistance = 0.3f;
 
-    bool isGrounded;
+    public bool isGrounded;
     bool isSprinting;
 
     // Start is called before the first frame update
