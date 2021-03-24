@@ -178,8 +178,10 @@ MonoBehaviour:
   weaponParentSocket: {fileID: 1124940185}
   idleWeaponBobIntensity: 0.025
   idleWeaponBobSmoothness: 2
+  idleWeaponBobSpeed: 1
   movingWeaponBobIntensity: 0.035
   movingWeaponBobSmoothness: 6
+  movingWeaponBobSpeed: 3
 --- !u!114 &610103971
 MonoBehaviour:
   m_ObjectHideFlags: 0

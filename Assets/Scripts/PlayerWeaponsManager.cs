@@ -22,6 +22,9 @@ public class PlayerWeaponsManager : MonoBehaviour
     [Range(0f, 15f)]
     [Tooltip("Smoothness of weapon bob")]
     public float idleWeaponBobSmoothness;
+    [Range(0f, 15f)]
+    [Tooltip("Affects the frequency in which the weapon bobs")]
+    public float idleWeaponBobSpeed;
 
     [Range(0f, 1f)]
     [Tooltip("Intensity of weapon bob when player is still")]
@@ -29,6 +32,9 @@ public class PlayerWeaponsManager : MonoBehaviour
     [Range(0f, 15f)]
     [Tooltip("Smoothness of weapon bob")]
     public float movingWeaponBobSmoothness;
+    [Range(0f, 15f)]
+    [Tooltip("Affects the frequency in which the weapon bobs")]
+    public float movingWeaponBobSpeed;
 
     Vector3 targetWeaponBobPosition;
     float idleCounter;
