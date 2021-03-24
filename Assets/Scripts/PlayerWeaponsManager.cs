@@ -39,6 +39,7 @@ public class PlayerWeaponsManager : MonoBehaviour
     Vector3 targetWeaponBobPosition;
     float targetWeaponBobSmoothness;
 
+
     float idleCounter;
     float movementCounter;
     WeaponController[] weaponSlots = new WeaponController[9]; // 9 available weapon slots
@@ -48,6 +49,8 @@ public class PlayerWeaponsManager : MonoBehaviour
         inputHandler = GetComponent<InputHandler>();
         playerCharacterController = GetComponent<PlayerCharacterController>();
         weaponParentOrigin = weaponParentSocket.localPosition;
+
+        
 
         foreach (var weapon in startingWeapons)
         {
@@ -64,7 +67,11 @@ public class PlayerWeaponsManager : MonoBehaviour
     void LateUpdate()
     {
         UpdateWeaponBob();
+        
+        weaponParentSocket.localPosition = Vector3.Lerp(weaponParentSocket.localPosition, targetWeaponBobPosition, targetWeaponBobSmoothness);
     }
+
+
 
     void UpdateWeaponBob()
     {
@@ -84,7 +91,7 @@ public class PlayerWeaponsManager : MonoBehaviour
             targetWeaponBobPosition = weaponParentOrigin + new Vector3(Mathf.Cos(movementCounter) * idleWeaponBobIntensity, Mathf.Sin(movementCounter * 2) * idleWeaponBobIntensity, 0);
             targetWeaponBobSmoothness = Time.deltaTime * movingWeaponBobSmoothness;
         }
-        weaponParentSocket.localPosition = Vector3.Lerp(weaponParentSocket.localPosition, targetWeaponBobPosition, targetWeaponBobSmoothness);
+        
     }
 
     void SwitchWeapon(bool ascendingOrder)
