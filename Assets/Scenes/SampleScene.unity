@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -182,6 +182,9 @@ MonoBehaviour:
   movingWeaponBobIntensity: 0.035
   movingWeaponBobSmoothness: 6
   movingWeaponBobSpeed: 3
+  sprintingWeaponBobIntensity: 0.045
+  sprintingWeaponBobSmoothness: 8
+  sprintingWeaponBobSpeed: 6
 --- !u!114 &610103971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +220,7 @@ MonoBehaviour:
     m_Bits: 0
   groundDistance: 0.3
   isGrounded: 0
+  isSprinting: 0
 --- !u!143 &610103973
 CharacterController:
   m_ObjectHideFlags: 0

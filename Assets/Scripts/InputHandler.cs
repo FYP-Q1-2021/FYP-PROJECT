@@ -81,6 +81,19 @@ public class InputHandler : MonoBehaviour
         return false;
     }
 
+    public int GetSelectWeaponInput()
+    {
+        if(CanProcessInput())
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+                return 1;
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+                return 2;
+            else
+                return 0;
+        }
+        return 0;
+    }
     public Vector3 GetMoveInput()
     {
 

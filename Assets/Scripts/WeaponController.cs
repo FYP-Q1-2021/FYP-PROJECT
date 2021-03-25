@@ -14,10 +14,12 @@ public class WeaponController : MonoBehaviour
     public string weaponName;
     // References
 
+    public GameObject weaponRoot;
     WeaponType weaponType;
 
     public float swayIntensity;
     public float swaySmoothness;
+    bool isWeaponActive;
 
     Quaternion originRotation;
 
@@ -63,8 +65,9 @@ public class WeaponController : MonoBehaviour
     }
 
 
-    void ShowWeapon()
+    public void ShowWeapon(bool show)
     {
-
+        weaponRoot.SetActive(show);
+        isWeaponActive = show;
     }
 }

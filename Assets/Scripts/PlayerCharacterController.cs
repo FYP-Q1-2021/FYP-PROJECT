@@ -27,7 +27,7 @@ public class PlayerCharacterController : MonoBehaviour
     public float groundDistance = 0.3f;
 
     public bool isGrounded;
-    bool isSprinting;
+    public bool isSprinting;
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +73,7 @@ public class PlayerCharacterController : MonoBehaviour
             velocity.y = 0f;
         }
     }
+
     void MouseLook()
     {
 

@@ -27,7 +27,7 @@ public class PlayerWeaponsManager : MonoBehaviour
     public float idleWeaponBobSpeed;
 
     [Range(0f, 1f)]
-    [Tooltip("Intensity of weapon bob when player is still")]
+    [Tooltip("Intensity of weapon bob when player is moving")]
     public float movingWeaponBobIntensity;
     [Range(0f, 15f)]
     [Tooltip("Smoothness of weapon bob")]
@@ -36,12 +36,26 @@ public class PlayerWeaponsManager : MonoBehaviour
     [Tooltip("Affects the frequency in which the weapon bobs")]
     public float movingWeaponBobSpeed;
 
+    [Range(0f, 1f)]
+    [Tooltip("Intensity of weapon bob when player is sprinting")]
+    public float sprintingWeaponBobIntensity;
+    [Range(0f, 15f)]
+    [Tooltip("Smoothness of weapon bob")]
+    public float sprintingWeaponBobSmoothness;
+    [Range(0f, 15f)]
+    [Tooltip("Affects the frequency in which the weapon bobs")]
+    public float sprintingWeaponBobSpeed;
+
+
     Vector3 targetWeaponBobPosition;
     float targetWeaponBobSmoothness;
-
-
     float idleCounter;
     float movementCounter;
+    float sprintCounter;
+
+    int activeWeaponIndex;
+    int newWeaponIndex;
+
     WeaponController[] weaponSlots = new WeaponController[9]; // 9 available weapon slots
 
     void Start()
@@ -49,11 +63,12 @@ public class PlayerWeaponsManager : MonoBehaviour
         inputHandler = GetComponent<InputHandler>();
         playerCharacterController = GetComponent<PlayerCharacterController>();
         weaponParentOrigin = weaponParentSocket.localPosition;
-
+        activeWeaponIndex = -1;
         
 
         foreach (var weapon in startingWeapons)
         {
+            Debug.Log("Hi");
             AddWeapon(weapon);
         }
         SwitchWeapon(true);
@@ -61,7 +76,46 @@ public class PlayerWeaponsManager : MonoBehaviour
 
     void Update()
     {
-        
+        GetActiveWeapon();
+        int selectWeaponInput = inputHandler.GetSelectWeaponInput();
+        if (selectWeaponInput != 0)
+        {
+            if (GetWeaponAtIndex(selectWeaponInput - 1) != null)
+            {
+                SwitchToWeaponAtIndex(selectWeaponInput - 1);
+            }
+        }
+    }
+
+
+    WeaponController GetActiveWeapon()
+    {
+        return GetWeaponAtIndex(activeWeaponIndex);
+    }
+
+    WeaponController GetWeaponAtIndex(int weaponAtIndex)
+    {
+        if(weaponAtIndex >= 0 && weaponAtIndex < weaponSlots.Length)
+        {
+            return weaponSlots[weaponAtIndex];
+        }
+        return null;
+    }
+
+    void SwitchToWeaponAtIndex(int weaponAtIndex)
+    {
+        if(weaponAtIndex >= 0 && weaponAtIndex != activeWeaponIndex)
+        {
+            newWeaponIndex = weaponAtIndex;
+
+            if(GetActiveWeapon() != null)
+            {
+                weaponSlots[activeWeaponIndex].ShowWeapon(false);
+
+            }
+            activeWeaponIndex = weaponAtIndex;
+            weaponSlots[weaponAtIndex].ShowWeapon(true);
+        }
     }
 
     void LateUpdate()
@@ -72,6 +126,10 @@ public class PlayerWeaponsManager : MonoBehaviour
     }
 
 
+    void UpdateWeaponSwitching()
+    {
+
+    }
 
     void UpdateWeaponBob()
     {
@@ -83,6 +141,12 @@ public class PlayerWeaponsManager : MonoBehaviour
             targetWeaponBobPosition = weaponParentOrigin + new Vector3(Mathf.Cos(idleCounter) * idleWeaponBobIntensity, Mathf.Sin(idleCounter * 2) * idleWeaponBobIntensity, 0);
             targetWeaponBobSmoothness = Time.deltaTime * idleWeaponBobSmoothness;
             
+        }
+        else if(playerCharacterController.isSprinting)
+        {
+            sprintCounter += Time.deltaTime * sprintingWeaponBobSpeed;
+            targetWeaponBobPosition = weaponParentOrigin + new Vector3(Mathf.Cos(sprintCounter) * sprintingWeaponBobIntensity, Mathf.Sin(sprintCounter * 2) * sprintingWeaponBobIntensity, 0);
+            targetWeaponBobSmoothness = Time.deltaTime * sprintingWeaponBobSmoothness;
         }
         else
         {
@@ -96,9 +160,15 @@ public class PlayerWeaponsManager : MonoBehaviour
 
     void SwitchWeapon(bool ascendingOrder)
     {
-        // Switch to the next availiable weapon
-
-
+        int newWeaponIndex = -1;
+        for(int i = 0; i < weaponSlots.Length; i++)
+        {
+            if(GetWeaponAtIndex(i) != null && i != activeWeaponIndex)
+            {
+                newWeaponIndex = i;
+            }
+        }
+        SwitchToWeaponAtIndex(newWeaponIndex);
     }
 
     public bool AddWeapon(WeaponController weaponPrefab)
@@ -111,7 +181,9 @@ public class PlayerWeaponsManager : MonoBehaviour
                 WeaponController weaponInstance = Instantiate(weaponPrefab, weaponParentSocket);
                 weaponInstance.transform.localPosition = Vector3.zero;
                 weaponInstance.transform.localRotation = Quaternion.identity;
+                weaponInstance.ShowWeapon(false);
 
+                weaponSlots[i] = weaponInstance;
                 return true;
             }
         }
@@ -123,20 +195,11 @@ public class PlayerWeaponsManager : MonoBehaviour
         return false;
     }
 
-    WeaponController GetActiveWeapon()
+
+
+
+    bool RemoveWeapon()
     {
-        return GetWeaponAtSlotIndex(0);
-    }
-
-    WeaponController GetWeaponAtSlotIndex(int index)
-    {
-
-        return null;
-    }
-
-
-    void RemoveWeapon()
-    {
-
+        return false;
     }
 }
