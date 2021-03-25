@@ -115,7 +115,14 @@ public class PlayerWeaponsManager : MonoBehaviour
             }
             activeWeaponIndex = weaponAtIndex;
             weaponSlots[weaponAtIndex].ShowWeapon(true);
+
         }
+        else if (weaponAtIndex == activeWeaponIndex)
+        {
+            weaponSlots[weaponAtIndex].ShowWeapon(false);
+            activeWeaponIndex = -1;
+        }
+
     }
 
     void LateUpdate()
