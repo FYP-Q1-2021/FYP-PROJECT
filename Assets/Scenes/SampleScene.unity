@@ -177,15 +177,11 @@ MonoBehaviour:
   aDSWeaponPosition: {fileID: 2078436969}
   downWeaponPosition: {fileID: 950950307}
   weaponParentSocket: {fileID: 1124940185}
-  idleWeaponBobIntensity: 0.025
-  idleWeaponBobSmoothness: 2
-  idleWeaponBobSpeed: 1
-  movingWeaponBobIntensity: 0.035
-  movingWeaponBobSmoothness: 6
-  movingWeaponBobSpeed: 3
-  sprintingWeaponBobIntensity: 0.045
-  sprintingWeaponBobSmoothness: 8
-  sprintingWeaponBobSpeed: 6
+  weaponBobAmount: 0.05
+  weaponBobFrequency: 10
+  weaponBobSharpness: 10
+  aimingAnimationSpeed: 10
+  weaponSwitchDelay: 1
 --- !u!114 &610103971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +216,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   groundDistance: 0.3
+  maxSpeedOnGround: 0
   isGrounded: 0
   isSprinting: 0
 --- !u!143 &610103973
@@ -480,7 +477,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950950306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.12, z: 0.67}
+  m_LocalPosition: {x: 0.342, y: -1.12, z: 0.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1591823554}
@@ -663,6 +660,36 @@ Transform:
   - {fileID: 1124940185}
   m_Father: {fileID: 963194228}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1936509471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1936509472}
+  m_Layer: 0
+  m_Name: EventsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1936509472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936509471}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.98, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2054918551
 GameObject:
