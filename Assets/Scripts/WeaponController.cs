@@ -70,4 +70,5 @@ public class WeaponController : MonoBehaviour
         weaponRoot.SetActive(show);
         isWeaponActive = show;
     }
+
 }

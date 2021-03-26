@@ -89,6 +89,14 @@ public class InputHandler : MonoBehaviour
                 return 1;
             else if (Input.GetKeyDown(KeyCode.Alpha2))
                 return 2;
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+                return 3;
+            else if (Input.GetKeyDown(KeyCode.Alpha4))
+                return 4;
+            else if (Input.GetKeyDown(KeyCode.Alpha5))
+                return 5;
+            else if (Input.GetKeyDown(KeyCode.Alpha6))
+                return 6;
             else
                 return 0;
         }

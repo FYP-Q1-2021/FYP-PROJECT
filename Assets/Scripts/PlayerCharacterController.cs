@@ -26,6 +26,9 @@ public class PlayerCharacterController : MonoBehaviour
     public LayerMask groundMask;
     public float groundDistance = 0.3f;
 
+    [Range(0f, 15f)]
+    public float maxSpeedOnGround;
+
     public bool isGrounded;
     public bool isSprinting;
 
