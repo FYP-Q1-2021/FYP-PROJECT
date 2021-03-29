@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Goblin : Enemy
+public class Imp : Enemy
 {
     protected override void Start()
     {
