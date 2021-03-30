@@ -12,12 +12,11 @@ GameObject:
   - component: {fileID: 4985419362730271432}
   - component: {fileID: 4636805695043315475}
   - component: {fileID: 4766946281479033036}
-  - component: {fileID: -2149420761602598884}
   - component: {fileID: -1613313636849291283}
-  - component: {fileID: 7152410384072927931}
+  - component: {fileID: -6401501794942234940}
   m_Layer: 0
   m_Name: WeaponPlaceholder
-  m_TagString: Untagged
+  m_TagString: Melee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,12 +90,29 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762747962091922361}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &-2149420761602598884
+--- !u!114 &-1613313636849291283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762747962091922361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9590a41bd4bc6284392208b852bed451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: asdasd
+  weaponRoot: {fileID: 1762747962091922361}
+  swayIntensity: 1
+  swaySmoothness: 10
+  isWeaponActive: 0
+--- !u!54 &-6401501794942234940
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,39 +128,3 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &-1613313636849291283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762747962091922361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9590a41bd4bc6284392208b852bed451, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputHandler: {fileID: 0}
-  weaponName: asdasd
-  weaponRoot: {fileID: 1762747962091922361}
-  swayIntensity: 1
-  swaySmoothness: 10
---- !u!114 &7152410384072927931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762747962091922361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38ce4348fdb25d840af92a74a8e4b5ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  gunContainer: {fileID: 0}
-  fpsCam: {fileID: 0}
-  pickUpRange: 0
-  dropForwardForce: 0
-  dropUpWardForce: 0
-  equipped: 0

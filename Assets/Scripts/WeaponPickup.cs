@@ -59,12 +59,7 @@ public class WeaponPickup : MonoBehaviour
     public void Pickup()
     {
         weaponController.isWeaponActive = true;
-        //transform.SetParent(gunContainer);
-        //transform.localPosition = Vector3.zero;
-        //transform.localRotation = Quaternion.Euler(Vector3.zero);
-        //transform.localScale = Vector3.one;
-        // spawn the weapon prefab as child of the weapon socket
-        //WeaponController weaponInstance = Instantiate(weaponPrefab, weaponParentSocket);
+
         transform.SetParent(gunContainer);
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
