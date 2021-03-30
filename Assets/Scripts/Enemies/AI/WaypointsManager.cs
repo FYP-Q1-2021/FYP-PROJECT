@@ -68,12 +68,17 @@ public class WaypointsManager : MonoBehaviour
 
     public void FindNearestWaypoint()
     {
-        float distToCurrWaypoint = Vector3.Distance(transform.position, waypoints[currentWaypoint].transform.position);
-        float distToNextWaypoint = Vector3.Distance(transform.position, waypoints[targetWaypoint].transform.position);
-
-        if (distToCurrWaypoint < distToNextWaypoint)
+        int smallestWaypointIndex = 0;
+        float smallestDist = Vector3.Distance(transform.position, waypoints[smallestWaypointIndex].transform.position);
+        for(int i = 1; i < waypoints.Count; ++i)
         {
-            targetWaypoint = currentWaypoint;
+            float dist = Vector3.Distance(transform.position, waypoints[i].transform.position);
+            if(dist < smallestDist)
+            {
+                smallestDist = dist;
+                smallestWaypointIndex = i;
+            }
         }
+        targetWaypoint = smallestWaypointIndex;
     }
 }

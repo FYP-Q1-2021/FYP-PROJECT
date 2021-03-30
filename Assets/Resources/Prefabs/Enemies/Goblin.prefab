@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 903f16944163cd94992197ec7c5e2392, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.381, y: 0.596}
@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 48022242973938510}
   - component: {fileID: 3857972462472369383}
   - component: {fileID: 6703619774786206812}
+  - component: {fileID: 3779392465415781291}
   m_Layer: 8
   m_Name: Goblin
   m_TagString: Goblin
@@ -253,7 +254,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
+  m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 5.96
   m_BaseOffset: 2.98
@@ -273,7 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   state: 0
-  stateName: '0 - IDLE
+  stateNames: '0 - IDLE
 
     1 - PATROL
 
@@ -281,14 +282,15 @@ MonoBehaviour:
 
     3 - ATTACK
 
-    4 - DEAD'
+    4- DEAD'
   waypointsManager: {fileID: 0}
   visionRange: 10
   viewingAngle: 90
   idlingDuration: 5
   idlingElapsedTime: 0
-  idlingSpeed: 1
   attackRange: 5
+  stateChangeBufferDuration: 1
+  stateChangeBufferElapsedTime: 0
 --- !u!114 &6703619774786206812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +308,19 @@ MonoBehaviour:
   currentWaypoint: 0
   reverseDir: 0
   endPointReached: 0
+--- !u!114 &3779392465415781291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4981814307115597038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee5fe52c42517e4488b18a5d74b7d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &8536867746554966826
 GameObject:
   m_ObjectHideFlags: 0

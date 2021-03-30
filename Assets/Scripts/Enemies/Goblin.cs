@@ -10,7 +10,7 @@ public class Goblin : Enemy
 
     protected override void Update()
     {
-        Debug.DrawRay(transform.position, transform.forward, Color.red);
+        Debug.DrawRay(transform.position, transform.forward * visionRange, Color.red);
 
         switch (state)
         {
@@ -24,7 +24,7 @@ public class Goblin : Enemy
 
                     if (idlingElapsedTime < idlingDuration)
                     {
-                        idlingElapsedTime += idlingSpeed * Time.deltaTime;
+                        idlingElapsedTime += simulationSpeed * Time.deltaTime;
                     }
                     // Change state to PATROL after some time passes
                     else
@@ -53,18 +53,46 @@ public class Goblin : Enemy
                 break;
             case State.CHASE:
                 {
-                    agent.destination = player.position;
+                    float distanceFromPlayer = Vector3.Distance(transform.position, player.position);
 
-                    if (Vector3.Distance(transform.position, player.position) < attackRange)
+                    if (IsPlayerOutOfRange(distanceFromPlayer, visionRange))
+                    {
+                        SetState(State.PATROL);
+                        return;
+                    }
+
+                    // Player is within attacking range
+                    if (distanceFromPlayer < attackRange)
                     {
                         SetState(State.ATTACK);
                         return;
                     }
+
+                    agent.destination = player.position;
                 }
                 break;
             case State.ATTACK:
                 {
+                    float distanceFromPlayer = Vector3.Distance(transform.position, player.position);
 
+                    if (IsPlayerOutOfRange(distanceFromPlayer, attackRange))
+                    {
+                        SetState(State.CHASE);
+                        return;
+                    }
+
+                    if(canAttack)
+                    {
+
+                    }
+
+                    attackElapsedTime += simulationSpeed * Time.deltaTime;
+                    if(attackElapsedTime > attackSpeed)
+                    {
+
+                    }
+
+                    agent.destination = player.position;
                 }
                 break;
             case State.DEAD:
@@ -88,16 +116,10 @@ public class Goblin : Enemy
             case State.PATROL:
                 agent.isStopped = false;
                 waypointsManager.enabled = true;
-                waypointsManager.endPointReached = false;
-                // Find nearest waypoint or reset target waypoint
-                //waypointsManager.FindNearestWaypoint();
-                break;
-            case State.CHASE:
-                //agent.isStopped = true;
-                waypointsManager.enabled = false;
                 break;
             case State.ATTACK:
-                agent.isStopped = true;
+                canAttack = true;
+                stateChangeBufferElapsedTime = 0f;
                 waypointsManager.enabled = false;
                 break;
             case State.DEAD:
@@ -118,6 +140,16 @@ public class Goblin : Enemy
             else
                 return false;
         }
+        return false;
+    }
+
+    private bool IsPlayerOutOfRange(float distance, float range)
+    {
+        stateChangeBufferElapsedTime += simulationSpeed * Time.deltaTime;
+
+        if (distance > range && stateChangeBufferElapsedTime > stateChangeBufferDuration)
+            return true;
+
         return false;
     }
 }
