@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5116558870906133118}
   - component: {fileID: 5939005212574929242}
   - component: {fileID: 3061929719612922085}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Imp
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 7250430977228269190}
   - component: {fileID: 2384333576268146980}
   - component: {fileID: 2384333576268146983}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Imp
   m_TagString: Imp
   m_Icon: {fileID: 0}
@@ -177,15 +177,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  playerHP: {fileID: 0}
   state: 0
-  stateName: 
+  stateNames: 
   waypointsManager: {fileID: 0}
   visionRange: 10
   viewingAngle: 90
   idlingDuration: 5
   idlingElapsedTime: 0
-  idlingSpeed: 1
+  attackDamage: 10
   attackRange: 5
+  attackSpeed: 1
+  attackElapsedTime: 0
+  canAttack: 0
+  stateChangeBufferDuration: 1
+  stateChangeBufferElapsedTime: 0
 --- !u!114 &2384333576268146983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +221,7 @@ GameObject:
   - component: {fileID: 4738600698384693600}
   - component: {fileID: 3446514090397210869}
   - component: {fileID: 9178534647549644081}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +314,7 @@ GameObject:
   - component: {fileID: 1859951210463209876}
   - component: {fileID: 2693501565531321422}
   - component: {fileID: 7756949650297464757}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: ImpSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
