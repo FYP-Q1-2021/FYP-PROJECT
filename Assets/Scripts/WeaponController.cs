@@ -10,7 +10,7 @@ enum WeaponType
 
 public class WeaponController : MonoBehaviour
 {
-    public InputHandler inputHandler;
+    InputHandler inputHandler;
     public string weaponName;
     // References
 
@@ -19,10 +19,12 @@ public class WeaponController : MonoBehaviour
 
     public float swayIntensity;
     public float swaySmoothness;
-    bool isWeaponActive;
+    
 
     Quaternion originRotation;
 
+    
+    public bool isWeaponActive;
 
     // Start is called before the first frame update
     void Start()

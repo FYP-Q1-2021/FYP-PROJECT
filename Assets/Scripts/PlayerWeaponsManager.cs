@@ -63,7 +63,9 @@ public class PlayerWeaponsManager : MonoBehaviour
     int activeWeaponIndex;
     int newWeaponIndex;
 
-    WeaponController[] weaponSlots = new WeaponController[9]; // 9 available weapon slots
+    int numberOfWeapons;
+    public bool slotsFull;
+    WeaponController[] weaponSlots = new WeaponController[3]; // 9 available weapon slots
 
     void Start()
     {
@@ -110,7 +112,20 @@ public class PlayerWeaponsManager : MonoBehaviour
         UpdateWeaponSwitching();
 
         weaponParentSocket.localPosition = weaponMainLocalPosition + weaponBobLocalPosition;
+
         //weaponParentSocket.localPosition = Vector3.Lerp(weaponParentSocket.localPosition, targetWeaponBobPosition, targetWeaponBobSmoothness);
+    }
+
+    void CheckWeaponSlots()
+    {
+        if(numberOfWeapons == weaponSlots.Length)
+        {
+            slotsFull = true;
+        }
+        else
+        {
+            slotsFull = false;
+        }
     }
 
     WeaponController GetActiveWeapon()
@@ -258,7 +273,8 @@ public class PlayerWeaponsManager : MonoBehaviour
     {
 
         Vector3 playerCharacterVelocity = (playerCharacterController.transform.position - lastCharacterPosition) / Time.deltaTime;
-
+        float hBobValue;
+        float vBobValue;
         // calculate a smoothed weapon bob amount based on how close to our max grounded movement velocity we are
         float characterMovementFactor = 0f;
         if (playerCharacterController.isGrounded)
@@ -268,16 +284,52 @@ public class PlayerWeaponsManager : MonoBehaviour
 
         weaponBobFactor = Mathf.Lerp(weaponBobFactor, characterMovementFactor, weaponBobSharpness * Time.deltaTime);
 
+      
         // Calculate vertical and horizontal weapon bob values based on a sine function
-        float hBobValue = Mathf.Sin(Time.time * weaponBobFrequency) * weaponBobAmount * weaponBobFactor;
-        float vBobValue = ((Mathf.Sin(Time.time * weaponBobFrequency * 2f) * 0.5f) + 0.5f) * weaponBobAmount * weaponBobFactor;
-
+        hBobValue = Mathf.Sin(Time.time * weaponBobFrequency) * weaponBobAmount * weaponBobFactor;
+        vBobValue = ((Mathf.Sin(Time.time * weaponBobFrequency * 2f) * 0.5f) + 0.5f) * weaponBobAmount * weaponBobFactor;         
+        
+  
+        
         // Apply weapon bob
         weaponBobLocalPosition.x = hBobValue;
         weaponBobLocalPosition.y = Mathf.Abs(vBobValue);
 
         lastCharacterPosition = playerCharacterController.transform.position;
 
+    }
+
+    public bool PickupWeapon(WeaponController weaponPrefab)
+    {
+        // search our weapon slots for the first free one, assign the weapon to it, and return true if we found one. Return false otherwise
+        for (int i = 0; i < weaponSlots.Length; i++)
+        {
+            // only add the weapon if the slot is free
+            if (weaponSlots[i] == null)
+            {
+
+                // Set owner to this gameObject so the weapon can alter projectile/damage logic accordingly 
+                weaponPrefab.ShowWeapon(false);
+
+                // Assign the first person layer to the weapon
+                numberOfWeapons++;
+                weaponSlots[i] = weaponPrefab;
+
+                if (OnAddedWeapon != null)
+                {
+                    OnAddedWeapon.Invoke(weaponPrefab, i);
+                }
+
+                return true;
+            }
+        }
+        // Handle auto-switching to weapon if no weapons currently
+        if (GetActiveWeapon() == null)
+        {
+            SwitchWeapon(true);
+        }
+
+        return false;
     }
 
     public bool AddWeapon(WeaponController weaponPrefab)
@@ -293,6 +345,8 @@ public class PlayerWeaponsManager : MonoBehaviour
                 WeaponController weaponInstance = Instantiate(weaponPrefab, weaponParentSocket);
                 weaponInstance.transform.localPosition = Vector3.zero;
                 weaponInstance.transform.localRotation = Quaternion.identity;
+
+                numberOfWeapons++;
 
                 // Set owner to this gameObject so the weapon can alter projectile/damage logic accordingly 
                 weaponInstance.ShowWeapon(false);
@@ -318,6 +372,37 @@ public class PlayerWeaponsManager : MonoBehaviour
         return false;
     }
 
+    public bool DropWeapon(WeaponController weaponInstance)
+    {
+        // Look through our slots for that weapon
+        for (int i = 0; i < weaponSlots.Length; i++)
+        {
+            // when weapon found, remove it
+            if (weaponSlots[i] == weaponInstance)
+            {
+                weaponSlots[i] = null;
+
+                if (OnRemovedWeapon != null)
+                {
+                    OnRemovedWeapon.Invoke(weaponInstance, i);
+                }
+
+                
+                numberOfWeapons--;
+
+                // Handle case of removing active weapon (switch to next weapon)
+                if (i == activeWeaponIndex)
+                {
+                    SwitchWeapon(true);
+                }
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public bool RemoveWeapon(WeaponController weaponInstance)
     {
         // Look through our slots for that weapon
@@ -334,6 +419,7 @@ public class PlayerWeaponsManager : MonoBehaviour
                 }
 
                 Destroy(weaponInstance.gameObject);
+                numberOfWeapons--;
 
                 // Handle case of removing active weapon (switch to next weapon)
                 if (i == activeWeaponIndex)
