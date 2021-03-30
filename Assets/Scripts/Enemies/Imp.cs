@@ -60,6 +60,7 @@ public class Imp : Enemy
                         SetState(State.PATROL);
                         return;
                     }
+
                     // Player is within attacking range
                     if (distanceFromPlayer < attackRange)
                     {
@@ -78,6 +79,21 @@ public class Imp : Enemy
                     {
                         SetState(State.CHASE);
                         return;
+                    }
+
+                    if (canAttack)
+                    {
+                        playerHP.Damage(attackDamage);
+                        canAttack = false;
+                    }
+                    else
+                    {
+                        attackElapsedTime += simulationSpeed * Time.deltaTime;
+                        if (attackElapsedTime > attackSpeed)
+                        {
+                            canAttack = true;
+                            attackElapsedTime = 0f;
+                        }
                     }
 
                     agent.destination = player.position;
@@ -106,6 +122,7 @@ public class Imp : Enemy
                 waypointsManager.enabled = true;
                 break;
             case State.ATTACK:
+                canAttack = true;
                 stateChangeBufferElapsedTime = 0f;
                 waypointsManager.enabled = false;
                 break;
@@ -116,28 +133,13 @@ public class Imp : Enemy
         }
     }
 
-    private bool IsPlayerVisible()
-    {
-        if (Vector3.Distance(transform.position, player.position) < visionRange)
-        {
-            Vector3 targetDir = player.position - transform.position;
-            float angle = Vector3.Angle(targetDir, transform.forward);
-            if (angle < viewingAngle)
-                return true;
-            else
-                return false;
-        }
-        return false;
-    }
-
     private bool IsPlayerOutOfRange(float distance, float range)
     {
         stateChangeBufferElapsedTime += simulationSpeed * Time.deltaTime;
 
         if (distance > range && stateChangeBufferElapsedTime > stateChangeBufferDuration)
-        {
             return true;
-        }
+
         return false;
     }
 }

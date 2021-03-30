@@ -83,13 +83,17 @@ public class Goblin : Enemy
 
                     if(canAttack)
                     {
-
+                        playerHP.Damage(attackDamage);
+                        canAttack = false;
                     }
-
-                    attackElapsedTime += simulationSpeed * Time.deltaTime;
-                    if(attackElapsedTime > attackSpeed)
+                    else
                     {
-
+                        attackElapsedTime += simulationSpeed * Time.deltaTime;
+                        if(attackElapsedTime > attackSpeed)
+                        {
+                            canAttack = true;
+                            attackElapsedTime = 0f;
+                        }
                     }
 
                     agent.destination = player.position;
@@ -115,6 +119,7 @@ public class Goblin : Enemy
                 break;
             case State.PATROL:
                 agent.isStopped = false;
+                waypointsManager.endPointReached = false;
                 waypointsManager.enabled = true;
                 break;
             case State.ATTACK:
@@ -127,20 +132,6 @@ public class Goblin : Enemy
                 waypointsManager.enabled = false;
                 break;
         }
-    }
-
-    private bool IsPlayerVisible()
-    {
-        if (Vector3.Distance(transform.position, player.position) < visionRange)
-        {
-            Vector3 targetDir = player.position - transform.position;
-            float angle = Vector3.Angle(targetDir, transform.forward);
-            if (angle < viewingAngle)
-                return true;
-            else
-                return false;
-        }
-        return false;
     }
 
     private bool IsPlayerOutOfRange(float distance, float range)
