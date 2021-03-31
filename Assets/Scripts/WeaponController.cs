@@ -17,8 +17,11 @@ public class WeaponController : MonoBehaviour
     public GameObject weaponRoot;
     WeaponType weaponType;
 
-    public float swayIntensity;
-    public float swaySmoothness;
+    [Header("Weapon Sway")]
+    [Range(0f,10f)]
+    public float swayIntensity = 1f;
+    [Range(0f, 10f)]
+    public float swaySmoothness = 10f;
     
 
     Quaternion originRotation;
@@ -39,10 +42,6 @@ public class WeaponController : MonoBehaviour
         UpdateWeaponSway();
     }
 
-    void LateUpdate()
-    {
-        
-    }
     void UpdateWeaponSway()
     {
 

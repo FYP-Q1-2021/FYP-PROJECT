@@ -14,8 +14,9 @@ public class WeaponPickup : MonoBehaviour
     public float pickUpRange;
     public float dropForwardForce, dropUpWardForce;
 
-    
     public static bool slotFull;
+
+    [SerializeField] string selectableTag = "Pickup";
 
     // Start is called before the first frame update
     void Start()
@@ -27,29 +28,39 @@ public class WeaponPickup : MonoBehaviour
         weaponsManager = GameObject.Find("Player").GetComponent<PlayerWeaponsManager>();
         player = GameObject.Find("Player").GetComponent<Transform>();
         fpsCam = GameObject.Find("PlayerCamera").GetComponent<Transform>();
-        if(!weaponController.isWeaponActive)
-        {
-            weaponController.enabled = false;
-            rb.isKinematic = false;
-            weaponCollider.isTrigger = false;
-        }
-        if (weaponController.isWeaponActive)
-        {
-            weaponController.enabled = true;
-            rb.isKinematic = true;
-            weaponCollider.isTrigger = true;
-            
-        }
+
+        weaponController.enabled = true;
+        rb.isKinematic = true;
+        weaponCollider.isTrigger = true;
+
+        //if(!weaponController.isWeaponActive)
+        //{
+        //    weaponController.enabled = false;
+        //    rb.isKinematic = false;
+        //    weaponCollider.isTrigger = false;
+        //}
+        //if (weaponController.isWeaponActive)
+        //{
+
+
+        //}
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 distanceToPlayer = player.position - transform.position;
-        if (!weaponController.isWeaponActive && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !weaponsManager.slotsFull)
+        var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f));
+        RaycastHit hit;
+        if(Physics.Raycast(ray,out hit, pickUpRange))
         {
-            Pickup();
+            var selection = hit.transform;
+            if(selection.CompareTag(selectableTag) && Input.GetKeyDown(KeyCode.E))
+            {
+                Pickup();
+            }  
         }
+
         if(weaponController.isWeaponActive && Input.GetKeyDown(KeyCode.G))
         {
             Drop();
@@ -63,7 +74,7 @@ public class WeaponPickup : MonoBehaviour
         transform.SetParent(gunContainer);
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
-
+        gameObject.tag = "Melee";
         rb.isKinematic = true;
         weaponCollider.isTrigger = true;
 
@@ -76,7 +87,7 @@ public class WeaponPickup : MonoBehaviour
     public void Drop()
     {
         weaponController.isWeaponActive = false;
-
+        weaponController.tag = "Pickup";
         // Set parent to null
         transform.SetParent(null);
 
@@ -87,7 +98,7 @@ public class WeaponPickup : MonoBehaviour
 
         rb.AddForce(fpsCam.forward * dropForwardForce, ForceMode.Impulse);
         rb.AddForce(fpsCam.up * dropUpWardForce, ForceMode.Impulse);
-
+        
         float random = Random.Range(-1f, 1f);
         rb.AddTorque(new Vector3(random, random, random) * 10);
         weaponController.enabled = false;

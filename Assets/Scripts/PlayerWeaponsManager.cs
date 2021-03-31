@@ -78,18 +78,18 @@ public class PlayerWeaponsManager : MonoBehaviour
 
         foreach (var weapon in startingWeapons)
         {
-            Debug.Log("Hi");
             AddWeapon(weapon);
         }
         SwitchWeapon(true);
+
+        
     }
 
     void Update()
     {
         // shoot handling
         WeaponController activeWeapon = GetActiveWeapon();
-        if (weaponSwitchState == WeaponSwitchState.DOWN)
-            Debug.Log("LMAO");
+
         // weapon switch handling
         if ((weaponSwitchState == WeaponSwitchState.UP || weaponSwitchState == WeaponSwitchState.DOWN))
         {
@@ -107,12 +107,12 @@ public class PlayerWeaponsManager : MonoBehaviour
 
     void LateUpdate()
     {
+        
         UpdateWeaponBob();
         UpdateWeaponAiming();
         UpdateWeaponSwitching();
 
         weaponParentSocket.localPosition = weaponMainLocalPosition + weaponBobLocalPosition;
-
         //weaponParentSocket.localPosition = Vector3.Lerp(weaponParentSocket.localPosition, targetWeaponBobPosition, targetWeaponBobSmoothness);
     }
 
@@ -152,7 +152,6 @@ public class PlayerWeaponsManager : MonoBehaviour
 
     void SwitchToWeaponAtIndex(int weaponAtIndex)
     {
-        Debug.Log("Enter");
         // Valid input + not currently equipped weapon
         if(weaponAtIndex >= 0 && weaponAtIndex != activeWeaponIndex)
         {
@@ -222,18 +221,13 @@ public class PlayerWeaponsManager : MonoBehaviour
                 WeaponController oldWeapon = GetWeaponAtIndex(activeWeaponIndex);
                 if (oldWeapon != null)
                 {
-                    Debug.Log("EnterTwo");
                     oldWeapon.ShowWeapon(false);
                 }
-
-                Debug.Log(weaponSwitchNewWeaponIndex);
                 
                 activeWeaponIndex = weaponSwitchNewWeaponIndex;
                 switchingTimeFactor = 0f;
-                Debug.Log(activeWeaponIndex);
                 // Activate new weapon
                 WeaponController newWeapon = GetWeaponAtIndex(activeWeaponIndex);
-                //Debug.Log(activeWeaponIndex);
                 if (OnSwitchedToWeapon != null)
                 {
                     OnSwitchedToWeapon.Invoke(newWeapon);
@@ -345,7 +339,6 @@ public class PlayerWeaponsManager : MonoBehaviour
                 WeaponController weaponInstance = Instantiate(weaponPrefab, weaponParentSocket);
                 weaponInstance.transform.localPosition = Vector3.zero;
                 weaponInstance.transform.localRotation = Quaternion.identity;
-
                 numberOfWeapons++;
 
                 // Set owner to this gameObject so the weapon can alter projectile/damage logic accordingly 
