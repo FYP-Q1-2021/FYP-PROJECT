@@ -8,8 +8,10 @@ public class ItemPickup : MonoBehaviour
     public Transform item;
     [Header("Item Bob")]
     [Range(0f, 1f)]
+    [Tooltip("Distance the item bobs")]
     public float itemBobAmount = 0.05f;
     [Range(0f, 10f)]
+    [Tooltip("Frequency at which the item will move around")]
     public float itemBobFrequency = 10f;
 
     [Header("Item Rotation")]
@@ -17,8 +19,10 @@ public class ItemPickup : MonoBehaviour
     [Tooltip("Determines the speed of the item rotation on the Y Axis")]
     public float xRotationIntensity = 10f;
     [Range(0f, 15f)]
+    [Tooltip("Determines the speed of the item rotation on the X Axis")]
     public float yRotationIntensity = 10f;
     [Range(0f, 10f)]
+    [Tooltip("")]
     public float rotationSmoothness = 10f;
 
     Quaternion targetAdjustmentX;

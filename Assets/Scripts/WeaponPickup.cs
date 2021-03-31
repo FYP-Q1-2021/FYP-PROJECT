@@ -11,10 +11,13 @@ public class WeaponPickup : MonoBehaviour
     Rigidbody rb;
     Transform player, gunContainer, fpsCam;
 
+    [Header("Information")]
+    [Tooltip("The range where it can be interacted")]
     public float pickUpRange;
-    public float dropForwardForce, dropUpWardForce;
-
-    public static bool slotFull;
+    [Tooltip("The forward force when weapon is thrown")]
+    public float dropForwardForce;
+    [Tooltip("The upward force when weapon is thrown")]
+    public float dropUpWardForce;
 
     [SerializeField] string selectableTag = "Pickup";
 

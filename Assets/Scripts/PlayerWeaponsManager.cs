@@ -16,21 +16,24 @@ public class PlayerWeaponsManager : MonoBehaviour
     [Tooltip("List of weapon the player will start with")]
     public List<WeaponController> startingWeapons = new List<WeaponController>();
 
+    [Header("References")]
+    [Tooltip("Position for weapons when active but not actively aiming")]
     public Transform defaultWeaponPosition;
-    public Transform aDSWeaponPosition;
+    [Tooltip("Position for innactive weapons")]
     public Transform downWeaponPosition;
+    [Tooltip("Parent transform where all weapon will be added in the hierarchy")]
     public Transform weaponParentSocket;
 
-    PlayerCharacterController playerCharacterController;
-    InputHandler inputHandler;
 
-    WeaponSwitchState weaponSwitchState;
     [Header("Weapon Bob")]
     [Range(0f, 1f)]
+    [Tooltip("Distance the weapon bobs when not aiming")]
     public float weaponBobAmount = 0.05f;
     [Range(0f, 10f)]
+    [Tooltip("Frequency at which the weapon will move around in the screen when the player is in movement")]
     public float weaponBobFrequency = 10f;
     [Range(0f, 10f)]
+    [Tooltip("How fast the weapon bob is applied, the bigger value the fastest")]
     public float weaponBobSharpness = 10f;
     float weaponBobFactor;
 
@@ -42,9 +45,14 @@ public class PlayerWeaponsManager : MonoBehaviour
     [Tooltip("Delay before switching weapon a second time, to avoid recieving multiple inputs from mouse wheel")]
     public float weaponSwitchDelay = 1f;
 
+    [Tooltip("Check if there are any available weapon slots")]
+    public bool slotsFull;
+
     public UnityAction<WeaponController> OnSwitchedToWeapon;
     public UnityAction<WeaponController, int> OnAddedWeapon;
     public UnityAction<WeaponController, int> OnRemovedWeapon;
+
+
 
     Vector3 lastCharacterPosition;
     Vector3 weaponBobLocalPosition;
@@ -59,12 +67,16 @@ public class PlayerWeaponsManager : MonoBehaviour
     float movementCounter;
     float sprintCounter;
 
+    PlayerCharacterController playerCharacterController;
+    InputHandler inputHandler;
+
+    WeaponSwitchState weaponSwitchState;
 
     int activeWeaponIndex;
     int newWeaponIndex;
 
     int numberOfWeapons;
-    public bool slotsFull;
+
     WeaponController[] weaponSlots = new WeaponController[3]; // 9 available weapon slots
 
     void Start()
