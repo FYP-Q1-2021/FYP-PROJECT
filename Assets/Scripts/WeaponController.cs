@@ -34,17 +34,33 @@ public class WeaponController : MonoBehaviour
     [Tooltip("Data for the crosshair when targeting an enemy")]
     public CrosshairData crosshairDataTargetInSight;
 
+    [Tooltip("The parent of the entire weapon")]
     public GameObject weaponRoot;
     WeaponType weaponType;
 
     [Header("Weapon Sway")]
     [Range(0f,10f)]
     [Tooltip("")]
+    [SerializeField]
     public float swayIntensity = 1f;
     [Range(0f, 10f)]
     [Tooltip("")]
-    public float swaySmoothness = 10f;
-    
+    [SerializeField]
+    float swaySmoothness = 10f;
+
+    [Header("Durability")]
+    [SerializeField]
+    bool hasDurability;
+    [SerializeField]
+    int weaponDurability;
+    [SerializeField]
+    float weaponDecayChance;
+    [SerializeField]
+    float weaponDecayAmount;
+
+    [Header("Weapon Stats")]
+    public int weaponDamage;
+
 
     Quaternion originRotation;
 
