@@ -26,8 +26,11 @@ public class PlayerCharacterController : MonoBehaviour
     public LayerMask groundMask;
     public float groundDistance = 0.3f;
 
-    bool isGrounded;
-    bool isSprinting;
+    [Range(0f, 15f)]
+    public float maxSpeedOnGround;
+
+    public bool isGrounded;
+    public bool isSprinting;
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +76,7 @@ public class PlayerCharacterController : MonoBehaviour
             velocity.y = 0f;
         }
     }
+
     void MouseLook()
     {
 
