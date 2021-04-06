@@ -121,6 +121,10 @@ public class PlayerWeaponsManager : MonoBehaviour
         // attack
         // enable collider
         // disable collider after animation finish
+        if(inputHandler.GetAttackInputDown())
+        {
+            activeWeapon.TryAttack();
+        }
     }
 
     void LateUpdate()

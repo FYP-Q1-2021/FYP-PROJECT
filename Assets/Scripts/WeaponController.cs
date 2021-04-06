@@ -38,6 +38,9 @@ public class WeaponController : MonoBehaviour
     [Tooltip("The parent of the entire weapon")]
     public GameObject weaponRoot;
     WeaponType weaponType;
+    BoxCollider weaponCollider;
+    public Animator anim;
+    public AnimationClip clip;
 
     [Header("Weapon Sway")]
     [Range(0f,10f)]
@@ -62,6 +65,8 @@ public class WeaponController : MonoBehaviour
     [Header("Weapon Stats")]
     public int weaponDamage;
 
+    [SerializeField]
+    float attackTime;
 
     Quaternion originRotation;
 
@@ -74,7 +79,14 @@ public class WeaponController : MonoBehaviour
         originRotation = transform.localRotation;
         inputHandler = GameObject.Find("Player").GetComponent<InputHandler>();
         playerWeaponsManager = GameObject.Find("Player").GetComponent<PlayerWeaponsManager>();
-        
+        weaponCollider = GetComponent<BoxCollider>();
+        anim = GetComponent<Animator>();
+
+        if (anim != null)
+        {
+            UpdateAnimClipTimes();
+        }
+
     }
 
     // Update is called once per frame
@@ -111,6 +123,33 @@ public class WeaponController : MonoBehaviour
         {
             playerWeaponsManager.RemoveWeapon(this);
         }
+    }
+
+    public void UpdateAnimClipTimes()
+    {
+        AnimationClip[] clips = anim.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            switch (clip.name)
+            {
+                case "Attacking":
+                    attackTime = clip.length;   
+                    break;
+            }
+        }
+    }
+
+    private IEnumerator DisableWeaponCollider(float time = 0f)
+    {
+        yield return new WaitForSeconds(time);
+        weaponCollider.enabled = false;
+    }
+
+    public void TryAttack()
+    {
+        weaponCollider.enabled = true;
+        //anim.SetTrigger("Attack");
+        StartCoroutine(DisableWeaponCollider(attackTime));
     }
 
     public void ShowWeapon(bool show)
