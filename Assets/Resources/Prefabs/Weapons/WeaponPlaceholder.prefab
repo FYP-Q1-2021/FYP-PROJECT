@@ -109,9 +109,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: asdasd
+  weaponIcon: {fileID: 0}
+  crosshairDataDefault:
+    crosshairSprite: {fileID: 0}
+    crosshairSize: 0
+    crosshairColor: {r: 0, g: 0, b: 0, a: 0}
+  crosshairDataTargetInSight:
+    crosshairSprite: {fileID: 0}
+    crosshairSize: 0
+    crosshairColor: {r: 0, g: 0, b: 0, a: 0}
   weaponRoot: {fileID: 1762747962091922361}
   swayIntensity: 1
   swaySmoothness: 10
+  hasDurability: 1
+  weaponDurability: 2
+  weaponDecayChance: 0
+  weaponDecayAmount: 0
+  weaponDamage: 0
   isWeaponActive: 0
 --- !u!114 &8253084565087130769
 MonoBehaviour:

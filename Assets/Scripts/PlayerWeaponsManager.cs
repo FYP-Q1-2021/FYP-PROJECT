@@ -115,6 +115,12 @@ public class PlayerWeaponsManager : MonoBehaviour
             }
             
         }
+
+        // handle inputs
+        // if inputs true
+        // attack
+        // enable collider
+        // disable collider after animation finish
     }
 
     void LateUpdate()

@@ -445,11 +445,11 @@ GameObject:
   - component: {fileID: 1022430847}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Goblin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1022430847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,6 +610,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1164440165295984330, guid: b3c5eb9a5cb3a9d409791851d7936434,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1164440165295984331, guid: b3c5eb9a5cb3a9d409791851d7936434,
         type: 3}

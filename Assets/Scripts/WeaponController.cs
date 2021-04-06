@@ -22,6 +22,7 @@ public struct CrosshairData
 public class WeaponController : MonoBehaviour
 {
     InputHandler inputHandler;
+    PlayerWeaponsManager playerWeaponsManager;
 
     [Header("Information")]
     [Tooltip("The name that will be displayed in the UI for this weapon")]
@@ -72,12 +73,15 @@ public class WeaponController : MonoBehaviour
     {
         originRotation = transform.localRotation;
         inputHandler = GameObject.Find("Player").GetComponent<InputHandler>();
+        playerWeaponsManager = GameObject.Find("Player").GetComponent<PlayerWeaponsManager>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdateWeaponSway();
+        CheckWeaponDurability();
     }
 
     void UpdateWeaponSway()
@@ -93,16 +97,21 @@ public class WeaponController : MonoBehaviour
         transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.deltaTime * swaySmoothness);
     }
 
-    public void HandleAttackInputs(bool inputDown, bool inputHeld, bool inputUp)
+    void OnTriggerEnter(Collider col)
     {
-
+        if(col.gameObject.layer == 9)
+        {
+            weaponDurability--;
+        }
     }
 
-    void TryAttack()
+    void CheckWeaponDurability()
     {
-        
+        if(weaponDurability <= 0)
+        {
+            playerWeaponsManager.RemoveWeapon(this);
+        }
     }
-
 
     public void ShowWeapon(bool show)
     {
