@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum WeaponType
+public enum WeaponType
 {
     RANGED,
     MELEE
@@ -37,10 +37,28 @@ public class WeaponController : MonoBehaviour
 
     [Tooltip("The parent of the entire weapon")]
     public GameObject weaponRoot;
-    WeaponType weaponType;
+    public WeaponType weaponType;
     BoxCollider weaponCollider;
     public Animator anim;
     public AnimationClip clip;
+
+    [Header("Shoot Parameters")]
+    //[Tooltip("The projectile prefab")]
+    //public ProjectileBase projectilePrefab;
+    [Tooltip("Minimum duration between two shots")]
+    public float delayBetweenShots = 0.5f;
+    [Tooltip("Angle for the cone in which the bullets will be shot randomly (0 means no spread at all)")]
+    public float bulletSpreadAngle = 0f;
+    [Tooltip("Amount of bullets per shot")]
+    public int bulletsPerShot = 1;
+    [Tooltip("Force that will push back the weapon after each shot")]
+    [Range(0f, 2f)]
+    public float recoilForce = 1;
+    [Tooltip("Ratio of the default FOV that this weapon applies while aiming")]
+    [Range(0f, 1f)]
+    public float aimZoomRatio = 1f;
+    [Tooltip("Translation to apply to weapon arm when aiming with this weapon")]
+    public Vector3 aimOffset;
 
     [Header("Weapon Sway")]
     [Range(0f,10f)]
@@ -93,7 +111,10 @@ public class WeaponController : MonoBehaviour
     void Update()
     {
         UpdateWeaponSway();
-        CheckWeaponDurability();
+        if(hasDurability)
+        {
+            CheckWeaponDurability();
+        }
     }
 
     void UpdateWeaponSway()
@@ -107,6 +128,26 @@ public class WeaponController : MonoBehaviour
         Quaternion targetRotation = originRotation * targetAdjustmentX * targetAdjustmentY;
 
         transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.deltaTime * swaySmoothness);
+    }
+
+    public bool HandleAttackInputs(bool inputDown, bool inputHeld)
+    {
+        switch(weaponType)
+        {
+            case WeaponType.MELEE:
+                if(inputDown)
+                {
+                    return TryAttack();
+                }
+                return false;
+            case WeaponType.RANGED:
+                if(inputHeld)
+                {
+                    return TryShoot();
+                }
+                return false;
+        }
+        return false;
     }
 
     void OnTriggerEnter(Collider col)
@@ -145,11 +186,18 @@ public class WeaponController : MonoBehaviour
         weaponCollider.enabled = false;
     }
 
-    public void TryAttack()
+    public bool TryAttack()
     {
         weaponCollider.enabled = true;
-        //anim.SetTrigger("Attack");
         StartCoroutine(DisableWeaponCollider(attackTime));
+
+        return true;
+        //anim.SetTrigger("Attack");
+    }
+
+    public bool TryShoot()
+    {
+        return true;
     }
 
     public void ShowWeapon(bool show)

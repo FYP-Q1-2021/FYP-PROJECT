@@ -19,6 +19,11 @@ public class InputHandler : MonoBehaviour
         Cursor.visible = false;
     }
 
+    private void LateUpdate()
+    {
+        m_FireInputWasHeld = GetAttackInputHeld();
+    }
+
     bool CanProcessInput()
     {
         return Cursor.lockState == CursorLockMode.Locked;
@@ -26,9 +31,40 @@ public class InputHandler : MonoBehaviour
 
     public bool GetAttackInputDown()
     {
+        return GetAttackInputHeld() && !m_FireInputWasHeld;
+    }
+
+    public bool GetAttackInputHeld()
+    {
         if (CanProcessInput())
         {
             return Input.GetMouseButtonDown(0);
+        }
+        return false;
+    }
+
+    public bool GetAttackInputReleased()
+    {
+        return !GetAttackInputHeld() && m_FireInputWasHeld;
+    }
+
+    public bool GetAimInputHeld()
+    {
+        if (CanProcessInput())
+        {
+           
+            bool i = Input.GetMouseButton(1);
+            return i;
+        }
+
+        return false;
+    }
+
+    public bool GetDropKeyDown()
+    {
+        if (CanProcessInput())
+        {
+            return Input.GetButtonDown("Drop");
         }
         return false;
     }

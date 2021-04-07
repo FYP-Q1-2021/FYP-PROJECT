@@ -10,6 +10,7 @@ public class WeaponPickup : MonoBehaviour
     BoxCollider weaponCollider;
     Rigidbody rb;
     Transform player, gunContainer, fpsCam;
+    InputHandler inputHandler;
 
     [Header("Information")]
     [Tooltip("The range where it can be interacted")]
@@ -30,23 +31,13 @@ public class WeaponPickup : MonoBehaviour
         gunContainer = GameObject.Find("WeaponParentSocket").GetComponent<Transform>();
         weaponsManager = GameObject.Find("Player").GetComponent<PlayerWeaponsManager>();
         player = GameObject.Find("Player").GetComponent<Transform>();
+        inputHandler = GameObject.Find("Player").GetComponent<InputHandler>();
         fpsCam = GameObject.Find("PlayerCamera").GetComponent<Transform>();
 
         weaponController.enabled = true;
         rb.isKinematic = true;
         weaponCollider.isTrigger = true;
 
-        //if(!weaponController.isWeaponActive)
-        //{
-        //    weaponController.enabled = false;
-        //    rb.isKinematic = false;
-        //    weaponCollider.isTrigger = false;
-        //}
-        //if (weaponController.isWeaponActive)
-        //{
-
-
-        //}
     }
 
     // Update is called once per frame
@@ -58,13 +49,13 @@ public class WeaponPickup : MonoBehaviour
         if(Physics.Raycast(ray,out hit, pickUpRange))
         {
             var selection = hit.transform;
-            if(selection.CompareTag(selectableTag) && Input.GetKeyDown(KeyCode.E))
+            if(selection.CompareTag(selectableTag) && inputHandler.GetInteractKeyDown())
             {
                 Pickup();
             }  
         }
 
-        if(weaponController.isWeaponActive && Input.GetKeyDown(KeyCode.G))
+        if(weaponController.isWeaponActive && inputHandler.GetDropKeyDown())
         {
             Drop();
         }
@@ -72,40 +63,39 @@ public class WeaponPickup : MonoBehaviour
 
     public void Pickup()
     {
+        weaponCollider.isTrigger = true;
+        weaponController.enabled = true;
         weaponController.isWeaponActive = true;
+
+        gameObject.tag = "Melee";
 
         transform.SetParent(gunContainer);
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
-        gameObject.tag = "Melee";
         rb.isKinematic = true;
-        weaponCollider.isTrigger = true;
-
-        weaponController.enabled = true;
 
         weaponsManager.PickupWeapon(weaponController);
-
     }
 
     public void Drop()
     {
         weaponController.isWeaponActive = false;
-        weaponController.tag = "Pickup";
+        weaponCollider.isTrigger = false;
+
+        weaponsManager.DropWeapon(weaponController);
+        weaponController.enabled = false;
+
+        gameObject.tag = "Pickup";
         // Set parent to null
         transform.SetParent(null);
 
         rb.isKinematic = false;
-        weaponCollider.isTrigger = false;
 
         rb.velocity = player.GetComponent<Rigidbody>().velocity;
-
         rb.AddForce(fpsCam.forward * dropForwardForce, ForceMode.Impulse);
         rb.AddForce(fpsCam.up * dropUpWardForce, ForceMode.Impulse);
-        
         float random = Random.Range(-1f, 1f);
         rb.AddTorque(new Vector3(random, random, random) * 10);
-        weaponController.enabled = false;
 
-        weaponsManager.DropWeapon(weaponController);
     }
 }

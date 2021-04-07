@@ -7,9 +7,10 @@ public class ObjectCarry : MonoBehaviour
 
     public InputHandler inputHandler;
     public Camera playerCamera;
+    public PlayerWeaponsManager playerWeaponsManager;
 
     GameObject carriedObject;
-    bool carryingObject;
+    public bool carryingObject;
     [Tooltip("Adjusts the smoothness of picking up the object")]
     [SerializeField]
     float smooth;
@@ -30,6 +31,7 @@ public class ObjectCarry : MonoBehaviour
     {
         playerCamera = GameObject.Find("PlayerCamera").GetComponent<Camera>();
         inputHandler = gameObject.GetComponent<InputHandler>();
+        playerWeaponsManager = gameObject.GetComponent<PlayerWeaponsManager>();
     }
 
     // Update is called once per frame
@@ -38,24 +40,29 @@ public class ObjectCarry : MonoBehaviour
         if(carryingObject)
         {
             CarryObject(carriedObject);
-            if (Input.GetKeyDown(KeyCode.E))
+            if (inputHandler.GetInteractKeyDown())
             {
                 DropObject();
             }
-            if(Input.GetKeyDown(KeyCode.R))
+            if(inputHandler.GetDropKeyDown())
             {
                 ThrowObject();
             }
-
         }
         else if(!carryingObject)
         {
-            if(Input.GetKeyDown(KeyCode.E))
+
+            int x = Screen.width / 2;
+            int y = Screen.height / 2;
+
+            Ray ray = Camera.main.ScreenPointToRay(new Vector3(x, y));
+            RaycastHit hit;
+
+            if (inputHandler.GetInteractKeyDown() && Physics.Raycast(ray, out hit, pickupRange))
             {
-                PickupObject();
+                PickupObject(hit);
             }
         }
-        
     }
 
     void CarryObject(GameObject o)
@@ -75,24 +82,16 @@ public class ObjectCarry : MonoBehaviour
         carriedObject = null;
     }
 
-    void PickupObject()
+    void PickupObject(RaycastHit hit)
     {
-        int x = Screen.width / 2;
-        int y = Screen.height / 2;
-
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(x, y));
-        RaycastHit hit;
-
-        if(Physics.Raycast(ray , out hit, pickupRange))
+        Pickupable p = hit.collider.GetComponent<Pickupable>();
+        if (p != null)
         {
-            Pickupable p = hit.collider.GetComponent<Pickupable>();
-            if(p != null)
-            {
-                carryingObject = true;
-                carriedObject = p.gameObject;
-                p.gameObject.GetComponent<Rigidbody>().useGravity = false;
-                p.gameObject.GetComponent<Rigidbody>().freezeRotation = true;
-            }
+            carryingObject = true;
+            carriedObject = p.gameObject;
+            p.gameObject.GetComponent<Rigidbody>().useGravity = false;
+            p.gameObject.GetComponent<Rigidbody>().freezeRotation = true;
+
         }
     }
 
@@ -102,5 +101,6 @@ public class ObjectCarry : MonoBehaviour
         carriedObject.gameObject.GetComponent<Rigidbody>().useGravity = true;
         carriedObject.gameObject.GetComponent<Rigidbody>().freezeRotation = false;
         carriedObject = null;
+
     }
 }

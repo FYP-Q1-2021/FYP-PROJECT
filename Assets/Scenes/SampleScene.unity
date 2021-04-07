@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!20 &219918067 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1164440165379100953, guid: b3c5eb9a5cb3a9d409791851d7936434,
+    type: 3}
+  m_PrefabInstance: {fileID: 1164440164697078890}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +575,12 @@ MonoBehaviour:
   throwUpwardForce: 15
   throwDownwardForce: 7
   pickupRange: 2
+--- !u!4 &1590881088 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1164440166410293763, guid: b3c5eb9a5cb3a9d409791851d7936434,
+    type: 3}
+  m_PrefabInstance: {fileID: 1164440164697078890}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1936509471
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,6 +618,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1164440165295984328, guid: b3c5eb9a5cb3a9d409791851d7936434,
+        type: 3}
+      propertyPath: aDSWeaponPosition
+      value: 
+      objectReference: {fileID: 1590881088}
     - target: {fileID: 1164440165295984330, guid: b3c5eb9a5cb3a9d409791851d7936434,
         type: 3}
       propertyPath: m_Name
@@ -671,6 +688,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1164440165295984334, guid: b3c5eb9a5cb3a9d409791851d7936434,
+        type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 219918067}
     - target: {fileID: 6173801997204169914, guid: b3c5eb9a5cb3a9d409791851d7936434,
         type: 3}
       propertyPath: m_Enabled

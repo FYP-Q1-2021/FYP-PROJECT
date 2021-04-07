@@ -119,6 +119,15 @@ MonoBehaviour:
     crosshairSize: 0
     crosshairColor: {r: 0, g: 0, b: 0, a: 0}
   weaponRoot: {fileID: 1762747962091922361}
+  weaponType: 1
+  anim: {fileID: 0}
+  clip: {fileID: 0}
+  delayBetweenShots: 0.5
+  bulletSpreadAngle: 0
+  bulletsPerShot: 1
+  recoilForce: 1
+  aimZoomRatio: 1
+  aimOffset: {x: 0, y: 0, z: 0}
   swayIntensity: 1
   swaySmoothness: 10
   hasDurability: 1
@@ -126,6 +135,7 @@ MonoBehaviour:
   weaponDecayChance: 0
   weaponDecayAmount: 0
   weaponDamage: 0
+  attackTime: 2
   isWeaponActive: 0
 --- !u!114 &8253084565087130769
 MonoBehaviour:

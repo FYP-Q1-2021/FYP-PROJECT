@@ -23,16 +23,25 @@ public class PlayerWeaponsManager : MonoBehaviour
     public Transform downWeaponPosition;
     [Tooltip("Parent transform where all weapon will be added in the hierarchy")]
     public Transform weaponParentSocket;
+    [Tooltip("Position for aiming down sight")]
+    public Transform aDSWeaponPosition;
 
+
+    [Header("Weapon Recoil")]
+    [Tooltip("This will affect how fast the recoil moves the weapon, the bigger the value, the fastest")]
+    public float recoilSharpness = 50f;
+    [Tooltip("Maximum distance the recoil can affect the weapon")]
+    public float maxRecoilDistance = 0.5f;
+    [Tooltip("How fast the weapon goes back to it's original position after the recoil is finished")]
+    public float recoilRestitutionSharpness = 10f;
 
     [Header("Weapon Bob")]
-    [Range(0f, 1f)]
     [Tooltip("Distance the weapon bobs when not aiming")]
-    public float weaponBobAmount = 0.05f;
-    [Range(0f, 10f)]
+    public float defaultWeaponBobAmount = 0.05f;
+    [Tooltip("Distance the weapon bobs when aiming")]
+    public float aimingBobAmount = 0.02f;
     [Tooltip("Frequency at which the weapon will move around in the screen when the player is in movement")]
     public float weaponBobFrequency = 10f;
-    [Range(0f, 10f)]
     [Tooltip("How fast the weapon bob is applied, the bigger value the fastest")]
     public float weaponBobSharpness = 10f;
     float weaponBobFactor;
@@ -41,7 +50,10 @@ public class PlayerWeaponsManager : MonoBehaviour
     [Header("Misc")]
     [Tooltip("Speed at which the aiming animatoin is played")]
     public float aimingAnimationSpeed = 10f;
-
+    [Tooltip("Field of view when not aiming")]
+    public float defaultFOV = 60f;
+    [Tooltip("Portion of the regular FOV to apply to the weapon camera")]
+    public float weaponFOVMultiplier = 1f;
     [Tooltip("Delay before switching weapon a second time, to avoid recieving multiple inputs from mouse wheel")]
     public float weaponSwitchDelay = 1f;
 
@@ -58,6 +70,8 @@ public class PlayerWeaponsManager : MonoBehaviour
     Vector3 weaponBobLocalPosition;
     Vector3 weaponMainLocalPosition;
     Vector3 weaponParentOrigin;
+    Vector3 weaponRecoilLocalPosition;
+    Vector3 accumulatedRecoil;
     float timeStartedWeaponSwitch;
     int weaponSwitchNewWeaponIndex;
 
@@ -67,8 +81,11 @@ public class PlayerWeaponsManager : MonoBehaviour
     float movementCounter;
     float sprintCounter;
 
+    bool isAttacking;
     PlayerCharacterController playerCharacterController;
     InputHandler inputHandler;
+
+    public bool isAiming { get; private set; }
 
     WeaponSwitchState weaponSwitchState;
 
@@ -88,43 +105,47 @@ public class PlayerWeaponsManager : MonoBehaviour
         weaponSwitchState = WeaponSwitchState.DOWN;
         OnSwitchedToWeapon += OnWeaponSwitched;
 
+        SetFOV(defaultFOV);
+
         foreach (var weapon in startingWeapons)
         {
             AddWeapon(weapon);
         }
         SwitchWeapon(true);
-
-        
     }
 
     void Update()
     {
+
+
         // shoot handling
         WeaponController activeWeapon = GetActiveWeapon();
 
         // weapon switch handling
-        if ((weaponSwitchState == WeaponSwitchState.UP || weaponSwitchState == WeaponSwitchState.DOWN))
+        if (!isAiming && (weaponSwitchState == WeaponSwitchState.UP || weaponSwitchState == WeaponSwitchState.DOWN))
         {
             int switchWeaponInput = inputHandler.GetSelectWeaponInput();
             
-
             if (switchWeaponInput != 0)
             {
                 if (GetWeaponAtIndex(switchWeaponInput - 1) != null)
                     SwitchToWeaponAtIndex(switchWeaponInput - 1);
             }
-            
         }
 
-        // handle inputs
-        // if inputs true
-        // attack
-        // enable collider
-        // disable collider after animation finish
-        if(inputHandler.GetAttackInputDown())
+        if(activeWeapon && weaponSwitchState == WeaponSwitchState.UP)
         {
-            activeWeapon.TryAttack();
+            isAttacking = activeWeapon.HandleAttackInputs(inputHandler.GetAttackInputDown(), inputHandler.GetAttackInputHeld());
+            // if its a ranged weapon, it can ads
+            if(activeWeapon.weaponType == WeaponType.RANGED)
+            {
+                isAiming = inputHandler.GetAimInputHeld();
+            }
+
+            // add weapon attack
         }
+
+
     }
 
     void LateUpdate()
@@ -133,9 +154,16 @@ public class PlayerWeaponsManager : MonoBehaviour
         UpdateWeaponBob();
         UpdateWeaponAiming();
         UpdateWeaponSwitching();
+        UpdateWeaponRecoil();
 
-        weaponParentSocket.localPosition = weaponMainLocalPosition + weaponBobLocalPosition;
-        //weaponParentSocket.localPosition = Vector3.Lerp(weaponParentSocket.localPosition, targetWeaponBobPosition, targetWeaponBobSmoothness);
+        weaponParentSocket.localPosition = weaponMainLocalPosition + weaponBobLocalPosition + weaponRecoilLocalPosition;
+    }
+
+    // Sets the FOV of the main camera and the weapon camera simultaneously
+    public void SetFOV(float fov)
+    {
+        playerCharacterController.playerCamera.fieldOfView = fov;
+        //weaponCamera.fieldOfView = fov * weaponFOVMultiplier;
     }
 
     void CheckWeaponSlots()
@@ -217,8 +245,35 @@ public class PlayerWeaponsManager : MonoBehaviour
 
     void UpdateWeaponAiming()
     {
-        //if(weaponSwitchState == WeaponSwitchState.UP)
-        weaponMainLocalPosition = Vector3.Lerp(weaponMainLocalPosition,defaultWeaponPosition.localPosition, aimingAnimationSpeed * Time.deltaTime);
+        if (weaponSwitchState == WeaponSwitchState.UP)
+        {
+            WeaponController activeWeapon = GetActiveWeapon();
+            if (isAiming && activeWeapon)
+            {
+                weaponMainLocalPosition = Vector3.Lerp(weaponMainLocalPosition, aDSWeaponPosition.localPosition + activeWeapon.aimOffset, aimingAnimationSpeed * Time.deltaTime);
+                SetFOV(Mathf.Lerp(playerCharacterController.playerCamera.fieldOfView, activeWeapon.aimZoomRatio * defaultFOV, aimingAnimationSpeed * Time.deltaTime));
+            }
+            else
+            {
+                weaponMainLocalPosition = Vector3.Lerp(weaponMainLocalPosition, defaultWeaponPosition.localPosition, aimingAnimationSpeed * Time.deltaTime);
+                SetFOV(Mathf.Lerp(playerCharacterController.playerCamera.fieldOfView, defaultFOV, aimingAnimationSpeed * Time.deltaTime));
+            }
+        }
+    }
+
+    void UpdateWeaponRecoil()
+    {
+        // if the accumulated recoil is further away from the current position, make the current position move towards the recoil target
+        if (weaponRecoilLocalPosition.z >= accumulatedRecoil.z * 0.99f)
+        {
+            weaponRecoilLocalPosition = Vector3.Lerp(weaponRecoilLocalPosition, accumulatedRecoil, recoilSharpness * Time.deltaTime);
+        }
+        // otherwise, move recoil position to make it recover towards its resting pose
+        else
+        {
+            weaponRecoilLocalPosition = Vector3.Lerp(weaponRecoilLocalPosition, Vector3.zero, recoilRestitutionSharpness * Time.deltaTime);
+            accumulatedRecoil = weaponRecoilLocalPosition;
+        }
     }
 
     void UpdateWeaponSwitching()
@@ -289,8 +344,7 @@ public class PlayerWeaponsManager : MonoBehaviour
     {
 
         Vector3 playerCharacterVelocity = (playerCharacterController.transform.position - lastCharacterPosition) / Time.deltaTime;
-        float hBobValue;
-        float vBobValue;
+
         // calculate a smoothed weapon bob amount based on how close to our max grounded movement velocity we are
         float characterMovementFactor = 0f;
         if (playerCharacterController.isGrounded)
@@ -300,12 +354,11 @@ public class PlayerWeaponsManager : MonoBehaviour
 
         weaponBobFactor = Mathf.Lerp(weaponBobFactor, characterMovementFactor, weaponBobSharpness * Time.deltaTime);
 
-      
+
         // Calculate vertical and horizontal weapon bob values based on a sine function
-        hBobValue = Mathf.Sin(Time.time * weaponBobFrequency) * weaponBobAmount * weaponBobFactor;
-        vBobValue = ((Mathf.Sin(Time.time * weaponBobFrequency * 2f) * 0.5f) + 0.5f) * weaponBobAmount * weaponBobFactor;         
-        
-  
+        float bobAmount = isAiming ? aimingBobAmount : defaultWeaponBobAmount;
+        float hBobValue = Mathf.Sin(Time.time * weaponBobFrequency) * bobAmount * weaponBobFactor;
+        float vBobValue = ((Mathf.Sin(Time.time * weaponBobFrequency * 2f) * 0.5f) + 0.5f) * bobAmount * weaponBobFactor;         
         
         // Apply weapon bob
         weaponBobLocalPosition.x = hBobValue;
@@ -396,14 +449,13 @@ public class PlayerWeaponsManager : MonoBehaviour
             if (weaponSlots[i] == weaponInstance)
             {
                 weaponSlots[i] = null;
-
                 if (OnRemovedWeapon != null)
                 {
                     OnRemovedWeapon.Invoke(weaponInstance, i);
                 }
 
-                
                 numberOfWeapons--;
+                activeWeaponIndex = -1;
 
                 // Handle case of removing active weapon (switch to next weapon)
                 if (i == activeWeaponIndex)
@@ -435,6 +487,7 @@ public class PlayerWeaponsManager : MonoBehaviour
 
                 Destroy(weaponInstance.gameObject);
                 numberOfWeapons--;
+                activeWeaponIndex = -1;
 
                 // Handle case of removing active weapon (switch to next weapon)
                 if (i == activeWeaponIndex)

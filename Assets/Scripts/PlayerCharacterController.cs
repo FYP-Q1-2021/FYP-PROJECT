@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerCharacterController : MonoBehaviour
 {
     // References
+    public Camera playerCamera;
     Transform playerBody;
-    Camera playerCamera;
     InputHandler inputHandler;
     CharacterController characterController;
 
