@@ -40,7 +40,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Start()
     {
-        GameObject p = GameObject.Find("Player");
+        GameObject p = GameObject.FindGameObjectWithTag("Player");
         player = p.GetComponent<Transform>();
         playerHP = p.GetComponent<Health>();
 

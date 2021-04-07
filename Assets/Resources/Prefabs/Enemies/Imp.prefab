@@ -179,7 +179,15 @@ MonoBehaviour:
   player: {fileID: 0}
   playerHP: {fileID: 0}
   state: 0
-  stateNames: 
+  stateNames: '0 - IDLE
+
+    1 - PATROL
+
+    2 - CHASE
+
+    3 - ATTACK
+
+    4- DEAD'
   waypointsManager: {fileID: 0}
   visionRange: 10
   viewingAngle: 90

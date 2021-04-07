@@ -119,6 +119,7 @@ public class Imp : Enemy
                 break;
             case State.PATROL:
                 agent.isStopped = false;
+                waypointsManager.endPointReached = false;
                 waypointsManager.enabled = true;
                 break;
             case State.ATTACK:
