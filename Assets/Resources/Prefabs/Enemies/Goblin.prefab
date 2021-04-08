@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 9078114129526209628}
   - component: {fileID: 4707688852403872134}
   - component: {fileID: 1121985565210227325}
+  - component: {fileID: 965079577696051944}
   m_Layer: 9
   m_Name: GoblinSprite
   m_TagString: Untagged
@@ -144,7 +145,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736182269128875643}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 421829732541488869}
@@ -190,9 +191,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 903f16944163cd94992197ec7c5e2392, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 40e5a84e86736aa45bf92e3c38c7ae97, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.381, y: 0.596}
@@ -213,6 +214,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 253845ae4db1da544a713c52f9645db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &965079577696051944
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736182269128875643}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 032137f3100ace8479955e19b21517a4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2502618800131109299
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,6 +539,9 @@ MonoBehaviour:
   canAttack: 0
   stateChangeBufferDuration: 1
   stateChangeBufferElapsedTime: 0
+  attackRangeColor: {r: 1, g: 0, b: 0, a: 1}
+  detectionRangeColor: {r: 0, g: 0, b: 1, a: 1}
+  animator: {fileID: 965079577696051944}
 --- !u!114 &6703619774786206812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,7 +571,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee5fe52c42517e4488b18a5d74b7d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  maxHealth: 100
+  currentHealth: 0
+  isAPlayer: 0
 --- !u!1 &6566157019920579662
 GameObject:
   m_ObjectHideFlags: 0

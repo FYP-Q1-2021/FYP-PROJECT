@@ -10,7 +10,7 @@ public class Goblin : Enemy
 
     protected override void Update()
     {
-        Debug.DrawRay(transform.position, transform.forward * visionRange, Color.red);
+        SideSeenByPlayer();
 
         switch (state)
         {
@@ -116,20 +116,24 @@ public class Goblin : Enemy
             case State.IDLE:
                 agent.isStopped = true;
                 waypointsManager.enabled = false;
+                animator.SetInteger("State", State.IDLE);
                 break;
             case State.PATROL:
                 agent.isStopped = false;
                 waypointsManager.endPointReached = false;
                 waypointsManager.enabled = true;
+                animator.SetInteger("State", State.PATROL);
                 break;
             case State.ATTACK:
                 canAttack = true;
                 stateChangeBufferElapsedTime = 0f;
                 waypointsManager.enabled = false;
+                animator.SetInteger("State", State.ATTACK);
                 break;
             case State.DEAD:
                 agent.isStopped = true;
                 waypointsManager.enabled = false;
+                animator.SetInteger("State", State.DEAD);
                 break;
         }
     }
