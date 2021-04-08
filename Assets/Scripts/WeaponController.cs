@@ -6,19 +6,9 @@ using UnityEngine.Events;
 public enum WeaponType
 {
     RANGED,
-    MELEE
+    MELEE,
+    BOW
 };
-
-[System.Serializable]
-public struct CrosshairData
-{
-    [Tooltip("The image that will be used for this weapon's crosshair")]
-    public Sprite crosshairSprite;
-    [Tooltip("The size of the crosshair image")]
-    public int crosshairSize;
-    [Tooltip("The color of the crosshair image")]
-    public Color crosshairColor;
-}
 
 public class WeaponController : MonoBehaviour
 {
@@ -34,11 +24,6 @@ public class WeaponController : MonoBehaviour
     public Transform WeaponMuzzle;
     [Tooltip("The projectile prefab")]
     public Projectile ProjectilePrefab;
-
-    [Tooltip("Default data for the crosshair")]
-    public CrosshairData crosshairDataDefault;
-    [Tooltip("Data for the crosshair when targeting an enemy")]
-    public CrosshairData crosshairDataTargetInSight;
 
     [Tooltip("The parent of the entire weapon")]
     public GameObject weaponRoot;
@@ -189,6 +174,12 @@ public class WeaponController : MonoBehaviour
                 return false;
             case WeaponType.RANGED:
                 if(inputHeld)
+                {
+                    return TryShoot();
+                }
+                return false;
+            case WeaponType.BOW:
+                if (inputHeld)
                 {
                     return TryShoot();
                 }

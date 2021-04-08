@@ -17,15 +17,6 @@ public class ProjectileStandard : MonoBehaviour
     [Tooltip("LifeTime of the projectile")]
     public float MaxLifeTime = 5f;
 
-    [Tooltip("VFX prefab to spawn upon impact")]
-    public GameObject ImpactVfx;
-
-    [Tooltip("LifeTime of the VFX before being destroyed")]
-    public float ImpactVfxLifetime = 5f;
-
-    [Tooltip("Offset along the hit normal where the VFX will be spawned")]
-    public float ImpactVfxSpawnOffset = 0.1f;
-
     [Tooltip("Clip to play on impact")] public AudioClip ImpactSfxClip;
 
     [Tooltip("Layers this projectile can collide with")]

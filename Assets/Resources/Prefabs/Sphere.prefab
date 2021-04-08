@@ -98,19 +98,16 @@ MonoBehaviour:
   Root: {fileID: 130968076244739200}
   Tip: {fileID: 8617275582188700784}
   MaxLifeTime: 5
-  ImpactVfx: {fileID: 0}
-  ImpactVfxLifetime: 5
-  ImpactVfxSpawnOffset: 0.1
   ImpactSfxClip: {fileID: 0}
   HittableLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  Speed: 20
+  Speed: 50
   GravityDownAcceleration: 0
   TrajectoryCorrectionDistance: -1
   InheritWeaponVelocity: 0
   damage: 100
-  RadiusColor: {r: 0, g: 0.2, b: 0.2, a: 0.2}
+  RadiusColor: {r: 0.42973477, g: 0.8207547, b: 0.8207547, a: 0.2}
 --- !u!114 &1642799617509485143
 MonoBehaviour:
   m_ObjectHideFlags: 0
