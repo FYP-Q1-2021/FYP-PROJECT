@@ -120,7 +120,6 @@ public class PlayerWeaponsManager : MonoBehaviour
     void Update()
     {
 
-
         // shoot handling
         WeaponController activeWeapon = GetActiveWeapon();
 
@@ -143,12 +142,22 @@ public class PlayerWeaponsManager : MonoBehaviour
             if(activeWeapon.weaponType == WeaponType.RANGED)
             {
                 isAiming = inputHandler.GetAimInputHeld();
+
+                if (inputHandler.GetReloadInputDown())
+                {
+                    activeWeapon.TryReload();
+                }
+            }
+
+            // Handle accumulating recoil
+            if (isAttacking)
+            {
+                accumulatedRecoil += Vector3.back * activeWeapon.recoilForce;
+                accumulatedRecoil = Vector3.ClampMagnitude(accumulatedRecoil, maxRecoilDistance);
             }
 
             // add weapon attack
         }
-
-
     }
 
     void LateUpdate()

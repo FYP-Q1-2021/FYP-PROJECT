@@ -93,7 +93,7 @@ public class WeaponController : MonoBehaviour
     [Tooltip("Delay after the last shot before starting to reload")]
     public float AmmoReloadDelay = 2f;
     [Tooltip("Maximum amount of ammo in the gun")]
-    public int MaxAmmo = 8;
+    public float MaxAmmo = 8;
 
     [Header("Durability")]
     [SerializeField]
@@ -241,6 +241,29 @@ public class WeaponController : MonoBehaviour
 
         return true;
     }
+
+    public bool TryReload()
+    {
+        if(m_CurrentAmmo < ClipSize && MaxAmmo > 0)
+        {
+            float diff = ClipSize - m_CurrentAmmo;
+            if(MaxAmmo >= diff)
+            {
+                MaxAmmo -= diff;
+                m_CurrentAmmo += diff;
+
+            }
+            else
+            {
+                m_CurrentAmmo += MaxAmmo;
+                MaxAmmo -= MaxAmmo;
+            }
+            return true;
+        }
+
+        return false;
+    }
+
 
     public Vector3 GetShotDirectionWithinSpread(Transform shootTransform)
     {
