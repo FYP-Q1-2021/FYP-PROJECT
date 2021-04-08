@@ -24,6 +24,9 @@ public class WeaponController : MonoBehaviour
     public Transform WeaponMuzzle;
     [Tooltip("The projectile prefab")]
     public Projectile ProjectilePrefab;
+    public ProjectileStandard projectile;
+    public GameObject defaultArrowPosition;
+    public GameObject finalArrowPosition;
 
     [Tooltip("The parent of the entire weapon")]
     public GameObject weaponRoot;
@@ -105,10 +108,17 @@ public class WeaponController : MonoBehaviour
     float attackTime;
     Quaternion originRotation;
     float m_LastTimeShot = Mathf.NegativeInfinity;
+    float timeCounter;
 
     public UnityAction OnShoot;
     public UnityAction OnShootProcessed;
-
+    bool isCharging = false;
+    float chargeAtTime;
+    float chargingTime;
+    float maxChargeTime = 3f;
+    float minimumChargeTime = 0.4f;
+    bool canFire = false;
+    Projectile tempProjectile;
     // Start is called before the first frame update
     void Start()
     {
@@ -139,6 +149,7 @@ public class WeaponController : MonoBehaviour
 
     public bool TryShoot()
     {
+       
         if (m_CurrentAmmo >= 1f && m_LastTimeShot + delayBetweenShots < Time.time)
         {
             m_CurrentAmmo -= 1f;
@@ -181,7 +192,15 @@ public class WeaponController : MonoBehaviour
             case WeaponType.BOW:
                 if (inputHeld)
                 {
-                    return TryShoot();
+                    if(m_CurrentAmmo >= 1)
+                        ChargingBow();
+                }
+                if (!inputHeld)
+                {
+                    isCharging = false;
+                    canFire = false;
+                    if (canFire)
+                        return FireArrow();
                 }
                 return false;
         }
