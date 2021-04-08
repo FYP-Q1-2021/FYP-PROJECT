@@ -38,7 +38,7 @@ public class InputHandler : MonoBehaviour
     {
         if (CanProcessInput())
         {
-            return Input.GetMouseButtonDown(0);
+            return Input.GetMouseButton(0);
         }
         return false;
     }
@@ -46,6 +46,11 @@ public class InputHandler : MonoBehaviour
     public bool GetAttackInputReleased()
     {
         return !GetAttackInputHeld() && m_FireInputWasHeld;
+    }
+
+    public bool GetReloadInputDown()
+    {
+        return Input.GetKeyDown(KeyCode.R);
     }
 
     public bool GetAimInputHeld()
