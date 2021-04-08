@@ -19,7 +19,7 @@ public class InputHandler : MonoBehaviour
         Cursor.visible = false;
     }
 
-    private void LateUpdate()
+    void LateUpdate()
     {
         m_FireInputWasHeld = GetAttackInputHeld();
     }
