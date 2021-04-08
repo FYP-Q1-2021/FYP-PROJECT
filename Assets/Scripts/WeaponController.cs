@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum WeaponType
 {
@@ -29,6 +30,10 @@ public class WeaponController : MonoBehaviour
     public string weaponName;
     [Tooltip("The image that will be displayed in the UI for this weapon")]
     public Sprite weaponIcon;
+    [Tooltip("Tip of the weapon, where the projectiles are shot")]
+    public Transform WeaponMuzzle;
+    [Tooltip("The projectile prefab")]
+    public Projectile ProjectilePrefab;
 
     [Tooltip("Default data for the crosshair")]
     public CrosshairData crosshairDataDefault;
@@ -43,8 +48,6 @@ public class WeaponController : MonoBehaviour
     public AnimationClip clip;
 
     [Header("Shoot Parameters")]
-    //[Tooltip("The projectile prefab")]
-    //public ProjectileBase projectilePrefab;
     [Tooltip("Minimum duration between two shots")]
     public float delayBetweenShots = 0.5f;
     [Tooltip("Angle for the cone in which the bullets will be shot randomly (0 means no spread at all)")]
@@ -70,6 +73,28 @@ public class WeaponController : MonoBehaviour
     [SerializeField]
     float swaySmoothness = 10f;
 
+    [Header("Ammo Parameters")]
+    [Tooltip("Should the player manually reload")]
+    public bool AutomaticReload = true;
+    [Tooltip("Has physical clip on the weapon and ammo shells are ejected when firing")]
+    public bool HasPhysicalBullets = false;
+    [Tooltip("Number of bullets in a clip")]
+    public int ClipSize = 30;
+    [Tooltip("Bullet Shell Casing")]
+    public GameObject ShellCasing;
+    [Tooltip("Weapon Ejection Port for physical ammo")]
+    public Transform EjectionPort;
+    [Tooltip("Force applied on the shell")]
+    [Range(0.0f, 5.0f)] public float ShellCasingEjectionForce = 2.0f;
+    [Tooltip("Maximum number of shell that can be spawned before reuse")]
+    [Range(1, 30)] public int ShellPoolSize = 1;
+    [Tooltip("Amount of ammo reloaded per second")]
+    public float AmmoReloadRate = 1f;
+    [Tooltip("Delay after the last shot before starting to reload")]
+    public float AmmoReloadDelay = 2f;
+    [Tooltip("Maximum amount of ammo in the gun")]
+    public int MaxAmmo = 8;
+
     [Header("Durability")]
     [SerializeField]
     bool hasDurability;
@@ -81,15 +106,23 @@ public class WeaponController : MonoBehaviour
     float weaponDecayAmount;
 
     [Header("Weapon Stats")]
-    public int weaponDamage;
+    public float weaponDamage;
+    [Tooltip("If the weapon is currently equipped")]
+    public bool isWeaponActive;
+
+    public Vector3 MuzzleWorldVelocity { get; private set; }
+    public GameObject Owner { get; set; }
+    public GameObject SourcePrefab { get; set; }
+    float m_CurrentAmmo;
+    Vector3 m_LastMuzzlePosition;
 
     [SerializeField]
     float attackTime;
-
     Quaternion originRotation;
+    float m_LastTimeShot = Mathf.NegativeInfinity;
 
-    [Tooltip("If the weapon is currently equipped")]
-    public bool isWeaponActive;
+    public UnityAction OnShoot;
+    public UnityAction OnShootProcessed;
 
     // Start is called before the first frame update
     void Start()
@@ -99,6 +132,8 @@ public class WeaponController : MonoBehaviour
         playerWeaponsManager = GameObject.Find("Player").GetComponent<PlayerWeaponsManager>();
         weaponCollider = GetComponent<BoxCollider>();
         anim = GetComponent<Animator>();
+        m_CurrentAmmo = MaxAmmo;
+        m_LastMuzzlePosition = WeaponMuzzle.position;
 
         if (anim != null)
         {
@@ -115,6 +150,18 @@ public class WeaponController : MonoBehaviour
         {
             CheckWeaponDurability();
         }
+    }
+
+    public bool TryShoot()
+    {
+        if (m_CurrentAmmo >= 1f && m_LastTimeShot + delayBetweenShots < Time.time)
+        {
+            m_CurrentAmmo -= 1f;
+            HandleShoot();
+            
+            return true;
+        }
+        return false;
     }
 
     void UpdateWeaponSway()
@@ -190,14 +237,40 @@ public class WeaponController : MonoBehaviour
     {
         weaponCollider.enabled = true;
         StartCoroutine(DisableWeaponCollider(attackTime));
+        //anim.SetTrigger("Attack");
 
         return true;
-        //anim.SetTrigger("Attack");
     }
 
-    public bool TryShoot()
+    public Vector3 GetShotDirectionWithinSpread(Transform shootTransform)
     {
-        return true;
+        float spreadAngleRatio = bulletSpreadAngle / 180f;
+        Vector3 spreadWorldDirection = Vector3.Slerp(shootTransform.forward, UnityEngine.Random.insideUnitSphere,
+            spreadAngleRatio);
+
+        return spreadWorldDirection;
+    }
+
+    void HandleShoot()
+    {
+        int bulletsPerShotFinal = bulletsPerShot;
+
+        // spawn all bullets with random direction
+        for (int i = 0; i < bulletsPerShotFinal; i++)
+        {
+            Vector3 shotDirection = GetShotDirectionWithinSpread(WeaponMuzzle);
+            Projectile newProjectile = Instantiate(ProjectilePrefab, WeaponMuzzle.position,
+                Quaternion.LookRotation(shotDirection));
+            m_LastTimeShot = Time.time;
+
+
+            newProjectile.Shoot(this);
+
+        }
+
+        
+        OnShoot?.Invoke();
+        OnShootProcessed?.Invoke();
     }
 
     public void ShowWeapon(bool show)

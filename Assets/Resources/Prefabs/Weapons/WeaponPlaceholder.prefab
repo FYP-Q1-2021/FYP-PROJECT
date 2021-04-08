@@ -32,7 +32,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1677153872201216705}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -110,6 +111,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: asdasd
   weaponIcon: {fileID: 0}
+  WeaponMuzzle: {fileID: 1677153872201216705}
+  ProjectilePrefab: {fileID: 1642799617509485143, guid: a96602a4c38f9c4498887bc7a2722511,
+    type: 3}
   crosshairDataDefault:
     crosshairSprite: {fileID: 0}
     crosshairSize: 0
@@ -119,7 +123,7 @@ MonoBehaviour:
     crosshairSize: 0
     crosshairColor: {r: 0, g: 0, b: 0, a: 0}
   weaponRoot: {fileID: 1762747962091922361}
-  weaponType: 1
+  weaponType: 0
   anim: {fileID: 0}
   clip: {fileID: 0}
   delayBetweenShots: 0.5
@@ -130,13 +134,23 @@ MonoBehaviour:
   aimOffset: {x: 0, y: 0, z: 0}
   swayIntensity: 1
   swaySmoothness: 10
-  hasDurability: 1
+  AutomaticReload: 1
+  HasPhysicalBullets: 0
+  ClipSize: 30
+  ShellCasing: {fileID: 0}
+  EjectionPort: {fileID: 0}
+  ShellCasingEjectionForce: 2
+  ShellPoolSize: 1
+  AmmoReloadRate: 1
+  AmmoReloadDelay: 2
+  MaxAmmo: 8
+  hasDurability: 0
   weaponDurability: 2
   weaponDecayChance: 0
   weaponDecayAmount: 0
   weaponDamage: 0
-  attackTime: 2
   isWeaponActive: 0
+  attackTime: 2
 --- !u!114 &8253084565087130769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,3 +183,33 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 0
   m_CollisionDetection: 3
+--- !u!1 &8113332646843060340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1677153872201216705}
+  m_Layer: 0
+  m_Name: WeaponMuzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1677153872201216705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8113332646843060340}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.498}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2373222438591404367}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

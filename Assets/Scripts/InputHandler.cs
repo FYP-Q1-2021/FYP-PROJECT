@@ -69,6 +69,15 @@ public class InputHandler : MonoBehaviour
         return false;
     }
 
+    public bool GetWeaponDropKeyDown()
+    {
+        if(CanProcessInput())
+        {
+            return Input.GetButtonDown("Weapon Drop");
+        }
+        return false;
+    }
+
     public bool GetBlockInputDown()
     {
         if (CanProcessInput())

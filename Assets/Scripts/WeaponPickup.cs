@@ -55,7 +55,7 @@ public class WeaponPickup : MonoBehaviour
             }  
         }
 
-        if(weaponController.isWeaponActive && inputHandler.GetDropKeyDown())
+        if(weaponController.isWeaponActive && inputHandler.GetWeaponDropKeyDown())
         {
             Drop();
         }

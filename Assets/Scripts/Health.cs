@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 100;
-    [SerializeField] private int currentHealth = 0;
+    [SerializeField] private float maxHealth = 100;
+    [SerializeField] private float currentHealth = 0;
 
     [SerializeField] private bool isAPlayer;
     private HealthBar healthBar;
@@ -26,17 +26,17 @@ public class Health : MonoBehaviour
         }
     }
 
-    public int GetMaxHealth()
+    public float GetMaxHealth()
     {
         return maxHealth;
     }
 
-    public int GetCurrentHealth()
+    public float GetCurrentHealth()
     {
         return currentHealth;
     }
 
-    public void Damage(int damage)
+    public void Damage(float damage)
     {
         currentHealth -= damage;
 
@@ -45,7 +45,7 @@ public class Health : MonoBehaviour
             healthBar.UpdateHealthBar();
         }
 
-        if(currentHealth < 1)
+        if(currentHealth < 1f)
         {
             // End game
             if(isAPlayer)
@@ -60,7 +60,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void Heal(int heal)
+    public void Heal(float heal)
     {
         currentHealth += heal;
     }

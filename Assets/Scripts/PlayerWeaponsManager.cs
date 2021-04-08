@@ -25,7 +25,9 @@ public class PlayerWeaponsManager : MonoBehaviour
     public Transform weaponParentSocket;
     [Tooltip("Position for aiming down sight")]
     public Transform aDSWeaponPosition;
-
+    [Header("References")]
+    [Tooltip("Secondary camera used to avoid seeing weapon go throw geometries")]
+    public Camera weaponCamera;
 
     [Header("Weapon Recoil")]
     [Tooltip("This will affect how fast the recoil moves the weapon, the bigger the value, the fastest")]
@@ -64,7 +66,8 @@ public class PlayerWeaponsManager : MonoBehaviour
     public UnityAction<WeaponController, int> OnAddedWeapon;
     public UnityAction<WeaponController, int> OnRemovedWeapon;
 
-
+    [Tooltip("Layer to set FPS weapon gameObjects to")]
+    public LayerMask FPSWeapon;
 
     Vector3 lastCharacterPosition;
     Vector3 weaponBobLocalPosition;
@@ -104,7 +107,7 @@ public class PlayerWeaponsManager : MonoBehaviour
         activeWeaponIndex = -1;
         weaponSwitchState = WeaponSwitchState.DOWN;
         OnSwitchedToWeapon += OnWeaponSwitched;
-
+        weaponCamera = GameObject.Find("WeaponCamera").GetComponent<Camera>();
         SetFOV(defaultFOV);
 
         foreach (var weapon in startingWeapons)
@@ -163,7 +166,7 @@ public class PlayerWeaponsManager : MonoBehaviour
     public void SetFOV(float fov)
     {
         playerCharacterController.playerCamera.fieldOfView = fov;
-        //weaponCamera.fieldOfView = fov * weaponFOVMultiplier;
+        weaponCamera.fieldOfView = fov * weaponFOVMultiplier;
     }
 
     void CheckWeaponSlots()
@@ -381,6 +384,7 @@ public class PlayerWeaponsManager : MonoBehaviour
                 weaponPrefab.ShowWeapon(false);
 
                 // Assign the first person layer to the weapon
+                int layerIndex = Mathf.RoundToInt(Mathf.Log(FPSWeapon.value, 2));
                 numberOfWeapons++;
                 weaponSlots[i] = weaponPrefab;
 
@@ -420,7 +424,7 @@ public class PlayerWeaponsManager : MonoBehaviour
                 weaponInstance.ShowWeapon(false);
 
                 // Assign the first person layer to the weapon
-
+                int layerIndex =   Mathf.RoundToInt(Mathf.Log(FPSWeapon.value,2));
                 weaponSlots[i] = weaponInstance;
 
                 if (OnAddedWeapon != null)
