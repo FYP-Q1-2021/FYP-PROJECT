@@ -2,11 +2,29 @@
 
 public class Hitbox : MonoBehaviour
 {
-    [SerializeField] private Health health;
-    [SerializeField] private int damage = 10;
+    [SerializeField]
+    Health health;
 
-    void OnTriggerEnter(Collider other)
+    void Awake()
     {
-        health.Damage(damage);
+        health = GetComponent<Health>();
+        if (!health)
+        {
+            health = GetComponentInParent<Health>();
+        }
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        WeaponController weapcontroller = col.gameObject.GetComponent<WeaponController>();
+        if(weapcontroller != null)
+        {
+            health.Damage(weapcontroller.damage);
+        }
+        ProjectileStandard projectStandard = col.gameObject.GetComponent<ProjectileStandard>();
+        if (projectStandard != null)
+        {
+            health.Damage(projectStandard.damage);
+        }
     }
 }

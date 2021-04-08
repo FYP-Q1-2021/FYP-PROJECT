@@ -106,7 +106,7 @@ public class WeaponController : MonoBehaviour
     float weaponDecayAmount;
 
     [Header("Weapon Stats")]
-    public float weaponDamage;
+    public float damage;
     [Tooltip("If the weapon is currently equipped")]
     public bool isWeaponActive;
 

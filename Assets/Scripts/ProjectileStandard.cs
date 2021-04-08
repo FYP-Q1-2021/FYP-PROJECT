@@ -47,7 +47,7 @@ public class ProjectileStandard : MonoBehaviour
 
     [Header("Damage")]
     [Tooltip("Damage of the projectile")]
-    public float Damage = 40f;
+    public float damage = 40f;
 
     [Header("Debug")]
     [Tooltip("Color of the projectile radius debug view")]
@@ -218,7 +218,7 @@ public class ProjectileStandard : MonoBehaviour
         Health health = collider.GetComponent<Health>();
         if (health)
         {
-            health.Damage(Damage);
+            health.Damage(damage);
         }
 
         // Self Destruct
