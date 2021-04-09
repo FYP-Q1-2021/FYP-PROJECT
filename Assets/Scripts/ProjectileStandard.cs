@@ -204,16 +204,22 @@ public class ProjectileStandard : MonoBehaviour
     void OnHit(Vector3 point, Vector3 normal, Collider collider)
     {
         // point damage
+
         Health health = collider.GetComponent<Health>();
         if (health)
         {
+            Debug.Log("Hey");
+
             health.Damage(damage);
         }
         else
         {
+
             Hitbox hitbox = collider.GetComponent<Hitbox>();
             if(hitbox)
             {
+                Debug.Log("Hey2");
+
                 hitbox.InflictDamage(damage);
             }
         }

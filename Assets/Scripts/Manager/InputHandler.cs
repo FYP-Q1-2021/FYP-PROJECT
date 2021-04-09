@@ -50,7 +50,7 @@ public class InputHandler : MonoBehaviour
 
     public bool GetReloadInputDown()
     {
-        return Input.GetKeyDown("Reload");
+        return Input.GetKeyDown(KeyCode.R);
     }
 
     public bool GetAimInputHeld()
