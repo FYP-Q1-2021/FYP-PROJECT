@@ -65,12 +65,12 @@ public class ObjectCarry : MonoBehaviour
         }
     }
 
-    void CarryObject(GameObject o)
+    public void CarryObject(GameObject o)
     {
         o.transform.position = Vector3.Lerp(o.transform.position, playerCamera.transform.position + playerCamera.transform.forward * distance, Time.deltaTime * smooth);
     }
 
-    void ThrowObject()
+    public void ThrowObject()
     {
         carryingObject = false;
         carriedObject.gameObject.GetComponent<Rigidbody>().useGravity = true;
@@ -82,7 +82,7 @@ public class ObjectCarry : MonoBehaviour
         carriedObject = null;
     }
 
-    void PickupObject(RaycastHit hit)
+    public void PickupObject(RaycastHit hit)
     {
         Pickupable p = hit.collider.GetComponent<Pickupable>();
         if (p != null)

@@ -87,9 +87,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField]
     bool hasDurability;
     [SerializeField]
-    int weaponDurability;
-    [SerializeField]
-    float weaponDecayChance;
+    float weaponDurability;
     [SerializeField]
     float weaponDecayAmount;
 
@@ -108,17 +106,10 @@ public class WeaponController : MonoBehaviour
     float attackTime;
     Quaternion originRotation;
     float m_LastTimeShot = Mathf.NegativeInfinity;
-    float timeCounter;
 
     public UnityAction OnShoot;
     public UnityAction OnShootProcessed;
-    bool isCharging = false;
-    float chargeAtTime;
-    float chargingTime;
-    float maxChargeTime = 3f;
-    float minimumChargeTime = 0.4f;
-    bool canFire = false;
-    Projectile tempProjectile;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -192,15 +183,7 @@ public class WeaponController : MonoBehaviour
             case WeaponType.BOW:
                 if (inputHeld)
                 {
-                    if(m_CurrentAmmo >= 1)
-                        ChargingBow();
-                }
-                if (!inputHeld)
-                {
-                    isCharging = false;
-                    canFire = false;
-                    if (canFire)
-                        return FireArrow();
+
                 }
                 return false;
         }
@@ -209,9 +192,12 @@ public class WeaponController : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.layer == 9)
+        if (weaponType == WeaponType.MELEE)
         {
-            weaponDurability--;
+            if (col.gameObject.layer == 9)
+            {
+                weaponDurability -= weaponDecayAmount;
+            }
         }
     }
 
@@ -246,8 +232,8 @@ public class WeaponController : MonoBehaviour
     public bool TryAttack()
     {
         weaponCollider.enabled = true;
-        StartCoroutine(DisableWeaponCollider(attackTime));
         //anim.SetTrigger("Attack");
+        StartCoroutine(DisableWeaponCollider(attackTime));
 
         return true;
     }

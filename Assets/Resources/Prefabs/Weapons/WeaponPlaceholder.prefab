@@ -114,7 +114,8 @@ MonoBehaviour:
   WeaponMuzzle: {fileID: 1677153872201216705}
   ProjectilePrefab: {fileID: 1642799617509485143, guid: a96602a4c38f9c4498887bc7a2722511,
     type: 3}
-  projectile: {fileID: 0}
+  projectile: {fileID: 6946257073802550486, guid: a96602a4c38f9c4498887bc7a2722511,
+    type: 3}
   defaultArrowPosition: {fileID: 0}
   finalArrowPosition: {fileID: 0}
   weaponRoot: {fileID: 1762747962091922361}
@@ -141,7 +142,6 @@ MonoBehaviour:
   MaxAmmo: 8
   hasDurability: 0
   weaponDurability: 2
-  weaponDecayChance: 0
   weaponDecayAmount: 0
   damage: 0
   isWeaponActive: 0
