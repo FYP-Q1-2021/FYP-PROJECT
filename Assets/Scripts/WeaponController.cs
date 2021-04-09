@@ -24,6 +24,9 @@ public class WeaponController : MonoBehaviour
     public Transform WeaponMuzzle;
     [Tooltip("The projectile prefab")]
     public Projectile ProjectilePrefab;
+    public ProjectileStandard projectile;
+    public GameObject defaultArrowPosition;
+    public GameObject finalArrowPosition;
 
     [Tooltip("The parent of the entire weapon")]
     public GameObject weaponRoot;
@@ -84,9 +87,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField]
     bool hasDurability;
     [SerializeField]
-    int weaponDurability;
-    [SerializeField]
-    float weaponDecayChance;
+    float weaponDurability;
     [SerializeField]
     float weaponDecayAmount;
 
@@ -102,13 +103,17 @@ public class WeaponController : MonoBehaviour
     Vector3 m_LastMuzzlePosition;
 
     [SerializeField]
-    float attackTime;
+    float attackATime;
+    float attackBTime;
+    float attackCTime;
     Quaternion originRotation;
     float m_LastTimeShot = Mathf.NegativeInfinity;
 
     public UnityAction OnShoot;
     public UnityAction OnShootProcessed;
 
+    bool isAttacking;
+    int comboStep;
     // Start is called before the first frame update
     void Start()
     {
@@ -139,6 +144,7 @@ public class WeaponController : MonoBehaviour
 
     public bool TryShoot()
     {
+       
         if (m_CurrentAmmo >= 1f && m_LastTimeShot + delayBetweenShots < Time.time)
         {
             m_CurrentAmmo -= 1f;
@@ -181,7 +187,7 @@ public class WeaponController : MonoBehaviour
             case WeaponType.BOW:
                 if (inputHeld)
                 {
-                    return TryShoot();
+
                 }
                 return false;
         }
@@ -190,9 +196,28 @@ public class WeaponController : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.layer == 9)
+
+        if (weaponType == WeaponType.MELEE)
         {
-            weaponDurability--;
+
+            if (col.gameObject.layer == 9)
+            {
+                Debug.Log("Lol pls");
+                weaponDurability -= weaponDecayAmount;
+                Health health = col.gameObject.GetComponent<Health>();
+                if(health)
+                {
+                    health.Damage(damage);
+                }
+                else
+                {
+                    Hitbox hitbox = col.gameObject.GetComponent<Hitbox>();
+                    if (hitbox)
+                    {
+                        hitbox.InflictDamage(damage);
+                    }
+                }
+            }
         }
     }
 
@@ -211,12 +236,19 @@ public class WeaponController : MonoBehaviour
         {
             switch (clip.name)
             {
-                case "Attacking":
-                    attackTime = clip.length;   
+                case "AttackA":
+                    attackATime = clip.length;   
+                    break;
+                case "AttackB":
+                    attackBTime = clip.length;
+                    break;
+                case "AttackAC":
+                    attackCTime = clip.length;
                     break;
             }
         }
     }
+
 
     private IEnumerator DisableWeaponCollider(float time = 0f)
     {
@@ -224,13 +256,62 @@ public class WeaponController : MonoBehaviour
         weaponCollider.enabled = false;
     }
 
+    private IEnumerator CheckComboTiming(float time = 0f)
+    {
+        yield return new WaitForSeconds(time);
+        isAttacking = true;
+    }
+
     public bool TryAttack()
     {
-        weaponCollider.enabled = true;
-        StartCoroutine(DisableWeaponCollider(attackTime));
-        //anim.SetTrigger("Attack");
+        if (comboStep == 0)
+        {
+            weaponCollider.enabled = true;
+            anim.Play("AttackA");
+            comboStep = 1;
+            return true;
+        }
+        else if(comboStep == 1)
+        {
+            weaponCollider.enabled = true;
+            anim.Play("AttackB");
+            comboStep = 2;
+            return true;
+        }
+        else if(comboStep == 2)
+        {
+            weaponCollider.enabled = true;
+            anim.Play("AttackC");
+            comboStep = 0;
+            return true;
+        }
+        return false;
+    }
 
-        return true;
+    public void ComboPossible()
+    {
+        isAttacking = true;
+    }
+
+    public void Combo()
+    {
+        if (comboStep == 2)
+        {
+            weaponCollider.enabled = true;
+            anim.Play("AttackB");
+        }
+        if(comboStep == 3)
+        {
+            weaponCollider.enabled = true;
+            anim.Play("AttackC");
+        }
+    }
+
+    public void ComboReset()
+    {
+        isAttacking = false;
+        comboStep = 0;
+        Debug.Log("Yellow");
     }
 
     public bool TryReload()

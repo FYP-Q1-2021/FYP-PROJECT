@@ -14,17 +14,11 @@ public class Hitbox : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider col)
+    public void InflictDamage(float damage)
     {
-        WeaponController weapcontroller = col.gameObject.GetComponent<WeaponController>();
-        if(weapcontroller != null)
+        if(health)
         {
-            health.Damage(weapcontroller.damage);
-        }
-        ProjectileStandard projectStandard = col.gameObject.GetComponent<ProjectileStandard>();
-        if (projectStandard != null)
-        {
-            health.Damage(projectStandard.damage);
+            health.Damage(damage);
         }
     }
 }

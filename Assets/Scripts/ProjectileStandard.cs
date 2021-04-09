@@ -64,7 +64,7 @@ public class ProjectileStandard : MonoBehaviour
         Destroy(gameObject, MaxLifeTime);
     }
 
-    new void OnShoot()
+    void OnShoot()
     {
         m_ShootTime = Time.time;
         m_LastRootPosition = Root.position;
@@ -203,13 +203,19 @@ public class ProjectileStandard : MonoBehaviour
 
     void OnHit(Vector3 point, Vector3 normal, Collider collider)
     {
-
-        
         // point damage
         Health health = collider.GetComponent<Health>();
         if (health)
         {
             health.Damage(damage);
+        }
+        else
+        {
+            Hitbox hitbox = collider.GetComponent<Hitbox>();
+            if(hitbox)
+            {
+                hitbox.InflictDamage(damage);
+            }
         }
 
         // Self Destruct

@@ -20,6 +20,5 @@ public class Projectile : MonoBehaviour
         InheritedMuzzleVelocity = controller.MuzzleWorldVelocity;
 
         OnShoot?.Invoke();
-
     }
 }

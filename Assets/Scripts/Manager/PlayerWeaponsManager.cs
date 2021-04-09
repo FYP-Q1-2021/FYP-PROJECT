@@ -25,7 +25,6 @@ public class PlayerWeaponsManager : MonoBehaviour
     public Transform weaponParentSocket;
     [Tooltip("Position for aiming down sight")]
     public Transform aDSWeaponPosition;
-    [Header("References")]
     [Tooltip("Secondary camera used to avoid seeing weapon go throw geometries")]
     public Camera weaponCamera;
 
@@ -78,12 +77,6 @@ public class PlayerWeaponsManager : MonoBehaviour
     float timeStartedWeaponSwitch;
     int weaponSwitchNewWeaponIndex;
 
-    Vector3 targetWeaponBobPosition;
-    float targetWeaponBobSmoothness;
-    float idleCounter;
-    float movementCounter;
-    float sprintCounter;
-
     bool isAttacking;
     PlayerCharacterController playerCharacterController;
     InputHandler inputHandler;
@@ -94,7 +87,6 @@ public class PlayerWeaponsManager : MonoBehaviour
 
     int activeWeaponIndex;
     int newWeaponIndex;
-
     int numberOfWeapons;
 
     WeaponController[] weaponSlots = new WeaponController[3]; // 9 available weapon slots
@@ -155,8 +147,6 @@ public class PlayerWeaponsManager : MonoBehaviour
                 accumulatedRecoil += Vector3.back * activeWeapon.recoilForce;
                 accumulatedRecoil = Vector3.ClampMagnitude(accumulatedRecoil, maxRecoilDistance);
             }
-
-            // add weapon attack
         }
     }
 

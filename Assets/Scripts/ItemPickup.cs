@@ -7,21 +7,16 @@ public class ItemPickup : MonoBehaviour
 
     public Transform item;
     [Header("Item Bob")]
-    [Range(0f, 1f)]
     [Tooltip("Distance the item bobs")]
     public float itemBobAmount = 0.05f;
-    [Range(0f, 10f)]
     [Tooltip("Frequency at which the item will move around")]
     public float itemBobFrequency = 10f;
 
     [Header("Item Rotation")]
-    [Range(0f, 15f)]
     [Tooltip("Determines the speed of the item rotation on the Y Axis")]
     public float xRotationIntensity = 10f;
-    [Range(0f, 15f)]
     [Tooltip("Determines the speed of the item rotation on the X Axis")]
     public float yRotationIntensity = 10f;
-    [Range(0f, 10f)]
     [Tooltip("")]
     public float rotationSmoothness = 10f;
 
@@ -33,7 +28,6 @@ public class ItemPickup : MonoBehaviour
     [Tooltip("Enables rotation of item on the X axis")]
     [SerializeField]
     bool xRotation;
-
 
     Quaternion originRotation;
 
@@ -76,13 +70,5 @@ public class ItemPickup : MonoBehaviour
         Quaternion targetRotation = originRotation * targetAdjustmentX * targetAdjustmentY;
         transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, Time.deltaTime * rotationSmoothness);
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-
-    }
-    // on trigger enter pickup the item
-    // press button to pickup item
-    // item bob up and down with sine function
 
 }
