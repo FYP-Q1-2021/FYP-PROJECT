@@ -45,15 +45,6 @@ public abstract class Enemy : MonoBehaviour
     [Header("Animation")]
     public Animator animator;
 
-    private enum Direction
-    { 
-        Front,
-        Right,
-        Left,
-        Back
-    }
-
-
     protected virtual void Start()
     {
         GameObject p = GameObject.FindGameObjectWithTag("Player");
@@ -92,35 +83,6 @@ public abstract class Enemy : MonoBehaviour
         return false;
     }
 
-    protected void SideSeenByPlayer()
-    {
-        Vector3 frontRight = Quaternion.AngleAxis(10f, Vector3.up) * transform.forward;
-        Vector3 frontLeft = Quaternion.AngleAxis(-10f, Vector3.up) * transform.forward;
-        Vector3 backRight = Quaternion.AngleAxis(225, Vector3.up) * transform.forward;
-        Vector3 backLeft = Quaternion.AngleAxis(-225, Vector3.up) * transform.forward;
-
-        // Player sees front side of enemy
-        if(Vector3.Dot(Vector3.Cross(frontRight, player.forward), Vector3.Cross(frontRight, frontLeft)) >= 0 && Vector3.Dot(Vector3.Cross(frontLeft, player.forward), Vector3.Cross(frontLeft, frontRight)) >= 0)
-        {
-            animator.SetInteger("SideSeenByPlayer", (int)Direction.Front);
-        }
-        // Player sees right side of enemy
-        else if (Vector3.Dot(Vector3.Cross(frontRight, player.forward), Vector3.Cross(frontRight, backRight)) >= 0 && Vector3.Dot(Vector3.Cross(backRight, player.forward), Vector3.Cross(backRight, frontRight)) >= 0)
-        {
-            animator.SetInteger("SideSeenByPlayer", (int)Direction.Right);
-        }
-        // Player sees back side of enemy
-        else if(Vector3.Dot(Vector3.Cross(backRight, player.forward), Vector3.Cross(backRight, backLeft)) >= 0 && Vector3.Dot(Vector3.Cross(backLeft, player.forward), Vector3.Cross(backLeft, backRight)) >= 0)
-        {
-            animator.SetInteger("SideSeenByPlayer", (int)Direction.Back);
-        }
-        // Player sees left side of enemy
-        else
-        {
-            animator.SetInteger("SideSeenByPlayer", (int)Direction.Back);
-        }
-    }
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = detectionRangeColor;
@@ -128,7 +90,5 @@ public abstract class Enemy : MonoBehaviour
 
         Gizmos.color = attackRangeColor;
         Gizmos.DrawWireSphere(transform.position, attackRange);
-
-        Gizmos.DrawFrustum(transform.position, viewingAngle, transform.position.magnitude + visionRange, 1f, 1f);
     }
 }

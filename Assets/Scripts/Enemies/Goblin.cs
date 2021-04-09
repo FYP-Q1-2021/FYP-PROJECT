@@ -10,8 +10,6 @@ public class Goblin : Enemy
 
     protected override void Update()
     {
-        SideSeenByPlayer();
-
         switch (state)
         {
             case State.IDLE:
