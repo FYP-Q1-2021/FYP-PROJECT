@@ -38,6 +38,13 @@ public abstract class Enemy : MonoBehaviour
     protected float simulationSpeed = 1f;
     protected NavMeshAgent agent;
 
+    [Header("Debug Display")]
+    public Color attackRangeColor = Color.red;
+    public Color detectionRangeColor = Color.blue;
+
+    [Header("Animation")]
+    public Animator animator;
+
     protected virtual void Start()
     {
         GameObject p = GameObject.FindGameObjectWithTag("Player");
@@ -74,5 +81,14 @@ public abstract class Enemy : MonoBehaviour
                 return false;
         }
         return false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = detectionRangeColor;
+        Gizmos.DrawWireSphere(transform.position, visionRange);
+
+        Gizmos.color = attackRangeColor;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }
