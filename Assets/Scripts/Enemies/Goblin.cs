@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 
 public class Goblin : Enemy
 {
+    private NavMeshAgent agent;
+    private WaypointsManager waypointsManager;
+
     protected override void Start()
     {
         base.Start();
+        agent = GetComponent<NavMeshAgent>();
+        waypointsManager = GetComponent<WaypointsManager>();
         SetState(State.PATROL);
     }
 

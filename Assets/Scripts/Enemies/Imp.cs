@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
 
+// TODO: Ask how should Imp / Goblin behave
 public class Imp : Enemy
 {
+    public float movementSpeed = 3.5f;
+    public float rotationSpeed = 4f;
+    private FlyingWaypointsManager waypointsManager;
+
     protected override void Start()
     {
         base.Start();
+        waypointsManager = GetComponent<FlyingWaypointsManager>();
         SetState(State.PATROL);
     }
 
@@ -66,7 +72,7 @@ public class Imp : Enemy
                         return;
                     }
 
-                    agent.destination = player.position;
+                    GotoPlayer();
                 }
                 break;
             case State.ATTACK:
@@ -94,7 +100,7 @@ public class Imp : Enemy
                         }
                     }
 
-                    agent.destination = player.position;
+                    GotoPlayer();
                 }
                 break;
             case State.DEAD:
@@ -112,12 +118,10 @@ public class Imp : Enemy
         switch (state)
         {
             case State.IDLE:
-                agent.isStopped = true;
                 waypointsManager.enabled = false;
                 animator.SetInteger("State", State.IDLE);
                 break;
             case State.PATROL:
-                agent.isStopped = false;
                 waypointsManager.endPointReached = false;
                 waypointsManager.enabled = true;
                 animator.SetInteger("State", State.PATROL);
@@ -129,7 +133,6 @@ public class Imp : Enemy
                 animator.SetInteger("State", State.ATTACK);
                 break;
             case State.DEAD:
-                agent.isStopped = true;
                 waypointsManager.enabled = false;
                 animator.SetInteger("State", State.DEAD);
                 break;
@@ -144,5 +147,16 @@ public class Imp : Enemy
             return true;
 
         return false;
+    }
+
+    private void GotoPlayer()
+    {
+        float distanceToTurn = rotationSpeed * Time.deltaTime;
+        Vector3 targetDir = player.position - transform.position;
+        Quaternion rotationToTarget = Quaternion.LookRotation(targetDir);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotationToTarget, distanceToTurn);
+
+        float step = movementSpeed * Time.deltaTime; // distance to move
+        transform.position = Vector3.MoveTowards(transform.position, player.position, step);
     }
 }
