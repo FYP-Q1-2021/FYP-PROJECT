@@ -28,15 +28,8 @@ public class FlyingWaypointsManager : MonoBehaviour
 
     void Update()
     {
-        float distanceToTurn = rotationSpeed * Time.deltaTime;
-        Vector3 targetDir = targetWaypoint.position - transform.position;
-        Quaternion rotationToTarget = Quaternion.LookRotation(targetDir);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotationToTarget, distanceToTurn);
-
-        float distanceToMove = movementSpeed * Time.deltaTime;
-        float distance = Vector3.Distance(transform.position, targetWaypoint.position);
-        CheckDistanceToWaypoint(distance);
-        transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position, distanceToMove);
+        OrientTowards();
+        MoveTowards();
     }
 
     void CheckDistanceToWaypoint(float currentDistance)
@@ -95,5 +88,21 @@ public class FlyingWaypointsManager : MonoBehaviour
             }
         }
         targetWaypoint = waypoints[smallestWaypointIndex];
+    }
+
+    private void OrientTowards()
+    {
+        float distanceToTurn = rotationSpeed * Time.deltaTime;
+        Vector3 targetDir = targetWaypoint.position - transform.position;
+        Quaternion rotationToTarget = Quaternion.LookRotation(targetDir);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotationToTarget, distanceToTurn);
+    }
+
+    private void MoveTowards()
+    {
+        float distanceToMove = movementSpeed * Time.deltaTime;
+        float distance = Vector3.Distance(transform.position, targetWaypoint.position);
+        CheckDistanceToWaypoint(distance);
+        transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position, distanceToMove);
     }
 }

@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-// TODO: Ask how should Imp / Goblin behave
 public class Imp : Enemy
 {
     public float movementSpeed = 3.5f;
     public float rotationSpeed = 4f;
+
     private FlyingWaypointsManager waypointsManager;
 
     protected override void Start()
@@ -43,7 +43,7 @@ public class Imp : Enemy
                 {
                     if (IsPlayerVisible())
                     {
-                        SetState(State.CHASE);
+                        SetState(State.ATTACK);
                         return;
                     }
 
@@ -55,33 +55,13 @@ public class Imp : Enemy
                     }
                 }
                 break;
-            case State.CHASE:
-                {
-                    float distanceFromPlayer = Vector3.Distance(transform.position, player.position);
-
-                    if (IsPlayerOutOfRange(distanceFromPlayer, visionRange))
-                    {
-                        SetState(State.PATROL);
-                        return;
-                    }
-
-                    // Player is within attacking range
-                    if (distanceFromPlayer < attackRange)
-                    {
-                        SetState(State.ATTACK);
-                        return;
-                    }
-
-                    GotoPlayer();
-                }
-                break;
             case State.ATTACK:
                 {
                     float distanceFromPlayer = Vector3.Distance(transform.position, player.position);
 
                     if (IsPlayerOutOfRange(distanceFromPlayer, attackRange))
                     {
-                        SetState(State.CHASE);
+                        SetState(State.PATROL);
                         return;
                     }
 
@@ -100,7 +80,7 @@ public class Imp : Enemy
                         }
                     }
 
-                    GotoPlayer();
+                    OrientTowards();
                 }
                 break;
             case State.DEAD:
@@ -149,13 +129,16 @@ public class Imp : Enemy
         return false;
     }
 
-    private void GotoPlayer()
+    private void OrientTowards()
     {
         float distanceToTurn = rotationSpeed * Time.deltaTime;
         Vector3 targetDir = player.position - transform.position;
         Quaternion rotationToTarget = Quaternion.LookRotation(targetDir);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotationToTarget, distanceToTurn);
+    }
 
+    private void MoveTowards()
+    {
         float step = movementSpeed * Time.deltaTime; // distance to move
         transform.position = Vector3.MoveTowards(transform.position, player.position, step);
     }
