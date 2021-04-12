@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.AI;
 
 public abstract class Enemy : MonoBehaviour
 {
@@ -12,7 +11,6 @@ public abstract class Enemy : MonoBehaviour
     protected int previousState;
     [TextArea(1, 6)]
     [SerializeField] private string stateNames;
-    [SerializeField] protected WaypointsManager waypointsManager;
 
     [Range(1, 20)]
     [SerializeField] protected float visionRange = 10f;
@@ -36,7 +34,6 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float stateChangeBufferElapsedTime = 0f;
 
     protected float simulationSpeed = 1f;
-    protected NavMeshAgent agent;
 
     [Header("Debug Display")]
     public Color attackRangeColor = Color.red;
@@ -50,9 +47,6 @@ public abstract class Enemy : MonoBehaviour
         GameObject p = GameObject.FindGameObjectWithTag("Player");
         player = p.GetComponent<Transform>();
         playerHP = p.GetComponent<Health>();
-
-        agent = GetComponent<NavMeshAgent>();
-        waypointsManager = GetComponent<WaypointsManager>();
     }
 
     protected abstract void Update();

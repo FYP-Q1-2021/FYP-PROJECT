@@ -58,7 +58,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 3779392465415781291}
-  damage: 10
 --- !u!1 &111166598856764530
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 3779392465415781291}
-  damage: 10
 --- !u!1 &736182269128875643
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +289,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 3779392465415781291}
-  damage: 10
 --- !u!1 &4427082945505936754
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +347,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 3779392465415781291}
-  damage: 10
 --- !u!1 &4981814307115597038
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +399,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 5.96
   m_BaseOffset: 2.98
@@ -433,7 +429,6 @@ MonoBehaviour:
     3 - ATTACK
 
     4- DEAD'
-  waypointsManager: {fileID: 0}
   visionRange: 10
   viewingAngle: 90
   idlingDuration: 5
@@ -461,10 +456,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: []
-  targetWaypoint: 0
+  targetWaypointIndex: 0
   currentWaypoint: 0
-  reverseDir: 0
   endPointReached: 0
+  cycle: 0
+  reverseDir: 0
 --- !u!114 &3779392465415781291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,4 +581,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 3779392465415781291}
-  damage: 10

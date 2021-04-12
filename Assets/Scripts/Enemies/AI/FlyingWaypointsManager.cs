@@ -1,37 +1,44 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class WaypointsManager : MonoBehaviour
+public class FlyingWaypointsManager : MonoBehaviour
 {
-    public List<GameObject> waypoints = new List<GameObject>();
-    
-    private NavMeshAgent agent;
-    
-    public int targetWaypointIndex = 0;
+    public List<Transform> waypoints = new List<Transform>();
+
+    private Transform targetWaypoint;
+    private int targetWaypointIndex = 0;
     public int currentWaypoint = 0;
     private int lastWaypointIndex;
     public bool endPointReached;
     [SerializeField] private bool cycle;
     [SerializeField] private bool reverseDir;
 
+    private float movementSpeed;
+    private float rotationSpeed;
+
     private readonly float waypointOffset = 0.5f;
 
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        movementSpeed = GetComponent<Imp>().movementSpeed;
+        rotationSpeed = GetComponent<Imp>().rotationSpeed;
         lastWaypointIndex = waypoints.Count - 1;
-        agent.destination = waypoints[targetWaypointIndex].transform.position;
+        targetWaypoint = waypoints[targetWaypointIndex];
     }
 
     void Update()
     {
-        // Choose the next destination point when the agent gets close to the current one.
-        if (!agent.pathPending && agent.remainingDistance < waypointOffset)
+        OrientTowards();
+        MoveTowards();
+    }
+
+    void CheckDistanceToWaypoint(float currentDistance)
+    {
+        if (currentDistance <= waypointOffset)
             UpdateTargetWaypoint();
     }
 
-    private void UpdateTargetWaypoint()
+    void UpdateTargetWaypoint()
     {
         if (!reverseDir)
         {
@@ -39,7 +46,6 @@ public class WaypointsManager : MonoBehaviour
             {
                 currentWaypoint = targetWaypointIndex;
                 ++targetWaypointIndex;
-                agent.destination = waypoints[targetWaypointIndex].transform.position;
             }
             else
             {
@@ -47,7 +53,6 @@ public class WaypointsManager : MonoBehaviour
                 endPointReached = true;
                 currentWaypoint = targetWaypointIndex;
                 targetWaypointIndex = waypoints.Count - 2;
-                agent.destination = waypoints[targetWaypointIndex].transform.position;
             }
         }
         else
@@ -56,7 +61,6 @@ public class WaypointsManager : MonoBehaviour
             {
                 currentWaypoint = targetWaypointIndex;
                 --targetWaypointIndex;
-                agent.destination = waypoints[targetWaypointIndex].transform.position;
             }
             else
             {
@@ -64,24 +68,41 @@ public class WaypointsManager : MonoBehaviour
                 endPointReached = true;
                 currentWaypoint = 0;
                 targetWaypointIndex = 1;
-                agent.destination = waypoints[targetWaypointIndex].transform.position;
             }
         }
+
+        targetWaypoint = waypoints[targetWaypointIndex];
     }
 
     public void FindNearestWaypoint()
     {
         int smallestWaypointIndex = 0;
         float smallestDist = Vector3.Distance(transform.position, waypoints[smallestWaypointIndex].transform.position);
-        for(int i = 1; i < waypoints.Count; ++i)
+        for (int i = 1; i < waypoints.Count; ++i)
         {
             float dist = Vector3.Distance(transform.position, waypoints[i].transform.position);
-            if(dist < smallestDist)
+            if (dist < smallestDist)
             {
                 smallestDist = dist;
                 smallestWaypointIndex = i;
             }
         }
-        targetWaypointIndex = smallestWaypointIndex;
+        targetWaypoint = waypoints[smallestWaypointIndex];
+    }
+
+    private void OrientTowards()
+    {
+        float distanceToTurn = rotationSpeed * Time.deltaTime;
+        Vector3 targetDir = targetWaypoint.position - transform.position;
+        Quaternion rotationToTarget = Quaternion.LookRotation(targetDir);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotationToTarget, distanceToTurn);
+    }
+
+    private void MoveTowards()
+    {
+        float distanceToMove = movementSpeed * Time.deltaTime;
+        float distance = Vector3.Distance(transform.position, targetWaypoint.position);
+        CheckDistanceToWaypoint(distance);
+        transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position, distanceToMove);
     }
 }
