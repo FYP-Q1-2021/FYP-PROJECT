@@ -12,7 +12,7 @@ public abstract class Enemy : MonoBehaviour
     [TextArea(1, 6)]
     [SerializeField] private string stateNames;
 
-    [Range(1, 20)]
+    [Range(1, 50)]
     [SerializeField] protected float visionRange = 10f;
     [Range(1, 180)]
     [SerializeField] protected float viewingAngle = 90f;
@@ -22,7 +22,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float idlingElapsedTime = 0f;
 
     [SerializeField] protected int attackDamage = 10;
-    [Range(0, 20)]
+    [Range(0, 50)]
     [SerializeField] protected float attackRange = 5f;
     [Range(0, 20)]
     [SerializeField] protected float attackSpeed = 1f;

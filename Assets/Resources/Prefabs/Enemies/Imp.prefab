@@ -120,7 +120,7 @@ Transform:
   m_GameObject: {fileID: 4300925049986263587}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.573333, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 249652429913254545}
   m_Father: {fileID: 0}
@@ -138,10 +138,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726ff06637e06b8448ed31ed5d2ab671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints: []
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   currentWaypoint: 0
   endPointReached: 0
-  cycle: 1
+  cycle: 0
   reverseDir: 0
 --- !u!114 &5403783336201219430
 MonoBehaviour:
@@ -189,17 +194,15 @@ MonoBehaviour:
 
     1 - PATROL
 
-    2 - CHASE
+    2 - ATTACK
 
-    3 - ATTACK
-
-    4- DEAD'
-  visionRange: 10
+    3- DEAD'
+  visionRange: 20
   viewingAngle: 90
   idlingDuration: 5
   idlingElapsedTime: 0
   attackDamage: 10
-  attackRange: 5
+  attackRange: 20
   attackSpeed: 1
   attackElapsedTime: 0
   canAttack: 0

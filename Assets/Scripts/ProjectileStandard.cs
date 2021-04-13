@@ -205,7 +205,7 @@ public class ProjectileStandard : MonoBehaviour
     {
         // point damage
 
-        Health health = collider.GetComponent<Health>();
+        Health health = collider.gameObject.GetComponent<Health>();
         if (health)
         {
             Debug.Log("Hey");
@@ -215,7 +215,7 @@ public class ProjectileStandard : MonoBehaviour
         else
         {
 
-            Hitbox hitbox = collider.GetComponent<Hitbox>();
+            Hitbox hitbox = collider.gameObject.GetComponent<Hitbox>();
             if(hitbox)
             {
                 Debug.Log("Hey2");
@@ -226,6 +226,28 @@ public class ProjectileStandard : MonoBehaviour
 
         // Self Destruct
         Destroy(this.gameObject);
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        Health health = col.gameObject.GetComponent<Health>();
+        if (health)
+        {
+            Debug.Log("Hey");
+
+            health.Damage(damage);
+        }
+        else
+        {
+
+            Hitbox hitbox = col.gameObject.GetComponent<Hitbox>();
+            if (hitbox)
+            {
+                Debug.Log("Hey2");
+
+                hitbox.InflictDamage(damage);
+            }
+        }
     }
 
     void OnDrawGizmosSelected()
