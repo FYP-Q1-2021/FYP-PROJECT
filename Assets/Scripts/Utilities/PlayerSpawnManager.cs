@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerSpawnManager : MonoBehaviour
 {
@@ -16,10 +14,5 @@ public class PlayerSpawnManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
-    }
-
-    public void MovePlayerToThisScene(string sceneName)
-    {
-        SceneManager.MoveGameObjectToScene(player.gameObject, SceneManager.GetSceneByName(sceneName));
     }
 }

@@ -1,31 +1,35 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
+    [SerializeField] string currentRoom = "";
     [SerializeField] string nextRoom = "";
 
     void OnTriggerEnter(Collider other)
     {
-        StartCoroutine("LoadNextScene");
+        StartCoroutine("SwitchScene");
     }
 
-    IEnumerator LoadNextScene()
+    IEnumerator SwitchScene()
     {
         SceneManager.LoadScene(nextRoom, LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(currentRoom), UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
+        Resources.UnloadUnusedAssets();
 
         for (int i = 0; i < PlayerSpawnManager.Instance.spawnPoints.Count; ++i)
         {
             if (nextRoom == PlayerSpawnManager.Instance.spawnPoints[i].name)
             {
-                PlayerSpawnManager.Instance.player.SetPositionAndRotation(PlayerSpawnManager.Instance.spawnPoints[i].position, Quaternion.Euler(PlayerSpawnManager.Instance.spawnPoints[i].rotation));
-                PlayerSpawnManager.Instance.MovePlayerToThisScene(nextRoom);
+                PlayerSpawnManager.Instance.player.GetComponent<CharacterController>().enabled = false;
+                PlayerSpawnManager.Instance.player.gameObject.transform.position = PlayerSpawnManager.Instance.spawnPoints[i].position;
+                PlayerSpawnManager.Instance.player.gameObject.transform.rotation = Quaternion.Euler(PlayerSpawnManager.Instance.spawnPoints[i].rotation);
+                PlayerSpawnManager.Instance.player.GetComponent<CharacterController>().enabled = true;
             }
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return null;
+        //yield return new WaitForSeconds(1f);
     }
 }
