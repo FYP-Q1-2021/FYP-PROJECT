@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031c4e553a74a5d409ea4f0142e80033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCharacterController: {fileID: 0}
   Radius: 0.01
   Root: {fileID: 130968076244739200}
   Tip: {fileID: 8617275582188700784}
@@ -106,7 +107,7 @@ MonoBehaviour:
   GravityDownAcceleration: 0
   TrajectoryCorrectionDistance: -1
   InheritWeaponVelocity: 0
-  damage: 100
+  damage: 50
   RadiusColor: {r: 0.42973477, g: 0.8207547, b: 0.8207547, a: 0.2}
 --- !u!114 &1642799617509485143
 MonoBehaviour:

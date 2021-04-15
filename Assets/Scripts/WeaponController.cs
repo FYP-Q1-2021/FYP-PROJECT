@@ -14,6 +14,7 @@ public class WeaponController : MonoBehaviour
 {
     InputHandler inputHandler;
     PlayerWeaponsManager playerWeaponsManager;
+    PlayerCharacterController playerCharacterController;
 
     [Header("Information")]
     [Tooltip("The name that will be displayed in the UI for this weapon")]
@@ -92,9 +93,11 @@ public class WeaponController : MonoBehaviour
     float weaponDecayAmount;
 
     [Header("Weapon Stats")]
-    public float damage;
+    public float damage = 50f;
+    public float baseDamage = 50f;
     [Tooltip("If the weapon is currently equipped")]
     public bool isWeaponActive;
+    public float buffDamageMultiplier = 1.25f;
 
     public Vector3 MuzzleWorldVelocity { get; private set; }
     public GameObject Owner { get; set; }
@@ -120,6 +123,7 @@ public class WeaponController : MonoBehaviour
         originRotation = transform.localRotation;
         inputHandler = GameObject.Find("Player").GetComponent<InputHandler>();
         playerWeaponsManager = GameObject.Find("Player").GetComponent<PlayerWeaponsManager>();
+        playerCharacterController = GameObject.Find("Player").GetComponent<PlayerCharacterController>();
         weaponCollider = GetComponent<BoxCollider>();
         anim = GetComponent<Animator>();
         m_CurrentAmmo = MaxAmmo;
@@ -139,6 +143,18 @@ public class WeaponController : MonoBehaviour
         if(hasDurability)
         {
             CheckWeaponDurability();
+        }
+
+        BuffCheck();
+        
+    }
+
+    void BuffCheck()
+    {
+        damage = playerCharacterController.isDamageBuffed ? baseDamage * buffDamageMultiplier : baseDamage;
+        if(projectile)
+        {
+            projectile.damage = playerCharacterController.isDamageBuffed ? projectile.baseDamage * buffDamageMultiplier : projectile.baseDamage;
         }
     }
 
