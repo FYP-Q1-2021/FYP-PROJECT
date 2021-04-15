@@ -41,6 +41,8 @@ public class PlayerCharacterController : MonoBehaviour
     public bool isDamageBuffed;
     public bool isAtackSpeedBuffed;
 
+    public float upCameraLock;
+    public float bottomCameraLock;
     float playerSpeed;
     float xRotation;
 
@@ -94,7 +96,7 @@ public class PlayerCharacterController : MonoBehaviour
 
         
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        xRotation = Mathf.Clamp(xRotation, upCameraLock, bottomCameraLock);
 
         playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
