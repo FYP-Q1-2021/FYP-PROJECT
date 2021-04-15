@@ -41,8 +41,12 @@ public class PlayerCharacterController : MonoBehaviour
     public bool isDamageBuffed;
     public bool isAtackSpeedBuffed;
 
-    public float upCameraLock;
+    [Range(0f,90f)]
+    [Tooltip("Locks the rotation to prevent going over when looking down")]
     public float bottomCameraLock;
+    [Range(0f, -90f)]
+    [Tooltip("Locks the rotation to prevent going over when looking up")]
+    public float upCameraLock;
     float playerSpeed;
     float xRotation;
 
