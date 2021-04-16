@@ -143,8 +143,10 @@ MonoBehaviour:
   hasDurability: 0
   weaponDurability: 2
   weaponDecayAmount: 0
-  damage: 30
+  damage: 50
+  baseDamage: 50
   isWeaponActive: 0
+  buffDamageMultiplier: 1.25
   attackATime: 0
 --- !u!114 &8253084565087130769
 MonoBehaviour:

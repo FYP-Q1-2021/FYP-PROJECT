@@ -24,6 +24,7 @@ public class PlayerCharacterController : MonoBehaviour
     public float sprintSpeedModifier = 1.5f;
     [Tooltip("Affects the height in which the player will jump")]
     public float jumpStrength = 1.0f;
+    public float buffSpeedModifier = 1.25f;
 
     [Header("Ground Check")]
     public Transform ground;
@@ -36,6 +37,16 @@ public class PlayerCharacterController : MonoBehaviour
     public bool isGrounded;
     public bool isSprinting;
 
+    public bool isSpeedBuffed;
+    public bool isDamageBuffed;
+    public bool isAtackSpeedBuffed;
+
+    [Range(0f,90f)]
+    [Tooltip("Locks the rotation to prevent going over when looking down")]
+    public float bottomCameraLock;
+    [Range(0f, -90f)]
+    [Tooltip("Locks the rotation to prevent going over when looking up")]
+    public float upCameraLock;
     float playerSpeed;
     float xRotation;
 
@@ -57,6 +68,7 @@ public class PlayerCharacterController : MonoBehaviour
 
         bool isSprinting = inputHandler.GetSprintInputHeld();
         float speedModifier = isSprinting ? sprintSpeedModifier : 1f;
+        speedModifier = isSpeedBuffed ? buffSpeedModifier : speedModifier;
         playerSpeed = basePlayerSpeed * speedModifier;
 
         Vector3 worldspaceMoveInput = transform.TransformVector(inputHandler.GetMoveInput());
@@ -88,9 +100,21 @@ public class PlayerCharacterController : MonoBehaviour
 
         
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        xRotation = Mathf.Clamp(xRotation, upCameraLock, bottomCameraLock);
 
         playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+    }
+
+    public void Buff(Powerup buff, bool flag)
+    {
+        if(buff == Powerup.DAMAGE)
+        {
+            isDamageBuffed = flag;
+        }
+        else if(buff == Powerup.MOVEMENT_SPEED)
+        {
+            isSpeedBuffed = flag;
+        }
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ProjectileStandard : MonoBehaviour
 {
+
+    public PlayerCharacterController playerCharacterController;
+
     [Header("General")]
     [Tooltip("Radius of this projectile's collision detection")]
     public float Radius = 0.01f;
@@ -39,6 +42,7 @@ public class ProjectileStandard : MonoBehaviour
     [Header("Damage")]
     [Tooltip("Damage of the projectile")]
     public float damage = 40f;
+    public float baseDamage = 40f;
 
     [Header("Debug")]
     [Tooltip("Color of the projectile radius debug view")]
@@ -228,27 +232,27 @@ public class ProjectileStandard : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    void OnTriggerEnter(Collider col)
-    {
-        Health health = col.gameObject.GetComponent<Health>();
-        if (health)
-        {
-            Debug.Log("Hey");
+    //void OnTriggerEnter(Collider col)
+    //{
+    //    Health health = col.gameObject.GetComponent<Health>();
+    //    if (health)
+    //    {
+    //        Debug.Log("Hey");
 
-            health.Damage(damage);
-        }
-        else
-        {
+    //        health.Damage(damage);
+    //    }
+    //    else
+    //    {
 
-            Hitbox hitbox = col.gameObject.GetComponent<Hitbox>();
-            if (hitbox)
-            {
-                Debug.Log("Hey2");
+    //        Hitbox hitbox = col.gameObject.GetComponent<Hitbox>();
+    //        if (hitbox)
+    //        {
+    //            Debug.Log("Hey2");
 
-                hitbox.InflictDamage(damage);
-            }
-        }
-    }
+    //            hitbox.InflictDamage(damage);
+    //        }
+    //    }
+    //}
 
     void OnDrawGizmosSelected()
     {
