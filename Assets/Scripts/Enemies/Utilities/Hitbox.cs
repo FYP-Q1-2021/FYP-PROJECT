@@ -21,4 +21,5 @@ public class Hitbox : MonoBehaviour
             health.Damage(damage);
         }
     }
+
 }
