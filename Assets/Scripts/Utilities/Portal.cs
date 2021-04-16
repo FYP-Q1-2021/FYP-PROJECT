@@ -6,13 +6,14 @@ public class Portal : MonoBehaviour
 {
     [SerializeField] string currentRoom = "";
     [SerializeField] string nextRoom = "";
+    [SerializeField] SpawnPointData spawnPointData;
+    [SerializeField] bool backToPreviousRoom;
 
     void Start()
     {
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentRoom));
     }
 
-    // TODO: Have to set player and weapon in another layer then make it so that portal layer only collides with player layer
     void OnTriggerEnter(Collider other)
     {
         StartCoroutine("SwitchScene");
@@ -25,15 +26,26 @@ public class Portal : MonoBehaviour
         while (!asyncLoad.isDone)
             yield return null;
 
-        // Move the player to the spawn location of that scene
-        for (int i = 0; i < PlayerSpawnManager.Instance.spawnPoints.Count; ++i)
+        // For portals the brings player back to previous room
+        if(backToPreviousRoom)
         {
-            if (nextRoom == PlayerSpawnManager.Instance.spawnPoints[i].name)
+            PlayerSpawnManager.Instance.player.GetComponent<CharacterController>().enabled = false;
+            PlayerSpawnManager.Instance.player.gameObject.transform.position = spawnPointData.position;
+            PlayerSpawnManager.Instance.player.gameObject.transform.rotation = Quaternion.Euler(spawnPointData.rotation);
+            PlayerSpawnManager.Instance.player.GetComponent<CharacterController>().enabled = true;
+        }
+        else
+        {
+            // Move the player to the spawn location of that scene
+            for (int i = 0; i < PlayerSpawnManager.Instance.spawnPoints.Count; ++i)
             {
-                PlayerSpawnManager.Instance.player.GetComponent<CharacterController>().enabled = false;
-                PlayerSpawnManager.Instance.player.gameObject.transform.position = PlayerSpawnManager.Instance.spawnPoints[i].position;
-                PlayerSpawnManager.Instance.player.gameObject.transform.rotation = Quaternion.Euler(PlayerSpawnManager.Instance.spawnPoints[i].rotation);
-                PlayerSpawnManager.Instance.player.GetComponent<CharacterController>().enabled = true;
+                if (nextRoom == PlayerSpawnManager.Instance.spawnPoints[i].name)
+                {
+                    PlayerSpawnManager.Instance.player.GetComponent<CharacterController>().enabled = false;
+                    PlayerSpawnManager.Instance.player.gameObject.transform.position = PlayerSpawnManager.Instance.spawnPoints[i].position;
+                    PlayerSpawnManager.Instance.player.gameObject.transform.rotation = Quaternion.Euler(PlayerSpawnManager.Instance.spawnPoints[i].rotation);
+                    PlayerSpawnManager.Instance.player.GetComponent<CharacterController>().enabled = true;
+                }
             }
         }
 

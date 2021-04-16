@@ -48,6 +48,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4656386625099993631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7640595960640225358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38ce4348fdb25d840af92a74a8e4b5ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpRange: 0
+  dropForwardForce: 0
+  dropUpWardForce: 0
+  selectableTag: Pickup
 --- !u!114 &6386256031896824940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,25 +108,9 @@ MonoBehaviour:
   hasDurability: 0
   weaponDurability: 0
   weaponDecayAmount: 0
-  damage: 100
+  damage: 25
   isWeaponActive: 0
   attackATime: 0
---- !u!114 &4656386625099993631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7640595960640225358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38ce4348fdb25d840af92a74a8e4b5ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickUpRange: 0
-  dropForwardForce: 0
-  dropUpWardForce: 0
-  selectableTag: Pickup
 --- !u!1001 &7406644965166808351
 PrefabInstance:
   m_ObjectHideFlags: 0

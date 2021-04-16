@@ -2170,6 +2170,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 275858658}
     m_Modifications:
+    - target: {fileID: 421829732541488869, guid: e7bf43687201a0d4cbf2e34e017fc685,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4981814307115597038, guid: e7bf43687201a0d4cbf2e34e017fc685,
         type: 3}
       propertyPath: m_Name
@@ -2178,7 +2183,7 @@ PrefabInstance:
     - target: {fileID: 4981814307115597038, guid: e7bf43687201a0d4cbf2e34e017fc685,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6703619774786206812, guid: e7bf43687201a0d4cbf2e34e017fc685,
         type: 3}
@@ -2404,6 +2409,11 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8887751421613738024, guid: c1e7a437d6691c5498cbbb0bd853c4b5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1e7a437d6691c5498cbbb0bd853c4b5, type: 3}
