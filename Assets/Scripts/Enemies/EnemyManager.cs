@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -13,8 +14,8 @@ public class EnemyManager : MonoBehaviour
     {
         if (Instance == null)
             Instance = this;
-        else
-            Destroy(gameObject);
+        //else
+            //Destroy(gameObject);
     }
 
     void Start()
@@ -29,5 +30,15 @@ public class EnemyManager : MonoBehaviour
             goblins.Remove(go);
         else if (go.CompareTag("Imp"))
             imps.Remove(go);
+    }
+
+    // Used when player loses
+    public void StopAllEnemies()
+    {
+        for(int i = 0; i < goblins.Count; ++i)
+            goblins[i].GetComponent<NavMeshAgent>().isStopped = true;
+
+        for(int i = 0; i < imps.Count; ++i)
+            imps[i].GetComponent<Imp>().movementSpeed = 0f;
     }
 }

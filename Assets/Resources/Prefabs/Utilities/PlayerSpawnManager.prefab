@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 096a626d2c36895448a271a9565f4fac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   spawnPoints:
   - name: DemoScene
     position: {x: 5, y: 8, z: 15}
@@ -54,5 +55,8 @@ MonoBehaviour:
     position: {x: -20, y: 7, z: 0}
     rotation: {x: 0, y: 90, z: 0}
   - name: BarScene
-    position: {x: 20, y: 7.5, z: 40}
+    position: {x: 16, y: 7.5, z: 40}
     rotation: {x: 0, y: -90, z: 0}
+  - name: TestingScene
+    position: {x: -20, y: -14.5, z: -21}
+    rotation: {x: 0, y: 90, z: 0}

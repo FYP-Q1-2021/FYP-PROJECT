@@ -142,4 +142,9 @@ public class Imp : Enemy
         float step = movementSpeed * Time.deltaTime; // distance to move
         transform.position = Vector3.MoveTowards(transform.position, player.position, step);
     }
+
+    private void Shoot()
+    {
+
+    }
 }
