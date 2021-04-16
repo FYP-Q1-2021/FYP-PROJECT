@@ -232,27 +232,27 @@ public class ProjectileStandard : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    void OnTriggerEnter(Collider col)
-    {
-        Health health = col.gameObject.GetComponent<Health>();
-        if (health)
-        {
-            Debug.Log("Hey");
+    //void OnTriggerEnter(Collider col)
+    //{
+    //    Health health = col.gameObject.GetComponent<Health>();
+    //    if (health)
+    //    {
+    //        Debug.Log("Hey");
 
-            health.Damage(damage);
-        }
-        else
-        {
+    //        health.Damage(damage);
+    //    }
+    //    else
+    //    {
 
-            Hitbox hitbox = col.gameObject.GetComponent<Hitbox>();
-            if (hitbox)
-            {
-                Debug.Log("Hey2");
+    //        Hitbox hitbox = col.gameObject.GetComponent<Hitbox>();
+    //        if (hitbox)
+    //        {
+    //            Debug.Log("Hey2");
 
-                hitbox.InflictDamage(damage);
-            }
-        }
-    }
+    //            hitbox.InflictDamage(damage);
+    //        }
+    //    }
+    //}
 
     void OnDrawGizmosSelected()
     {
