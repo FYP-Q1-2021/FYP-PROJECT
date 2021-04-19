@@ -22,6 +22,7 @@ public class Portal : MonoBehaviour
     IEnumerator SwitchScene()
     {
         // Wait for other scene to finish loading
+        // Calls Start() in the other scene
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(nextRoom, LoadSceneMode.Additive);
         while (!asyncLoad.isDone)
             yield return null;
