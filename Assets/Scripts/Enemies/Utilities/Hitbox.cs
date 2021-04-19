@@ -4,6 +4,8 @@ public class Hitbox : MonoBehaviour
 {
     [SerializeField]
     Health health;
+    [SerializeField]
+    float multiplier = 1f;
 
     void Awake()
     {
@@ -18,8 +20,7 @@ public class Hitbox : MonoBehaviour
     {
         if(health)
         {
-            health.Damage(damage);
+            health.Damage(damage * multiplier);
         }
     }
-
 }

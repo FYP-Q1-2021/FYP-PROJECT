@@ -11,7 +11,7 @@ public class EnemyManager : MonoBehaviour
     [Header("Imps")]
     [SerializeField] private List<GameObject> imps = new List<GameObject>();
 
-    public int numOfEnemies;
+    [SerializeField] private int numOfEnemies;
 
     void Start()
     {
@@ -30,7 +30,7 @@ public class EnemyManager : MonoBehaviour
 
     void Update()
     {
-        if(numOfEnemies == 0 && SceneManager.GetActiveScene().name == "TestingScene")
+        if (numOfEnemies == 0 && SceneManager.GetActiveScene().name == "TestingScene")
             GameEndingManager.Instance.winEnding = true;
     }
 
@@ -72,11 +72,8 @@ public class EnemyManager : MonoBehaviour
         {
             for (int j = 0; j < numOfDeadEnemies; ++j)
             {
-                if (listOfDeadEnemies[j].Contains(enemies[i].name + " " + SceneManager.GetActiveScene().name))
-                {
+                if (string.Compare(enemies[i].name + " " + SceneManager.GetActiveScene().name, listOfDeadEnemies[j]) == 0)
                     Destroy(enemies[i]);
-                    --numOfEnemies;
-                }
             }
         }
     }

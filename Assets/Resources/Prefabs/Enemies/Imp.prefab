@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 5403783336201219430}
+  multiplier: 0.8
 --- !u!1 &2707415687979756163
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,12 +447,12 @@ MonoBehaviour:
     2 - ATTACK
 
     3- DEAD'
-  visionRange: 20
+  visionRange: 30
   viewingAngle: 90
   idlingDuration: 5
   idlingElapsedTime: 0
   attackDamage: 10
-  attackRange: 20
+  attackRange: 30
   attackSpeed: 1
   attackElapsedTime: 0
   canAttack: 0
@@ -534,6 +535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 5403783336201219430}
+  multiplier: 1.5
 --- !u!1 &8411159376807184566
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,6 +723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 5403783336201219430}
+  multiplier: 1
 --- !u!1001 &5877178694923501685
 PrefabInstance:
   m_ObjectHideFlags: 0
