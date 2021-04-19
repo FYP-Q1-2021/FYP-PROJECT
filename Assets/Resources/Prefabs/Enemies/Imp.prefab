@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7554400273784391763}
   m_Layer: 9
   m_Name: Legs
-  m_TagString: Imp
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,7 +83,7 @@ Transform:
   m_GameObject: {fileID: 2707415687979756163}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.28, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 2.5}
   m_Children:
   - {fileID: 5704768459880362297}
   - {fileID: 5513493178889397487}
@@ -257,7 +257,7 @@ RectTransform:
   m_Children:
   - {fileID: 7947440278374133754}
   m_Father: {fileID: 787571841815117557}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -368,9 +368,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.573333, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
-  - {fileID: 886631467363390286}
+  - {fileID: 8887751421613738024}
   - {fileID: 249652429913254545}
   - {fileID: 5877178694923901687}
+  - {fileID: 886631467363390286}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -488,7 +489,7 @@ GameObject:
   - component: {fileID: 6834641077525799134}
   m_Layer: 9
   m_Name: Head
-  m_TagString: Imp
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -675,7 +676,7 @@ GameObject:
   - component: {fileID: 595822629225540810}
   m_Layer: 9
   m_Name: Body
-  m_TagString: Imp
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
