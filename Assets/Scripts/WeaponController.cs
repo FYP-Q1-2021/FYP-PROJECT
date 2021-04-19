@@ -36,6 +36,12 @@ public class WeaponController : MonoBehaviour
     public Animator anim;
     public AnimationClip clip;
 
+    [Tooltip("Prefab of the muzzle flash")]
+    public GameObject MuzzleFlashPrefab;
+
+    [Tooltip("Unparent the muzzle flash instance on spawn")]
+    public bool UnparentMuzzleFlash;
+
     [Header("Shoot Parameters")]
     [Tooltip("Minimum duration between two shots")]
     public float delayBetweenShots = 0.5f;
@@ -365,6 +371,20 @@ public class WeaponController : MonoBehaviour
     void HandleShoot()
     {
         int bulletsPerShotFinal = bulletsPerShot;
+
+        // muzzle flash
+        if (MuzzleFlashPrefab != null)
+        {
+            GameObject muzzleFlashInstance = Instantiate(MuzzleFlashPrefab, WeaponMuzzle.position,
+                WeaponMuzzle.rotation, WeaponMuzzle.transform);
+            // Unparent the muzzleFlashInstance
+            if (UnparentMuzzleFlash)
+            {
+                muzzleFlashInstance.transform.SetParent(null);
+            }
+
+            Destroy(muzzleFlashInstance, 2f);
+        }
 
         // spawn all bullets with random direction
         for (int i = 0; i < bulletsPerShotFinal; i++)
