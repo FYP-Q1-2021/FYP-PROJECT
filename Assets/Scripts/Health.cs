@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
 
     [SerializeField] private bool isAPlayer;
     private HealthBar healthBar;
+    public bool CanPickup;
 
     void Start()
     {
@@ -26,6 +27,10 @@ public class Health : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        CanPickup = currentHealth < maxHealth ? true : false;
+    }
     public float GetMaxHealth()
     {
         return maxHealth;

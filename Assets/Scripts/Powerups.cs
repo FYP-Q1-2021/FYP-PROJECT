@@ -5,7 +5,7 @@ using UnityEngine;
 public enum Powerup
 {
     DAMAGE,
-    MOVEMENT_SPEED
+    MOVEMENT_SPEED,
 };
 
 
