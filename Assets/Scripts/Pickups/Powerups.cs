@@ -6,6 +6,7 @@ public enum Powerup
 {
     DAMAGE,
     MOVEMENT_SPEED,
+    INVINCIBLE,
 };
 
 
@@ -14,12 +15,12 @@ public class Powerups : MonoBehaviour
     public Powerup powerupType;
     public float powerUpStrength;
     public float powerUpDuration;
-    //Renderer renderer;
+    Renderer renderer;
     Collider collider;
 
-    void Start()
+    void Start()    
     {
-        //renderer = GetComponent<Renderer>();
+        renderer = GetComponent<Renderer>();
         collider = GetComponent<Collider>();
     }
     void OnTriggerEnter(Collider other)
@@ -31,6 +32,7 @@ public class Powerups : MonoBehaviour
         }
     }
 
+
     IEnumerator PickUp(Collider other)
     {
         PlayerCharacterController playerCharacterController = GameObject.Find("Player").GetComponent<PlayerCharacterController>();
@@ -39,9 +41,8 @@ public class Powerups : MonoBehaviour
             playerCharacterController.Buff(powerupType, true);
 
             collider.enabled = false;
-            //renderer.enabled = false;
+            renderer.enabled = false;
             this.enabled = false;
-
             yield return new WaitForSeconds(powerUpDuration);
             playerCharacterController.Buff(powerupType, false);
 

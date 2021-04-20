@@ -10,16 +10,18 @@ public class Health : MonoBehaviour
     [SerializeField] private bool isAPlayer;
     private HealthBar healthBar;
     public bool CanPickup;
-
+    PlayerCharacterController playerCharacterController;
     void Start()
     {
         currentHealth = maxHealth;
 
         // Checks whether this game object is a player or an enemy
-        if(gameObject.GetComponent<PlayerCharacterController>())
+        if (gameObject.GetComponent<PlayerCharacterController>())
         {
             isAPlayer = true;
             healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
+            playerCharacterController = GetComponent<PlayerCharacterController>();
+
         }
         else
         {
@@ -43,7 +45,10 @@ public class Health : MonoBehaviour
 
     public void Damage(float damage)
     {
-        currentHealth -= damage;
+        if(isAPlayer && !playerCharacterController.isInvincible)
+            currentHealth -= damage;
+        else if(!isAPlayer)
+            currentHealth -= damage;
 
         if(isAPlayer)
         {

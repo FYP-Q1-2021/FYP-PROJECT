@@ -91,12 +91,14 @@ public class WeaponController : MonoBehaviour
     public float MaxAmmo = 8;
 
     [Header("Durability")]
-    [SerializeField]
-    bool hasDurability;
+    public bool hasDurability;
     [SerializeField]
     float weaponDurability;
     [SerializeField]
+    float weaponMaxDurability;
+    [SerializeField]
     float weaponDecayAmount;
+    public bool canRestoreDurability;
 
     [Header("Weapon Stats")]
     public float damage = 50f;
@@ -243,8 +245,21 @@ public class WeaponController : MonoBehaviour
         }
     }
 
+    public void RestoreDurability(float restoreAmoun)
+    {
+        if(canRestoreDurability)
+        {
+            weaponDurability += restoreAmoun;
+            if(weaponDurability > weaponMaxDurability)
+            {
+                weaponDurability = weaponMaxDurability;
+            }
+        }
+    }
+
     void CheckWeaponDurability()
     {
+        canRestoreDurability = weaponMaxDurability > weaponDurability ? true : false;
         if(weaponDurability <= 0)
         {
             playerWeaponsManager.RemoveWeapon(this);

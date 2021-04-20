@@ -40,6 +40,7 @@ public class PlayerCharacterController : MonoBehaviour
     public bool isSpeedBuffed;
     public bool isDamageBuffed;
     public bool isAtackSpeedBuffed;
+    public bool isInvincible;
 
     [Range(0f,90f)]
     [Tooltip("Locks the rotation to prevent going over when looking down")]
@@ -115,6 +116,10 @@ public class PlayerCharacterController : MonoBehaviour
         else if(buff == Powerup.MOVEMENT_SPEED)
         {
             isSpeedBuffed = flag;
+        }
+        else if(buff == Powerup.INVINCIBLE)
+        {
+            isInvincible = flag;
         }
     }
 }

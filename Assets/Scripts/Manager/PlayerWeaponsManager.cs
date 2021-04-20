@@ -180,7 +180,7 @@ public class PlayerWeaponsManager : MonoBehaviour
         }
     }
 
-    WeaponController GetActiveWeapon()
+    public WeaponController GetActiveWeapon()
     {
         return GetWeaponAtIndex(activeWeaponIndex);
     }
