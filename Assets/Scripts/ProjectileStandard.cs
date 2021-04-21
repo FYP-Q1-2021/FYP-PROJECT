@@ -43,6 +43,9 @@ public class ProjectileStandard : MonoBehaviour
     [Tooltip("Damage of the projectile")]
     public float damage = 40f;
     public float baseDamage = 40f;
+    public bool isDamageOverTime;
+    public float delayBetweenTicks = 0.25f;
+    public float duration = 4f;
 
     [Header("Debug")]
     [Tooltip("Color of the projectile radius debug view")]
@@ -214,7 +217,14 @@ public class ProjectileStandard : MonoBehaviour
         {
             Debug.Log("Hey");
 
-            health.Damage(damage);
+            if(isDamageOverTime)
+            {
+                health.DamageOverTime(damage, duration, delayBetweenTicks);
+            }
+            else
+            {
+                health.Damage(damage);
+            }
         }
         else
         {
