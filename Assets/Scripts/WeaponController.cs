@@ -100,6 +100,9 @@ public class WeaponController : MonoBehaviour
     float weaponDecayAmount;
     public bool canRestoreDurability;
 
+    [Tooltip("sound played when shooting")]
+    public AudioClip ShootSfx;
+
     [Header("Weapon Stats")]
     public float damage = 50f;
     public float baseDamage = 50f;
@@ -122,7 +125,7 @@ public class WeaponController : MonoBehaviour
 
     public UnityAction OnShoot;
     public UnityAction OnShootProcessed;
-
+    AudioSource m_ShootAudioSource;
     bool isAttacking;
     int comboStep;
     // Start is called before the first frame update
@@ -399,6 +402,12 @@ public class WeaponController : MonoBehaviour
             }
 
             Destroy(muzzleFlashInstance, 2f);
+        }
+
+        // play shoot SFX
+        if (ShootSfx)
+        {
+            m_ShootAudioSource.PlayOneShot(ShootSfx);
         }
 
         // spawn all bullets with random direction
