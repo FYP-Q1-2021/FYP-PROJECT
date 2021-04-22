@@ -45,12 +45,9 @@ public class Health : MonoBehaviour
 
     public void Damage(float damage)
     {
-        if(isAPlayer && !playerCharacterController.isInvincible)
-            currentHealth -= damage;
-        else if(!isAPlayer)
-            currentHealth -= damage;
+        DealDamage(damage);
 
-        if(isAPlayer)
+        if (isAPlayer)
         {
             healthBar.UpdateHealthBar();
         }
@@ -76,6 +73,14 @@ public class Health : MonoBehaviour
         currentHealth += heal;
     }
 
+    void DealDamage(float damage)
+    {
+        if (isAPlayer && !playerCharacterController.isInvincible)
+            currentHealth -= damage;
+        else if (!isAPlayer)
+            currentHealth -= damage;
+    }
+
     public void DamageOverTime(float damageAmount, float duration, float delayBetweenDamage)
     {
         StartCoroutine(DamageOverTimeCoroutine(damageAmount, duration, delayBetweenDamage));
@@ -85,13 +90,10 @@ public class Health : MonoBehaviour
     {
         while(duration > 0)
         {
-
-            yield return new WaitForSeconds(delayBetweenDamage);
+            DealDamage(damageAmount);
             duration -= delayBetweenDamage;
-            if (isAPlayer && !playerCharacterController.isInvincible)
-                currentHealth -= damageAmount;
-            else if (!isAPlayer)
-                currentHealth -= damageAmount;
+            yield return new WaitForSeconds(delayBetweenDamage);
+
         }
     }
 }

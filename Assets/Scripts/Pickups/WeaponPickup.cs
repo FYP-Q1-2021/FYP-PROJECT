@@ -20,6 +20,9 @@ public class WeaponPickup : MonoBehaviour
     [Tooltip("The upward force when weapon is thrown")]
     public float dropUpWardForce;
 
+    [Tooltip("Eound played when picked up")]
+    public AudioClip pickupSFX;
+
     [SerializeField] string selectableTag = "Pickup";
 
     // Start is called before the first frame update
@@ -68,6 +71,12 @@ public class WeaponPickup : MonoBehaviour
         weaponController.isWeaponActive = true;
 
         gameObject.tag = "Melee";
+
+        // play shoot SFX
+        if (pickupSFX)
+        {
+            AudioUtility.CreateSFX(pickupSFX, transform.position, AudioUtility.AudioGroups.Pickup, 0f);
+        }
 
         transform.SetParent(gunContainer);
         transform.localPosition = Vector3.zero;

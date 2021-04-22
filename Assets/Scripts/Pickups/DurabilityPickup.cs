@@ -7,6 +7,10 @@ public class DurabilityPickup : MonoBehaviour
     [Header("Parameters")]
     [Tooltip("Amount of durability to restore on pickup")]
     public float restoreAmount = 40f;
+    [Tooltip("Effect played when picked up")]
+    public GameObject pickupVFX;
+    [Tooltip("Eound played when picked up")]
+    public AudioClip pickupSFX;
 
     void OnTriggerEnter(Collider col)
     {
@@ -16,6 +20,12 @@ public class DurabilityPickup : MonoBehaviour
             WeaponController weaponInstance = weaponManager.GetActiveWeapon();
             if (weaponInstance.hasDurability && weaponInstance.canRestoreDurability)
             {
+                // play shoot SFX
+                if (pickupSFX)
+                {
+                    AudioUtility.CreateSFX(pickupSFX, transform.position, AudioUtility.AudioGroups.Pickup, 0f);
+                }
+
                 weaponInstance.RestoreDurability(restoreAmount);
                 Destroy(gameObject);
             }

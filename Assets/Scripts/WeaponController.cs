@@ -131,6 +131,7 @@ public class WeaponController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_ShootAudioSource = GetComponent<AudioSource>();
         originRotation = transform.localRotation;
         inputHandler = GameObject.Find("Player").GetComponent<InputHandler>();
         playerWeaponsManager = GameObject.Find("Player").GetComponent<PlayerWeaponsManager>();

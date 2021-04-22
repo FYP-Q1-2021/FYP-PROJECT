@@ -13,10 +13,14 @@ public enum Powerup
 public class Powerups : MonoBehaviour
 {
     public Powerup powerupType;
-    public float powerUpStrength;
     public float powerUpDuration;
     Renderer renderer;
     Collider collider;
+
+    [Tooltip("Effect played when picked up")]
+    public GameObject pickupVFX;
+    [Tooltip("Eound played when picked up")]
+    public AudioClip pickupSFX;
 
     void Start()    
     {
@@ -43,6 +47,13 @@ public class Powerups : MonoBehaviour
             collider.enabled = false;
             renderer.enabled = false;
             this.enabled = false;
+
+            // play shoot SFX
+            if (pickupSFX)
+            {
+                AudioUtility.CreateSFX(pickupSFX, transform.position, AudioUtility.AudioGroups.Pickup, 0f);
+            }
+
             yield return new WaitForSeconds(powerUpDuration);
             playerCharacterController.Buff(powerupType, false);
 
