@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class ExpandingRing : MonoBehaviour
+public class Ripple : MonoBehaviour
 {
     private Vector3 originalScale;
     [SerializeField] private Vector3 finalScale = new Vector3(100f, 5f, 100f);
     [SerializeField] private float scaleSpeed = 1f;
     [SerializeField] private float scaleDuration = 10f;
-    private bool expanding;
+    public bool expanding;
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class ExpandingRing : MonoBehaviour
         Debug.Log(other.name + " entered");
     }
 
-    public void ExpandingRingAttack()
+    public void Attack()
     {
         if (expanding)
             return;

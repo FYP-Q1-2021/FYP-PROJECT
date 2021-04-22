@@ -5,6 +5,7 @@ public class Eruption : MonoBehaviour
 {
     [SerializeField] private float eruptionTime = 2f;
     [SerializeField] private float eruptionDuration = 5f;
+    [SerializeField] private new ParticleSystem particleSystem;
     private BoxCollider boxCollider;
     private float timer = 0f;
 
@@ -12,6 +13,7 @@ public class Eruption : MonoBehaviour
     {
         boxCollider = GetComponent<BoxCollider>();
         boxCollider.enabled = false;
+        particleSystem.Stop();
 
         StartCoroutine("Erupt");
     }
@@ -31,6 +33,8 @@ public class Eruption : MonoBehaviour
 
         boxCollider.enabled = true;
         timer = 0f;
+        particleSystem.Play();
+
         StartCoroutine("Erupting");
     }
 

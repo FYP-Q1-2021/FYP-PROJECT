@@ -7,27 +7,38 @@ public class Devil : MonoBehaviour
     enum States
     {
         IDLE,
-        THREE_WAY_ATTACK,
-        EXPANDING_RING_ATTACK,
-        FIRE_GEYSER_ATTACK,
+        MELEE_MODE,
+        RANGED_MODE,
         ENRAGED
     }
 
     [Header("Player attributes")]
-    [SerializeField] protected Transform player;
+    [SerializeField] private Transform player;
     [SerializeField] protected Health playerHP;
 
+    [Header("Spells")]
+    [SerializeField] private Ripple ripple;
+    [SerializeField] private GameObject geyserPrefab;
+
     [Header("Spawnables")]
-    [SerializeField] private ExpandingRing expandingRing;
-    [SerializeField] private GameObject geyserCircle;
-    [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject crystal;
 
     [Header("Skills Cooldown")]
-    [SerializeField] private float ringCooldown = 4f;
-    private float ringCooldownTimer = 0f;
-    [SerializeField] private float geyserCooldown = 1f;
-    [SerializeField] private float shootCooldown = 3f;
+    [SerializeField] private float rippleCooldown = 4f;
+    private float rippleCooldownTimer = 0f;
+    private bool canUseRipple = true;
 
+    [SerializeField] private float eruptionCooldown = 1f;
+    private float eruptionCooldownTimer = 0f;
+    private bool canUseEruption = true;
+
+    [SerializeField] private float staffCooldown = 3f;
+    private float staffCooldownTimer = 0f;
+    private bool canUseStaff = true;
+
+    private int timesStaffIsUsed = 0;
+
+    private Staff staff;
 
     [Header("Debug Display")]
     [SerializeField] private Color rangedAttackColor = Color.blue;
@@ -43,6 +54,8 @@ public class Devil : MonoBehaviour
         player = p.GetComponent<Transform>();
         playerHP = p.GetComponent<Health>();
 
+        staff = GetComponentInChildren<Staff>();
+
         state = States.IDLE;
     }
 
@@ -55,21 +68,67 @@ public class Devil : MonoBehaviour
             case States.IDLE:
 
                 break;
-            case States.THREE_WAY_ATTACK:
+            case States.MELEE_MODE:
+                {
+                    if (canUseRipple)
+                    {
+                        ripple.Attack();
+                        canUseRipple = false;
+                    }
+                    else
+                    {
+                        if (ripple.expanding)
+                            break;
 
+                        rippleCooldownTimer += Time.deltaTime;
+                        if (rippleCooldownTimer > rippleCooldown)
+                        {
+                            canUseRipple = true;
+                            rippleCooldownTimer = 0f;
+                        }
+                    }
+                }
                 break;
-            case States.EXPANDING_RING_ATTACK:
-                expandingRing.ExpandingRingAttack();
-                state = States.IDLE;
-                break;
-            case States.FIRE_GEYSER_ATTACK:
+            case States.RANGED_MODE:
+                {
+                    if (canUseStaff)
+                    {
+                        staff.Attack();
+                        canUseStaff = false;
 
+                        ++timesStaffIsUsed;
+                        if (timesStaffIsUsed % 2 == 0)
+                        {
+                            StartCoroutine("GeyserAttack");
+                        }
+                    }
+                    else
+                    {
+                        staffCooldownTimer += Time.deltaTime;
+                        if (staffCooldownTimer > staffCooldown)
+                        {
+                            canUseStaff = true;
+                            staffCooldownTimer = 0f;
+                        }
+                    }
+                }
                 break;
             case States.ENRAGED:
 
                 break;
         }
 
+    }
+
+    IEnumerator GeyserAttack()
+    {
+        while (eruptionCooldownTimer < eruptionCooldown)
+        {
+            eruptionCooldownTimer += Time.deltaTime;
+            yield return null;
+        }
+
+        Instantiate(geyserPrefab, player.position, geyserPrefab.transform.rotation);
     }
 
     public void SetState(int nextState)
@@ -80,14 +139,13 @@ public class Devil : MonoBehaviour
     private void CheckPlayerPosition()
     {
         float distance = Vector3.Distance(player.position, transform.position);
-        if(distance > meleeAttackRange)
+        if (distance > meleeAttackRange)
         {
-            //state = States.FIRE_GEYSER_ATTACK;
-            state = States.EXPANDING_RING_ATTACK;
+            state = States.RANGED_MODE;
         }
         else
         {
-            state = States.THREE_WAY_ATTACK;
+            state = States.MELEE_MODE;
         }
     }
 
