@@ -8,6 +8,9 @@ public class Crystal : MonoBehaviour
     [SerializeField] private float movementSpeed = 10f;
     [SerializeField] private float maximumTravelTime = 10f;
     private float travelingTimeCounter = 0f;
+    [SerializeField] private float timeUntilExplosion = 10f;
+    private float explosionCounter = 0f;
+
 
     void Update()
     {
@@ -16,7 +19,17 @@ public class Crystal : MonoBehaviour
             travelingTimeCounter += Time.deltaTime;
             Move();
         }
-        //
+        else
+        {
+            if (explosionCounter < timeUntilExplosion)
+            {
+                explosionCounter += Time.deltaTime;
+            }
+            else
+            {
+                StartCoroutine("Explode");
+            }
+        }
     }
 
     public void SetDirection(Vector3 dir)
@@ -28,5 +41,12 @@ public class Crystal : MonoBehaviour
     private void Move()
     {
         transform.position += attackDir * movementSpeed * Time.deltaTime;
+    }
+
+    IEnumerator Explode()
+    {
+        // Particle effect
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 }

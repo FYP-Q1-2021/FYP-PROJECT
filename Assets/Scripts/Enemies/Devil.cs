@@ -16,12 +16,9 @@ public class Devil : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] protected Health playerHP;
 
-    [Header("Spells")]
+    [Header("Internal spells")]
     [SerializeField] private Ripple ripple;
     [SerializeField] private GameObject geyserPrefab;
-
-    [Header("Spawnables")]
-    [SerializeField] private GameObject crystal;
 
     [Header("Skills Cooldown")]
     [SerializeField] private float rippleCooldown = 4f;
@@ -32,9 +29,13 @@ public class Devil : MonoBehaviour
     private float eruptionCooldownTimer = 0f;
     private bool canUseEruption = true;
 
+    [SerializeField] private int multipleEruptionCount = 10;
+    [SerializeField] private float multipleEruptionCooldown = 0.2f;
+    private float multipleEruptionCooldownTimer = 0f;
+
     [SerializeField] private float staffCooldown = 3f;
     private float staffCooldownTimer = 0f;
-    private bool canUseStaff = true;
+    private bool canUseStaff = false;
 
     private int timesStaffIsUsed = 0;
 
@@ -98,9 +99,8 @@ public class Devil : MonoBehaviour
 
                         ++timesStaffIsUsed;
                         if (timesStaffIsUsed % 2 == 0)
-                        {
-                            StartCoroutine("GeyserAttack");
-                        }
+                            //StartCoroutine("GeyserAttack");
+                            StartCoroutine("RandomGeyserAttack");
                     }
                     else
                     {
@@ -128,7 +128,46 @@ public class Devil : MonoBehaviour
             yield return null;
         }
 
-        Instantiate(geyserPrefab, player.position, geyserPrefab.transform.rotation);
+        eruptionCooldownTimer = 0f;
+        Instantiate(geyserPrefab, new Vector3(player.position.x, geyserPrefab.transform.position.y, player.position.z), geyserPrefab.transform.rotation);
+    }
+
+    IEnumerator RandomGeyserAttack()
+    {
+        for(int i = 0; i < multipleEruptionCount; ++i)
+        {
+            while(multipleEruptionCooldownTimer < multipleEruptionCooldown)
+            {
+                multipleEruptionCooldownTimer += Time.deltaTime;
+                yield return null;
+            }
+
+            multipleEruptionCooldownTimer = 0f;
+
+            float x = Random.Range(-rangedAttackRange, rangedAttackRange);
+            float z = Random.Range(-rangedAttackRange, rangedAttackRange);
+
+
+            Instantiate(geyserPrefab, new Vector3(Random.Range(-rangedAttackRange, rangedAttackRange), transform.position.y, Random.Range(-rangedAttackRange, rangedAttackRange)), geyserPrefab.transform.rotation);
+
+            Collider[] hitColliders = Physics.OverlapSphere(new Vector3(x, transform.position.y, z), geyserPrefab.transform.localScale.x);
+            foreach(Collider collider in hitColliders)
+            {
+                Debug.Log("Overlapping");
+            }
+
+            if(i == 9)
+            {
+                Debug.Break();
+            }
+
+/*            float r = rangedAttackRange * Mathf.Sqrt(Random.Range(10, 25));
+            float theta = Random.Range(int.MinValue, int.MaxValue) * 2 * Mathf.PI;
+            Instantiate(geyserPrefab,  new Vector3(transform.position.x + r * Mathf.Cos(theta), transform.position.y, transform.position.z + r * Mathf.Sin(theta)), geyserPrefab.transform.rotation);*/
+
+            //Vector2 randomRange = Random.insideUnitCircle * rangedAttackRange;
+            //Instantiate(geyserPrefab,  new Vector3(transform.position.x + randomRange.x, transform.position.y, transform.position.z + randomRange.y), geyserPrefab.transform.rotation);
+        }
     }
 
     public void SetState(int nextState)

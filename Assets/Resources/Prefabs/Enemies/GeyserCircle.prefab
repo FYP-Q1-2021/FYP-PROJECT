@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7565522285828311660}
   - component: {fileID: 4920569452197991832}
   - component: {fileID: 3103812409151963541}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4764,7 +4764,7 @@ GameObject:
   - component: {fileID: 2458589375091356399}
   - component: {fileID: 5178148295216502717}
   - component: {fileID: 2212894189669398626}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: EruptionCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4779,8 +4779,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602399274586763510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 1.55}
-  m_LocalScale: {x: 5, y: 5, z: 3}
+  m_LocalPosition: {x: 0, y: -0, z: 3}
+  m_LocalScale: {x: 5, y: 5, z: 6}
   m_Children: []
   m_Father: {fileID: 1998554553859913720}
   m_RootOrder: 0
@@ -4810,8 +4810,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a89eace87e00742830ed0e46ae9cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eruptionTime: 2
-  eruptionDuration: 5
+  eruptionTime: 3
+  eruptionDuration: 2
   particleSystem: {fileID: 4920569452197991832}
 --- !u!1 &8524584928314055285
 GameObject:
@@ -4823,7 +4823,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1998554553859913720}
   - component: {fileID: 4222626278971256942}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: GeyserCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4839,7 +4839,7 @@ Transform:
   m_GameObject: {fileID: 8524584928314055285}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.01, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 2458589375091356399}
   - {fileID: 7565522285828311660}
