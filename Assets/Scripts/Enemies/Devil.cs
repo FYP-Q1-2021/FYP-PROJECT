@@ -1,194 +1,131 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Devil : MonoBehaviour
+public class Devil : Enemy
 {
-    enum States
-    {
-        IDLE,
-        MELEE_MODE,
-        RANGED_MODE,
-        ENRAGED
-    }
+    [Header("Attack ranges")]
+    [SerializeField] private float rangedAttackRange = 50f;
+    [SerializeField] private float meleeAttackRange = 10f;
 
-    [Header("Player attributes")]
-    [SerializeField] private Transform player;
-    [SerializeField] protected Health playerHP;
-
-    [Header("Internal spells")]
-    [SerializeField] private Ripple ripple;
-    [SerializeField] private GameObject geyserPrefab;
-
-    [Header("Skills Cooldown")]
+    [Header("Eruption spell")]
     [SerializeField] private float rippleCooldown = 4f;
     private float rippleCooldownTimer = 0f;
     private bool canUseRipple = true;
 
+    [Header("Eruption spell")]
     [SerializeField] private float eruptionCooldown = 1f;
-    private float eruptionCooldownTimer = 0f;
-    private bool canUseEruption = true;
 
-    [SerializeField] private int multipleEruptionCount = 10;
-    [SerializeField] private float multipleEruptionCooldown = 0.2f;
-    private float multipleEruptionCooldownTimer = 0f;
-
+    [Header("Basic attack spell")]
     [SerializeField] private float staffCooldown = 3f;
     private float staffCooldownTimer = 0f;
     private bool canUseStaff = false;
-
     private int timesStaffIsUsed = 0;
 
-    private Staff staff;
+    [Header("Enraged state")]
+    [SerializeField] private int hitsToEnterEnragedMode = 3;
+    [SerializeField] private float enragedModeBufferTime = 10f; // Time taken before entering enraged mode
+    private float enragedModeBufferTimer = 0f;
+    private bool isEnragedTimerCoroutineRunning;
+    private bool isMultipleEruptionsCoroutineRunning;
+    private int numOfTimesDamaged;
+
+    [Header("Cluster eruption spell")]
+    [SerializeField] private int multipleEruptionCount = 10;
+    [SerializeField] private float multipleEruptionCooldown = 0.2f;
+    private float multipleEruptionCooldownTimer = 0f;
+    private readonly int tryRandomPositionLimit = 10;
+    private int currentTries = 0;
+    private LayerMask geyserLayerMask;
+
+    [Header("Spells positioning")]
+    [SerializeField] Transform eruptionYCoord;
 
     [Header("Debug Display")]
     [SerializeField] private Color rangedAttackColor = Color.blue;
     [SerializeField] private Color meleeRangeColor = Color.red;
-    [SerializeField] private float rangedAttackRange = 50f;
-    [SerializeField] private float meleeAttackRange = 10f;
 
-    private States state;
+    private Staff staff;
+    private Ripple ripple;
 
-    void Start()
+    private Health health;
+
+    #region Inherited functions
+    protected override void Start()
     {
-        GameObject p = GameObject.FindGameObjectWithTag("Player");
-        player = p.GetComponent<Transform>();
-        playerHP = p.GetComponent<Health>();
+        base.Start();
 
         staff = GetComponentInChildren<Staff>();
 
-        state = States.IDLE;
+        ripple = GetComponentInChildren<Ripple>();
+        ripple.gameObject.SetActive(false);
+
+        health = GetComponent<Health>();
+        health.OnDamaged += OnDamagedEvent;
+
+        geyserLayerMask = LayerMask.GetMask("Spell");
+
+        state = State.IDLE;
     }
 
-    void Update()
+    protected override void Update()
     {
-        CheckPlayerPosition();
-
         switch (state)
         {
-            case States.IDLE:
-
+            case State.IDLE:
+                CheckPlayerPosition();
                 break;
-            case States.MELEE_MODE:
-                {
-                    if (canUseRipple)
-                    {
-                        ripple.Attack();
-                        canUseRipple = false;
-                    }
-                    else
-                    {
-                        if (ripple.expanding)
-                            break;
+            case State.MELEE_MODE:
+                CheckPlayerPosition();
 
-                        rippleCooldownTimer += Time.deltaTime;
-                        if (rippleCooldownTimer > rippleCooldown)
-                        {
-                            canUseRipple = true;
-                            rippleCooldownTimer = 0f;
-                        }
+                if (canUseRipple)
+                {
+                    ripple.Attack();
+                    canUseRipple = false;
+                }
+                else
+                {
+                    if (ripple.expanding)
+                        break;
+
+                    rippleCooldownTimer += Time.deltaTime;
+                    if (rippleCooldownTimer > rippleCooldown)
+                    {
+                        canUseRipple = true;
+                        rippleCooldownTimer = 0f;
                     }
                 }
                 break;
-            case States.RANGED_MODE:
-                {
-                    if (canUseStaff)
-                    {
-                        staff.Attack();
-                        canUseStaff = false;
+            case State.RANGED_MODE:
+                CheckPlayerPosition();
 
-                        ++timesStaffIsUsed;
-                        if (timesStaffIsUsed % 2 == 0)
-                            //StartCoroutine("GeyserAttack");
-                            StartCoroutine("RandomGeyserAttack");
-                    }
-                    else
+                if (canUseStaff)
+                {
+                    staff.Attack();
+                    canUseStaff = false;
+
+                    ++timesStaffIsUsed;
+                    if (timesStaffIsUsed % 2 == 0)
+                        StartCoroutine("GeyserAttack");
+                }
+                else
+                {
+                    staffCooldownTimer += Time.deltaTime;
+                    if (staffCooldownTimer > staffCooldown)
                     {
-                        staffCooldownTimer += Time.deltaTime;
-                        if (staffCooldownTimer > staffCooldown)
-                        {
-                            canUseStaff = true;
-                            staffCooldownTimer = 0f;
-                        }
+                        canUseStaff = true;
+                        staffCooldownTimer = 0f;
                     }
                 }
                 break;
-            case States.ENRAGED:
-
+            case State.ENRAGED:
+                if(!isMultipleEruptionsCoroutineRunning)
+                    StartCoroutine("MultipleRandomGeyserAttack");
                 break;
         }
 
     }
 
-    IEnumerator GeyserAttack()
-    {
-        while (eruptionCooldownTimer < eruptionCooldown)
-        {
-            eruptionCooldownTimer += Time.deltaTime;
-            yield return null;
-        }
-
-        eruptionCooldownTimer = 0f;
-        Instantiate(geyserPrefab, new Vector3(player.position.x, geyserPrefab.transform.position.y, player.position.z), geyserPrefab.transform.rotation);
-    }
-
-    IEnumerator RandomGeyserAttack()
-    {
-        for(int i = 0; i < multipleEruptionCount; ++i)
-        {
-            while(multipleEruptionCooldownTimer < multipleEruptionCooldown)
-            {
-                multipleEruptionCooldownTimer += Time.deltaTime;
-                yield return null;
-            }
-
-            multipleEruptionCooldownTimer = 0f;
-
-            float x = Random.Range(-rangedAttackRange, rangedAttackRange);
-            float z = Random.Range(-rangedAttackRange, rangedAttackRange);
-
-
-            Instantiate(geyserPrefab, new Vector3(Random.Range(-rangedAttackRange, rangedAttackRange), transform.position.y, Random.Range(-rangedAttackRange, rangedAttackRange)), geyserPrefab.transform.rotation);
-
-            Collider[] hitColliders = Physics.OverlapSphere(new Vector3(x, transform.position.y, z), geyserPrefab.transform.localScale.x);
-            foreach(Collider collider in hitColliders)
-            {
-                Debug.Log("Overlapping");
-            }
-
-            if(i == 9)
-            {
-                Debug.Break();
-            }
-
-/*            float r = rangedAttackRange * Mathf.Sqrt(Random.Range(10, 25));
-            float theta = Random.Range(int.MinValue, int.MaxValue) * 2 * Mathf.PI;
-            Instantiate(geyserPrefab,  new Vector3(transform.position.x + r * Mathf.Cos(theta), transform.position.y, transform.position.z + r * Mathf.Sin(theta)), geyserPrefab.transform.rotation);*/
-
-            //Vector2 randomRange = Random.insideUnitCircle * rangedAttackRange;
-            //Instantiate(geyserPrefab,  new Vector3(transform.position.x + randomRange.x, transform.position.y, transform.position.z + randomRange.y), geyserPrefab.transform.rotation);
-        }
-    }
-
-    public void SetState(int nextState)
-    {
-
-    }
-
-    private void CheckPlayerPosition()
-    {
-        float distance = Vector3.Distance(player.position, transform.position);
-        if (distance > meleeAttackRange)
-        {
-            state = States.RANGED_MODE;
-        }
-        else
-        {
-            state = States.MELEE_MODE;
-        }
-    }
-
-    private void OnDrawGizmosSelected()
+    protected override void OnDrawGizmosSelected()
     {
         Gizmos.color = rangedAttackColor;
         Gizmos.DrawWireSphere(transform.position, rangedAttackRange);
@@ -196,4 +133,115 @@ public class Devil : MonoBehaviour
         Gizmos.color = meleeRangeColor;
         Gizmos.DrawWireSphere(transform.position, meleeAttackRange);
     }
+
+    public override void SetState(State nextState)
+    {
+        state = nextState;
+        timesStaffIsUsed = 0;
+    }
+    #endregion
+
+    #region Coroutines
+    IEnumerator EnragedTimer()
+    {
+        isEnragedTimerCoroutineRunning = true;
+
+        while (enragedModeBufferTimer < enragedModeBufferTime)
+        {
+            enragedModeBufferTimer += simulationSpeed * Time.deltaTime;
+
+            if (numOfTimesDamaged == hitsToEnterEnragedMode)
+            {
+                SetState(State.ENRAGED);
+                enragedModeBufferTimer = 0f;
+                break;
+            }
+
+            yield return null;
+        }
+
+        numOfTimesDamaged = 0;
+        isEnragedTimerCoroutineRunning = false;
+    }
+
+    IEnumerator GeyserAttack()
+    {
+        yield return new WaitForSeconds(eruptionCooldown);
+
+        GameObject geyser = GeyserPool.Instance.GetPooledObject();
+        geyser.transform.position = new Vector3(player.position.x, eruptionYCoord.position.y, player.position.z);
+    }
+
+    IEnumerator MultipleRandomGeyserAttack()
+    {
+        isMultipleEruptionsCoroutineRunning = true;
+        
+        for (int i = 0; i < multipleEruptionCount; ++i)
+        {
+            // Spawn a geyser once in a while
+            while (multipleEruptionCooldownTimer < multipleEruptionCooldown)
+            {
+                multipleEruptionCooldownTimer += simulationSpeed * Time.deltaTime;
+                yield return null;
+            }
+
+            float x = Random.Range(-rangedAttackRange, rangedAttackRange);
+            float z = Random.Range(-rangedAttackRange, rangedAttackRange);
+
+            // Check the location of where the spell would be cast
+            // Find another position if there is already a spell near it
+            Collider[] hitColliders = Physics.OverlapSphere(new Vector3(x, eruptionYCoord.position.y, z), 20f, geyserLayerMask);
+
+            if (hitColliders.Length > 0)
+            {
+                // Prevent infinite loop
+                ++currentTries;
+                if (currentTries > tryRandomPositionLimit)
+                {
+                    currentTries = 0;
+                    continue;
+                }
+                --i;
+                continue;
+            }
+
+            GameObject geyser = GeyserPool.Instance.GetPooledObject();
+            if (geyser)
+                geyser.transform.position = new Vector3(x, geyser.transform.position.y, z);
+
+            // Reset timer only if a geyser is spawned successfully
+            multipleEruptionCooldownTimer = 0f;
+        }
+
+        SetState(State.IDLE);
+        isMultipleEruptionsCoroutineRunning = false;
+    }
+    #endregion
+
+    #region Unity Callbacks
+    void OnDisable()
+    {
+        health.OnDamaged -= OnDamagedEvent;
+    }
+    #endregion
+
+    #region Private functions
+    private void CheckPlayerPosition()
+    {
+        float distance = Vector3.Distance(player.position, transform.position);
+        if (distance > meleeAttackRange)
+            state = State.RANGED_MODE;
+        else
+            state = State.MELEE_MODE;
+    }
+    #endregion
+
+    #region Events
+    private void OnDamagedEvent()
+    {
+        ++numOfTimesDamaged;
+        if (!isEnragedTimerCoroutineRunning)
+            StartCoroutine("EnragedTimer");
+    }
+    #endregion
 }

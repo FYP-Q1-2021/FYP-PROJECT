@@ -47,6 +47,13 @@ public class Crystal : MonoBehaviour
     {
         // Particle effect
         yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
+        ResetValues();
+        gameObject.SetActive(false);
+    }
+
+    private void ResetValues()
+    {
+        travelingTimeCounter = 0f;
+        explosionCounter = 0f;
     }
 }

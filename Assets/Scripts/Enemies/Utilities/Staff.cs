@@ -16,7 +16,8 @@ public class Staff : MonoBehaviour
     {
         for(int i = 0; i < numOfEjectionPoints; ++i)
         {
-            GameObject crystal = Instantiate(crystalPrefab, spellEjectionPoints[i].position, Quaternion.identity);
+            GameObject crystal = CrystalPool.Instance.GetPooledObject();
+            crystal.transform.position = spellEjectionPoints[i].position;
             Vector3 attackDir = spellEjectionPoints[i].forward;
             crystal.GetComponent<Crystal>().SetDirection(attackDir);
         }

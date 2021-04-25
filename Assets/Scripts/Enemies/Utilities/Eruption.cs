@@ -9,13 +9,22 @@ public class Eruption : MonoBehaviour
     private BoxCollider boxCollider;
     private float timer = 0f;
 
-    void Start()
+    void Awake()
     {
         boxCollider = GetComponent<BoxCollider>();
-        boxCollider.enabled = false;
+    }
+
+    void OnEnable()
+    {
         particleSystem.Stop();
 
         StartCoroutine("Erupt");
+    }
+
+    void OnDisable()
+    {
+        boxCollider.enabled = false;
+        timer = 0f;
     }
 
     void OnTriggerEnter(Collider other)
@@ -25,7 +34,7 @@ public class Eruption : MonoBehaviour
 
     IEnumerator Erupt()
     {
-        while(timer < eruptionTime)
+        while (timer < eruptionTime)
         {
             timer += Time.deltaTime;
             yield return null;
@@ -46,6 +55,6 @@ public class Eruption : MonoBehaviour
             yield return null;
         }
 
-        Destroy(transform.parent.gameObject);
+        transform.parent.gameObject.SetActive(false);
     }
 }

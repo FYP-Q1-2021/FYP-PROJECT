@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Imp : Enemy
+public class Imp : BasicEnemy
 {
     public float movementSpeed = 3.5f;
     public float rotationSpeed = 4f;
@@ -91,7 +91,7 @@ public class Imp : Enemy
         }
     }
 
-    public override void SetState(int nextState)
+    public override void SetState(State nextState)
     {
         state = nextState;
 
@@ -99,22 +99,22 @@ public class Imp : Enemy
         {
             case State.IDLE:
                 waypointsManager.enabled = false;
-                animator.SetInteger("State", State.IDLE);
+                animator.SetInteger("State", (int)State.IDLE);
                 break;
             case State.PATROL:
                 waypointsManager.endPointReached = false;
                 waypointsManager.enabled = true;
-                animator.SetInteger("State", State.PATROL);
+                animator.SetInteger("State", (int)State.PATROL);
                 break;
             case State.ATTACK:
                 canAttack = true;
                 stateChangeBufferElapsedTime = 0f;
                 waypointsManager.enabled = false;
-                animator.SetInteger("State", State.ATTACK);
+                animator.SetInteger("State", (int)State.ATTACK);
                 break;
             case State.DEAD:
                 waypointsManager.enabled = false;
-                animator.SetInteger("State", State.DEAD);
+                animator.SetInteger("State", (int)State.DEAD);
                 break;
         }
     }
@@ -146,5 +146,14 @@ public class Imp : Enemy
     private void Shoot()
     {
 
+    }
+
+    protected override void OnDrawGizmosSelected()
+    {
+        Gizmos.color = detectionRangeColor;
+        Gizmos.DrawWireSphere(transform.position, visionRange);
+
+        Gizmos.color = attackRangeColor;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

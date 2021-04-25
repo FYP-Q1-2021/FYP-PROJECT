@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -9,6 +10,8 @@ public class Health : MonoBehaviour
 
     [SerializeField] private bool isAPlayer;
     private HealthBar healthBar;
+
+    public event Action OnDamaged;
 
     void Start()
     {
@@ -39,6 +42,8 @@ public class Health : MonoBehaviour
     public void Damage(float damage)
     {
         currentHealth -= damage;
+
+        OnDamaged?.Invoke();
 
         if(isAPlayer)
         {
