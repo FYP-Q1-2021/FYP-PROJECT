@@ -10,6 +10,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private List<GameObject> goblins = new List<GameObject>();
     [Header("Imps")]
     [SerializeField] private List<GameObject> imps = new List<GameObject>();
+    [Header("Devil")]
+    [SerializeField] private GameObject devil;
 
     [SerializeField] private int numOfEnemies;
 
@@ -22,8 +24,12 @@ public class EnemyManager : MonoBehaviour
 
         goblins.AddRange(GameObject.FindGameObjectsWithTag("Goblin"));
         imps.AddRange(GameObject.FindGameObjectsWithTag("Imp"));
+        devil = GameObject.FindGameObjectWithTag("Devil");
 
         numOfEnemies = goblins.Count + imps.Count;
+
+        if (devil)
+            ++numOfEnemies;
 
         DeleteDeadEnemiesAfterReload();
     }
@@ -67,6 +73,7 @@ public class EnemyManager : MonoBehaviour
         List<GameObject> enemies = new List<GameObject>();
         enemies.AddRange(goblins);
         enemies.AddRange(imps);
+        enemies.Add(devil);
 
         for (int i = 0; i < numOfEnemies; ++i)
         {

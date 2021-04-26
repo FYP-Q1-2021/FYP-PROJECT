@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class Goblin : Enemy
+public class Goblin : BasicEnemy
 {
     private NavMeshAgent agent;
     private WaypointsManager waypointsManager;
@@ -111,7 +111,7 @@ public class Goblin : Enemy
         }
     }
 
-    public override void SetState(int nextState)
+    public override void SetState(State nextState)
     {
         state = nextState;
 
@@ -120,24 +120,24 @@ public class Goblin : Enemy
             case State.IDLE:
                 agent.isStopped = true;
                 waypointsManager.enabled = false;
-                animator.SetInteger("State", State.IDLE);
+                animator.SetInteger("State", (int)State.IDLE);
                 break;
             case State.PATROL:
                 agent.isStopped = false;
                 waypointsManager.endPointReached = false;
                 waypointsManager.enabled = true;
-                animator.SetInteger("State", State.PATROL);
+                animator.SetInteger("State", (int)State.PATROL);
                 break;
             case State.ATTACK:
                 canAttack = true;
                 stateChangeBufferElapsedTime = 0f;
                 waypointsManager.enabled = false;
-                animator.SetInteger("State", State.ATTACK);
+                animator.SetInteger("State", (int)State.ATTACK);
                 break;
             case State.DEAD:
                 agent.isStopped = true;
                 waypointsManager.enabled = false;
-                animator.SetInteger("State", State.DEAD);
+                animator.SetInteger("State", (int)State.DEAD);
                 break;
         }
     }
@@ -150,5 +150,14 @@ public class Goblin : Enemy
             return true;
 
         return false;
+    }
+
+    protected override void OnDrawGizmosSelected()
+    {
+        Gizmos.color = detectionRangeColor;
+        Gizmos.DrawWireSphere(transform.position, visionRange);
+
+        Gizmos.color = attackRangeColor;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

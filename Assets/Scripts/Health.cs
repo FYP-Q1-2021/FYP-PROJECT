@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -9,8 +10,11 @@ public class Health : MonoBehaviour
 
     [SerializeField] private bool isAPlayer;
     private HealthBar healthBar;
+
+    public event Action OnDamaged;
     public bool CanPickup;
     PlayerCharacterController playerCharacterController;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -47,7 +51,9 @@ public class Health : MonoBehaviour
     {
         DealDamage(damage);
 
-        if (isAPlayer)
+        OnDamaged?.Invoke();
+
+        if(isAPlayer)
         {
             healthBar.UpdateHealthBar();
         }
