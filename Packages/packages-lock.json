@@ -56,12 +56,13 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.high-definition-config": {
-      "version": "file:../LocalPackages/com.unity.render-pipelines.high-definition-config",
-      "depth": 0,
-      "source": "local",
+      "version": "7.5.3",
+      "depth": 1,
+      "source": "registry",
       "dependencies": {
         "com.unity.render-pipelines.core": "7.5.3"
-      }
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.shadergraph": {
       "version": "7.5.3",
@@ -115,7 +116,7 @@
     },
     "com.unity.visualeffectgraph": {
       "version": "7.5.3",
-      "depth": 1,
+      "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.shadergraph": "7.5.3"
