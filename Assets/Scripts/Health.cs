@@ -12,16 +12,20 @@ public class Health : MonoBehaviour
     private HealthBar healthBar;
 
     public event Action OnDamaged;
+    public bool CanPickup;
+    PlayerCharacterController playerCharacterController;
 
     void Start()
     {
         currentHealth = maxHealth;
 
         // Checks whether this game object is a player or an enemy
-        if(gameObject.GetComponent<PlayerCharacterController>())
+        if (gameObject.GetComponent<PlayerCharacterController>())
         {
             isAPlayer = true;
             healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
+            playerCharacterController = GetComponent<PlayerCharacterController>();
+
         }
         else
         {
@@ -29,6 +33,10 @@ public class Health : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        CanPickup = currentHealth < maxHealth ? true : false;
+    }
     public float GetMaxHealth()
     {
         return maxHealth;
@@ -41,7 +49,7 @@ public class Health : MonoBehaviour
 
     public void Damage(float damage)
     {
-        currentHealth -= damage;
+        DealDamage(damage);
 
         OnDamaged?.Invoke();
 
@@ -69,5 +77,29 @@ public class Health : MonoBehaviour
     public void Heal(float heal)
     {
         currentHealth += heal;
+    }
+
+    void DealDamage(float damage)
+    {
+        if (isAPlayer && !playerCharacterController.isInvincible)
+            currentHealth -= damage;
+        else if (!isAPlayer)
+            currentHealth -= damage;
+    }
+
+    public void DamageOverTime(float damageAmount, float duration, float delayBetweenDamage)
+    {
+        StartCoroutine(DamageOverTimeCoroutine(damageAmount, duration, delayBetweenDamage));
+    }
+
+    IEnumerator DamageOverTimeCoroutine(float damageAmount, float duration, float delayBetweenDamage)
+    {
+        while(duration > 0)
+        {
+            DealDamage(damageAmount);
+            duration -= delayBetweenDamage;
+            yield return new WaitForSeconds(delayBetweenDamage);
+
+        }
     }
 }

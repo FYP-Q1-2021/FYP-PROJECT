@@ -87,6 +87,8 @@ MonoBehaviour:
   weaponType: 1
   anim: {fileID: -6444270392072831597}
   clip: {fileID: 0}
+  MuzzleFlashPrefab: {fileID: 0}
+  UnparentMuzzleFlash: 0
   delayBetweenShots: 0.5
   bulletSpreadAngle: 0
   bulletsPerShot: 1
@@ -105,11 +107,13 @@ MonoBehaviour:
   AmmoReloadRate: 1
   AmmoReloadDelay: 2
   MaxAmmo: 8
-  hasDurability: 0
-  weaponDurability: 0
-  weaponDecayAmount: 0
+  hasDurability: 1
+  weaponDurability: 100
+  weaponDecayAmount: 1
   damage: 25
+  baseDamage: 50
   isWeaponActive: 0
+  buffDamageMultiplier: 1.25
   attackATime: 0
 --- !u!1001 &7406644965166808351
 PrefabInstance:

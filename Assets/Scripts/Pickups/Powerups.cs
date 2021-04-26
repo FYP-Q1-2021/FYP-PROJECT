@@ -5,21 +5,26 @@ using UnityEngine;
 public enum Powerup
 {
     DAMAGE,
-    MOVEMENT_SPEED
+    MOVEMENT_SPEED,
+    INVINCIBLE,
 };
 
 
 public class Powerups : MonoBehaviour
 {
     public Powerup powerupType;
-    public float powerUpStrength;
     public float powerUpDuration;
-    //Renderer renderer;
+    Renderer renderer;
     Collider collider;
 
-    void Start()
+    [Tooltip("Effect played when picked up")]
+    public GameObject pickupVFX;
+    [Tooltip("Eound played when picked up")]
+    public AudioClip pickupSFX;
+
+    void Start()    
     {
-        //renderer = GetComponent<Renderer>();
+        renderer = GetComponent<Renderer>();
         collider = GetComponent<Collider>();
     }
     void OnTriggerEnter(Collider other)
@@ -31,6 +36,7 @@ public class Powerups : MonoBehaviour
         }
     }
 
+
     IEnumerator PickUp(Collider other)
     {
         PlayerCharacterController playerCharacterController = GameObject.Find("Player").GetComponent<PlayerCharacterController>();
@@ -39,8 +45,14 @@ public class Powerups : MonoBehaviour
             playerCharacterController.Buff(powerupType, true);
 
             collider.enabled = false;
-            //renderer.enabled = false;
+            renderer.enabled = false;
             this.enabled = false;
+
+            // play shoot SFX
+            if (pickupSFX)
+            {
+                AudioUtility.CreateSFX(pickupSFX, transform.position, AudioUtility.AudioGroups.Pickup, 0f);
+            }
 
             yield return new WaitForSeconds(powerUpDuration);
             playerCharacterController.Buff(powerupType, false);

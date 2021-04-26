@@ -36,6 +36,12 @@ public class WeaponController : MonoBehaviour
     public Animator anim;
     public AnimationClip clip;
 
+    [Tooltip("Prefab of the muzzle flash")]
+    public GameObject MuzzleFlashPrefab;
+
+    [Tooltip("Unparent the muzzle flash instance on spawn")]
+    public bool UnparentMuzzleFlash;
+
     [Header("Shoot Parameters")]
     [Tooltip("Minimum duration between two shots")]
     public float delayBetweenShots = 0.5f;
@@ -85,12 +91,17 @@ public class WeaponController : MonoBehaviour
     public float MaxAmmo = 8;
 
     [Header("Durability")]
-    [SerializeField]
-    bool hasDurability;
+    public bool hasDurability;
     [SerializeField]
     float weaponDurability;
     [SerializeField]
+    float weaponMaxDurability;
+    [SerializeField]
     float weaponDecayAmount;
+    public bool canRestoreDurability;
+
+    [Tooltip("sound played when shooting")]
+    public AudioClip ShootSfx;
 
     [Header("Weapon Stats")]
     public float damage = 50f;
@@ -114,12 +125,13 @@ public class WeaponController : MonoBehaviour
 
     public UnityAction OnShoot;
     public UnityAction OnShootProcessed;
-
+    AudioSource m_ShootAudioSource;
     bool isAttacking;
     int comboStep;
     // Start is called before the first frame update
     void Start()
     {
+        m_ShootAudioSource = GetComponent<AudioSource>();
         originRotation = transform.localRotation;
         inputHandler = GameObject.Find("Player").GetComponent<InputHandler>();
         playerWeaponsManager = GameObject.Find("Player").GetComponent<PlayerWeaponsManager>();
@@ -237,8 +249,21 @@ public class WeaponController : MonoBehaviour
         }
     }
 
+    public void RestoreDurability(float restoreAmoun)
+    {
+        if(canRestoreDurability)
+        {
+            weaponDurability += restoreAmoun;
+            if(weaponDurability > weaponMaxDurability)
+            {
+                weaponDurability = weaponMaxDurability;
+            }
+        }
+    }
+
     void CheckWeaponDurability()
     {
+        canRestoreDurability = weaponMaxDurability > weaponDurability ? true : false;
         if(weaponDurability <= 0)
         {
             playerWeaponsManager.RemoveWeapon(this);
@@ -365,6 +390,26 @@ public class WeaponController : MonoBehaviour
     void HandleShoot()
     {
         int bulletsPerShotFinal = bulletsPerShot;
+
+        // muzzle flash
+        if (MuzzleFlashPrefab != null)
+        {
+            GameObject muzzleFlashInstance = Instantiate(MuzzleFlashPrefab, WeaponMuzzle.position,
+                WeaponMuzzle.rotation, WeaponMuzzle.transform);
+            // Unparent the muzzleFlashInstance
+            if (UnparentMuzzleFlash)
+            {
+                muzzleFlashInstance.transform.SetParent(null);
+            }
+
+            Destroy(muzzleFlashInstance, 2f);
+        }
+
+        // play shoot SFX
+        if (ShootSfx)
+        {
+            m_ShootAudioSource.PlayOneShot(ShootSfx);
+        }
 
         // spawn all bullets with random direction
         for (int i = 0; i < bulletsPerShotFinal; i++)

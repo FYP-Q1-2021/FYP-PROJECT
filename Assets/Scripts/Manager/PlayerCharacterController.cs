@@ -7,9 +7,12 @@ public class PlayerCharacterController : MonoBehaviour
     // References
     [Header("References")]
     public Camera playerCamera;
+    [Tooltip("Audio source for footsteps, jump, etc...")]
+    public AudioSource AudioSource;
     Transform playerBody;
     InputHandler inputHandler;
     CharacterController characterController;
+
 
     Vector3 velocity;
 
@@ -31,15 +34,29 @@ public class PlayerCharacterController : MonoBehaviour
     public LayerMask groundMask;
     public float groundDistance = 0.3f;
 
+    [Header("Audio")]
+    [Tooltip("Amount of footstep sounds played when moving one meter")]
+    public float FootstepSfxFrequency = 1f;
+    [Tooltip("Amount of footstep sounds played when moving one meter while sprinting")]
+    public float FootstepSfxFrequencyWhileSprinting = 1f;
+    [Tooltip("Sound played for footsteps")]
+    public AudioClip FootstepSfx;
+    [Tooltip("Sound played when jumping")] 
+    public AudioClip JumpSfx;
+    [Tooltip("Sound played when landing")] 
+    public AudioClip LandSfx;
+
     [Range(0f, 15f)]
     public float maxSpeedOnGround;
 
     public bool isGrounded;
     public bool isSprinting;
-
     public bool isSpeedBuffed;
     public bool isDamageBuffed;
     public bool isAtackSpeedBuffed;
+    public bool isInvincible;
+
+    float m_FootstepDistanceCounter;
 
     [Range(0f,90f)]
     [Tooltip("Locks the rotation to prevent going over when looking down")]
@@ -62,6 +79,7 @@ public class PlayerCharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool wasGrounded = isGrounded;
         MouseLook();
 
         GroundCheck();
@@ -77,7 +95,27 @@ public class PlayerCharacterController : MonoBehaviour
         if (isGrounded && inputHandler.GetJumpInputDown())
         {
             velocity.y = Mathf.Sqrt(jumpStrength * -2f * gravity);
+            // play sound
+            AudioSource.PlayOneShot(JumpSfx);
         }
+
+        // landing
+        if (isGrounded && !wasGrounded)
+        {
+            AudioSource.PlayOneShot(LandSfx);
+        }
+
+        // footsteps sound
+        float chosenFootstepSfxFrequency =
+            (isSprinting ? FootstepSfxFrequencyWhileSprinting : FootstepSfxFrequency);
+        if (m_FootstepDistanceCounter >= 1f / chosenFootstepSfxFrequency)
+        {
+            m_FootstepDistanceCounter = 0f;
+            AudioSource.PlayOneShot(FootstepSfx);
+        }
+
+        // keep track of distance traveled for footsteps sound
+        m_FootstepDistanceCounter += velocity.magnitude * Time.deltaTime;
 
         velocity.y += gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
@@ -115,6 +153,10 @@ public class PlayerCharacterController : MonoBehaviour
         else if(buff == Powerup.MOVEMENT_SPEED)
         {
             isSpeedBuffed = flag;
+        }
+        else if(buff == Powerup.INVINCIBLE)
+        {
+            isInvincible = flag;
         }
     }
 }
