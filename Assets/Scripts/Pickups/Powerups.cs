@@ -29,7 +29,6 @@ public class Powerups : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Yeap");
         if(other.CompareTag("Player"))
         {
             StartCoroutine(PickUp(other));
