@@ -84,7 +84,7 @@ public class PlayerCharacterController : MonoBehaviour
 
         GroundCheck();
 
-        bool isSprinting = inputHandler.GetSprintInputHeld();
+        isSprinting = inputHandler.GetSprintInputHeld();
         float speedModifier = isSprinting ? sprintSpeedModifier : 1f;
         speedModifier = isSpeedBuffed ? buffSpeedModifier : speedModifier;
         playerSpeed = basePlayerSpeed * speedModifier;
@@ -119,6 +119,8 @@ public class PlayerCharacterController : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
+
+        
     }
 
     void GroundCheck()

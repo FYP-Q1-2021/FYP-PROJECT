@@ -89,6 +89,7 @@ public class PlayerWeaponsManager : MonoBehaviour
     int newWeaponIndex;
     int numberOfWeapons;
 
+    float FOV;
     WeaponController[] weaponSlots = new WeaponController[3]; // 9 available weapon slots
 
     void Start()
@@ -148,6 +149,16 @@ public class PlayerWeaponsManager : MonoBehaviour
                 accumulatedRecoil = Vector3.ClampMagnitude(accumulatedRecoil, maxRecoilDistance);
             }
         }
+
+        // Sets FOV
+        if(playerCharacterController.isSprinting)
+        {
+            FOV = 90f;
+        }
+        else
+        {
+            FOV = defaultFOV;
+        }
     }
 
     void LateUpdate()
@@ -158,6 +169,8 @@ public class PlayerWeaponsManager : MonoBehaviour
         UpdateWeaponSwitching();
         UpdateWeaponRecoil();
 
+        Debug.Log(FOV);
+        SetFOV(FOV);
         weaponParentSocket.localPosition = weaponMainLocalPosition + weaponBobLocalPosition + weaponRecoilLocalPosition;
     }
 
@@ -253,12 +266,13 @@ public class PlayerWeaponsManager : MonoBehaviour
             if (isAiming && activeWeapon)
             {
                 weaponMainLocalPosition = Vector3.Lerp(weaponMainLocalPosition, aDSWeaponPosition.localPosition + activeWeapon.aimOffset, aimingAnimationSpeed * Time.deltaTime);
-                SetFOV(Mathf.Lerp(playerCharacterController.playerCamera.fieldOfView, activeWeapon.aimZoomRatio * defaultFOV, aimingAnimationSpeed * Time.deltaTime));
+                FOV = Mathf.Lerp(playerCharacterController.playerCamera.fieldOfView, activeWeapon.aimZoomRatio * defaultFOV, aimingAnimationSpeed * Time.deltaTime);
+                
             }
             else
             {
                 weaponMainLocalPosition = Vector3.Lerp(weaponMainLocalPosition, defaultWeaponPosition.localPosition, aimingAnimationSpeed * Time.deltaTime);
-                SetFOV(Mathf.Lerp(playerCharacterController.playerCamera.fieldOfView, defaultFOV, aimingAnimationSpeed * Time.deltaTime));
+                FOV = Mathf.Lerp(playerCharacterController.playerCamera.fieldOfView, defaultFOV, aimingAnimationSpeed * Time.deltaTime);
             }
         }
     }
