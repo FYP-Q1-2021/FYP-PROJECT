@@ -292,7 +292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &275858658
 Transform:
   m_ObjectHideFlags: 0
@@ -1917,7 +1917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1968978908
 Transform:
   m_ObjectHideFlags: 0
@@ -1954,7 +1954,7 @@ PrefabInstance:
     - target: {fileID: 4981814307115597038, guid: e7bf43687201a0d4cbf2e34e017fc685,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6703619774786206812, guid: e7bf43687201a0d4cbf2e34e017fc685,
         type: 3}
@@ -2056,10 +2056,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3856772997026776895, guid: 2f999efed1466cf4f8dc753608558c91,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3856772997199573025, guid: 2f999efed1466cf4f8dc753608558c91,
         type: 3}
       propertyPath: m_Name
       value: Devil
+      objectReference: {fileID: 0}
+    - target: {fileID: 3856772997199573025, guid: 2f999efed1466cf4f8dc753608558c91,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3856772997199573026, guid: 2f999efed1466cf4f8dc753608558c91,
         type: 3}
@@ -2248,7 +2258,7 @@ PrefabInstance:
     - target: {fileID: 4300925049986263587, guid: c1e7a437d6691c5498cbbb0bd853c4b5,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5903297193571011084, guid: c1e7a437d6691c5498cbbb0bd853c4b5,
         type: 3}

@@ -7,10 +7,16 @@ public class Imp : BasicEnemy
 
     private FlyingWaypointsManager waypointsManager;
 
+    private Staff staff;
+
     protected override void Start()
     {
         base.Start();
+
         waypointsManager = GetComponent<FlyingWaypointsManager>();
+
+        staff = GetComponentInChildren<Staff>();
+
         SetState(State.PATROL);
     }
 
@@ -67,7 +73,7 @@ public class Imp : BasicEnemy
 
                     if (canAttack)
                     {
-                        playerHP.Damage(attackDamage);
+                        staff.Attack();
                         canAttack = false;
                     }
                     else
@@ -141,11 +147,6 @@ public class Imp : BasicEnemy
     {
         float step = movementSpeed * Time.deltaTime; // distance to move
         transform.position = Vector3.MoveTowards(transform.position, player.position, step);
-    }
-
-    private void Shoot()
-    {
-
     }
 
     protected override void OnDrawGizmosSelected()

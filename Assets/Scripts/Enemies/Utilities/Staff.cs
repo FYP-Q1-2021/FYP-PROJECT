@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Staff : MonoBehaviour
 {
-    [SerializeField] GameObject crystalPrefab;
     [SerializeField] private List<Transform> spellEjectionPoints = new List<Transform>();
     private int numOfEjectionPoints;
 
