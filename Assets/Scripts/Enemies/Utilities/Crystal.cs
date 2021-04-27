@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Crystal : MonoBehaviour
 {
+    [Header("Projectile")]
+    [SerializeField] private float projectileDamage = 10f;
     private Vector3 attackDir;
     [SerializeField] private float movementSpeed = 10f;
     [SerializeField] private float maximumTravelTime = 10f;
     private float travelingTimeCounter = 0f;
+
+    [Header("Explosion")]
+    [SerializeField] private float explosionDamage = 20f;
+    [SerializeField] private float explosionRadius = 30f;
     [SerializeField] private float timeUntilExplosion = 10f;
     private float explosionCounter = 0f;
 
     private Health playerHP;
-    [SerializeField] private float damage = 10f;
 
     void Start()
     {
@@ -21,11 +26,12 @@ public class Crystal : MonoBehaviour
 
     void Update()
     {
-        if(travelingTimeCounter < maximumTravelTime)
+        if (travelingTimeCounter < maximumTravelTime)
         {
             travelingTimeCounter += Time.deltaTime;
             Move();
         }
+        // Crystal is not moving anymore
         else
         {
             if (explosionCounter < timeUntilExplosion)
@@ -42,7 +48,7 @@ public class Crystal : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.name == "Player")
-            playerHP.Damage(damage);
+            playerHP.Damage(projectileDamage);
     }
 
     public void SetDirection(Vector3 dir)
@@ -58,6 +64,16 @@ public class Crystal : MonoBehaviour
 
     IEnumerator Explode()
     {
+        Collider[] nearbyObjects = Physics.OverlapSphere(transform.position, explosionRadius);
+
+        for (int i = 0; i < nearbyObjects.Length; ++i)
+        {
+            if(nearbyObjects[i].name == "Player")
+            {
+
+            }
+        }
+
         // Particle effect
         yield return new WaitForSeconds(1f);
         ResetValues();
