@@ -11,6 +11,13 @@ public class Crystal : MonoBehaviour
     [SerializeField] private float timeUntilExplosion = 10f;
     private float explosionCounter = 0f;
 
+    private Health playerHP;
+    [SerializeField] private float damage = 10f;
+
+    void Start()
+    {
+        playerHP = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
+    }
 
     void Update()
     {
@@ -30,6 +37,12 @@ public class Crystal : MonoBehaviour
                 StartCoroutine("Explode");
             }
         }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.name == "Player")
+            playerHP.Damage(damage);
     }
 
     public void SetDirection(Vector3 dir)
