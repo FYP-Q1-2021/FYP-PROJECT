@@ -24,7 +24,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7640595960640225358}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2, z: 0.2}
@@ -63,6 +63,7 @@ MonoBehaviour:
   pickUpRange: 0
   dropForwardForce: 0
   dropUpWardForce: 0
+  pickupSFX: {fileID: 0}
   selectableTag: Pickup
 --- !u!114 &6386256031896824940
 MonoBehaviour:
@@ -109,7 +110,10 @@ MonoBehaviour:
   MaxAmmo: 8
   hasDurability: 1
   weaponDurability: 100
+  weaponMaxDurability: 0
   weaponDecayAmount: 1
+  canRestoreDurability: 0
+  ShootSfx: {fileID: 0}
   damage: 25
   baseDamage: 50
   isWeaponActive: 0
@@ -181,6 +185,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Weapon_Axe
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b89ac11559f66a34aaf52cc442d998db,
+        type: 3}
+      propertyPath: m_TagString
+      value: Melee
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b89ac11559f66a34aaf52cc442d998db, type: 3}

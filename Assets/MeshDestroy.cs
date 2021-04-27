@@ -14,24 +14,33 @@ public class MeshDestroy : MonoBehaviour
     public int CutCascades = 1;
     public float ExplodeForce = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    bool alreadyHit = false;
+    //// Start is called before the first frame update
+    //void Start()
+    //{
 
-    }
+    //}
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            DestroyMesh();
-        }
-    }
+    //void Update()
+    //{
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        DestroyMesh();
+    //    }
+    //}
 
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Hit");
+        if (other.CompareTag("Melee") && !alreadyHit)
+            DestroyMesh();
+
+    }
 
     private void DestroyMesh()
     {
+        alreadyHit = true; 
         var originalMesh = GetComponent<MeshFilter>().mesh;
         originalMesh.RecalculateBounds();
         var parts = new List<PartMesh>();
@@ -295,9 +304,9 @@ public class MeshDestroy : MonoBehaviour
             collider.convex = true;
 
             var rigidbody = GameObject.AddComponent<Rigidbody>();
-            var meshDestroy = GameObject.AddComponent<MeshDestroy>();
-            meshDestroy.CutCascades = original.CutCascades;
-            meshDestroy.ExplodeForce = original.ExplodeForce;
+            //var meshDestroy = GameObject.AddComponent<MeshDestroy>();
+            //meshDestroy.CutCascades = original.CutCascades;
+            //meshDestroy.ExplodeForce = original.ExplodeForce;
 
         }
 
