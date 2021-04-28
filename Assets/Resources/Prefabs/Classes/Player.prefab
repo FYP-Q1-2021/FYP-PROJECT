@@ -92,7 +92,7 @@ Transform:
   m_GameObject: {fileID: 7464471281778866184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.92, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 45, y: 45, z: 45}
   m_Children:
   - {fileID: 7464471281741797679}
   - {fileID: 7464471283321402788}
@@ -114,8 +114,8 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_StepOffset: 45
+  m_SkinWidth: 0.2
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7464471281778866190
@@ -132,16 +132,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 7464471281901377728}
   AudioSource: {fileID: 7464471281778866187}
-  gravity: -9.81
+  gravity: -150
   basePlayerSpeed: 6
   sprintSpeedModifier: 1.5
-  jumpStrength: 1
+  jumpStrength: 15
   buffSpeedModifier: 1.25
   ground: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 256
-  groundDistance: 0.3
+  groundDistance: 1
   FootstepSfxFrequency: 1
   FootstepSfxFrequencyWhileSprinting: 1
   FootstepSfx: {fileID: 0}
@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 7464471281901377854}
   m_Layer: 13
   m_Name: PlayerCamera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -366,7 +366,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7464471281901377852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7464471283466431452}
