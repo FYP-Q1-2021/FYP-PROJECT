@@ -84,7 +84,7 @@ Transform:
   m_GameObject: {fileID: 2707415687979756163}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.28, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 2.5}
+  m_LocalScale: {x: 1, y: 1, z: 3}
   m_Children:
   - {fileID: 5704768459880362297}
   - {fileID: 5513493178889397487}
@@ -444,7 +444,7 @@ MonoBehaviour:
   playerHP: {fileID: 0}
   animator: {fileID: 8352391698702758949}
   state: 0
-  visionRange: 30
+  visionRange: 40
   viewingAngle: 90
   idlingDuration: 5
   idlingElapsedTime: 0
@@ -457,8 +457,10 @@ MonoBehaviour:
   stateChangeBufferElapsedTime: 0
   attackRangeColor: {r: 1, g: 0, b: 0, a: 1}
   detectionRangeColor: {r: 0, g: 0, b: 1, a: 1}
-  movementSpeed: 3.5
+  movementSpeed: 6
   rotationSpeed: 4
+  isSpawnedByDevil: 0
+  idleDuration: 3
 --- !u!114 &9134531686169463087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,7 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e019850face136489eb048a0a14a8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2
   height: 1
 --- !u!1 &9219988511733872050
 GameObject:
