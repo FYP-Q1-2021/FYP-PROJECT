@@ -9,9 +9,13 @@ public class Eruption : MonoBehaviour
     private BoxCollider boxCollider;
     private float timer = 0f;
 
+    private Health playerHP;
+    [SerializeField] private float damage = 10f;
+
     void Awake()
     {
         boxCollider = GetComponent<BoxCollider>();
+        playerHP = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
     }
 
     void OnEnable()
@@ -29,7 +33,8 @@ public class Eruption : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name + " entered");
+        if (other.name == "Player")
+            playerHP.Damage(damage);
     }
 
     IEnumerator Erupt()

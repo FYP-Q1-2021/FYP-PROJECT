@@ -4873,7 +4873,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 5561349426305759274, guid: ca6548168b7046540bf1a536ba8ba6c6, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4902,7 +4902,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6390168531748201926}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -4919,9 +4919,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fdc7418e3f49d64db2b8d29651e5ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileDamage: 10
   movementSpeed: 50
-  maximumTravelTime: 10
-  timeUntilExplosion: 10
+  maximumTravelTime: 5
+  explosionDamage: 20
+  explosionRadius: 30
+  timeUntilExplosion: 3
+  explosionRangeColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!54 &270937500145127936
 Rigidbody:
   m_ObjectHideFlags: 0

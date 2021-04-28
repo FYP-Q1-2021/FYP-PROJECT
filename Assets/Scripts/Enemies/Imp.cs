@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Imp : BasicEnemy
 {
@@ -7,11 +8,33 @@ public class Imp : BasicEnemy
 
     private FlyingWaypointsManager waypointsManager;
 
+    private Staff staff;
+
+    [Header("Spawned by the Devil")]
+    [SerializeField] private float idleDuration = 3f;
+    [SerializeField] private bool isSpawnedByDevil;
+    [SerializeField] private float ejectionSpeed = 6f;
+    private float idleElapsedTime = 0f;
+
     protected override void Start()
     {
         base.Start();
-        waypointsManager = GetComponent<FlyingWaypointsManager>();
-        SetState(State.PATROL);
+
+        if (transform.parent.name == "Imps")
+            isSpawnedByDevil = true;
+
+        if(isSpawnedByDevil)
+        {
+            Destroy(GetComponent<FlyingWaypointsManager>());
+            SetState(State.IDLE);
+        }
+        else
+        {
+            waypointsManager = GetComponent<FlyingWaypointsManager>();
+            SetState(State.PATROL);
+        }
+
+        staff = GetComponentInChildren<Staff>();
     }
 
     protected override void Update()
@@ -20,22 +43,32 @@ public class Imp : BasicEnemy
         {
             case State.IDLE:
                 {
-                    if (IsPlayerVisible())
+                    if(isSpawnedByDevil)
                     {
-                        SetState(State.CHASE);
-                        return;
+                        if (idleElapsedTime < idleDuration)
+                            idleElapsedTime += simulationSpeed * Time.deltaTime;
+                        else
+                            SetState(State.CHASE);
                     }
-
-                    if (idlingElapsedTime < idlingDuration)
-                    {
-                        idlingElapsedTime += simulationSpeed * Time.deltaTime;
-                    }
-                    // Change state to PATROL after some time passes
                     else
                     {
-                        SetState(State.PATROL);
-                        idlingElapsedTime = 0f;
-                        return;
+                        if (IsPlayerVisible())
+                        {
+                            SetState(State.CHASE);
+                            return;
+                        }
+
+                        if (idlingElapsedTime < idlingDuration)
+                        {
+                            idlingElapsedTime += simulationSpeed * Time.deltaTime;
+                        }
+                        // Change state to PATROL after some time passes
+                        else
+                        {
+                            SetState(State.PATROL);
+                            idlingElapsedTime = 0f;
+                            return;
+                        }
                     }
                 }
                 break;
@@ -55,19 +88,36 @@ public class Imp : BasicEnemy
                     }
                 }
                 break;
+            case State.CHASE:
+                {
+                    float distanceFromPlayer = Vector3.Distance(transform.position, player.position);
+
+                    if (distanceFromPlayer < attackRange)
+                    {
+                        SetState(State.ATTACK);
+                        return;
+                    }
+
+                    MoveTowards();
+                    OrientTowards();
+                }
+                break;
             case State.ATTACK:
                 {
                     float distanceFromPlayer = Vector3.Distance(transform.position, player.position);
 
                     if (IsPlayerOutOfRange(distanceFromPlayer, attackRange))
                     {
-                        SetState(State.PATROL);
+                        if (isSpawnedByDevil)
+                            SetState(State.CHASE);
+                        else
+                            SetState(State.PATROL);
                         return;
                     }
 
                     if (canAttack)
                     {
-                        playerHP.Damage(attackDamage);
+                        staff.Attack();
                         canAttack = false;
                     }
                     else
@@ -98,13 +148,18 @@ public class Imp : BasicEnemy
         switch (state)
         {
             case State.IDLE:
-                waypointsManager.enabled = false;
+                if(!isSpawnedByDevil)
+                    waypointsManager.enabled = false;
                 animator.SetInteger("State", (int)State.IDLE);
                 break;
             case State.PATROL:
                 waypointsManager.endPointReached = false;
                 waypointsManager.enabled = true;
                 animator.SetInteger("State", (int)State.PATROL);
+                break;
+            case State.CHASE:
+                stateChangeBufferElapsedTime = 0f;
+                animator.SetInteger("State", (int)State.CHASE);
                 break;
             case State.ATTACK:
                 canAttack = true;
@@ -143,11 +198,6 @@ public class Imp : BasicEnemy
         transform.position = Vector3.MoveTowards(transform.position, player.position, step);
     }
 
-    private void Shoot()
-    {
-
-    }
-
     protected override void OnDrawGizmosSelected()
     {
         Gizmos.color = detectionRangeColor;
@@ -155,5 +205,16 @@ public class Imp : BasicEnemy
 
         Gizmos.color = attackRangeColor;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    public void SetSpawnDirection(Vector3 dir)
+    {
+        transform.rotation = Quaternion.Euler(dir);
+    }
+
+    IEnumerator SpawnForce()
+    {
+        transform.position += transform.forward * movementSpeed * Time.deltaTime;
+        yield return null;
     }
 }

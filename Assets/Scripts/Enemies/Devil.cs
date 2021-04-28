@@ -40,6 +40,9 @@ public class Devil : Enemy
     [Header("Spells positioning")]
     [SerializeField] Transform eruptionYCoord;
 
+    [Header("Phase 2")]
+    [SerializeField] private float hPToPhase2 = 750f;
+
     [Header("Debug Display")]
     [SerializeField] private Color rangedAttackColor = Color.blue;
     [SerializeField] private Color meleeRangeColor = Color.red;
@@ -118,11 +121,10 @@ public class Devil : Enemy
                 }
                 break;
             case State.ENRAGED:
-                if(!isMultipleEruptionsCoroutineRunning)
+                if (!isMultipleEruptionsCoroutineRunning)
                     StartCoroutine("MultipleRandomGeyserAttack");
                 break;
         }
-
     }
 
     protected override void OnDrawGizmosSelected()
@@ -175,7 +177,7 @@ public class Devil : Enemy
     IEnumerator MultipleRandomGeyserAttack()
     {
         isMultipleEruptionsCoroutineRunning = true;
-        
+
         for (int i = 0; i < multipleEruptionCount; ++i)
         {
             // Spawn a geyser once in a while
@@ -234,11 +236,26 @@ public class Devil : Enemy
         else
             state = State.MELEE_MODE;
     }
+
+    private void SpawnImps()
+    {
+        for (int i = 0; i < ImpPool.Instance.amountToPool; ++i)
+        {
+            GameObject imp = ImpPool.Instance.GetPooledObject();
+            
+        }
+    }
+
     #endregion
 
     #region Events
     private void OnDamagedEvent()
     {
+        if (health.GetCurrentHealth() < hPToPhase2 + 1)
+        {
+
+        }
+
         ++numOfTimesDamaged;
         if (!isEnragedTimerCoroutineRunning)
             StartCoroutine("EnragedTimer");

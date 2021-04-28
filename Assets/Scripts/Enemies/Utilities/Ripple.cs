@@ -8,15 +8,10 @@ public class Ripple : MonoBehaviour
     [SerializeField] private float scaleSpeed = 1f;
     [SerializeField] private float scaleDuration = 10f;
     public bool expanding;
-
+    public float damage = 10f;
     void Start()
     {
         originalScale = transform.localScale;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other.name + " entered");
     }
 
     public void Attack()
