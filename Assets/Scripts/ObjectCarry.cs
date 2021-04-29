@@ -57,7 +57,7 @@ public class ObjectCarry : MonoBehaviour
 
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(new Vector3(x, y));
-            Debug.Log(ray);
+            //Debug.Log(ray);
 
             if (inputHandler.GetInteractKeyDown() && Physics.Raycast(ray, out hit, pickupRange))
             {
