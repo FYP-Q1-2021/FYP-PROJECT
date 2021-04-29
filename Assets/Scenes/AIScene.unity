@@ -1085,7 +1085,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &907061995
 Transform:
   m_ObjectHideFlags: 0
@@ -2000,6 +2000,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4637494889903941451, guid: e7bf43687201a0d4cbf2e34e017fc685,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4981814307115597038, guid: e7bf43687201a0d4cbf2e34e017fc685,
         type: 3}
       propertyPath: m_Name
@@ -2123,7 +2128,7 @@ PrefabInstance:
     - target: {fileID: 3856772997199573025, guid: 2f999efed1466cf4f8dc753608558c91,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3856772997199573026, guid: 2f999efed1466cf4f8dc753608558c91,
         type: 3}
@@ -2179,6 +2184,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3856772997199573027, guid: 2f999efed1466cf4f8dc753608558c91,
+        type: 3}
+      propertyPath: hPToPhase2
+      value: 900
       objectReference: {fileID: 0}
     - target: {fileID: 3856772997199573027, guid: 2f999efed1466cf4f8dc753608558c91,
         type: 3}

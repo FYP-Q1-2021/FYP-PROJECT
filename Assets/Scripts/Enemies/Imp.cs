@@ -46,7 +46,12 @@ public class Imp : BasicEnemy
                     if(isSpawnedByDevil)
                     {
                         if (idleElapsedTime < idleDuration)
+                        {
+                            //Debug.Log(transform.forward);
                             idleElapsedTime += simulationSpeed * Time.deltaTime;
+                            transform.position += transform.forward * ejectionSpeed * Time.deltaTime;
+                            //StartCoroutine("SpawnForce");
+                        }
                         else
                             SetState(State.CHASE);
                     }
@@ -209,7 +214,7 @@ public class Imp : BasicEnemy
 
     public void SetSpawnDirection(Vector3 dir)
     {
-        transform.rotation = Quaternion.Euler(dir);
+        transform.rotation = Quaternion.LookRotation(-dir, Vector3.up);
     }
 
     IEnumerator SpawnForce()

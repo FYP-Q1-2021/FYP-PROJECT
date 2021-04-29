@@ -42,6 +42,7 @@ public class Devil : Enemy
 
     [Header("Phase 2")]
     [SerializeField] private float hPToPhase2 = 750f;
+    private bool phase2;
 
     [Header("Debug Display")]
     [SerializeField] private Color rangedAttackColor = Color.blue;
@@ -251,9 +252,19 @@ public class Devil : Enemy
     #region Events
     private void OnDamagedEvent()
     {
-        if (health.GetCurrentHealth() < hPToPhase2 + 1)
+        if(!phase2)
         {
-
+            // Summon imps
+            if (health.GetCurrentHealth() < hPToPhase2 + 1)
+            {
+                for(int i = 0; i < ImpPool.Instance.amountToPool; ++i)
+                {
+                    GameObject imp = ImpPool.Instance.GetPooledObject();
+                    Vector3 impDirection = Quaternion.AngleAxis(i * 90, transform.up) * transform.forward;
+                    imp.GetComponent<Imp>().SetSpawnDirection(impDirection);
+                }
+                phase2 = true;
+            }
         }
 
         ++numOfTimesDamaged;
