@@ -459,8 +459,9 @@ MonoBehaviour:
   detectionRangeColor: {r: 0, g: 0, b: 1, a: 1}
   movementSpeed: 6
   rotationSpeed: 4
+  idleDuration: 6
   isSpawnedByDevil: 0
-  idleDuration: 3
+  ejectionSpeed: 2
 --- !u!114 &9134531686169463087
 MonoBehaviour:
   m_ObjectHideFlags: 0
