@@ -4,13 +4,13 @@ using System;
 
 public class DevilTransitionManager : MonoBehaviour
 {
-    private List<GameObject> impsGO = new List<GameObject>();
-    private List<Imp> imps = new List<Imp>();
+    public List<GameObject> impsGO = new List<GameObject>();
+    public List<Imp> imps = new List<Imp>();
     private int amountOfDeadImps = 0;
 
     public event Action OnTransitionToPhase3;
 
-    void Start()
+    void Awake()
     {
         ImpPool.Instance.OnObjectsPoolingFinished += Initialize; // Subscribe
     }

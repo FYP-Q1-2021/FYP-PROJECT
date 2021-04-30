@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Devil : Enemy
 {
+    enum Phase
+    { 
+        PHASE_1,
+        PHASE_2,
+        PHASE_3
+    }
+
     [Header("Attack ranges")]
     [SerializeField] private float rangedAttackRange = 50f;
     [SerializeField] private float meleeAttackRange = 10f;
@@ -20,16 +27,11 @@ public class Devil : Enemy
     private bool canUseStaff = false;
     private int timesStaffIsUsed = 0;
 
-    private bool phase1 = true;
-
     [Header("Phase 2")]
     [SerializeField] private float hPToPhase2 = 750f;
 
-    private bool phase2;
-
     [Header("Phase 3")]
     [SerializeField] private float timeBetweenClusterEruptions = 5f;
-    private float clusterEruptionTimer = 0f;
     [SerializeField] private int eruptionCount = 10;
     [SerializeField] private float timeBetweenEachEruption = 0.2f;
     private float timeBetweenEachEruptionTimer = 0f;
@@ -37,8 +39,6 @@ public class Devil : Enemy
     private int currentTries = 0;
     private bool isMultipleEruptionsCoroutineRunning;
     private LayerMask geyserLayerMask;
-
-    private bool phase3;
 
     [Header("Debug Display")]
     [SerializeField] private Color rangedAttackColor = Color.blue;
@@ -52,6 +52,8 @@ public class Devil : Enemy
 
     private Health health;
     private DevilTransitionManager transitionManager;
+
+    private Phase currentPhase;
 
     #region Inherited functions
     protected override void Start()
@@ -70,6 +72,11 @@ public class Devil : Enemy
         transitionManager.OnTransitionToPhase3 += OnTransitionToPhase3Event;
 
         geyserLayerMask = LayerMask.GetMask("Spell");
+
+        // To be removed when events is added to eruption
+        timeBetweenClusterEruptions += 6f;
+
+        currentPhase = Phase.PHASE_1;
 
         state = State.IDLE;
     }
@@ -206,7 +213,7 @@ public class Devil : Enemy
     #region Unity Callbacks
     void OnDisable()
     {
-        if (phase3)
+        if (currentPhase == Phase.PHASE_3)
         {
             health.OnDamaged -= OnDamagedEvent;
             transitionManager.OnTransitionToPhase3 += OnTransitionToPhase3Event;
@@ -241,13 +248,12 @@ public class Devil : Enemy
     #region Events
     private void OnDamagedEvent()
     {
-        if (phase1)
+        if (currentPhase == Phase.PHASE_1)
         {
             // Summon imps
             if (health.GetCurrentHealth() < hPToPhase2 + 1)
             {
-                phase1 = false;
-                phase2 = true;
+                currentPhase = Phase.PHASE_2;
                 SpawnImps();
                 gameObject.SetActive(false);
             }
@@ -257,8 +263,7 @@ public class Devil : Enemy
     private void OnTransitionToPhase3Event()
     {
         gameObject.SetActive(true);
-        phase2 = false;
-        phase3 = true;
+        currentPhase = Phase.PHASE_3;
         SetState(State.ENRAGED);
     }
     #endregion
