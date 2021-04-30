@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1520867642470667771
 RectTransform:
   m_ObjectHideFlags: 0
@@ -514,7 +514,6 @@ GameObject:
   - component: {fileID: 3779392465415781291}
   - component: {fileID: 6508718114294858208}
   - component: {fileID: 6578719900613520722}
-  - component: {fileID: 4754876452014580332}
   m_Layer: 9
   m_Name: Goblin
   m_TagString: Goblin
@@ -651,23 +650,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 3448926328862946281}
   health: {fileID: 3779392465415781291}
---- !u!114 &4754876452014580332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4981814307115597038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aef541f295a67ac41a998cfd984f6011, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 4174777438153342218}
-  Low: {r: 1, g: 0.0047169924, b: 0.0047169924, a: 0}
-  High: {r: 0.30829325, g: 0.7735849, b: 0.032840855, a: 0}
-  Offset: {x: 0, y: 0, z: 0}
-  health: {fileID: 3779392465415781291}
 --- !u!1 &5418842418943072360
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,7 +683,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -758,7 +740,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3696741201349445660
 RectTransform:
   m_ObjectHideFlags: 0
@@ -956,7 +938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2197126733030354605
 RectTransform:
   m_ObjectHideFlags: 0

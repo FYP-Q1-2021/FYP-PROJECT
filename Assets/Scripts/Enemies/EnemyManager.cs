@@ -10,6 +10,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private List<GameObject> goblins = new List<GameObject>();
     [Header("Imps")]
     [SerializeField] private List<GameObject> imps = new List<GameObject>();
+    [Header("Pirates")]
+    [SerializeField] private List<GameObject> pirates = new List<GameObject>();
     [Header("Devil")]
     [SerializeField] private GameObject devil;
 
@@ -21,12 +23,14 @@ public class EnemyManager : MonoBehaviour
 
         goblins.Clear();
         imps.Clear();
+        pirates.Clear();
 
         goblins.AddRange(GameObject.FindGameObjectsWithTag("Goblin"));
         imps.AddRange(GameObject.FindGameObjectsWithTag("Imp"));
+        pirates.AddRange(GameObject.FindGameObjectsWithTag("Pirate"));
         devil = GameObject.FindGameObjectWithTag("Devil");
 
-        numOfEnemies = goblins.Count + imps.Count;
+        numOfEnemies = goblins.Count + imps.Count + pirates.Count;
 
         if (devil)
             ++numOfEnemies;
@@ -46,6 +50,8 @@ public class EnemyManager : MonoBehaviour
             goblins.Remove(go);
         else if (go.CompareTag("Imp"))
             imps.Remove(go);
+        else if (go.CompareTag("Pirate"))
+            pirates.Remove(go);
 
         --numOfEnemies;
     }
@@ -58,6 +64,9 @@ public class EnemyManager : MonoBehaviour
 
         for (int i = 0; i < imps.Count; ++i)
             imps[i].GetComponent<Imp>().movementSpeed = 0f;
+
+        for (int i = 0; i < pirates.Count; ++i)
+            pirates[i].GetComponent<NavMeshAgent>().isStopped = true;
     }
 
     // Check through list of enemies in this scene for dead enemies and delete them
@@ -73,6 +82,7 @@ public class EnemyManager : MonoBehaviour
         List<GameObject> enemies = new List<GameObject>();
         enemies.AddRange(goblins);
         enemies.AddRange(imps);
+        enemies.AddRange(pirates);
         enemies.Add(devil);
 
         for (int i = 0; i < numOfEnemies; ++i)
