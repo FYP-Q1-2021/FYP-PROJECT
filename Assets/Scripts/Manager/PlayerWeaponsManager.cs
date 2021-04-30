@@ -150,15 +150,7 @@ public class PlayerWeaponsManager : MonoBehaviour
             }
         }
 
-        // Sets FOV
-        if(playerCharacterController.isSprinting)
-        {
-            FOV = 90f;
-        }
-        else
-        {
-            FOV = defaultFOV;
-        }
+
     }
 
     void LateUpdate()
@@ -169,8 +161,8 @@ public class PlayerWeaponsManager : MonoBehaviour
         UpdateWeaponSwitching();
         UpdateWeaponRecoil();
 
-        //Debug.Log(FOV);
         SetFOV(FOV);
+        
         weaponParentSocket.localPosition = weaponMainLocalPosition + weaponBobLocalPosition + weaponRecoilLocalPosition;
     }
 
