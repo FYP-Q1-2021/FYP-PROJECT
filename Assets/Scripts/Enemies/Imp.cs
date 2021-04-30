@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using UnityEngine;
 
 public class Imp : BasicEnemy
@@ -13,18 +13,28 @@ public class Imp : BasicEnemy
     [Header("Spawned by the Devil")]
     [SerializeField] private float idleDuration = 3f;
     [SerializeField] private bool isSpawnedByDevil;
-    [SerializeField] private float ejectionSpeed = 6f;
+    [SerializeField] private float initialSpeed = 6f;
+    [SerializeField] private float finalSpeed = 0f;
+    [SerializeField] private float currentSpeed;
     private float idleElapsedTime = 0f;
+
+    private Health health;
+
+    public event Action OnDeath;
 
     protected override void Start()
     {
         base.Start();
 
+
         if (transform.parent.name == "Imps")
             isSpawnedByDevil = true;
 
-        if(isSpawnedByDevil)
+        if (isSpawnedByDevil)
         {
+            health = GetComponent<Health>();
+            // Subscribe
+            health.OnDamaged += OnDamagedEvent;
             Destroy(GetComponent<FlyingWaypointsManager>());
             SetState(State.IDLE);
         }
@@ -43,10 +53,15 @@ public class Imp : BasicEnemy
         {
             case State.IDLE:
                 {
-                    if(isSpawnedByDevil)
+                    if (isSpawnedByDevil)
                     {
                         if (idleElapsedTime < idleDuration)
+                        {
+                            currentSpeed = Mathf.SmoothStep(initialSpeed, finalSpeed, idleElapsedTime / idleDuration);
+                            transform.position += transform.forward * currentSpeed * Time.deltaTime;
                             idleElapsedTime += simulationSpeed * Time.deltaTime;
+                            //StartCoroutine("SpawnForce");
+                        }
                         else
                             SetState(State.CHASE);
                     }
@@ -148,7 +163,7 @@ public class Imp : BasicEnemy
         switch (state)
         {
             case State.IDLE:
-                if(!isSpawnedByDevil)
+                if (!isSpawnedByDevil)
                     waypointsManager.enabled = false;
                 animator.SetInteger("State", (int)State.IDLE);
                 break;
@@ -164,11 +179,13 @@ public class Imp : BasicEnemy
             case State.ATTACK:
                 canAttack = true;
                 stateChangeBufferElapsedTime = 0f;
-                waypointsManager.enabled = false;
+                if (!isSpawnedByDevil)
+                    waypointsManager.enabled = false;
                 animator.SetInteger("State", (int)State.ATTACK);
                 break;
             case State.DEAD:
-                waypointsManager.enabled = false;
+                if (!isSpawnedByDevil)
+                    waypointsManager.enabled = false;
                 animator.SetInteger("State", (int)State.DEAD);
                 break;
         }
@@ -209,12 +226,28 @@ public class Imp : BasicEnemy
 
     public void SetSpawnDirection(Vector3 dir)
     {
-        transform.rotation = Quaternion.Euler(dir);
+        transform.rotation = Quaternion.LookRotation(-dir, Vector3.up);
     }
 
-    IEnumerator SpawnForce()
+    private void OnDisable()
     {
-        transform.position += transform.forward * movementSpeed * Time.deltaTime;
-        yield return null;
+        if (isSpawnedByDevil)
+        {
+            // Unsubscribe
+            health.OnDamaged -= OnDamagedEvent;
+        }
+    }
+
+    private void OnDamagedEvent()
+    {
+        if (health.GetCurrentHealth() < 1)
+        {
+            if (isSpawnedByDevil)
+            {
+                // Notify subscribers
+                OnDeath?.Invoke();
+            }
+            gameObject.SetActive(false);
+        }
     }
 }

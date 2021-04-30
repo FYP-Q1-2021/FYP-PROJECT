@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ObjectPool : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class ObjectPool : MonoBehaviour
     public int amountToPool;
     public List<GameObject> pooledObjects = new List<GameObject>();
     public Transform holder;
+
+    public event Action OnObjectsPoolingFinished;
 
     void Start()
     {
@@ -18,6 +21,8 @@ public class ObjectPool : MonoBehaviour
             go.SetActive(false);
             pooledObjects.Add(go);
         }
+
+        OnObjectsPoolingFinished?.Invoke();
     }
     
     public GameObject GetPooledObject()
@@ -27,6 +32,18 @@ public class ObjectPool : MonoBehaviour
             if(!pooledObjects[i].activeInHierarchy)
             {
                 pooledObjects[i].SetActive(true);
+                return pooledObjects[i];
+            }
+        }
+        return null;
+    }
+
+    public GameObject GetPooledObjectWithoutActivating()
+    {
+        for (int i = 0; i < amountToPool; ++i)
+        {
+            if (!pooledObjects[i].activeInHierarchy)
+            {
                 return pooledObjects[i];
             }
         }
