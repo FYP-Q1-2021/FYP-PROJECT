@@ -11,8 +11,7 @@ public class Goblin : BasicEnemy
         base.Start();
         agent = GetComponent<NavMeshAgent>();
         waypointsManager = GetComponent<WaypointsManager>();
-        //SetState(State.PATROL);
-        SetState(State.IDLE);
+        SetState(State.PATROL);
     }
 
     protected override void Update()
@@ -21,7 +20,7 @@ public class Goblin : BasicEnemy
         {
             case State.IDLE:
                 {
-/*                    if (IsPlayerVisible())
+                    if (IsPlayerVisible())
                     {
                         SetState(State.CHASE);
                         return;
@@ -37,7 +36,7 @@ public class Goblin : BasicEnemy
                         SetState(State.PATROL);
                         idlingElapsedTime = 0f;
                         return;
-                    }*/
+                    }
                 }
                 break;
             case State.PATROL:
@@ -120,7 +119,7 @@ public class Goblin : BasicEnemy
         {
             case State.IDLE:
                 agent.isStopped = true;
-                //waypointsManager.enabled = false;
+                waypointsManager.enabled = false;
                 animator.SetInteger("State", (int)State.IDLE);
                 break;
             case State.PATROL:
