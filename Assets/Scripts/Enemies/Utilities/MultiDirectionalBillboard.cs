@@ -24,19 +24,28 @@ public class MultiDirectionalBillboard : MonoBehaviour
         {
             // Right
             if (dirOfPlayerFromEnemy < 0f)
-                animator.SetFloat(parameter, 0.6f);
+                animator.SetFloat(parameter, 0.4285714f);
             // Left
             else
-                animator.SetFloat(parameter, 0.2f);
+                animator.SetFloat(parameter, 0.1428571f);
         }
         else if(dot > -0.75f && dot < -0.5f)
         {
             // Front left
             if(dirOfPlayerFromEnemy > 0f)
-                animator.SetFloat(parameter, 0.8f);
+                animator.SetFloat(parameter, 0.7142857f);
             // Front right
             else
+                animator.SetFloat(parameter, 0.57142857f);
+        }
+        else if(dot > 0.5f && dot < 0.75f)
+        {
+            // Back left
+            if (dirOfPlayerFromEnemy > 0f)
                 animator.SetFloat(parameter, 1f);
+            // Back right
+            else
+                animator.SetFloat(parameter, 0.8571429f);
         }
         else if (dot <= -0.5f)
         {
@@ -46,7 +55,7 @@ public class MultiDirectionalBillboard : MonoBehaviour
         else if (dot >= 0.5f)
         {
             // Back
-            animator.SetFloat(parameter, 0.4f);
+            animator.SetFloat(parameter, 0.2857143f);
         }
     }
 }
