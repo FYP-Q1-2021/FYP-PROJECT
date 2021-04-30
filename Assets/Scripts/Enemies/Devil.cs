@@ -1,56 +1,59 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class Devil : Enemy
 {
+    enum Phase
+    { 
+        PHASE_1,
+        PHASE_2,
+        PHASE_3
+    }
+
     [Header("Attack ranges")]
     [SerializeField] private float rangedAttackRange = 50f;
     [SerializeField] private float meleeAttackRange = 10f;
 
-    [Header("Eruption spell")]
+    [Header("Phase 1")]
     [SerializeField] private float rippleCooldown = 4f;
     private float rippleCooldownTimer = 0f;
     private bool canUseRipple = true;
 
-    [Header("Eruption spell")]
     [SerializeField] private float eruptionCooldown = 1f;
 
-    [Header("Basic attack spell")]
     [SerializeField] private float staffCooldown = 3f;
     private float staffCooldownTimer = 0f;
     private bool canUseStaff = false;
     private int timesStaffIsUsed = 0;
 
-    [Header("Enraged state")]
-    [SerializeField] private int hitsToEnterEnragedMode = 3;
-    [SerializeField] private float enragedModeBufferTime = 10f; // Time taken before entering enraged mode
-    private float enragedModeBufferTimer = 0f;
-    private bool isEnragedTimerCoroutineRunning;
-    private bool isMultipleEruptionsCoroutineRunning;
-    private int numOfTimesDamaged;
-
-    [Header("Cluster eruption spell")]
-    [SerializeField] private int multipleEruptionCount = 10;
-    [SerializeField] private float multipleEruptionCooldown = 0.2f;
-    private float multipleEruptionCooldownTimer = 0f;
-    private readonly int tryRandomPositionLimit = 10;
-    private int currentTries = 0;
-    private LayerMask geyserLayerMask;
-
-    [Header("Spells positioning")]
-    [SerializeField] Transform eruptionYCoord;
-
     [Header("Phase 2")]
     [SerializeField] private float hPToPhase2 = 750f;
+
+    [Header("Phase 3")]
+    [SerializeField] private float timeBetweenClusterEruptions = 5f;
+    [SerializeField] private int eruptionCount = 10;
+    [SerializeField] private float timeBetweenEachEruption = 0.2f;
+    private float timeBetweenEachEruptionTimer = 0f;
+    private readonly int tryRandomPositionLimit = 10;
+    private int currentTries = 0;
+    private bool isMultipleEruptionsCoroutineRunning;
+    private LayerMask geyserLayerMask;
 
     [Header("Debug Display")]
     [SerializeField] private Color rangedAttackColor = Color.blue;
     [SerializeField] private Color meleeRangeColor = Color.red;
 
+    [Header("Spells positioning")]
+    [SerializeField] private Transform eruptionYCoord;
+
     private Staff staff;
     private Ripple ripple;
 
     private Health health;
+    private DevilTransitionManager transitionManager;
+
+    private Phase currentPhase;
 
     #region Inherited functions
     protected override void Start()
@@ -65,7 +68,15 @@ public class Devil : Enemy
         health = GetComponent<Health>();
         health.OnDamaged += OnDamagedEvent;
 
+        transitionManager = GameObject.Find("DevilPhaseManager").GetComponent<DevilTransitionManager>();
+        transitionManager.OnTransitionToPhase3 += OnTransitionToPhase3Event;
+
         geyserLayerMask = LayerMask.GetMask("Spell");
+
+        // To be removed when events is added to eruption
+        timeBetweenClusterEruptions += 6f;
+
+        currentPhase = Phase.PHASE_1;
 
         state = State.IDLE;
     }
@@ -144,28 +155,6 @@ public class Devil : Enemy
     #endregion
 
     #region Coroutines
-    IEnumerator EnragedTimer()
-    {
-        isEnragedTimerCoroutineRunning = true;
-
-        while (enragedModeBufferTimer < enragedModeBufferTime)
-        {
-            enragedModeBufferTimer += simulationSpeed * Time.deltaTime;
-
-            if (numOfTimesDamaged == hitsToEnterEnragedMode)
-            {
-                SetState(State.ENRAGED);
-                enragedModeBufferTimer = 0f;
-                break;
-            }
-
-            yield return null;
-        }
-
-        numOfTimesDamaged = 0;
-        isEnragedTimerCoroutineRunning = false;
-    }
-
     IEnumerator GeyserAttack()
     {
         yield return new WaitForSeconds(eruptionCooldown);
@@ -178,17 +167,17 @@ public class Devil : Enemy
     {
         isMultipleEruptionsCoroutineRunning = true;
 
-        for (int i = 0; i < multipleEruptionCount; ++i)
+        for (int i = 0; i < eruptionCount; ++i)
         {
             // Spawn a geyser once in a while
-            while (multipleEruptionCooldownTimer < multipleEruptionCooldown)
+            while (timeBetweenEachEruptionTimer < timeBetweenEachEruption)
             {
-                multipleEruptionCooldownTimer += simulationSpeed * Time.deltaTime;
+                timeBetweenEachEruptionTimer += simulationSpeed * Time.deltaTime;
                 yield return null;
             }
 
-            float x = Random.Range(-rangedAttackRange, rangedAttackRange);
-            float z = Random.Range(-rangedAttackRange, rangedAttackRange);
+            float x = UnityEngine.Random.Range(-rangedAttackRange, rangedAttackRange);
+            float z = UnityEngine.Random.Range(-rangedAttackRange, rangedAttackRange);
 
             // Check the location of where the spell would be cast
             // Find another position if there is already a spell near it
@@ -212,10 +201,11 @@ public class Devil : Enemy
                 geyser.transform.position = new Vector3(x, geyser.transform.position.y, z);
 
             // Reset timer only if a geyser is spawned successfully
-            multipleEruptionCooldownTimer = 0f;
+            timeBetweenEachEruptionTimer = 0f;
         }
 
-        SetState(State.IDLE);
+        yield return new WaitForSeconds(timeBetweenClusterEruptions);
+
         isMultipleEruptionsCoroutineRunning = false;
     }
     #endregion
@@ -223,7 +213,11 @@ public class Devil : Enemy
     #region Unity Callbacks
     void OnDisable()
     {
-        health.OnDamaged -= OnDamagedEvent;
+        if (currentPhase == Phase.PHASE_3)
+        {
+            health.OnDamaged -= OnDamagedEvent;
+            transitionManager.OnTransitionToPhase3 += OnTransitionToPhase3Event;
+        }
     }
     #endregion
 
@@ -239,26 +233,38 @@ public class Devil : Enemy
 
     private void SpawnImps()
     {
-        for (int i = 0; i < ImpPool.Instance.amountToPool; ++i)
+        int impsCount = ImpPool.Instance.amountToPool;
+        float angle = 360 / impsCount;
+        for (int i = 0; i < impsCount; ++i)
         {
             GameObject imp = ImpPool.Instance.GetPooledObject();
-            
+            Vector3 impDirection = Quaternion.AngleAxis(i * angle, transform.up) * transform.forward;
+            imp.GetComponent<Imp>().SetSpawnDirection(impDirection);
+            imp.transform.position = new Vector3(0, transform.position.y, 0);
         }
     }
-
     #endregion
 
     #region Events
     private void OnDamagedEvent()
     {
-        if (health.GetCurrentHealth() < hPToPhase2 + 1)
+        if (currentPhase == Phase.PHASE_1)
         {
-
+            // Summon imps
+            if (health.GetCurrentHealth() < hPToPhase2 + 1)
+            {
+                currentPhase = Phase.PHASE_2;
+                SpawnImps();
+                gameObject.SetActive(false);
+            }
         }
+    }
 
-        ++numOfTimesDamaged;
-        if (!isEnragedTimerCoroutineRunning)
-            StartCoroutine("EnragedTimer");
+    private void OnTransitionToPhase3Event()
+    {
+        gameObject.SetActive(true);
+        currentPhase = Phase.PHASE_3;
+        SetState(State.ENRAGED);
     }
     #endregion
 }

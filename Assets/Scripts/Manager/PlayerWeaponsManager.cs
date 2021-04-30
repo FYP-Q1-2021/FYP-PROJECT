@@ -169,7 +169,7 @@ public class PlayerWeaponsManager : MonoBehaviour
         UpdateWeaponSwitching();
         UpdateWeaponRecoil();
 
-        Debug.Log(FOV);
+        //Debug.Log(FOV);
         SetFOV(FOV);
         weaponParentSocket.localPosition = weaponMainLocalPosition + weaponBobLocalPosition + weaponRecoilLocalPosition;
     }
