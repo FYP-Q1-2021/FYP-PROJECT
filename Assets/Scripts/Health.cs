@@ -9,7 +9,6 @@ public class Health : MonoBehaviour
     [SerializeField] private float currentHealth = 0;
 
     [SerializeField] private bool isAPlayer;
-    private HealthBar healthBar;
 
     public event Action OnDamaged;
     public bool CanPickup;
@@ -23,9 +22,7 @@ public class Health : MonoBehaviour
         if (gameObject.GetComponent<PlayerCharacterController>())
         {
             isAPlayer = true;
-            healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
             playerCharacterController = GetComponent<PlayerCharacterController>();
-
         }
         else
         {
@@ -52,11 +49,6 @@ public class Health : MonoBehaviour
         DealDamage(damage);
 
         OnDamaged?.Invoke();
-
-        if(isAPlayer)
-        {
-            healthBar.UpdateHealthBar();
-        }
 
         if(currentHealth < 1f)
         {
