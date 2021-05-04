@@ -1185,6 +1185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4b6ccd4b0cbe34b822ab4036da5bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies: []
   goblins: []
   imps: []
   pirates: []
@@ -2362,6 +2363,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2107969523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2107969525}
+  - component: {fileID: 2107969524}
+  m_Layer: 0
+  m_Name: Chest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2107969524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107969523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d655cf02d8b20dd47aa253c54e6e5ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 4251375436020178495, guid: 2639189a3e8523846aae3310bed7198f, type: 3}
+--- !u!4 &2107969525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107969523}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &238814118345818055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2373,6 +2418,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 647281401841926172, guid: e7bf43687201a0d4cbf2e34e017fc685,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4637494889903941451, guid: e7bf43687201a0d4cbf2e34e017fc685,
         type: 3}
@@ -2388,6 +2438,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6578719900613520722, guid: e7bf43687201a0d4cbf2e34e017fc685,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6703619774786206812, guid: e7bf43687201a0d4cbf2e34e017fc685,
         type: 3}
@@ -2588,6 +2643,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pirate
       objectReference: {fileID: 0}
+    - target: {fileID: 3823441478394074413, guid: d4ddee9104c841a468342973eac1fb02,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4ddee9104c841a468342973eac1fb02, type: 3}
 --- !u!1001 &3856772996746756624
@@ -2610,7 +2670,7 @@ PrefabInstance:
     - target: {fileID: 3856772997199573025, guid: 2f999efed1466cf4f8dc753608558c91,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3856772997199573026, guid: 2f999efed1466cf4f8dc753608558c91,
         type: 3}

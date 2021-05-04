@@ -68,7 +68,6 @@ public class Health : MonoBehaviour
             // Delete enemy
             else
             {
-                DeadEnemyManager.Instance.AddToDeadEnemiesList(gameObject);
                 GetComponent<Enemy>().SetState(State.DEAD);
             }
         }
