@@ -16,7 +16,7 @@ public class ChestSpawnManager : MonoBehaviour
 
     private void OnLastEnemyDeathEvent()
     {
-        if(EnemyManager.Instance.numOfEnemies == 0)
+        if (EnemyManager.Instance.numOfEnemies == 0)
             Instantiate(item, transform.position, Quaternion.identity);
     }
 }

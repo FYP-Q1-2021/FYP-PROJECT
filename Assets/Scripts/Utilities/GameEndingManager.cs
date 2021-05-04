@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using System.Collections;
+using UnityEngine;
 
 public class GameEndingManager : MonoBehaviour
 {
@@ -22,20 +22,20 @@ public class GameEndingManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    // Need to refactor
-    void Update()
+    void Start()
     {
-        if(winEnding || loseEnding)
-        {
-            timer += fadeSpeed * Time.deltaTime;
-            endingCanvas.alpha = timer / fadeDuration;
-        }
+        player.OnDamaged += OnPlayerDeath;
+    }
 
-        if((player.GetCurrentHealth() < 1f && !loseEnding) || winEnding)
-        {
-            loseEnding = true;
-            winEnding = false;
+    void OnDisable()
+    {
+        player.OnDamaged -= OnPlayerDeath;
+    }
 
+    private void OnPlayerDeath()
+    {
+        if(player.GetCurrentHealth() < 1f)
+        {
             EnemyManager.Instance.StopAllEnemies();
 
             inGameCanvas.gameObject.SetActive(false);
@@ -43,6 +43,18 @@ public class GameEndingManager : MonoBehaviour
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
+            StartCoroutine("EndingScreen");
+        }
+    }
+
+    IEnumerator EndingScreen()
+    {
+        while(endingCanvas.alpha < 1f)
+        {
+            timer += fadeSpeed * Time.deltaTime;
+            endingCanvas.alpha = timer / fadeDuration;
+            yield return null;
         }
     }
 }

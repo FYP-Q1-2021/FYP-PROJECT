@@ -60,9 +60,6 @@ public class EnemyManager : MonoBehaviour
 
         --numOfEnemies;
 
-        // Send event for
-        // imp died to devil
-        // add to dead enemy manager (cannot)
         DeadEnemyManager.Instance.AddToDeadEnemiesList(go);
         OnEnemyDeath?.Invoke();
     }
