@@ -205,8 +205,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerupType: 0
-  powerUpStrength: 10
   powerUpDuration: 10
+  pickupVFX: {fileID: 0}
+  pickupSFX: {fileID: 0}
 --- !u!114 &5325527889178131058
 MonoBehaviour:
   m_ObjectHideFlags: 0

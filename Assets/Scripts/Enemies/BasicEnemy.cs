@@ -8,7 +8,7 @@ public class BasicEnemy : Enemy
     [Range(1, 180)]
     [SerializeField] protected float viewingAngle = 90f;
 
-    [Range(1, 10)]
+    [Range(0, 10)]
     [SerializeField] protected float idlingDuration = 5f;
     [SerializeField] protected float idlingElapsedTime = 0f;
 
