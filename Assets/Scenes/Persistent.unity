@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -761,6 +761,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee5fe52c42517e4488b18a5d74b7d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &527886750 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7464471281778866192, guid: b3c5eb9a5cb3a9d409791851d7936434,
+    type: 3}
+  m_PrefabInstance: {fileID: 527886748}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &556879378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,7 +1403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a11b756498830134c9d541081d06bb6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 527886749}
   inGameCanvas: {fileID: 923689739}
   fadeDuration: 3
   endingCanvas: {fileID: 1762199859}
@@ -2546,7 +2552,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 527886750}
     - target: {fileID: 913395294944879107, guid: b4879b3a329baca4d9c57973a0f59de2,
         type: 3}
       propertyPath: m_RootOrder
