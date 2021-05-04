@@ -2,10 +2,19 @@
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using System;
 
+/// <summary>
+/// This will always be executed first
+/// - see Script Execution Order
+/// </summary>
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager Instance { get; private set; }
+
+    [SerializeField] private List<GameObject> enemies = new List<GameObject>();
+    // TODO: Remove separate lists and change mobs tags to enemy
+
     [Header("Goblins")]
     [SerializeField] private List<GameObject> goblins = new List<GameObject>();
     [Header("Imps")]
@@ -15,7 +24,9 @@ public class EnemyManager : MonoBehaviour
     [Header("Devil")]
     [SerializeField] private GameObject devil;
 
-    [SerializeField] private int numOfEnemies;
+    public int numOfEnemies;
+
+    public event Action OnEnemyDeath;
 
     void Start()
     {
@@ -38,12 +49,6 @@ public class EnemyManager : MonoBehaviour
         DeleteDeadEnemiesAfterReload();
     }
 
-    void Update()
-    {
-        if (numOfEnemies == 0 && SceneManager.GetActiveScene().name == "TestingScene")
-            GameEndingManager.Instance.winEnding = true;
-    }
-
     public void RemoveFromList(GameObject go)
     {
         if (go.CompareTag("Goblin"))
@@ -54,6 +59,9 @@ public class EnemyManager : MonoBehaviour
             pirates.Remove(go);
 
         --numOfEnemies;
+
+        DeadEnemyManager.Instance.AddToDeadEnemiesList(go);
+        OnEnemyDeath?.Invoke();
     }
 
     // Used when player loses

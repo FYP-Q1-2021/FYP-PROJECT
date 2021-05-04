@@ -26,8 +26,7 @@ public class Imp : BasicEnemy
     {
         base.Start();
 
-
-        if (transform.parent.name == "Imps")
+        if (transform.parent != null)
             isSpawnedByDevil = true;
 
         if (isSpawnedByDevil)
