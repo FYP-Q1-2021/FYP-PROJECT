@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 181674252}
   m_Layer: 0
   m_Name: Waypoint (4)
-  m_TagString: GoblinWaypoint
+  m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -562,6 +562,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goblins: []
   imps: []
+  pirates: []
+  devil: {fileID: 0}
+  numOfEnemies: 0
 --- !u!4 &211307894
 Transform:
   m_ObjectHideFlags: 0
@@ -701,7 +704,7 @@ GameObject:
   - component: {fileID: 345631973}
   m_Layer: 0
   m_Name: Waypoint (2)
-  m_TagString: GoblinWaypoint
+  m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -791,7 +794,7 @@ GameObject:
   - component: {fileID: 525935579}
   m_Layer: 0
   m_Name: Waypoint (1)
-  m_TagString: ImpWaypoint
+  m_TagString: Untagged
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -953,7 +956,7 @@ GameObject:
   - component: {fileID: 661570496}
   m_Layer: 0
   m_Name: Waypoint (3)
-  m_TagString: ImpWaypoint
+  m_TagString: Untagged
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -983,7 +986,7 @@ GameObject:
   - component: {fileID: 742165254}
   m_Layer: 0
   m_Name: Waypoint
-  m_TagString: GoblinWaypoint
+  m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1222,7 +1225,7 @@ GameObject:
   - component: {fileID: 970921479}
   m_Layer: 0
   m_Name: Waypoint (2)
-  m_TagString: ImpWaypoint
+  m_TagString: Untagged
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1252,7 +1255,7 @@ GameObject:
   - component: {fileID: 986299259}
   m_Layer: 0
   m_Name: Waypoint (1)
-  m_TagString: GoblinWaypoint
+  m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1554,7 +1557,7 @@ GameObject:
   - component: {fileID: 1364205576}
   m_Layer: 0
   m_Name: Waypoint (3)
-  m_TagString: GoblinWaypoint
+  m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1847,7 +1850,7 @@ GameObject:
   - component: {fileID: 1639784712}
   m_Layer: 0
   m_Name: Waypoint (4)
-  m_TagString: ImpWaypoint
+  m_TagString: Untagged
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2501,7 +2504,7 @@ GameObject:
   - component: {fileID: 2052124999}
   m_Layer: 0
   m_Name: Waypoint
-  m_TagString: ImpWaypoint
+  m_TagString: Untagged
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
