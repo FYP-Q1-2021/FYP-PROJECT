@@ -13,7 +13,7 @@ public class EnemyManager : MonoBehaviour
     public static EnemyManager Instance { get; private set; }
 
     [SerializeField] private List<GameObject> enemies = new List<GameObject>();
-    // TODO: Remove separate lists
+    // TODO: Remove separate lists and change mobs tags to enemy
 
     [Header("Goblins")]
     [SerializeField] private List<GameObject> goblins = new List<GameObject>();
