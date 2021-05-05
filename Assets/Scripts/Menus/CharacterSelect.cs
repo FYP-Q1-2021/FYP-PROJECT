@@ -18,6 +18,6 @@ public class CharacterSelect : MonoBehaviour
     public void SelectCharacter()
     {
         SceneManager.LoadScene("Persistent");
-        SceneManager.LoadScene("DemoScene", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Playtest", LoadSceneMode.Additive);
     }
 }

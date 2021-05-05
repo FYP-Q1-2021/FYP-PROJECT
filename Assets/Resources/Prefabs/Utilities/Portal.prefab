@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7356573197859156991}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 15, z: 9}
+  m_LocalScale: {x: 2, y: 7, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,9 +57,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3335b8b3fb5f547910bc1b2c3d3bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rooms:
-  - DemoScene
-  - AlleywayScene
-  - 
-  - 
+  currentRoom: 
   nextRoom: 
+  spawnPointData:
+    name: 
+    position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0}
+  backToPreviousRoom: 0
