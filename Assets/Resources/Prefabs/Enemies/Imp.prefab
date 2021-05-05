@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 9134531686169463087}
   m_Layer: 9
   m_Name: Imp
-  m_TagString: Imp
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -461,7 +461,9 @@ MonoBehaviour:
   rotationSpeed: 4
   idleDuration: 6
   isSpawnedByDevil: 0
-  ejectionSpeed: 2
+  initialSpeed: 6
+  finalSpeed: 0
+  currentSpeed: 0
 --- !u!114 &9134531686169463087
 MonoBehaviour:
   m_ObjectHideFlags: 0
