@@ -2,10 +2,23 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Add rooms additively when editing
+/// </summary>
 public class Portal : MonoBehaviour
 {
     [SerializeField] string currentRoom = "";
     [SerializeField] string nextRoom = "";
+
+    [Header("Next Room")]
+    [SerializeField] bool toNextRoom;
+    [SerializeField] SpawnPointData nextRoomSpawnData;
+
+    [Header("Previous Room")]
+    [SerializeField] bool toPreviousRoom;
+    [SerializeField] SpawnPointData previousRoomSpawnData;
+
+    // TODO: Remove these
     [SerializeField] bool backToPreviousRoom;
     [SerializeField] SpawnPointData returnSpawnPointData;
 
@@ -26,6 +39,8 @@ public class Portal : MonoBehaviour
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(nextRoom, LoadSceneMode.Additive);
         while (!asyncLoad.isDone)
             yield return null;
+
+        
 
         // For portals the brings player back to previous room
         if(backToPreviousRoom)

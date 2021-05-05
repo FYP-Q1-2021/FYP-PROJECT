@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.44998842, g: 0.5000455, b: 0.57552147, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -747,10 +747,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7464471281778866188, guid: b3c5eb9a5cb3a9d409791851d7936434,
+        type: 3}
+      propertyPath: startingWeapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 6386256031896824940, guid: 39bf5ea21fc3e6e4195c5616169061ee,
+        type: 3}
     - target: {fileID: 7464471281778866192, guid: b3c5eb9a5cb3a9d409791851d7936434,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3
+      value: -18.37
       objectReference: {fileID: 0}
     - target: {fileID: 7464471281778866192, guid: b3c5eb9a5cb3a9d409791851d7936434,
         type: 3}
@@ -760,7 +766,7 @@ PrefabInstance:
     - target: {fileID: 7464471281778866192, guid: b3c5eb9a5cb3a9d409791851d7936434,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: -16.69
       objectReference: {fileID: 0}
     - target: {fileID: 7464471281778866192, guid: b3c5eb9a5cb3a9d409791851d7936434,
         type: 3}
@@ -2593,6 +2599,51 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 527886750}
+    - target: {fileID: 913395294944879106, guid: b4879b3a329baca4d9c57973a0f59de2,
+        type: 3}
+      propertyPath: spawnPoints.Array.data[1].name
+      value: Playtest3
+      objectReference: {fileID: 0}
+    - target: {fileID: 913395294944879106, guid: b4879b3a329baca4d9c57973a0f59de2,
+        type: 3}
+      propertyPath: spawnPoints.Array.data[2].name
+      value: Playtest4
+      objectReference: {fileID: 0}
+    - target: {fileID: 913395294944879106, guid: b4879b3a329baca4d9c57973a0f59de2,
+        type: 3}
+      propertyPath: spawnPoints.Array.data[1].position.x
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 913395294944879106, guid: b4879b3a329baca4d9c57973a0f59de2,
+        type: 3}
+      propertyPath: spawnPoints.Array.data[1].position.y
+      value: -1.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 913395294944879106, guid: b4879b3a329baca4d9c57973a0f59de2,
+        type: 3}
+      propertyPath: spawnPoints.Array.data[1].position.z
+      value: -16.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 913395294944879106, guid: b4879b3a329baca4d9c57973a0f59de2,
+        type: 3}
+      propertyPath: spawnPoints.Array.data[2].position.x
+      value: 7.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 913395294944879106, guid: b4879b3a329baca4d9c57973a0f59de2,
+        type: 3}
+      propertyPath: spawnPoints.Array.data[2].position.y
+      value: -1.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 913395294944879106, guid: b4879b3a329baca4d9c57973a0f59de2,
+        type: 3}
+      propertyPath: spawnPoints.Array.data[2].position.z
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 913395294944879106, guid: b4879b3a329baca4d9c57973a0f59de2,
+        type: 3}
+      propertyPath: spawnPoints.Array.data[2].rotation.y
+      value: 210
+      objectReference: {fileID: 0}
     - target: {fileID: 913395294944879107, guid: b4879b3a329baca4d9c57973a0f59de2,
         type: 3}
       propertyPath: m_RootOrder
