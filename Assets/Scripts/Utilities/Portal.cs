@@ -6,20 +6,12 @@ public class Portal : MonoBehaviour
 {
     [SerializeField] string currentRoom = "";
     [SerializeField] string nextRoom = "";
-    [SerializeField] SpawnPointData spawnPointData;
     [SerializeField] bool backToPreviousRoom;
+    [SerializeField] SpawnPointData returnSpawnPointData;
 
     void Start()
     {
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentRoom));
-
-        if(currentRoom == "Playtest")
-        {
-            PlayerSpawnManager.Instance.player.GetComponent<CharacterController>().enabled = false;
-            PlayerSpawnManager.Instance.player.gameObject.transform.position = spawnPointData.position;
-            PlayerSpawnManager.Instance.player.gameObject.transform.rotation = Quaternion.Euler(spawnPointData.rotation);
-            PlayerSpawnManager.Instance.player.GetComponent<CharacterController>().enabled = true;
-        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -39,8 +31,8 @@ public class Portal : MonoBehaviour
         if(backToPreviousRoom)
         {
             PlayerSpawnManager.Instance.player.GetComponent<CharacterController>().enabled = false;
-            PlayerSpawnManager.Instance.player.gameObject.transform.position = spawnPointData.position;
-            PlayerSpawnManager.Instance.player.gameObject.transform.rotation = Quaternion.Euler(spawnPointData.rotation);
+            PlayerSpawnManager.Instance.player.gameObject.transform.position = returnSpawnPointData.position;
+            PlayerSpawnManager.Instance.player.gameObject.transform.rotation = Quaternion.Euler(returnSpawnPointData.rotation);
             PlayerSpawnManager.Instance.player.GetComponent<CharacterController>().enabled = true;
         }
         else
