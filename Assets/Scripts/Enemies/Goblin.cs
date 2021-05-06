@@ -87,6 +87,7 @@ public class Goblin : BasicEnemy
 
                     if(canAttack)
                     {
+                        animator.SetInteger("State", (int)State.ATTACK);
                         playerHP.Damage(attackDamage);
                         canAttack = false;
                     }
@@ -132,7 +133,6 @@ public class Goblin : BasicEnemy
                 canAttack = true;
                 stateChangeBufferElapsedTime = 0f;
                 waypointsManager.enabled = false;
-                animator.SetInteger("State", (int)State.ATTACK);
                 break;
             case State.DEAD:
                 agent.isStopped = true;
