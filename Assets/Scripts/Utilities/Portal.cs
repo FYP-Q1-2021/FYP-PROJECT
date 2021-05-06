@@ -26,6 +26,8 @@ public class Portal : MonoBehaviour
 
     IEnumerator SwitchScene()
     {
+        GameEndingManager.Instance.ActivateSceneTransitionFade();
+        yield return new WaitForSeconds(GameEndingManager.Instance.sceneTransitionCanvasFadeDuration - 0.1f);
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(currentRoom));
         Resources.UnloadUnusedAssets();
         SceneManager.LoadSceneAsync(nextRoom, LoadSceneMode.Additive);
