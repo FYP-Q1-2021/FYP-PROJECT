@@ -8,6 +8,7 @@ public class PlayerSpawnManager : MonoBehaviour
     [SerializeField] public Transform player;
 
     public bool isReturning;
+    public string prevSceneName;
 
     public List<SpawnPointData> spawnPoints = new List<SpawnPointData>();
 

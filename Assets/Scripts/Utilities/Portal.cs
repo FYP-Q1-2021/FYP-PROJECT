@@ -15,7 +15,10 @@ public class Portal : MonoBehaviour
         if (!isTriggered)
         {
             if (backToPreviousRoom)
+            {
                 PlayerSpawnManager.Instance.isReturning = true;
+                PlayerSpawnManager.Instance.prevSceneName = currentRoom;
+            }
             StartCoroutine("SwitchScene");
             isTriggered = true;
         }
