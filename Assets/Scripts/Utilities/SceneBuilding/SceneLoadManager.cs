@@ -28,7 +28,7 @@ public class SceneLoadManager : MonoBehaviour
         {
             PlayerSpawnManager.Instance.isReturning = false;
 
-            if (SceneManager.GetActiveScene().name == "Playtest" || SceneManager.GetActiveScene().name == "Playtest2")
+            if (SceneManager.GetActiveScene().name == "Playtest" || SceneManager.GetActiveScene().name == "Playtest2" || SceneManager.GetActiveScene().name == "Playtest5")
             {
                 spawnLocation = GameObject.Find("PlayerReturnPoint").GetComponent<Transform>();
             }
