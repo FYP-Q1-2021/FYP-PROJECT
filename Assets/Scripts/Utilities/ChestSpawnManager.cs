@@ -2,14 +2,13 @@
 
 public class ChestSpawnManager : MonoBehaviour
 {
-    [SerializeField] private GameObject item;
-
     void Start()
     {
         EnemyManager.Instance.OnEnemyDeath += OnLastEnemyDeathEvent;
+        gameObject.SetActive(false);
     }
 
-    void OnDisable()
+    void OnDestroy()
     {
         EnemyManager.Instance.OnEnemyDeath -= OnLastEnemyDeathEvent;
     }
@@ -17,6 +16,6 @@ public class ChestSpawnManager : MonoBehaviour
     private void OnLastEnemyDeathEvent()
     {
         if (EnemyManager.Instance.numOfEnemies == 0)
-            Instantiate(item, transform.position, Quaternion.identity);
+            gameObject.SetActive(true);
     }
 }
