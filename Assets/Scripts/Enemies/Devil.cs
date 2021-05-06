@@ -240,7 +240,7 @@ public class Devil : Enemy
             GameObject imp = ImpPool.Instance.GetPooledObject();
             Vector3 impDirection = Quaternion.AngleAxis(i * angle, transform.up) * transform.forward;
             imp.GetComponent<Imp>().SetSpawnDirection(impDirection);
-            imp.transform.position = new Vector3(0, transform.position.y, 0);
+            imp.transform.position = transform.position;
         }
     }
     #endregion
