@@ -30,7 +30,8 @@ public abstract class Enemy : MonoBehaviour
 
     protected void OnDestroy()
     {
-        EnemyManager.Instance.RemoveFromList(gameObject);
+        if(EnemyManager.Instance != null)
+            EnemyManager.Instance.RemoveFromList(gameObject);
     }
 
     protected virtual void OnDrawGizmosSelected()
