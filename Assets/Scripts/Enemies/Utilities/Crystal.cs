@@ -55,11 +55,10 @@ public class Crystal : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.name == "Player")
-        {
             playerHP.Damage(projectileDamage);
-            ResetValues();
-            gameObject.SetActive(false);
-        }
+
+        ResetValues();
+        gameObject.SetActive(false);
     }
 
     void OnDrawGizmosSelected()
