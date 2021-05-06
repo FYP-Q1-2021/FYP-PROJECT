@@ -1615,12 +1615,12 @@ PrefabInstance:
     - target: {fileID: 7464471281778866192, guid: b3c5eb9a5cb3a9d409791851d7936434,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.25
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7464471281778866192, guid: b3c5eb9a5cb3a9d409791851d7936434,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15
+      value: 8.45
       objectReference: {fileID: 0}
     - target: {fileID: 7464471281778866192, guid: b3c5eb9a5cb3a9d409791851d7936434,
         type: 3}
@@ -1859,8 +1859,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 551273551}
   inGameCanvas: {fileID: 460813774}
-  fadeDuration: 3
+  endingCanvasFadeDuration: 1
   endingCanvas: {fileID: 70412706}
+  sceneTransitionCanvas: {fileID: 0}
+  sceneTransitionCanvasFadeDuration: 1
   winEnding: 0
   loseEnding: 0
 --- !u!4 &831792312
