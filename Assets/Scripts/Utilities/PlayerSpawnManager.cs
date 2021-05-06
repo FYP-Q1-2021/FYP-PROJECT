@@ -6,6 +6,9 @@ public class PlayerSpawnManager : MonoBehaviour
     public static PlayerSpawnManager Instance { get; private set; }
 
     [SerializeField] public Transform player;
+
+    public bool isReturning;
+
     public List<SpawnPointData> spawnPoints = new List<SpawnPointData>();
 
     void Awake()
