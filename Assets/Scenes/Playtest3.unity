@@ -206,6 +206,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 26b7d2cc55c151943a1307704c80f1c8,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 26b7d2cc55c151943a1307704c80f1c8,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
@@ -1891,6 +1896,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblin (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4981814307115597038, guid: e7bf43687201a0d4cbf2e34e017fc685,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6703619774786206812, guid: e7bf43687201a0d4cbf2e34e017fc685,
         type: 3}
       propertyPath: waypoints.Array.size
@@ -2668,6 +2678,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 26b7d2cc55c151943a1307704c80f1c8,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 26b7d2cc55c151943a1307704c80f1c8,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
@@ -2790,6 +2805,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: crate 2 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 26b7d2cc55c151943a1307704c80f1c8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 26b7d2cc55c151943a1307704c80f1c8,
         type: 3}
@@ -2962,6 +2982,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Goblin (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981814307115597038, guid: e7bf43687201a0d4cbf2e34e017fc685,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6703619774786206812, guid: e7bf43687201a0d4cbf2e34e017fc685,
         type: 3}
@@ -3441,6 +3466,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: crate 2 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 26b7d2cc55c151943a1307704c80f1c8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 26b7d2cc55c151943a1307704c80f1c8,
         type: 3}
@@ -5217,6 +5247,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 26b7d2cc55c151943a1307704c80f1c8,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 26b7d2cc55c151943a1307704c80f1c8,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
@@ -5259,12 +5294,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1296611122}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Script: {fileID: 11500000, guid: d655cf02d8b20dd47aa253c54e6e5ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyedLifetime: 3
-  CutCascades: 1
-  ExplodeForce: 500
+  radius: 5
+  item: {fileID: 4251375436020178495, guid: 2639189a3e8523846aae3310bed7198f, type: 3}
 --- !u!1001 &1299608892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5495,7 +5529,7 @@ PrefabInstance:
     - target: {fileID: 4931111526336227919, guid: 0884dc03f0d159f4abe1c19e208c18fd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4931111526336227919, guid: 0884dc03f0d159f4abe1c19e208c18fd,
         type: 3}
@@ -7068,6 +7102,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblin (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4981814307115597038, guid: e7bf43687201a0d4cbf2e34e017fc685,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6703619774786206812, guid: e7bf43687201a0d4cbf2e34e017fc685,
         type: 3}
       propertyPath: waypoints.Array.size
@@ -7830,6 +7869,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: crate 2 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 26b7d2cc55c151943a1307704c80f1c8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 26b7d2cc55c151943a1307704c80f1c8,
         type: 3}
