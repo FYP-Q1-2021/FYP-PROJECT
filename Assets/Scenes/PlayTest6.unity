@@ -921,6 +921,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: -0.014, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &240191379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240191377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &261026839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3317,6 +3332,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: -0.014, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &524071627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524071625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1 &552206232 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cd7628170a6d0bc4795e93335749e53b,
@@ -3339,6 +3369,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: -0.014, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &552206234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552206232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1 &581451992 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c32dccfe5a9efe14087cfae1d8a313d8,
@@ -3361,6 +3406,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &581451994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581451992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1 &706295328
 GameObject:
   m_ObjectHideFlags: 0
@@ -4839,6 +4899,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: -0.014, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1385007873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385007871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &1396524417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5390,6 +5465,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1589214749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589214747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &1591680496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5972,6 +6062,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.012, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1722748097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722748095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &1743521370
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -518,6 +518,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.002, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &130456547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130456545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1 &147269185
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,6 +974,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.002, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &348688738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348688736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &353109605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1572,6 +1602,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &509896633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509896631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &525883539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1673,6 +1718,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.002, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &527631072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527631070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1 &531007308
 GameObject:
   m_ObjectHideFlags: 0
@@ -2911,6 +2971,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: -0.014, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &771757698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771757696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &775659957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4241,6 +4316,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &946820398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946820396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &1011780389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4637,6 +4727,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.002, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1060250436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060250434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &1092337678
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4728,6 +4833,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.002, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1099052320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099052318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &1107478010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5024,6 +5144,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1116165700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116165698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &1127645031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5130,6 +5265,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: -0.014, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1131559189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131559187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &1142952610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5247,6 +5397,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1162132806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162132804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1 &1273395058
 GameObject:
   m_ObjectHideFlags: 0
@@ -5389,6 +5554,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.012, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1296611124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296611122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &1299608892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6590,6 +6770,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.002, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1481145282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481145280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1 &1483630102 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f3313b124d526db45af943a4edb4367f,
@@ -6612,6 +6807,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1483630104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483630102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1 &1520645365
 GameObject:
   m_ObjectHideFlags: 0
@@ -6686,6 +6896,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.002, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1523350584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523350582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &1542554192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6777,6 +7002,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1548906383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548906381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &1549444850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7345,6 +7585,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.002, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1610309672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610309670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &1619559012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7557,6 +7812,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.002, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1683115524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683115522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1 &1723100539
 GameObject:
   m_ObjectHideFlags: 0
@@ -7688,6 +7958,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: -0.014, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1750980224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750980222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &1759783335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8105,6 +8390,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.002, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1902041766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902041764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &1907053960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8337,6 +8637,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.002, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1980406276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980406274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &1998070166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8893,6 +9208,21 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: -0.014, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &2047276071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047276069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98f7c2f298d214fb3ac05545fa8407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyedLifetime: 3
+  CutCascades: 1
+  ExplodeForce: 500
 --- !u!1001 &2051284239
 PrefabInstance:
   m_ObjectHideFlags: 0

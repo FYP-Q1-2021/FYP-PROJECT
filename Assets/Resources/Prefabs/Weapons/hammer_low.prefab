@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9590a41bd4bc6284392208b852bed451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: 
+  weaponName: Hammer
   weaponIcon: {fileID: 0}
   WeaponMuzzle: {fileID: 7008455512262875892, guid: 39bf5ea21fc3e6e4195c5616169061ee,
     type: 3}
@@ -133,8 +133,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   defaultArrowPosition: {fileID: 0}
   finalArrowPosition: {fileID: 0}
-  weaponRoot: {fileID: 919132149155446097, guid: 4802a09c5b1f548488e14fb3089625f0,
-    type: 3}
+  weaponRoot: {fileID: 6118187094351150361}
   weaponType: 1
   anim: {fileID: -6662946958168982540}
   clip: {fileID: 0}

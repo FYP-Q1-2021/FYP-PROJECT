@@ -310,6 +310,8 @@ public class PlayerWeaponsManager : MonoBehaviour
                 }
                 
                 activeWeaponIndex = weaponSwitchNewWeaponIndex;
+                Debug.Log(weaponSwitchNewWeaponIndex);
+
                 switchingTimeFactor = 0f;
                 // Activate new weapon
                 WeaponController newWeapon = GetWeaponAtIndex(activeWeaponIndex);

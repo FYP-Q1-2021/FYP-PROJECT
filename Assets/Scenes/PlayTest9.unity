@@ -779,10 +779,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7464471281699851395, guid: b3c5eb9a5cb3a9d409791851d7936434,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.376
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464471281699851395, guid: b3c5eb9a5cb3a9d409791851d7936434,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.544
+      objectReference: {fileID: 0}
     - target: {fileID: 7464471281778866184, guid: b3c5eb9a5cb3a9d409791851d7936434,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464471281778866188, guid: b3c5eb9a5cb3a9d409791851d7936434,
+        type: 3}
+      propertyPath: startingWeapons.Array.data[1]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7464471281778866190, guid: b3c5eb9a5cb3a9d409791851d7936434,
         type: 3}
