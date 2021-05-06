@@ -28,13 +28,10 @@ public class SceneLoadManager : MonoBehaviour
         {
             PlayerSpawnManager.Instance.isReturning = false;
 
-            if (SceneManager.GetActiveScene().name == "Playtest" || SceneManager.GetActiveScene().name == "Playtest2" || SceneManager.GetActiveScene().name == "Playtest5")
+
+            if (SceneManager.GetActiveScene().name == "Playtest3")
             {
-                spawnLocation = GameObject.Find("PlayerReturnPoint").GetComponent<Transform>();
-            }
-            else if (SceneManager.GetActiveScene().name == "Playtest3")
-            {
-                if(PlayerSpawnManager.Instance.prevSceneName == "Playtest4")
+                if (PlayerSpawnManager.Instance.prevSceneName == "Playtest4")
                     spawnLocation = GameObject.Find("PlayerReturnPoint4").GetComponent<Transform>();
                 else if (PlayerSpawnManager.Instance.prevSceneName == "Playtest5")
                     spawnLocation = GameObject.Find("PlayerReturnPoint5").GetComponent<Transform>();
@@ -45,7 +42,7 @@ public class SceneLoadManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Incorrect scene name");
+                spawnLocation = GameObject.Find("PlayerReturnPoint").GetComponent<Transform>();
             }
         }
 
