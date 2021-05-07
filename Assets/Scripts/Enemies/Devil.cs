@@ -132,8 +132,15 @@ public class Devil : Enemy
                 }
                 break;
             case State.ENRAGED:
-                if (!isMultipleEruptionsCoroutineRunning)
-                    StartCoroutine("MultipleRandomGeyserAttack");
+                {
+                    if (!isMultipleEruptionsCoroutineRunning)
+                        StartCoroutine("MultipleRandomGeyserAttack");
+                }
+                break;
+            case State.DEAD:
+                {
+                    Destroy(gameObject);
+                }
                 break;
         }
     }
@@ -176,8 +183,8 @@ public class Devil : Enemy
                 yield return null;
             }
 
-            float x = UnityEngine.Random.Range(-rangedAttackRange, rangedAttackRange);
-            float z = UnityEngine.Random.Range(-rangedAttackRange, rangedAttackRange);
+            float x = UnityEngine.Random.Range(eruptionYCoord.position.x - rangedAttackRange, eruptionYCoord.position.x + rangedAttackRange);
+            float z = UnityEngine.Random.Range(eruptionYCoord.position.z - rangedAttackRange, eruptionYCoord.position.z + rangedAttackRange);
 
             // Check the location of where the spell would be cast
             // Find another position if there is already a spell near it
@@ -198,7 +205,7 @@ public class Devil : Enemy
 
             GameObject geyser = GeyserPool.Instance.GetPooledObject();
             if (geyser)
-                geyser.transform.position = new Vector3(x, geyser.transform.position.y, z);
+                geyser.transform.position = new Vector3(x, eruptionYCoord.position.y, z);
 
             // Reset timer only if a geyser is spawned successfully
             timeBetweenEachEruptionTimer = 0f;
