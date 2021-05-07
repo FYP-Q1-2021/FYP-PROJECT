@@ -38,7 +38,7 @@ public class MeshDestroy : MonoBehaviour
 
     }
 
-    private void DestroyMesh()
+    public void DestroyMesh()
     {
         alreadyHit = true; 
         var originalMesh = GetComponent<MeshFilter>().mesh;

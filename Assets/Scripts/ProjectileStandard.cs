@@ -236,6 +236,12 @@ public class ProjectileStandard : MonoBehaviour
 
                 hitbox.InflictDamage(damage);
             }
+            MeshDestroy dest = collider.gameObject.GetComponent<MeshDestroy>();
+            if(dest)
+            {
+                Debug.Log("Projectile Hit Destroyable : ProjectileStandard");
+                dest.DestroyMesh();
+            }
         }
 
         // Self Destruct
