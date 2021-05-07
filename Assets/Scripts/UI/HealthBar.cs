@@ -15,7 +15,7 @@ public class HealthBar : MonoBehaviour
         health.OnDamaged += UpdateHealthBar;
     }
 
-    private void OnDisable()
+    void OnDestroy()
     {
         health.OnDamaged -= UpdateHealthBar;
     }

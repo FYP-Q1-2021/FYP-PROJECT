@@ -216,7 +216,7 @@ public class Devil : Enemy
         if (currentPhase == Phase.PHASE_3)
         {
             health.OnDamaged -= OnDamagedEvent;
-            transitionManager.OnTransitionToPhase3 += OnTransitionToPhase3Event;
+            transitionManager.OnTransitionToPhase3 -= OnTransitionToPhase3Event;
         }
     }
     #endregion
