@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using System;
 
 public class GoblinAnimationEvents : MonoBehaviour
 {
     private Animator animator;
+    public event Action OnLastAttackFrame;
 
     void Start()
     {
@@ -11,6 +13,7 @@ public class GoblinAnimationEvents : MonoBehaviour
 
     public void StopAttackAnimation()
     {
+        OnLastAttackFrame?.Invoke();
         animator.SetInteger("State", (int)State.PATROL);
     }
 }
