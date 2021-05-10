@@ -26,8 +26,7 @@ public class WeaponController : MonoBehaviour
     [Tooltip("The projectile prefab")]
     public Projectile ProjectilePrefab;
     public ProjectileStandard projectile;
-    public GameObject defaultArrowPosition;
-    public GameObject finalArrowPosition;
+    public Camera PlayerCamera;
 
     [Tooltip("The parent of the entire weapon")]
     public GameObject weaponRoot;
@@ -128,6 +127,7 @@ public class WeaponController : MonoBehaviour
     AudioSource m_ShootAudioSource;
     bool isAttacking;
     int comboStep;
+    Vector3 shotDirection;
     // Start is called before the first frame update
     void Start()
     {
@@ -136,6 +136,7 @@ public class WeaponController : MonoBehaviour
         inputHandler = GameObject.Find("Player").GetComponent<InputHandler>();
         playerWeaponsManager = GameObject.Find("Player").GetComponent<PlayerWeaponsManager>();
         playerCharacterController = GameObject.Find("Player").GetComponent<PlayerCharacterController>();
+        PlayerCamera = GameObject.Find("PlayerCamera").GetComponent<Camera>();
         weaponCollider = GetComponent<BoxCollider>();
         anim = GetComponent<Animator>();
         m_CurrentAmmo = MaxAmmo;
@@ -158,7 +159,17 @@ public class WeaponController : MonoBehaviour
         }
 
         BuffCheck();
-        
+        var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f));
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        {
+            // Get Shoot Direction
+            // A to B . normalize
+            Debug.Log(hit.point);
+            Debug.DrawRay(ray.origin, ray.direction * 10000f, Color.green);
+
+        }
     }
 
     void BuffCheck()
@@ -170,18 +181,7 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    public bool TryShoot()
-    {
-       
-        if (m_CurrentAmmo >= 1f && m_LastTimeShot + delayBetweenShots < Time.time)
-        {
-            m_CurrentAmmo -= 1f;
-            HandleShoot();
-            
-            return true;
-        }
-        return false;
-    }
+
 
     void UpdateWeaponSway()
     {
@@ -387,9 +387,34 @@ public class WeaponController : MonoBehaviour
         return spreadWorldDirection;
     }
 
+    public bool TryShoot()
+    {
+
+        if (m_CurrentAmmo >= 1f && m_LastTimeShot + delayBetweenShots < Time.time)
+        {
+            m_CurrentAmmo -= 1f;
+            HandleShoot();
+
+            return true;
+        }
+        return false;
+    }
+
     void HandleShoot()
     {
         int bulletsPerShotFinal = bulletsPerShot;
+        
+        var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f));
+        RaycastHit hit;
+        
+        if(Physics.Raycast(ray, out hit, Mathf.Infinity))
+        {
+            // Get Shoot Direction
+            // A to B . normalize
+            shotDirection = hit.point - WeaponMuzzle.transform.position;
+
+        }
+           
 
         // muzzle flash
         if (MuzzleFlashPrefab != null)
@@ -414,7 +439,10 @@ public class WeaponController : MonoBehaviour
         // spawn all bullets with random direction
         for (int i = 0; i < bulletsPerShotFinal; i++)
         {
-            Vector3 shotDirection = GetShotDirectionWithinSpread(WeaponMuzzle);
+            if (shotDirection == Vector3.zero)
+            {
+                shotDirection = GetShotDirectionWithinSpread(WeaponMuzzle);
+            }
             Projectile newProjectile = Instantiate(ProjectilePrefab, WeaponMuzzle.position,
                 Quaternion.LookRotation(shotDirection));
             m_LastTimeShot = Time.time;
