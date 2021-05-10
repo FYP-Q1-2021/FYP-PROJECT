@@ -5,6 +5,7 @@ public class Goblin : BasicEnemy
 {
     private NavMeshAgent agent;
     private WaypointsManager waypointsManager;
+    private GoblinAnimationEvents goblinAnimationEvents;
 
     protected override void Start()
     {
@@ -12,6 +13,9 @@ public class Goblin : BasicEnemy
         agent = GetComponent<NavMeshAgent>();
         waypointsManager = GetComponent<WaypointsManager>();
         SetState(State.PATROL);
+
+        goblinAnimationEvents = GetComponentInChildren<GoblinAnimationEvents>();
+        goblinAnimationEvents.OnLastAttackFrame += OnLastAttackAnimationFrameEvent;
     }
 
     protected override void Update()
@@ -88,7 +92,6 @@ public class Goblin : BasicEnemy
                     if(canAttack)
                     {
                         animator.SetInteger("State", (int)State.ATTACK);
-                        playerHP.Damage(attackDamage);
                         canAttack = false;
                     }
                     else
@@ -160,4 +163,16 @@ public class Goblin : BasicEnemy
         Gizmos.color = attackRangeColor;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
+
+    void OnDisable()
+    {
+        goblinAnimationEvents.OnLastAttackFrame -= OnLastAttackAnimationFrameEvent;
+    }
+
+    #region Events
+    private void OnLastAttackAnimationFrameEvent()
+    {
+        playerHP.Damage(attackDamage);
+    }
+    #endregion
 }
