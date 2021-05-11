@@ -220,6 +220,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 26b7d2cc55c151943a1307704c80f1c8,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b7d2cc55c151943a1307704c80f1c8, type: 3}
 --- !u!4 &32706318 stripped
@@ -424,6 +429,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &130456548
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130456545}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &130456549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130456545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &130456550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130456545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &147269185
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,6 +991,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: f3313b124d526db45af943a4edb4367f,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3313b124d526db45af943a4edb4367f, type: 3}
 --- !u!4 &328562520 stripped
@@ -1066,6 +1125,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &348688739
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348688736}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &348688740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348688736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &348688741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348688736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &353109605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1152,6 +1260,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 14a6d4c61cc182744867d4725f91801f,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14a6d4c61cc182744867d4725f91801f, type: 3}
@@ -1456,6 +1569,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: f3313b124d526db45af943a4edb4367f,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3313b124d526db45af943a4edb4367f, type: 3}
 --- !u!4 &474094148 stripped
@@ -1580,6 +1698,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &509896634
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509896631}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &509896635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509896631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &509896636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509896631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &525883539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1696,6 +1863,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &527631073
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527631070}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &527631074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527631070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &527631075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527631070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &531007308
 GameObject:
   m_ObjectHideFlags: 0
@@ -2089,6 +2305,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 26b7d2cc55c151943a1307704c80f1c8,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b7d2cc55c151943a1307704c80f1c8, type: 3}
 --- !u!4 &616678000 stripped
@@ -2289,6 +2510,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: f3313b124d526db45af943a4edb4367f,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3313b124d526db45af943a4edb4367f, type: 3}
@@ -2742,6 +2968,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 26b7d2cc55c151943a1307704c80f1c8,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b7d2cc55c151943a1307704c80f1c8, type: 3}
 --- !u!4 &741123139 stripped
@@ -2871,6 +3102,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 26b7d2cc55c151943a1307704c80f1c8,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b7d2cc55c151943a1307704c80f1c8, type: 3}
@@ -3022,6 +3258,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &771757699
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771757696}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &771757700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771757696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &771757701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771757696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &775659957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3303,6 +3588,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: f3313b124d526db45af943a4edb4367f,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3313b124d526db45af943a4edb4367f, type: 3}
 --- !u!4 &816513184 stripped
@@ -3432,6 +3722,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 26b7d2cc55c151943a1307704c80f1c8,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b7d2cc55c151943a1307704c80f1c8, type: 3}
@@ -3763,6 +4058,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &946820399
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946820396}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &946820400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946820396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &946820401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946820396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &957668203 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b36c161f86f04f0468d8a6afcd9fe4d4,
@@ -4063,6 +4407,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &1060250437
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060250434}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1060250438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060250434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1060250439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060250434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1092337678
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4179,6 +4572,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &1099052321
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099052318}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1099052322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099052318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1099052323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099052318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1107478010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4420,6 +4862,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &1116165701
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116165698}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1116165702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116165698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1116165703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116165698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1126690961
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4661,6 +5152,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &1131559190
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131559187}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1131559191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131559187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1131559192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131559187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &1162132804 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f3313b124d526db45af943a4edb4367f,
@@ -4698,6 +5238,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &1162132807
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162132804}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1162132808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162132804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1162132809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162132804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &1224839937
 GameObject:
   m_ObjectHideFlags: 0
@@ -4913,6 +5502,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 26b7d2cc55c151943a1307704c80f1c8,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b7d2cc55c151943a1307704c80f1c8, type: 3}
 --- !u!4 &1274695289 stripped
@@ -5110,6 +5704,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 5
   item: {fileID: 4251375436020178495, guid: 2639189a3e8523846aae3310bed7198f, type: 3}
+--- !u!54 &1296611125
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296611122}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1296611126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296611122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1296611127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296611122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1299608892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5317,6 +5960,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 26b7d2cc55c151943a1307704c80f1c8,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b7d2cc55c151943a1307704c80f1c8, type: 3}
 --- !u!4 &1307056074 stripped
@@ -5497,6 +6145,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: f3313b124d526db45af943a4edb4367f,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3313b124d526db45af943a4edb4367f, type: 3}
 --- !u!4 &1344825184 stripped
@@ -5591,6 +6244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: cd7628170a6d0bc4795e93335749e53b,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd7628170a6d0bc4795e93335749e53b, type: 3}
@@ -5880,6 +6538,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: cd7628170a6d0bc4795e93335749e53b,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd7628170a6d0bc4795e93335749e53b, type: 3}
 --- !u!4 &1406617736 stripped
@@ -6083,6 +6746,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &1481145283
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481145280}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1481145284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481145280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1481145285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481145280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &1483630102 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f3313b124d526db45af943a4edb4367f,
@@ -6120,6 +6832,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &1483630105
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483630102}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1483630106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483630102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1483630107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483630102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &1503409195 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b36c161f86f04f0468d8a6afcd9fe4d4,
@@ -6227,6 +6988,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &1523350585
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523350582}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1523350586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523350582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1523350587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523350582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &1538675475 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b36c161f86f04f0468d8a6afcd9fe4d4,
@@ -6345,6 +7155,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &1548906384
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548906381}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1548906385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548906381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1548906386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548906381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1549444850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6758,6 +7617,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &1610309673
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610309670}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1610309674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610309670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1610309675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610309670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1673918536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6879,6 +7787,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &1683115525
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683115522}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1683115526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683115522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1683115527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683115522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &1723100539
 GameObject:
   m_ObjectHideFlags: 0
@@ -7031,6 +7988,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &1750980225
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750980222}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1750980226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750980222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1750980227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750980222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1759783335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7117,6 +8123,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 26b7d2cc55c151943a1307704c80f1c8,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b7d2cc55c151943a1307704c80f1c8, type: 3}
@@ -7302,6 +8313,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 26b7d2cc55c151943a1307704c80f1c8,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b7d2cc55c151943a1307704c80f1c8, type: 3}
 --- !u!4 &1822464205 stripped
@@ -7481,6 +8497,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: cd7628170a6d0bc4795e93335749e53b,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd7628170a6d0bc4795e93335749e53b, type: 3}
 --- !u!4 &1838359367 stripped
@@ -7652,6 +8673,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &1902041767
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902041764}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1902041768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902041764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1902041769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902041764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1907053960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7738,6 +8808,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: cd7628170a6d0bc4795e93335749e53b,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd7628170a6d0bc4795e93335749e53b, type: 3}
@@ -7918,6 +8993,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 26b7d2cc55c151943a1307704c80f1c8,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b7d2cc55c151943a1307704c80f1c8, type: 3}
 --- !u!4 &1937844463 stripped
@@ -8083,6 +9163,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &1980406277
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980406274}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1980406278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980406274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1980406279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980406274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1983815365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8333,6 +9462,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 26b7d2cc55c151943a1307704c80f1c8,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26b7d2cc55c151943a1307704c80f1c8, type: 3}
 --- !u!4 &2021473776 stripped
@@ -8512,6 +9646,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: f3313b124d526db45af943a4edb4367f,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3313b124d526db45af943a4edb4367f, type: 3}
 --- !u!4 &2043070446 stripped
@@ -8557,6 +9696,55 @@ MonoBehaviour:
   DestroyedLifetime: 3
   CutCascades: 1
   ExplodeForce: 500
+--- !u!54 &2047276072
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047276069}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &2047276073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047276069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2047276074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047276069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &2072848675
 PrefabInstance:
   m_ObjectHideFlags: 0
