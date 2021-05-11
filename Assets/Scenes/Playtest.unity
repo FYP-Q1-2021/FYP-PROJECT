@@ -170,6 +170,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8253072800915915815, guid: 9376b002d07451a488668ee940418753, type: 3}
+--- !u!114 &920212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &7232466 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 81ee868ad374da84491e6af986837898,
@@ -447,6 +468,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 0cad461d919b68a449ef5ae6b76d19c3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cad461d919b68a449ef5ae6b76d19c3, type: 3}
 --- !u!1001 &27850729
@@ -675,6 +701,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8253072800915915815, guid: 9376b002d07451a488668ee940418753, type: 3}
+--- !u!114 &63318049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63318042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &64664783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1217,6 +1264,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8253072800915915815, guid: 9376b002d07451a488668ee940418753, type: 3}
+--- !u!114 &71663029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71663022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &81089711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1592,6 +1660,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 35806133c92615b4294352911a0772c1,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35806133c92615b4294352911a0772c1, type: 3}
 --- !u!1 &113825907 stripped
@@ -1642,6 +1715,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 206764301276716812, guid: 35806133c92615b4294352911a0772c1, type: 3}
+--- !u!114 &113825914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113825907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &116607973 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b3b156de9f0aa3e449fa7ba40ce445b2,
@@ -2069,6 +2163,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &140635916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140635909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &142766583 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 18dfedff9549f7a4ea320f32319cbde3,
@@ -2117,6 +2232,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &142766590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142766583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &144553155 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0cad461d919b68a449ef5ae6b76d19c3,
@@ -2216,6 +2352,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 0cad461d919b68a449ef5ae6b76d19c3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cad461d919b68a449ef5ae6b76d19c3, type: 3}
 --- !u!4 &150218979 stripped
@@ -2278,6 +2419,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4376704773820688008, guid: 18dfedff9549f7a4ea320f32319cbde3, type: 3}
+--- !u!114 &157080037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157080030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &157190290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 35806133c92615b4294352911a0772c1,
@@ -2318,6 +2480,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &158838064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158838061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!114 &158838067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2333,6 +2516,27 @@ MonoBehaviour:
   DestroyedLifetime: 1
   CutCascades: 1
   ExplodeForce: 1
+--- !u!114 &158838069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158838061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &171545234 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 35806133c92615b4294352911a0772c1,
@@ -2381,6 +2585,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 206764301276716812, guid: 35806133c92615b4294352911a0772c1, type: 3}
+--- !u!114 &171545241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171545234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &175964446 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 35806133c92615b4294352911a0772c1,
@@ -2835,6 +3060,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &194000274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194000271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!114 &194000277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2904,6 +3150,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &195160555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195160548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &197164531 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9376b002d07451a488668ee940418753,
@@ -3003,6 +3270,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 18dfedff9549f7a4ea320f32319cbde3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18dfedff9549f7a4ea320f32319cbde3, type: 3}
 --- !u!4 &199215496 stripped
@@ -3077,6 +3349,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &225414162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225414155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &244176481 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5be43e947b0373e43b902a810fc9ce89,
@@ -3170,6 +3463,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 18dfedff9549f7a4ea320f32319cbde3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18dfedff9549f7a4ea320f32319cbde3, type: 3}
 --- !u!1 &259013556 stripped
@@ -3220,6 +3518,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8253072800915915815, guid: 9376b002d07451a488668ee940418753, type: 3}
+--- !u!114 &259013563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259013556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &262637215 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 18dfedff9549f7a4ea320f32319cbde3,
@@ -3490,6 +3809,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 206764301276716812, guid: 35806133c92615b4294352911a0772c1, type: 3}
+--- !u!114 &303933974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303933967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &304244789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3576,6 +3916,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 35806133c92615b4294352911a0772c1,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35806133c92615b4294352911a0772c1, type: 3}
@@ -3813,6 +4158,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &337765023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337765020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!114 &337765026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3828,6 +4194,27 @@ MonoBehaviour:
   DestroyedLifetime: 1
   CutCascades: 1
   ExplodeForce: 1
+--- !u!114 &337765028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337765020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &339260062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 35806133c92615b4294352911a0772c1,
@@ -3852,6 +4239,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &340876543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340876541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!54 &340876545
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3895,6 +4303,27 @@ MonoBehaviour:
   DestroyedLifetime: 1
   CutCascades: 1
   ExplodeForce: 1
+--- !u!114 &340876550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340876541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &351146019 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 45d586827970da8428b26c0805ad4cff,
@@ -4308,6 +4737,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 9376b002d07451a488668ee940418753,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9376b002d07451a488668ee940418753, type: 3}
 --- !u!1001 &402000094
@@ -4457,12 +4891,54 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8253072800915915815, guid: 9376b002d07451a488668ee940418753, type: 3}
+--- !u!114 &402191488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402191481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &402924402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cd7628170a6d0bc4795e93335749e53b,
     type: 3}
   m_PrefabInstance: {fileID: 545525889}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &402924403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402924402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!54 &402924406
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4892,6 +5368,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &448863405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448863398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &466615641 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9376b002d07451a488668ee940418753,
@@ -5135,6 +5632,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 206764301276716812, guid: 35806133c92615b4294352911a0772c1, type: 3}
+--- !u!114 &486710493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486710486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &489649613
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5842,6 +6360,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 18dfedff9549f7a4ea320f32319cbde3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18dfedff9549f7a4ea320f32319cbde3, type: 3}
 --- !u!1001 &611332518
@@ -6056,6 +6579,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 0cad461d919b68a449ef5ae6b76d19c3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cad461d919b68a449ef5ae6b76d19c3, type: 3}
 --- !u!1001 &644454649
@@ -6145,6 +6673,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 0cad461d919b68a449ef5ae6b76d19c3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cad461d919b68a449ef5ae6b76d19c3, type: 3}
 --- !u!4 &654072403 stripped
@@ -6213,6 +6746,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &718736400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718736393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &730052798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6350,6 +6904,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &731770420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731770413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &732627224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6492,6 +7067,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &748877784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748877777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &759841862 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 18dfedff9549f7a4ea320f32319cbde3,
@@ -6552,6 +7148,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &769303300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769303293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &771678594 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 18dfedff9549f7a4ea320f32319cbde3,
@@ -6600,6 +7217,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &771678601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771678594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &775350372
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6776,6 +7414,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 9376b002d07451a488668ee940418753,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9376b002d07451a488668ee940418753, type: 3}
 --- !u!1 &779627338 stripped
@@ -6826,6 +7469,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &779627345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779627338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &794618996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7fcac266bdf4b8b4dbd4639473a90f67,
@@ -7055,6 +7719,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &809345557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809345551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &810263100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7210,6 +7895,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &853173638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853173631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &868265116 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 18dfedff9549f7a4ea320f32319cbde3,
@@ -7404,6 +8110,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 18dfedff9549f7a4ea320f32319cbde3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18dfedff9549f7a4ea320f32319cbde3, type: 3}
 --- !u!1001 &926923770
@@ -7549,6 +8260,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1116444134294172880, guid: 0cad461d919b68a449ef5ae6b76d19c3, type: 3}
+--- !u!114 &948616249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948616242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &952742232 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 35806133c92615b4294352911a0772c1,
@@ -7741,6 +8473,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 18dfedff9549f7a4ea320f32319cbde3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18dfedff9549f7a4ea320f32319cbde3, type: 3}
 --- !u!4 &958204342 stripped
@@ -7797,6 +8534,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &958726417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958726410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &959141668 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 18dfedff9549f7a4ea320f32319cbde3,
@@ -7845,6 +8603,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &959141675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959141668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &966422373 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9376b002d07451a488668ee940418753,
@@ -7893,6 +8672,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &966422380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966422373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &968669027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8164,6 +8964,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 0cad461d919b68a449ef5ae6b76d19c3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cad461d919b68a449ef5ae6b76d19c3, type: 3}
 --- !u!1 &972685480
@@ -8316,6 +9121,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 18dfedff9549f7a4ea320f32319cbde3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18dfedff9549f7a4ea320f32319cbde3, type: 3}
@@ -8494,6 +9304,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 18dfedff9549f7a4ea320f32319cbde3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18dfedff9549f7a4ea320f32319cbde3, type: 3}
@@ -8768,6 +9583,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1116444134294172880, guid: 0cad461d919b68a449ef5ae6b76d19c3, type: 3}
+--- !u!114 &1055081740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055081733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &1055220702 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 18dfedff9549f7a4ea320f32319cbde3,
@@ -8816,6 +9652,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1055220709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055220702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &1060781572 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 35806133c92615b4294352911a0772c1,
@@ -8864,6 +9721,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1060781579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060781572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1069273315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9045,6 +9923,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 35806133c92615b4294352911a0772c1,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35806133c92615b4294352911a0772c1, type: 3}
 --- !u!4 &1102379722 stripped
@@ -9101,6 +9984,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1105632953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105632946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &1106558183 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 35806133c92615b4294352911a0772c1,
@@ -9155,6 +10059,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8253072800915915815, guid: 9376b002d07451a488668ee940418753, type: 3}
+--- !u!114 &1110484105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110484098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1111234810
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9241,6 +10166,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 35806133c92615b4294352911a0772c1,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35806133c92615b4294352911a0772c1, type: 3}
@@ -9381,6 +10311,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8253072800915915815, guid: 9376b002d07451a488668ee940418753, type: 3}
+--- !u!114 &1119264722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119264715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &1121416475 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5be43e947b0373e43b902a810fc9ce89,
@@ -9441,6 +10392,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 206764301276716812, guid: 35806133c92615b4294352911a0772c1, type: 3}
+--- !u!114 &1128181462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128181455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1132839352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9578,6 +10550,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1116444134294172880, guid: 0cad461d919b68a449ef5ae6b76d19c3, type: 3}
+--- !u!114 &1133429207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133429200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1139340177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9764,6 +10757,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 0cad461d919b68a449ef5ae6b76d19c3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cad461d919b68a449ef5ae6b76d19c3, type: 3}
 --- !u!1 &1151813643 stripped
@@ -9814,6 +10812,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1151813650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151813643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &1154151577 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cd7628170a6d0bc4795e93335749e53b,
@@ -9868,6 +10887,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8253072800915915815, guid: 9376b002d07451a488668ee940418753, type: 3}
+--- !u!114 &1155402461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155402454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1165026372
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9955,6 +10995,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 18dfedff9549f7a4ea320f32319cbde3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18dfedff9549f7a4ea320f32319cbde3, type: 3}
 --- !u!1 &1166825354 stripped
@@ -9991,6 +11036,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1166825360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166825354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1168206369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10138,6 +11204,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 206764301276716812, guid: 35806133c92615b4294352911a0772c1, type: 3}
+--- !u!114 &1186271761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186271754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1188706002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10325,6 +11412,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 0cad461d919b68a449ef5ae6b76d19c3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cad461d919b68a449ef5ae6b76d19c3, type: 3}
 --- !u!1001 &1195326711
@@ -10464,6 +11556,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1200918666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200918659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &1204925481 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9376b002d07451a488668ee940418753,
@@ -10512,6 +11625,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8253072800915915815, guid: 9376b002d07451a488668ee940418753, type: 3}
+--- !u!114 &1204925488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204925481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &1218350733 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 18dfedff9549f7a4ea320f32319cbde3,
@@ -10560,6 +11694,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4376704773820688008, guid: 18dfedff9549f7a4ea320f32319cbde3, type: 3}
+--- !u!114 &1218350740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218350733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &1220893867 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 18dfedff9549f7a4ea320f32319cbde3,
@@ -10608,6 +11763,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4376704773820688008, guid: 18dfedff9549f7a4ea320f32319cbde3, type: 3}
+--- !u!114 &1220893874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220893867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1237957503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10731,6 +11907,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1243206638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243206635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!114 &1243206641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10746,6 +11943,27 @@ MonoBehaviour:
   DestroyedLifetime: 1
   CutCascades: 1
   ExplodeForce: 1
+--- !u!114 &1243206643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243206635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &1244426220 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 35806133c92615b4294352911a0772c1,
@@ -10794,6 +12012,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 206764301276716812, guid: 35806133c92615b4294352911a0772c1, type: 3}
+--- !u!114 &1244426227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244426220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &1254297760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 35806133c92615b4294352911a0772c1,
@@ -10848,6 +12087,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4376704773820688008, guid: 18dfedff9549f7a4ea320f32319cbde3, type: 3}
+--- !u!114 &1254586567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254586560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &1256954899 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 18dfedff9549f7a4ea320f32319cbde3,
@@ -10902,6 +12162,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1116444134294172880, guid: 0cad461d919b68a449ef5ae6b76d19c3, type: 3}
+--- !u!114 &1269584684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269584677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &1297139192
 GameObject:
   m_ObjectHideFlags: 0
@@ -11170,6 +12451,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 9376b002d07451a488668ee940418753,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9376b002d07451a488668ee940418753, type: 3}
 --- !u!4 &1318721205 stripped
@@ -11354,6 +12640,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 9376b002d07451a488668ee940418753,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9376b002d07451a488668ee940418753, type: 3}
 --- !u!1 &1340396277 stripped
@@ -11390,6 +12681,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1340396280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340396277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!114 &1340396283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11405,6 +12717,27 @@ MonoBehaviour:
   DestroyedLifetime: 1
   CutCascades: 1
   ExplodeForce: 1
+--- !u!114 &1340396285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340396277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1344920102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11687,6 +13020,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 9376b002d07451a488668ee940418753,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9376b002d07451a488668ee940418753, type: 3}
 --- !u!1 &1353490572 stripped
@@ -11737,6 +13075,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1116444134294172880, guid: 0cad461d919b68a449ef5ae6b76d19c3, type: 3}
+--- !u!114 &1353490579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353490572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &1378396282 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9376b002d07451a488668ee940418753,
@@ -11797,6 +13156,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1390139107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390139100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &1394022719 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9376b002d07451a488668ee940418753,
@@ -11845,6 +13225,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8253072800915915815, guid: 9376b002d07451a488668ee940418753, type: 3}
+--- !u!114 &1394022726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394022719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &1395061506 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 35806133c92615b4294352911a0772c1,
@@ -12315,6 +13716,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4376704773820688008, guid: 18dfedff9549f7a4ea320f32319cbde3, type: 3}
+--- !u!114 &1447896237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447896230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &1450032007
 GameObject:
   m_ObjectHideFlags: 0
@@ -12983,6 +14405,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1492904024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492904021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!114 &1492904027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12998,6 +14441,27 @@ MonoBehaviour:
   DestroyedLifetime: 1
   CutCascades: 1
   ExplodeForce: 1
+--- !u!114 &1492904029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492904021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1492955382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13200,6 +14664,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1513118208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513118206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!54 &1513118211
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13279,6 +14764,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8253072800915915815, guid: 9376b002d07451a488668ee940418753, type: 3}
+--- !u!114 &1518718475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518718468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &1533046818 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 35806133c92615b4294352911a0772c1,
@@ -13327,6 +14833,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1533046825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533046818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1537501900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13413,6 +14940,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 0cad461d919b68a449ef5ae6b76d19c3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cad461d919b68a449ef5ae6b76d19c3, type: 3}
@@ -13753,6 +15285,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1553096668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553096662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &1560773860 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 18dfedff9549f7a4ea320f32319cbde3,
@@ -13801,6 +15354,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1560773867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560773860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1579142973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13888,6 +15462,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 18dfedff9549f7a4ea320f32319cbde3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18dfedff9549f7a4ea320f32319cbde3, type: 3}
 --- !u!1 &1592080584 stripped
@@ -13938,6 +15517,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1592080591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592080584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1596256347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14072,6 +15672,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1602074269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602074262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1603948824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14246,6 +15867,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1622019468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622019461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &1626093991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0cad461d919b68a449ef5ae6b76d19c3,
@@ -14770,6 +16412,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 9376b002d07451a488668ee940418753,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9376b002d07451a488668ee940418753, type: 3}
 --- !u!4 &1709830639 stripped
@@ -14826,6 +16473,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1715104948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715104941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1718858650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14961,6 +16629,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1744108548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744108542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &1767618873 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cd7628170a6d0bc4795e93335749e53b,
@@ -15021,6 +16710,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1780077843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780077836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1782216842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15259,6 +16969,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1785423119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785423113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &1791483245 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 18dfedff9549f7a4ea320f32319cbde3,
@@ -15307,6 +17038,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4376704773820688008, guid: 18dfedff9549f7a4ea320f32319cbde3, type: 3}
+--- !u!114 &1791483252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791483245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &1793420799 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0cad461d919b68a449ef5ae6b76d19c3,
@@ -15575,6 +17327,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1116444134294172880, guid: 0cad461d919b68a449ef5ae6b76d19c3, type: 3}
+--- !u!114 &1810690308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810690301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1 &1811387628
 GameObject:
   m_ObjectHideFlags: 0
@@ -15701,6 +17474,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1814639661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814639655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &1817923949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7fcac266bdf4b8b4dbd4639473a90f67,
@@ -15969,6 +17763,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1866021163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866021156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1878332843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16143,6 +17958,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1883480378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883480371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &1886556272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16229,6 +18065,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 18dfedff9549f7a4ea320f32319cbde3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18dfedff9549f7a4ea320f32319cbde3, type: 3}
@@ -16318,6 +18159,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 0cad461d919b68a449ef5ae6b76d19c3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cad461d919b68a449ef5ae6b76d19c3, type: 3}
@@ -16496,6 +18342,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 18dfedff9549f7a4ea320f32319cbde3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18dfedff9549f7a4ea320f32319cbde3, type: 3}
@@ -16686,6 +18537,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 18dfedff9549f7a4ea320f32319cbde3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18dfedff9549f7a4ea320f32319cbde3, type: 3}
 --- !u!4 &1917016755 stripped
@@ -16835,6 +18691,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1936635716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936635710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &1937065076 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 18dfedff9549f7a4ea320f32319cbde3,
@@ -16978,6 +18855,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1116444134294172880, guid: 0cad461d919b68a449ef5ae6b76d19c3, type: 3}
+--- !u!114 &1958062316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958062309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &1972184678 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0cad461d919b68a449ef5ae6b76d19c3,
@@ -17032,6 +18930,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1116444134294172880, guid: 0cad461d919b68a449ef5ae6b76d19c3, type: 3}
+--- !u!114 &1976613220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976613213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &1977920421 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9376b002d07451a488668ee940418753,
@@ -17434,6 +19353,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 18dfedff9549f7a4ea320f32319cbde3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18dfedff9549f7a4ea320f32319cbde3, type: 3}
 --- !u!1001 &2040905808
@@ -17522,6 +19446,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 0cad461d919b68a449ef5ae6b76d19c3,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cad461d919b68a449ef5ae6b76d19c3, type: 3}
@@ -17653,6 +19582,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2042294740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042294734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &2043093542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17790,6 +19740,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2060451299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060451292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &2067022738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17927,6 +19898,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f557eb2c9420e40418228ca0bf86f24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2091376603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091376596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!4 &2101617440 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0cad461d919b68a449ef5ae6b76d19c3,
@@ -18366,6 +20358,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2131643708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131643701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6eec098f376a0428cfa4c58e071d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
+  playerCamera: {fileID: 0}
+  playerWeaponsManager: {fileID: 0}
+  carryingObject: 0
+  smooth: 3
+  distance: 3
+  throwUpwardForce: 10
+  throwDownwardForce: 10
+  pickupRange: 4
 --- !u!1001 &2135619598
 PrefabInstance:
   m_ObjectHideFlags: 0
