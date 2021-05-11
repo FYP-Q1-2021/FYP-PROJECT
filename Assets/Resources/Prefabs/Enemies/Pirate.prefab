@@ -442,7 +442,7 @@ MonoBehaviour:
   attackRange: 3
   attackSpeed: 1
   attackElapsedTime: 0
-  canAttack: 0
+  canAttack: 1
   stateChangeBufferDuration: 1
   stateChangeBufferElapsedTime: 0
   attackRangeColor: {r: 1, g: 0, b: 0, a: 1}
@@ -468,7 +468,7 @@ MonoBehaviour:
   targetWaypointIndex: 0
   currentWaypoint: 0
   endPointReached: 0
-  cycle: 0
+  cycle: 1
   reverseDir: 0
 --- !u!114 &3823441478394074415
 MonoBehaviour:

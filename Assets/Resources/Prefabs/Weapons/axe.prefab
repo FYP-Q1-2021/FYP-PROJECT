@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 1245259935084792524}
   m_Layer: 0
   m_Name: axe
-  m_TagString: Untagged
+  m_TagString: Melee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,8 +232,7 @@ MonoBehaviour:
   WeaponMuzzle: {fileID: 0}
   ProjectilePrefab: {fileID: 0}
   projectile: {fileID: 0}
-  defaultArrowPosition: {fileID: 0}
-  finalArrowPosition: {fileID: 0}
+  PlayerCamera: {fileID: 0}
   weaponRoot: {fileID: 2014823924024376724}
   weaponType: 1
   anim: {fileID: 0}
@@ -259,15 +258,15 @@ MonoBehaviour:
   AmmoReloadDelay: 2
   MaxAmmo: 8
   hasDurability: 0
-  weaponDurability: 0
-  weaponMaxDurability: 0
-  weaponDecayAmount: 0
-  canRestoreDurability: 0
+  weaponDurability: 100
+  weaponMaxDurability: 100
+  weaponDecayAmount: 1
+  canRestoreDurability: 1
   ShootSfx: {fileID: 0}
-  damage: 50
-  baseDamage: 50
-  isWeaponActive: 0
-  buffDamageMultiplier: 1.25
+  damage: 0
+  baseDamage: 3
+  isWeaponActive: 1
+  buffDamageMultiplier: 0
   attackATime: 0
 --- !u!65 &1489039966894372443
 BoxCollider:
