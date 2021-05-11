@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -737,6 +737,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3619323537099188345, guid: b3c5eb9a5cb3a9d409791851d7936434,
+        type: 3}
+      propertyPath: m_Extents.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6149495849063993988, guid: b3c5eb9a5cb3a9d409791851d7936434,
         type: 3}
       propertyPath: m_Enabled
@@ -752,6 +757,17 @@ PrefabInstance:
       propertyPath: smooth
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7464471281778866188, guid: b3c5eb9a5cb3a9d409791851d7936434,
+        type: 3}
+      propertyPath: startingWeapons.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464471281778866188, guid: b3c5eb9a5cb3a9d409791851d7936434,
+        type: 3}
+      propertyPath: startingWeapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 4708226013869502396, guid: 8090baad94443534a88f6e94b3a74f0c,
+        type: 3}
     - target: {fileID: 7464471281778866190, guid: b3c5eb9a5cb3a9d409791851d7936434,
         type: 3}
       propertyPath: bottomCameraLock

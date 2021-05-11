@@ -613,7 +613,7 @@ MonoBehaviour:
   attackRange: 2
   attackSpeed: 1
   attackElapsedTime: 0
-  canAttack: 0
+  canAttack: 1
   stateChangeBufferDuration: 1
   stateChangeBufferElapsedTime: 0
   attackRangeColor: {r: 1, g: 0, b: 0, a: 1}
@@ -630,11 +630,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b1fdbde74da9d43b9e0dfd595b2e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints: []
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   targetWaypointIndex: 0
   currentWaypoint: 0
   endPointReached: 0
-  cycle: 0
+  cycle: 1
   reverseDir: 0
 --- !u!114 &3779392465415781291
 MonoBehaviour:
@@ -649,7 +654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   isAPlayer: 0
   CanPickup: 0
 --- !u!114 &6508718114294858208
