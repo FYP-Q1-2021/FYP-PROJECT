@@ -3,23 +3,20 @@ using UnityEngine;
 
 public class SpriteFlash : MonoBehaviour
 {
-    [SerializeField] private Color flashColor;
+    [SerializeField] private Color flashColor = Color.red;
     [SerializeField] private float flashDuration = 1f;
-    private Material mat;
+    private float lerpTime = 0f;
+    private SpriteRenderer spriteRenderer;
     private Health health;
 
     private IEnumerator flashCoroutine;
 
     void Awake()
     {
-        mat = GetComponent<SpriteRenderer>().material;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         health = GetComponentInParent<Health>();
         health.OnDamaged += OnDamagedEvent;
-    }
-
-    void Start()
-    {
-        mat.SetColor("_FlashColor", flashColor);
     }
 
     void OnDestroy()
@@ -30,7 +27,10 @@ public class SpriteFlash : MonoBehaviour
     private void Flash()
     {
         if (flashCoroutine != null)
+        {
+            lerpTime = 0f;
             StopCoroutine(flashCoroutine);
+        }
 
         flashCoroutine = DoFlash();
         StartCoroutine(flashCoroutine);
@@ -38,22 +38,16 @@ public class SpriteFlash : MonoBehaviour
 
     private IEnumerator DoFlash()
     {
-        float lerpTime = 0;
-
         while (lerpTime < flashDuration)
         {
-            lerpTime += Time.deltaTime;
-            float perc = lerpTime / flashDuration;
+            spriteRenderer.color = Color.Lerp(Color.white, flashColor, 1f - lerpTime);
+            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1f);
 
-            SetFlashAmount(1f - perc);
+            lerpTime += Time.deltaTime / flashDuration;
             yield return null;
         }
-        SetFlashAmount(0);
-    }
 
-    private void SetFlashAmount(float flashAmount)
-    {
-        mat.SetFloat("_FlashAmount", flashAmount);
+        lerpTime = 0f;
     }
 
     private void OnDamagedEvent()
