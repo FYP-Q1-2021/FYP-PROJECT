@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 1121985565210227325}
   - component: {fileID: 965079577696051944}
   - component: {fileID: 7754044585390501757}
+  - component: {fileID: 3008135354251046231}
   m_Layer: 9
   m_Name: GoblinSprite
   m_TagString: Untagged
@@ -358,6 +359,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995e02aadb0d5cb44a8145f4dd3d3ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3008135354251046231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736182269128875643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b2c8d93d1d341d44a8a4c06a29585b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 1, g: 0, b: 0, a: 0}
+  flashDuration: 1
 --- !u!1 &4081478804174168153
 GameObject:
   m_ObjectHideFlags: 0
