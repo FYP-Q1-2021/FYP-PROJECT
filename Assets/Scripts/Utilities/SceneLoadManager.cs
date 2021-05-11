@@ -50,6 +50,8 @@ public class SceneLoadManager : MonoBehaviour
         PlayerSpawnManager.Instance.player.gameObject.transform.position = spawnLocation.position;
         PlayerSpawnManager.Instance.player.gameObject.transform.rotation = Quaternion.Euler(spawnLocation.rotation.eulerAngles);
         PlayerSpawnManager.Instance.player.GetComponent<CharacterController>().enabled = true;
+
+        DestroyedObjectManager.Instance.DeleteDestroyedObjectsAfterReload();
     }
 
     void OnDisable()

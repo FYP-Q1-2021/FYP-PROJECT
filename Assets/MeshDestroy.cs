@@ -85,6 +85,7 @@ public class MeshDestroy : MonoBehaviour
             Destroy(parts[i].GameObject, DestroyedLifetime);       
         }
 
+        DestroyedObjectManager.Instance.AddToDestroyedObjectsList(gameObject);
         Destroy(gameObject);
     }
 

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1778,6 +1778,7 @@ GameObject:
   - component: {fileID: 994957194}
   - component: {fileID: 994957196}
   - component: {fileID: 994957195}
+  - component: {fileID: 994957197}
   - component: {fileID: 994957193}
   m_Layer: 0
   m_Name: GameManager
@@ -1845,6 +1846,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneTransitionCanvas: {fileID: 1934938458}
   sceneTransitionCanvasFadeDuration: 2.1
+--- !u!114 &994957197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994957192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8236cf792897848a176f0d1577ab29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyedObjects: []
 --- !u!1 &1114272190
 GameObject:
   m_ObjectHideFlags: 0
