@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.04
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.8980392, g: 0.65882355, b: 0.4117647, a: 1}
+  m_AmbientSkyColor: {r: 0.7817886, g: 0.5735392, b: 0.358462, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.43668053, g: 0.4842747, b: 0.5645259, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1298,6 +1298,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b0bd51e14b00944aa5a0030a38e70b0, type: 3}
+--- !u!1 &267800985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2417319698129535380, guid: c31fc479bfb2d3144abb6d3533af9a94,
+    type: 3}
+  m_PrefabInstance: {fileID: 1057856629}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &267800987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267800985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba8fb1872d2707a44b32306ccdb9783a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shortFlicker: 0.5
+  longFlicker: 1
+  delayBetweenFlicker: 0
 --- !u!1001 &292940736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1358,6 +1379,11 @@ PrefabInstance:
     - target: {fileID: 3576434147750357736, guid: b37ecc899cd7d1a4f8be3b33075cc56c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3902565433245368228, guid: b37ecc899cd7d1a4f8be3b33075cc56c,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4245165208903675986, guid: b37ecc899cd7d1a4f8be3b33075cc56c,
@@ -6429,13 +6455,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1588001868}
   - component: {fileID: 1588001867}
+  - component: {fileID: 1588001869}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1588001867
 Light:
   m_ObjectHideFlags: 0
@@ -6511,6 +6538,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 89.456, y: 0, z: 0}
+--- !u!114 &1588001869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588001866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba8fb1872d2707a44b32306ccdb9783a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shortFlicker: 0.5
+  longFlicker: 1
+  delayBetweenFlicker: 0
 --- !u!1001 &1602406789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7875,6 +7917,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b0bd51e14b00944aa5a0030a38e70b0, type: 3}
+--- !u!1 &1830356890 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8086111171219206732, guid: b37ecc899cd7d1a4f8be3b33075cc56c,
+    type: 3}
+  m_PrefabInstance: {fileID: 292940736}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1830356893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830356890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba8fb1872d2707a44b32306ccdb9783a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shortFlicker: 0.5
+  longFlicker: 1
+  delayBetweenFlicker: 0
 --- !u!1 &1834031365
 GameObject:
   m_ObjectHideFlags: 0
@@ -8669,6 +8732,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 449011507}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1991196597 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2417319698129535380, guid: c31fc479bfb2d3144abb6d3533af9a94,
+    type: 3}
+  m_PrefabInstance: {fileID: 1677698849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1991196600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991196597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba8fb1872d2707a44b32306ccdb9783a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shortFlicker: 0.5
+  longFlicker: 1
+  delayBetweenFlicker: 0
 --- !u!1001 &1997973221
 PrefabInstance:
   m_ObjectHideFlags: 0
