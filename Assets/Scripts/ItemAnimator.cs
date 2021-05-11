@@ -5,12 +5,11 @@ using UnityEngine;
 public class ItemAnimator : MonoBehaviour
 {
 
-    public Transform item;
-    [Header("Item Bob")]
+    [Header("Item Bob")]    
     [Tooltip("Distance the item bobs")]
     public float itemBobAmount = 0.05f;
     [Tooltip("Frequency at which the item will move around")]
-    public float itemBobFrequency = 10f;
+    public float itemBobFrequency = 2f;
 
     [Header("Item Rotation")]
     [Tooltip("Determines the speed of the item rotation on the Y Axis")]

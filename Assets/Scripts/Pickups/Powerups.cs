@@ -21,6 +21,7 @@ public class Powerups : MonoBehaviour
     public GameObject pickupVFX;
     [Tooltip("Eound played when picked up")]
     public AudioClip pickupSFX;
+    public float pickupVFXDuration = 5f;
 
     void Start()    
     {
@@ -51,6 +52,14 @@ public class Powerups : MonoBehaviour
             if (pickupSFX)
             {
                 AudioUtility.CreateSFX(pickupSFX, transform.position, AudioUtility.AudioGroups.Pickup, 0f);
+            }
+
+            if (pickupVFX)
+            {
+                GameObject pickupVFXInstance = Instantiate(pickupVFX, gameObject.transform.position, pickupVFX.transform.rotation);
+                pickupVFXInstance.transform.SetParent(GameObject.Find("Player").transform);
+                pickupVFXInstance.SetActive(true);
+                Destroy(pickupVFXInstance, pickupVFXDuration);
             }
 
             yield return new WaitForSeconds(powerUpDuration);

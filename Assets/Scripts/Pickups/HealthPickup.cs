@@ -11,6 +11,7 @@ public class HealthPickup : MonoBehaviour
     public GameObject pickupVFX;
     [Tooltip("Eound played when picked up")]
     public AudioClip pickupSFX;
+    public float pickupVFXDuration = 5f;
 
     void OnTriggerEnter(Collider col)
     {
@@ -22,6 +23,16 @@ public class HealthPickup : MonoBehaviour
                 if (pickupSFX)
                 {
                     AudioUtility.CreateSFX(pickupSFX, transform.position, AudioUtility.AudioGroups.Pickup, 0f);
+                }
+
+                Debug.Log("Collide");
+
+                if(pickupVFX)
+                {
+                    GameObject pickupVFXInstance = Instantiate(pickupVFX, gameObject.transform.position, pickupVFX.transform.rotation);
+                    pickupVFXInstance.transform.SetParent(null);
+                    pickupVFXInstance.SetActive(true);
+                    Destroy(pickupVFXInstance, pickupVFXDuration);
                 }
 
                 playerHealth.Heal(HealAmount);
