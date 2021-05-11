@@ -1642,8 +1642,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 994957194}
-  - component: {fileID: 994957193}
+  - component: {fileID: 994957196}
   - component: {fileID: 994957195}
+  - component: {fileID: 994957193}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1667,8 +1668,6 @@ MonoBehaviour:
   inGameCanvas: {fileID: 923689739}
   endingCanvasFadeDuration: 3
   endingCanvas: {fileID: 1762199859}
-  sceneTransitionCanvas: {fileID: 1934938458}
-  sceneTransitionCanvasFadeDuration: 2.1
   winEnding: 0
   loseEnding: 0
 --- !u!4 &994957194
@@ -1698,6 +1697,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deadEnemies: []
+--- !u!114 &994957196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994957192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b74ab421eaf825488a4fff51200c288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneTransitionCanvas: {fileID: 1934938458}
+  sceneTransitionCanvasFadeDuration: 2.1
 --- !u!1 &1114272190
 GameObject:
   m_ObjectHideFlags: 0
