@@ -9,11 +9,23 @@ public class Portal : MonoBehaviour
     [SerializeField] SpawnPointData spawnPointData;
     [SerializeField] bool backToPreviousRoom;
     private bool isTriggered;
+    private PlayerCharacterController playerCharacterController;
+
+    private SceneTransitionManager sceneTransitionManager;
+
+    void Start()
+    {
+        playerCharacterController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacterController>();
+
+        sceneTransitionManager = SceneTransitionManager.Instance;
+        sceneTransitionManager.OnTransitionFadeFinished += EnableCharacter;
+    }
 
     void OnTriggerEnter(Collider other)
     {
         if (!isTriggered)
         {
+            playerCharacterController.enabled = false;
             if (backToPreviousRoom)
             {
                 PlayerSpawnManager.Instance.isReturning = true;
@@ -24,13 +36,24 @@ public class Portal : MonoBehaviour
         }
     }
 
+    void OnDisable()
+    {
+        if(sceneTransitionManager)
+            sceneTransitionManager.OnTransitionFadeFinished -= EnableCharacter;
+    }
+
     IEnumerator SwitchScene()
     {
-        GameEndingManager.Instance.ActivateSceneTransitionFade();
-        yield return new WaitForSeconds(GameEndingManager.Instance.sceneTransitionCanvasFadeDuration - 0.1f);
+        SceneTransitionManager.Instance.ActivateSceneTransitionFade();
+        yield return new WaitForSeconds(SceneTransitionManager.Instance.sceneTransitionCanvasFadeDuration - 0.1f);
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(currentRoom));
         Resources.UnloadUnusedAssets();
         SceneManager.LoadSceneAsync(nextRoom, LoadSceneMode.Additive);
         yield return null;
+    }
+
+    private void EnableCharacter()
+    {
+        playerCharacterController.enabled = true;
     }
 }

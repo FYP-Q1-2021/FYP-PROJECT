@@ -442,7 +442,7 @@ MonoBehaviour:
   attackRange: 3
   attackSpeed: 1
   attackElapsedTime: 0
-  canAttack: 0
+  canAttack: 1
   stateChangeBufferDuration: 1
   stateChangeBufferElapsedTime: 0
   attackRangeColor: {r: 1, g: 0, b: 0, a: 1}
@@ -468,7 +468,7 @@ MonoBehaviour:
   targetWaypointIndex: 0
   currentWaypoint: 0
   endPointReached: 0
-  cycle: 0
+  cycle: 1
   reverseDir: 0
 --- !u!114 &3823441478394074415
 MonoBehaviour:
@@ -618,6 +618,7 @@ GameObject:
   - component: {fileID: 3823441478872110374}
   - component: {fileID: 3823441478872110373}
   - component: {fileID: 3823441478872110372}
+  - component: {fileID: 923926249955838121}
   m_Layer: 9
   m_Name: PirateSprite
   m_TagString: Untagged
@@ -720,6 +721,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &923926249955838121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3823441478872110362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b2c8d93d1d341d44a8a4c06a29585b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 1
 --- !u!1001 &3823441478592061857
 PrefabInstance:
   m_ObjectHideFlags: 0
