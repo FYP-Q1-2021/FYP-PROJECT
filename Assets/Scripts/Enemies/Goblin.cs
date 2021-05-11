@@ -93,6 +93,10 @@ public class Goblin : BasicEnemy
                     if(canAttack)
                     {
                         animator.SetInteger("State", (int)State.ATTACK);
+
+                        if(!goblinAnimationEvents) // Quick hack since pirate doesn't have attack animation yet
+                            playerHP.Damage(attackDamage);
+
                         canAttack = false;
                     }
                     else
