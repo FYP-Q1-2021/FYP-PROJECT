@@ -10,8 +10,6 @@ public class GameEndingManager : MonoBehaviour
     [SerializeField] private float endingCanvasFadeDuration = 1f;
     private readonly float fadeSpeed = 1f;
     [SerializeField] private CanvasGroup endingCanvas;
-    [SerializeField] private CanvasGroup sceneTransitionCanvas;
-    public float sceneTransitionCanvasFadeDuration = 1f;
     private float timer;
     public bool winEnding;
     public bool loseEnding;
@@ -50,12 +48,6 @@ public class GameEndingManager : MonoBehaviour
         }
     }
 
-    public void ActivateSceneTransitionFade()
-    {
-        sceneTransitionCanvas.gameObject.SetActive(true);
-        StartCoroutine("SceneTransitionScreen");
-    }
-
     IEnumerator EndingScreen()
     {
         while(endingCanvas.alpha < 1f)
@@ -64,22 +56,5 @@ public class GameEndingManager : MonoBehaviour
             endingCanvas.alpha = timer / endingCanvasFadeDuration;
             yield return null;
         }
-    }
-
-    IEnumerator SceneTransitionScreen()
-    {
-        while (sceneTransitionCanvas.alpha < 1f)
-        {
-            timer += fadeSpeed * Time.deltaTime;
-            sceneTransitionCanvas.alpha = timer / sceneTransitionCanvasFadeDuration;
-            yield return null;
-        }
-        while (sceneTransitionCanvas.alpha > 0f)
-        {
-            timer -= fadeSpeed * Time.deltaTime;
-            sceneTransitionCanvas.alpha = timer / sceneTransitionCanvasFadeDuration;
-            yield return null;
-        }
-        sceneTransitionCanvas.gameObject.SetActive(false);
     }
 }
