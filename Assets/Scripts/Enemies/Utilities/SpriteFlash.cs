@@ -7,13 +7,21 @@ public class SpriteFlash : MonoBehaviour
     [SerializeField] private float flashDuration = 1f;
     private float lerpTime = 0f;
     private SpriteRenderer spriteRenderer;
+    private Material material;
     private Health health;
 
     private IEnumerator flashCoroutine;
+    private bool usingDefaultMaterial = true;
 
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if(transform.parent.name == "Devil")
+        {
+            material = spriteRenderer.material;
+            usingDefaultMaterial = false;
+        }
 
         health = GetComponentInParent<Health>();
         health.OnDamaged += OnDamagedEvent;
@@ -40,8 +48,16 @@ public class SpriteFlash : MonoBehaviour
     {
         while (lerpTime < flashDuration)
         {
-            spriteRenderer.color = Color.Lerp(Color.white, flashColor, 1f - lerpTime);
-            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1f);
+            if(usingDefaultMaterial)
+            {
+                spriteRenderer.color = Color.Lerp(Color.white, flashColor, 1f - lerpTime);
+                spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1f);
+            }
+            else
+            {
+                material.SetColor("_BaseColor", Color.Lerp(Color.white, flashColor, 1f - lerpTime));
+                material.color = new Color(material.color.r, material.color.g, material.color.b, 1f);
+            }
 
             lerpTime += Time.deltaTime / flashDuration;
             yield return null;
