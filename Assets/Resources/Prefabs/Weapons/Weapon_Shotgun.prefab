@@ -123,8 +123,7 @@ MonoBehaviour:
     type: 3}
   projectile: {fileID: 6946257073802550486, guid: a96602a4c38f9c4498887bc7a2722511,
     type: 3}
-  defaultArrowPosition: {fileID: 0}
-  finalArrowPosition: {fileID: 0}
+  PlayerCamera: {fileID: 0}
   weaponRoot: {fileID: 516790324143770185}
   weaponType: 0
   anim: {fileID: 0}
@@ -141,24 +140,24 @@ MonoBehaviour:
   swaySmoothness: 10
   AutomaticReload: 1
   HasPhysicalBullets: 0
-  ClipSize: 30
+  ClipSize: 5
   ShellCasing: {fileID: 0}
   EjectionPort: {fileID: 0}
   ShellCasingEjectionForce: 2
   ShellPoolSize: 1
-  AmmoReloadRate: 1
-  AmmoReloadDelay: 2
-  MaxAmmo: 100
-  hasDurability: 0
-  weaponDurability: 2
-  weaponMaxDurability: 0
-  weaponDecayAmount: 0
-  canRestoreDurability: 0
+  AmmoReloadRate: 5
+  AmmoReloadDelay: 5
+  MaxAmmo: 15
+  hasDurability: 1
+  weaponDurability: 20
+  weaponMaxDurability: 50
+  weaponDecayAmount: 1
+  canRestoreDurability: 1
   ShootSfx: {fileID: 0}
   damage: 40
   baseDamage: 60
   isWeaponActive: 0
-  buffDamageMultiplier: 1.25
+  buffDamageMultiplier: 0
   attackATime: 0
 --- !u!114 &-3686935966195797634
 MonoBehaviour:
