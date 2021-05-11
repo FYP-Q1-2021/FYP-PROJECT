@@ -524,6 +524,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5bf8dbba174b3248a3c7862a6e1a453, type: 3}
+--- !u!1 &1037745242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7757384022877507981, guid: d6eeed5cad926b244953ff8d3b255977,
+    type: 3}
+  m_PrefabInstance: {fileID: 7757384022916672983}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1039818225 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9376b002d07451a488668ee940418753,
@@ -551,6 +557,23 @@ MonoBehaviour:
   HealAmount: 40
   pickupVFX: {fileID: 4988677563931767567, guid: 7f6b5b23c5aa61141b75b4c5865fa667,
     type: 3}
+  pickupSFX: {fileID: 0}
+  pickupVFXDuration: 5
+--- !u!114 &1039818231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039818225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473c7543d9dfeea4882f1a2a3d02501c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerupType: 0
+  powerUpDuration: 0
+  pickupVFX: {fileID: 1037745242}
   pickupSFX: {fileID: 0}
   pickupVFXDuration: 5
 --- !u!1 &1047820458
@@ -1171,6 +1194,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvincibilityPath
       objectReference: {fileID: 0}
+    - target: {fileID: 830222720323113107, guid: 8f9a31533606ff84aadf235577afd575,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 830222720323113110, guid: 8f9a31533606ff84aadf235577afd575,
         type: 3}
       propertyPath: m_RootOrder
@@ -1635,10 +1663,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7757384022877507979, guid: d6eeed5cad926b244953ff8d3b255977,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7757384022877507981, guid: d6eeed5cad926b244953ff8d3b255977,
         type: 3}
       propertyPath: m_Name
       value: DamagePath
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757384022877507981, guid: d6eeed5cad926b244953ff8d3b255977,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6eeed5cad926b244953ff8d3b255977, type: 3}
