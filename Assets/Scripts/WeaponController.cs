@@ -404,16 +404,16 @@ public class WeaponController : MonoBehaviour
     {
         int bulletsPerShotFinal = bulletsPerShot;
         
-        var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f));
-        RaycastHit hit;
+        //var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f));
+        //RaycastHit hit;
         
-        if(Physics.Raycast(ray, out hit, Mathf.Infinity))
-        {
-            // Get Shoot Direction
-            // A to B . normalize
-            shotDirection = hit.point - WeaponMuzzle.transform.position;
+        //if(Physics.Raycast(ray, out hit, Mathf.Infinity))
+        //{
+        //    // Get Shoot Direction
+        //    // A to B . normalize
+        //    shotDirection = hit.point - WeaponMuzzle.transform.position;
 
-        }
+        //}
            
 
         // muzzle flash
@@ -439,10 +439,8 @@ public class WeaponController : MonoBehaviour
         // spawn all bullets with random direction
         for (int i = 0; i < bulletsPerShotFinal; i++)
         {
-            if (shotDirection == Vector3.zero)
-            {
-                shotDirection = GetShotDirectionWithinSpread(WeaponMuzzle);
-            }
+
+            shotDirection = GetShotDirectionWithinSpread(WeaponMuzzle);
             Projectile newProjectile = Instantiate(ProjectilePrefab, WeaponMuzzle.position,
                 Quaternion.LookRotation(shotDirection));
             m_LastTimeShot = Time.time;
