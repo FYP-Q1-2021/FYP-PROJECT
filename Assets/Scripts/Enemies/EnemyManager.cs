@@ -32,6 +32,7 @@ public class EnemyManager : MonoBehaviour
 
     public void RemoveFromList(GameObject go)
     {
+        enemies.Remove(go);
         --numOfEnemies;
 
         DeadEnemyManager.Instance.AddToDeadEnemiesList(go);
