@@ -1541,18 +1541,18 @@ MonoBehaviour:
   playerHP: {fileID: 0}
   animator: {fileID: 0}
   state: 0
-  rangedAttackRange: 50
-  meleeAttackRange: 15
+  rangedAttackRange: 22
+  meleeAttackRange: 10
   rippleCooldown: 4
   eruptionCooldown: 3
   staffCooldown: 3
-  hPToPhase2: 750
-  timeBetweenClusterEruptions: 5
+  hPToPhase2: 300
+  timeBetweenClusterEruptions: 8
   eruptionCount: 10
   timeBetweenEachEruption: 0.2
   rangedAttackColor: {r: 0, g: 0, b: 1, a: 1}
   meleeRangeColor: {r: 1, g: 0, b: 0, a: 1}
-  eruptionYCoord: {fileID: 0}
+  eruptionCoord: {fileID: 0}
 --- !u!114 &3856772997199573028
 MonoBehaviour:
   m_ObjectHideFlags: 0
