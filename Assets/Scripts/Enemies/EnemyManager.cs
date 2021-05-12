@@ -45,10 +45,11 @@ public class EnemyManager : MonoBehaviour
         for(int i = 0; i < numOfEnemies; ++i)
         {
             NavMeshAgent agent = enemies[i].GetComponent<NavMeshAgent>();
+            Imp imp = enemies[i].GetComponent<Imp>();
             if (agent)
                 agent.isStopped = true;
-            else
-                enemies[i].GetComponent<Imp>().movementSpeed = 0f;
+            else if(imp)
+                imp.movementSpeed = 0f;
         }
     }
 
