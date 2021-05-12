@@ -5,12 +5,13 @@ public class Eruption : MonoBehaviour
 {
     [SerializeField] private float eruptionTime = 2f;
     [SerializeField] private float eruptionDuration = 5f;
-    [SerializeField] private new ParticleSystem particleSystem;
     private BoxCollider boxCollider;
     private float timer = 0f;
 
     private Health playerHP;
     [SerializeField] private float damage = 10f;
+
+    [SerializeField] private GameObject vfx;
 
     void Awake()
     {
@@ -20,9 +21,10 @@ public class Eruption : MonoBehaviour
 
     void OnEnable()
     {
-        particleSystem.Stop();
-
         StartCoroutine("Erupt");
+
+        GameObject effects = Instantiate(vfx, transform.parent.position, vfx.transform.rotation, transform.parent.transform);
+        Destroy(effects, 6f);
     }
 
     void OnDisable()
@@ -47,7 +49,6 @@ public class Eruption : MonoBehaviour
 
         boxCollider.enabled = true;
         timer = 0f;
-        particleSystem.Play();
 
         StartCoroutine("Erupting");
     }
