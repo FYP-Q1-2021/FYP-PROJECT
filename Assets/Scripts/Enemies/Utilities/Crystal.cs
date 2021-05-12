@@ -24,6 +24,8 @@ public class Crystal : MonoBehaviour
 
     private Health playerHP;
 
+    private string caster;
+
     #region Unity Callbacks
     void Start()
     {
@@ -41,18 +43,26 @@ public class Crystal : MonoBehaviour
         // Crystal is not moving anymore
         else
         {
-            if (explosionCounter < timeUntilExplosion)
+            if (string.Compare(caster, "Devil") == 0)
             {
-                explosionCounter += Time.deltaTime;
+                if (explosionCounter < timeUntilExplosion)
+                {
+                    explosionCounter += Time.deltaTime;
+                }
+                else
+                {
+                    if (!isExplodeCoroutineRunning)
+                    {
+                        StartCoroutine("Explode");
+                        GameObject effects = Instantiate(vfx, transform.position, vfx.transform.rotation);
+                        Destroy(effects, 3f);
+                    }
+                }
             }
             else
             {
-                if(!isExplodeCoroutineRunning)
-                {
-                    StartCoroutine("Explode");
-                    GameObject effects = Instantiate(vfx, transform.position, vfx.transform.rotation, transform.transform);
-                    Destroy(effects, 3f);
-                }
+                ResetValues();
+                gameObject.SetActive(false);
             }
         }
     }
@@ -90,7 +100,7 @@ public class Crystal : MonoBehaviour
 
         for (int i = 0; i < nearbyObjects.Length; ++i)
         {
-            if(nearbyObjects[i].name == "Player")
+            if (nearbyObjects[i].name == "Player")
             {
                 playerHP.Damage(explosionDamage);
             }
@@ -102,7 +112,7 @@ public class Crystal : MonoBehaviour
     }
     #endregion
 
-    #region Public functions
+    #region Private functions
     private void Move()
     {
         transform.position += attackDir * movementSpeed * Time.deltaTime;
@@ -113,6 +123,12 @@ public class Crystal : MonoBehaviour
         travelingTimeCounter = 0f;
         explosionCounter = 0f;
         isExplodeCoroutineRunning = false;
+        caster = "";
+    }
+
+    public void CasterName(string casterName)
+    {
+        caster = casterName;
     }
     #endregion
 }

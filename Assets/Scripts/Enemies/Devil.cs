@@ -44,7 +44,7 @@ public class Devil : Enemy
     [SerializeField] private Color meleeRangeColor = Color.red;
 
     [Header("Spells positioning")]
-    [SerializeField] private Transform eruptionYCoord;
+    [SerializeField] private Transform eruptionCoord;
 
     private Staff staff;
     private Ripple ripple;
@@ -53,6 +53,8 @@ public class Devil : Enemy
     private DevilTransitionManager transitionManager;
 
     private Phase currentPhase;
+
+    private float eruptionRange;
 
     #region Inherited functions
     protected override void Start()
@@ -78,6 +80,8 @@ public class Devil : Enemy
         timeBetweenClusterEruptions += 6f;
 
         currentPhase = Phase.PHASE_1;
+
+        eruptionRange = rangedAttackRange * 0.75f;
 
         state = State.IDLE;
     }
@@ -168,7 +172,7 @@ public class Devil : Enemy
         yield return new WaitForSeconds(eruptionCooldown);
 
         GameObject geyser = GeyserPool.Instance.GetPooledObject();
-        geyser.transform.position = new Vector3(player.position.x, eruptionYCoord.position.y, player.position.z);
+        geyser.transform.position = new Vector3(player.position.x, eruptionCoord.position.y, player.position.z);
     }
 
     IEnumerator MultipleRandomGeyserAttack()
@@ -184,12 +188,12 @@ public class Devil : Enemy
                 yield return null;
             }
 
-            float x = UnityEngine.Random.Range(eruptionYCoord.position.x - rangedAttackRange, eruptionYCoord.position.x + rangedAttackRange);
-            float z = UnityEngine.Random.Range(eruptionYCoord.position.z - rangedAttackRange, eruptionYCoord.position.z + rangedAttackRange);
+            float x = eruptionCoord.position.x + Random.Range(-eruptionRange, eruptionRange);
+            float z = eruptionCoord.position.z + Random.Range(-eruptionRange, eruptionRange);
 
             // Check the location of where the spell would be cast
             // Find another position if there is already a spell near it
-            Collider[] hitColliders = Physics.OverlapSphere(new Vector3(x, eruptionYCoord.position.y, z), 20f, geyserLayerMask);
+            Collider[] hitColliders = Physics.OverlapSphere(new Vector3(x, eruptionCoord.position.y, z), 10f, geyserLayerMask);
 
             if (hitColliders.Length > 0)
             {
@@ -206,7 +210,7 @@ public class Devil : Enemy
 
             GameObject geyser = GeyserPool.Instance.GetPooledObject();
             if (geyser)
-                geyser.transform.position = new Vector3(x, eruptionYCoord.position.y, z);
+                geyser.transform.position = new Vector3(x, eruptionCoord.position.y, z);
 
             // Reset timer only if a geyser is spawned successfully
             timeBetweenEachEruptionTimer = 0f;

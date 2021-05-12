@@ -109,9 +109,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileDamage: 10
   movementSpeed: 50
-  maximumTravelTime: 5
+  maximumTravelTime: 0.5
   explosionDamage: 20
-  explosionRadius: 30
+  explosionRadius: 2.5
   timeUntilExplosion: 3
   vfx: {fileID: 952296914632476752, guid: d5c25701e05fc8b46b263a653810265f, type: 3}
   explosionRangeColor: {r: 1, g: 0, b: 0, a: 1}

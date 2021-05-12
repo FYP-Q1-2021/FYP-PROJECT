@@ -86,6 +86,11 @@ public class MeshDestroy : MonoBehaviour
         }
 
         DestroyedObjectManager.Instance.AddToDestroyedObjectsList(gameObject);
+
+        ItemSpawner item = GetComponent<ItemSpawner>();
+        if (item)
+            item.Spawn();
+
         Destroy(gameObject);
     }
 
