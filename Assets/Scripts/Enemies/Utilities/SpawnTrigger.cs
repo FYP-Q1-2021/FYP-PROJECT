@@ -4,9 +4,15 @@ public class SpawnTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject objectToSpawn;
 
+    private bool isPassed;
+
     void OnTriggerEnter(Collider other)
     {
-        objectToSpawn.SetActive(true);
-        Destroy(gameObject);
+        if (!isPassed)
+        {
+            isPassed = true;
+            if(objectToSpawn != null)
+                objectToSpawn.SetActive(true);
+        }
     }
 }

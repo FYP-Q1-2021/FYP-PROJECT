@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class Devil : Enemy
@@ -59,6 +58,8 @@ public class Devil : Enemy
     protected override void Start()
     {
         base.Start();
+
+        gameObject.SetActive(false);
 
         staff = GetComponentInChildren<Staff>();
 

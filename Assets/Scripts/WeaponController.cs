@@ -166,8 +166,8 @@ public class WeaponController : MonoBehaviour
         {
             // Get Shoot Direction
             // A to B . normalize
-            Debug.Log(hit.point);
-            Debug.DrawRay(ray.origin, ray.direction * 10000f, Color.green);
+/*            Debug.Log(hit.point);
+            Debug.DrawRay(ray.origin, ray.direction * 10000f, Color.green);*/
 
         }
     }
