@@ -5,9 +5,11 @@ public class Staff : MonoBehaviour
 {
     [SerializeField] private List<Transform> spellEjectionPoints = new List<Transform>();
     private int numOfEjectionPoints;
+    private string caster;
 
     void Start()
     {
+        caster = transform.parent.name;
         numOfEjectionPoints = spellEjectionPoints.Count;
     }
 
@@ -17,8 +19,13 @@ public class Staff : MonoBehaviour
         {
             GameObject crystal = CrystalPool.Instance.GetPooledObject();
             crystal.transform.position = spellEjectionPoints[i].position;
+
+            Crystal crystalComponent = crystal.GetComponent<Crystal>();
+
             Vector3 attackDir = spellEjectionPoints[i].forward;
-            crystal.GetComponent<Crystal>().SetDirection(attackDir);
+
+            crystalComponent.SetDirection(attackDir);
+            crystalComponent.CasterName(caster);
         }
     }
 }
