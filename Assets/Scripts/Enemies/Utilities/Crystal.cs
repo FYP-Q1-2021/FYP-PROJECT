@@ -17,6 +17,7 @@ public class Crystal : MonoBehaviour
     private float explosionCounter = 0f;
     private LayerMask explosionLayer;
     private bool isExplodeCoroutineRunning;
+    [SerializeField] private GameObject vfx;
 
     [Header("Debug Display")]
     public Color explosionRangeColor = Color.red;
@@ -47,7 +48,11 @@ public class Crystal : MonoBehaviour
             else
             {
                 if(!isExplodeCoroutineRunning)
+                {
                     StartCoroutine("Explode");
+                    GameObject effects = Instantiate(vfx, transform.position, vfx.transform.rotation, transform.transform);
+                    Destroy(effects, 3f);
+                }
             }
         }
     }
@@ -91,7 +96,6 @@ public class Crystal : MonoBehaviour
             }
         }
 
-        // Particle effect
         yield return new WaitForSeconds(0.1f);
         ResetValues();
         gameObject.SetActive(false);
