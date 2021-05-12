@@ -4775,6 +4775,7 @@ GameObject:
   - component: {fileID: 4660609623358106767}
   - component: {fileID: 874578611092610441}
   - component: {fileID: -4901878567976232099}
+  - component: {fileID: -5668324264420669741}
   m_Layer: 0
   m_Name: Heal Item
   m_TagString: Untagged
@@ -4874,6 +4875,25 @@ MonoBehaviour:
   pickupVFX: {fileID: 0}
   pickupSFX: {fileID: 0}
   pickupVFXDuration: 5
+--- !u!114 &-5668324264420669741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6080894426138002945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e90ae35c53a03044186afc2f416246d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemBobAmount: 0.5
+  itemBobFrequency: 1
+  xRotationIntensity: 10
+  yRotationIntensity: 100
+  rotationSmoothness: 100
+  yRotation: 0
+  xRotation: 0
 --- !u!1 &6163908634813276669
 GameObject:
   m_ObjectHideFlags: 0
