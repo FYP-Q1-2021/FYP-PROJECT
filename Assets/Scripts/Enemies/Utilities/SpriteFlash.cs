@@ -27,6 +27,14 @@ public class SpriteFlash : MonoBehaviour
         health.OnDamaged += OnDamagedEvent;
     }
 
+    void OnDisable()
+    {
+        if (usingDefaultMaterial)
+            spriteRenderer.color = Color.white;
+        else
+            material.SetColor("_BaseColor", Color.white);
+    }
+
     void OnDestroy()
     {
         health.OnDamaged -= OnDamagedEvent;
