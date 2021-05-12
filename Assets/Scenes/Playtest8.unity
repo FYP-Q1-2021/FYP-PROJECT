@@ -195,34 +195,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3856772997199573027, guid: 2f999efed1466cf4f8dc753608558c91,
         type: 3}
-      propertyPath: hPToPhase2
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 3856772997199573027, guid: 2f999efed1466cf4f8dc753608558c91,
-        type: 3}
       propertyPath: transition
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3856772997199573027, guid: 2f999efed1466cf4f8dc753608558c91,
         type: 3}
-      propertyPath: eruptionYCoord
+      propertyPath: eruptionCoord
       value: 
       objectReference: {fileID: 1196048391}
     - target: {fileID: 3856772997199573027, guid: 2f999efed1466cf4f8dc753608558c91,
         type: 3}
-      propertyPath: meleeAttackRange
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3856772997199573027, guid: 2f999efed1466cf4f8dc753608558c91,
-        type: 3}
-      propertyPath: rangedAttackRange
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3856772997199573027, guid: 2f999efed1466cf4f8dc753608558c91,
-        type: 3}
-      propertyPath: timeBetweenClusterEruptions
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: eruptionYCoord
+      value: 
+      objectReference: {fileID: 1196048391}
     - target: {fileID: 3983755797098286797, guid: 2f999efed1466cf4f8dc753608558c91,
         type: 3}
       propertyPath: m_AnchorMax.x
