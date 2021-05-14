@@ -47,27 +47,17 @@ public class Health : MonoBehaviour
     public void Damage(float damage)
     {
         DealDamage(damage);
-
         OnDamaged?.Invoke();
-
-        if(currentHealth < 1f)
-        {
-            // End game
-            if(isAPlayer)
-            {
-
-            }
-            // Delete enemy
-            else
-            {
-                GetComponent<Enemy>().SetState(State.DEAD);
-            }
-        }
     }
 
     public void Heal(float heal)
     {
         currentHealth += heal;
+    }
+
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
     }
 
     void DealDamage(float damage)
