@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7464471281699851392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.264, y: -0.347, z: 0.465}
+  m_LocalPosition: {x: 0.264, y: -0.347, z: 0.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7464471283466431452}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 7464471281778866187}
   - component: {fileID: 3619323537099188345}
   m_Layer: 13
-  m_Name: Player
+  m_Name: Player 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,8 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingWeapons:
-  - {fileID: 6556453474611291031, guid: 496d0e117b044174d98420b79e238b63, type: 3}
-  - {fileID: -1613313636849291283, guid: 56dd36720b9092346b9e6e7613a785b8, type: 3}
+  - {fileID: 4708226013869502396, guid: 8090baad94443534a88f6e94b3a74f0c, type: 3}
+  - {fileID: 6352682892799656527, guid: d6ef71e71f8fc7047963ab9cb43f8f78, type: 3}
   defaultWeaponPosition: {fileID: 7464471281699851395}
   downWeaponPosition: {fileID: 7464471282707216826}
   weaponParentSocket: {fileID: 7464471283553063956}
