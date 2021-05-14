@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4392904, g: 0.48759556, b: 0.5678422, a: 1}
+  m_IndirectSpecularColor: {r: 0.43929008, g: 0.48759466, b: 0.56784165, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -271,7 +271,7 @@ PrefabInstance:
     - target: {fileID: 8819962918609444317, guid: c31fc479bfb2d3144abb6d3533af9a94,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8819962918609444317, guid: c31fc479bfb2d3144abb6d3533af9a94,
         type: 3}
@@ -1416,6 +1416,19 @@ MonoBehaviour:
   throwUpwardForce: 10
   throwDownwardForce: 10
   pickupRange: 4
+--- !u!114 &509896637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509896631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f550b8e0cb5264498388f0eba9b89b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 6080894426138002945, guid: 394996f3727087e40a46c83804b21a7e, type: 3}
 --- !u!1001 &525883539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2273,6 +2286,19 @@ MonoBehaviour:
   throwUpwardForce: 10
   throwDownwardForce: 10
   pickupRange: 4
+--- !u!114 &771757702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771757696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51f550b8e0cb5264498388f0eba9b89b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 6080894426138002945, guid: 394996f3727087e40a46c83804b21a7e, type: 3}
 --- !u!1001 &775659957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4081,7 +4107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 5
-  item: {fileID: 4251375436020178495, guid: 2639189a3e8523846aae3310bed7198f, type: 3}
+  item: {fileID: 6080894426138002945, guid: 394996f3727087e40a46c83804b21a7e, type: 3}
 --- !u!54 &1296611125
 Rigidbody:
   m_ObjectHideFlags: 0
