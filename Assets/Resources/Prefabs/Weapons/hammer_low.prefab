@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -6662946958168982540}
   m_Layer: 0
   m_Name: hammer_low
-  m_TagString: Untagged
+  m_TagString: Melee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,10 +109,10 @@ BoxCollider:
   m_GameObject: {fileID: 6118187094351150361}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 1.43, z: 0.52}
-  m_Center: {x: 0, y: 0.1, z: 0}
+  m_Size: {x: 0.2, y: 1.24, z: 0.37}
+  m_Center: {x: 0, y: 0.1, z: -0.03}
 --- !u!114 &6352682892799656527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,8 +131,7 @@ MonoBehaviour:
     type: 3}
   ProjectilePrefab: {fileID: 0}
   projectile: {fileID: 0}
-  defaultArrowPosition: {fileID: 0}
-  finalArrowPosition: {fileID: 0}
+  PlayerCamera: {fileID: 0}
   weaponRoot: {fileID: 6118187094351150361}
   weaponType: 1
   anim: {fileID: -6662946958168982540}
@@ -158,12 +157,12 @@ MonoBehaviour:
   AmmoReloadDelay: 2
   MaxAmmo: 8
   hasDurability: 1
-  weaponDurability: 100
-  weaponMaxDurability: 0
+  weaponDurability: 10
+  weaponMaxDurability: 10
   weaponDecayAmount: 1
   canRestoreDurability: 0
   ShootSfx: {fileID: 0}
-  damage: 25
+  damage: 0
   baseDamage: 50
   isWeaponActive: 0
   buffDamageMultiplier: 1.25
