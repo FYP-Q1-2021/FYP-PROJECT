@@ -18,7 +18,11 @@ public class Ripple : MonoBehaviour
     void OnDisable()
     {
         transform.localScale = originalScale;
-        expanding = false;
+        if(expanding)
+        {
+            StopCoroutine("ExpandOverTime");
+            expanding = false;
+        }
     }
 
     public void Attack()
@@ -42,8 +46,6 @@ public class Ripple : MonoBehaviour
             yield return null;
         }
 
-        transform.localScale = originalScale;
-        expanding = false;
         gameObject.SetActive(false);
     }
 }

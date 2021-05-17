@@ -26,15 +26,17 @@ public class Imp : BasicEnemy
 
     public event Action OnDeath;
 
+    void Awake()
+    {
+        health = GetComponent<Health>();
+    }
+
     protected override void Start()
     {
         base.Start();
 
         if (transform.parent != null)
             isSpawnedByDevil = true;
-
-        health = GetComponent<Health>();
-        health.OnDamaged += OnDamagedEvent;
 
         if (isSpawnedByDevil)
         {
@@ -234,6 +236,11 @@ public class Imp : BasicEnemy
         transform.rotation = Quaternion.LookRotation(-dir, Vector3.up);
     }
 
+    void OnEnable()
+    {
+        health.OnDamaged += OnDamagedEvent;
+    }
+
     void OnDisable()
     {
         health.OnDamaged -= OnDamagedEvent;
@@ -252,6 +259,7 @@ public class Imp : BasicEnemy
             if (justSpawned)
             {
                 health.ResetHealth();
+                return;
             }
         }
 
@@ -263,7 +271,8 @@ public class Imp : BasicEnemy
                 OnDeath?.Invoke();
                 gameObject.SetActive(false);
             }
-            SetState(State.DEAD);
+            else
+                SetState(State.DEAD);
         }
     }
 }

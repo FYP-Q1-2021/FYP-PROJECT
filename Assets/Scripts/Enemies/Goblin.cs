@@ -9,6 +9,11 @@ public class Goblin : BasicEnemy
 
     private Health health;
 
+    void Awake()
+    {
+        health = GetComponent<Health>();
+    }
+
     protected override void Start()
     {
         base.Start();
@@ -174,8 +179,15 @@ public class Goblin : BasicEnemy
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 
+    void OnEnable()
+    {
+        health.OnDamaged += OnDamagedEvent;
+    }
+
     void OnDisable()
     {
+        health.OnDamaged -= OnDamagedEvent;
+
         if (goblinAnimationEvents)
             goblinAnimationEvents.OnLastAttackFrame -= OnLastAttackAnimationFrameEvent;
     }
