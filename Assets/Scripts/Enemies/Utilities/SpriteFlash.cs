@@ -13,11 +13,15 @@ public class SpriteFlash : MonoBehaviour
     private IEnumerator flashCoroutine;
     private bool usingDefaultMaterial = true;
 
+    private bool canBeInvulnerable;
+
+    private Imp imp;
+
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        if(transform.parent.name == "Devil")
+        if (transform.parent.name == "Devil")
         {
             material = spriteRenderer.material;
             usingDefaultMaterial = false;
@@ -25,6 +29,8 @@ public class SpriteFlash : MonoBehaviour
 
         health = GetComponentInParent<Health>();
         health.OnDamaged += OnDamagedEvent;
+
+        imp = transform.parent.GetComponent<Imp>();
     }
 
     void OnDisable()
@@ -56,7 +62,7 @@ public class SpriteFlash : MonoBehaviour
     {
         while (lerpTime < flashDuration)
         {
-            if(usingDefaultMaterial)
+            if (usingDefaultMaterial)
             {
                 spriteRenderer.color = Color.Lerp(Color.white, flashColor, 1f - lerpTime);
                 spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1f);
@@ -76,6 +82,9 @@ public class SpriteFlash : MonoBehaviour
 
     private void OnDamagedEvent()
     {
+        if (imp && imp.justSpawned)
+            return;
+
         Flash();
     }
 }

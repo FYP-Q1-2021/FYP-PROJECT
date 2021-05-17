@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 7464471281778866187}
   - component: {fileID: 3619323537099188345}
   m_Layer: 13
-  m_Name: Player 1
+  m_Name: Melee
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingWeapons:
-  - {fileID: 4708226013869502396, guid: 8090baad94443534a88f6e94b3a74f0c, type: 3}
+  - {fileID: 4708226013869502396, guid: 73923874371e8f346b157c1eaf852623, type: 3}
   - {fileID: 6352682892799656527, guid: d6ef71e71f8fc7047963ab9cb43f8f78, type: 3}
   defaultWeaponPosition: {fileID: 7464471281699851395}
   downWeaponPosition: {fileID: 7464471282707216826}

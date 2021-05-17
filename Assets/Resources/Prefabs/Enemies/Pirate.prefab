@@ -439,7 +439,7 @@ MonoBehaviour:
   idlingDuration: 5
   idlingElapsedTime: 0
   attackDamage: 10
-  attackRange: 3
+  attackRange: 2
   attackSpeed: 1
   attackElapsedTime: 0
   canAttack: 1
@@ -482,7 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee5fe52c42517e4488b18a5d74b7d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 50
   currentHealth: 0
   isAPlayer: 0
   CanPickup: 0

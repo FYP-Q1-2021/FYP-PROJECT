@@ -270,6 +270,9 @@ public class Devil : Enemy
                 gameObject.SetActive(false);
             }
         }
+
+        if (health.GetCurrentHealth() < 1)
+            SetState(State.DEAD);
     }
 
     private void OnTransitionToPhase3Event()

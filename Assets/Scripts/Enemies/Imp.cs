@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class Imp : BasicEnemy
@@ -18,9 +19,17 @@ public class Imp : BasicEnemy
     [SerializeField] private float currentSpeed;
     private float idleElapsedTime = 0f;
 
+    [SerializeField] private float invincibilityDuration = 0.5f;
+    public bool justSpawned;
+
     private Health health;
 
     public event Action OnDeath;
+
+    void Awake()
+    {
+        health = GetComponent<Health>();
+    }
 
     protected override void Start()
     {
@@ -31,11 +40,10 @@ public class Imp : BasicEnemy
 
         if (isSpawnedByDevil)
         {
-            health = GetComponent<Health>();
-            // Subscribe
-            health.OnDamaged += OnDamagedEvent;
             Destroy(GetComponent<FlyingWaypointsManager>());
             SetState(State.IDLE);
+            justSpawned = true;
+            StartCoroutine("InvulnerableState");
         }
         else
         {
@@ -228,25 +236,43 @@ public class Imp : BasicEnemy
         transform.rotation = Quaternion.LookRotation(-dir, Vector3.up);
     }
 
-    private void OnDisable()
+    void OnEnable()
     {
-        if (isSpawnedByDevil)
-        {
-            // Unsubscribe
-            health.OnDamaged -= OnDamagedEvent;
-        }
+        health.OnDamaged += OnDamagedEvent;
+    }
+
+    void OnDisable()
+    {
+        health.OnDamaged -= OnDamagedEvent;
+    }
+
+    IEnumerator InvulnerableState()
+    {
+        yield return new WaitForSeconds(invincibilityDuration);
+        justSpawned = false;
     }
 
     private void OnDamagedEvent()
     {
+        if (isSpawnedByDevil)
+        {
+            if (justSpawned)
+            {
+                health.ResetHealth();
+                return;
+            }
+        }
+
         if (health.GetCurrentHealth() < 1)
         {
             if (isSpawnedByDevil)
             {
                 // Notify subscribers
                 OnDeath?.Invoke();
+                gameObject.SetActive(false);
             }
-            gameObject.SetActive(false);
+            else
+                SetState(State.DEAD);
         }
     }
 }
