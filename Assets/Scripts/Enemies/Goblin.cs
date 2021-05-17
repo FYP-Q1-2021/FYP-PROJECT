@@ -7,6 +7,13 @@ public class Goblin : BasicEnemy
     private WaypointsManager waypointsManager;
     private GoblinAnimationEvents goblinAnimationEvents;
 
+    private Health health;
+
+    void Awake()
+    {
+        health = GetComponent<Health>();
+    }
+
     protected override void Start()
     {
         base.Start();
@@ -14,8 +21,11 @@ public class Goblin : BasicEnemy
         waypointsManager = GetComponent<WaypointsManager>();
         SetState(State.PATROL);
 
+        health = GetComponent<Health>();
+        health.OnDamaged += OnDamagedEvent;
+
         goblinAnimationEvents = GetComponentInChildren<GoblinAnimationEvents>();
-        if(goblinAnimationEvents) // Might be null due to Pirate Goblin currently not having any attack animation
+        if (goblinAnimationEvents) // Might be null due to Pirate Goblin currently not having any attack animation
             goblinAnimationEvents.OnLastAttackFrame += OnLastAttackAnimationFrameEvent;
     }
 
@@ -90,11 +100,11 @@ public class Goblin : BasicEnemy
                         return;
                     }
 
-                    if(canAttack)
+                    if (canAttack)
                     {
                         animator.SetInteger("State", (int)State.ATTACK);
 
-                        if(!goblinAnimationEvents) // Quick hack since pirate doesn't have attack animation yet
+                        if (!goblinAnimationEvents) // Quick hack since pirate doesn't have attack animation yet
                             playerHP.Damage(attackDamage);
 
                         canAttack = false;
@@ -102,7 +112,7 @@ public class Goblin : BasicEnemy
                     else
                     {
                         attackElapsedTime += simulationSpeed * Time.deltaTime;
-                        if(attackElapsedTime > attackSpeed)
+                        if (attackElapsedTime > attackSpeed)
                         {
                             canAttack = true;
                             attackElapsedTime = 0f;
@@ -169,13 +179,26 @@ public class Goblin : BasicEnemy
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 
+    void OnEnable()
+    {
+        health.OnDamaged += OnDamagedEvent;
+    }
+
     void OnDisable()
     {
-        if(goblinAnimationEvents)
+        health.OnDamaged -= OnDamagedEvent;
+
+        if (goblinAnimationEvents)
             goblinAnimationEvents.OnLastAttackFrame -= OnLastAttackAnimationFrameEvent;
     }
 
     #region Events
+    private void OnDamagedEvent()
+    {
+        if(health.GetCurrentHealth() < 1f)
+            SetState(State.DEAD);
+    }
+
     private void OnLastAttackAnimationFrameEvent()
     {
         playerHP.Damage(attackDamage);

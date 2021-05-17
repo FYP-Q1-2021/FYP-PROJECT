@@ -9,9 +9,20 @@ public class Ripple : MonoBehaviour
     [SerializeField] private float scaleDuration = 10f;
     public bool expanding;
     public float damage = 10f;
+
     void Start()
     {
         originalScale = transform.localScale;
+    }
+
+    void OnDisable()
+    {
+        transform.localScale = originalScale;
+        if(expanding)
+        {
+            StopCoroutine("ExpandOverTime");
+            expanding = false;
+        }
     }
 
     public void Attack()
@@ -35,8 +46,6 @@ public class Ripple : MonoBehaviour
             yield return null;
         }
 
-        transform.localScale = originalScale;
-        expanding = false;
         gameObject.SetActive(false);
     }
 }
