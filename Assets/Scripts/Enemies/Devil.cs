@@ -267,6 +267,7 @@ public class Devil : Enemy
             {
                 currentPhase = Phase.PHASE_2;
                 SpawnImps();
+                Destroy(ripple.gameObject);
                 gameObject.SetActive(false);
             }
         }
