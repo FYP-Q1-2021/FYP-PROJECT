@@ -238,9 +238,13 @@ public class ProjectileStandard : MonoBehaviour
             }
             MeshDestroy dest = collider.gameObject.GetComponent<MeshDestroy>();
             if(dest)
-            {
+            {   
                 Debug.Log("Projectile Hit Destroyable : ProjectileStandard");
                 dest.DestroyMesh();
+            }
+            else
+            {
+                GameObject bulletHole = Instantiate(bulletHolePrefab, gameObject.transform.position, Quaternion.LookRotation(-gameObject.transform.normal));
             }
         }
 
