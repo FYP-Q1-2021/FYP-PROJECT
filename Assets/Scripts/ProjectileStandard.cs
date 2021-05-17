@@ -6,6 +6,7 @@ public class ProjectileStandard : MonoBehaviour
 {
 
     public PlayerCharacterController playerCharacterController;
+    public GameObject bulletHolePrefab;
 
     [Header("General")]
     [Tooltip("Radius of this projectile's collision detection")]
@@ -59,7 +60,6 @@ public class ProjectileStandard : MonoBehaviour
     Vector3 m_TrajectoryCorrectionVector;
     Vector3 m_ConsumedTrajectoryCorrectionVector;
     List<Collider> m_IgnoredColliders;
-
     const QueryTriggerInteraction k_TriggerInteraction = QueryTriggerInteraction.Collide;
 
     void OnEnable()
@@ -242,10 +242,10 @@ public class ProjectileStandard : MonoBehaviour
                 Debug.Log("Projectile Hit Destroyable : ProjectileStandard");
                 dest.DestroyMesh();
             }
-            else
-            {
-                GameObject bulletHole = Instantiate(bulletHolePrefab, gameObject.transform.position, Quaternion.LookRotation(-gameObject.transform.normal));
-            }
+            //else
+            //{
+            //    GameObject bulletHole = Instantiate(bulletHolePrefab, gameObject.transform.position, Quaternion.LookRotation(-gameObject.transform.normal));
+            //}
         }
 
         // Self Destruct
