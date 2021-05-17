@@ -242,10 +242,10 @@ public class ProjectileStandard : MonoBehaviour
                 Debug.Log("Projectile Hit Destroyable : ProjectileStandard");
                 dest.DestroyMesh();
             }
-            else
-            {
-                GameObject bulletHole = Instantiate(bulletHolePrefab, gameObject.transform.position, Quaternion.LookRotation(-gameObject.transform.normal));
-            }
+            //else
+            //{
+            //    GameObject bulletHole = Instantiate(bulletHolePrefab, gameObject.transform.position, Quaternion.LookRotation(-gameObject.transform.normal));
+            //}
         }
 
         // Self Destruct
