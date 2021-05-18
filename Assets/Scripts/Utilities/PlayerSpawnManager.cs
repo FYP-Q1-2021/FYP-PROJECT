@@ -5,7 +5,7 @@ public class PlayerSpawnManager : MonoBehaviour
 {
     public static PlayerSpawnManager Instance { get; private set; }
 
-    [SerializeField] public Transform player;
+    public Transform player;
 
     public bool isReturning;
     public string prevSceneName;
@@ -18,5 +18,10 @@ public class PlayerSpawnManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+    }
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 }

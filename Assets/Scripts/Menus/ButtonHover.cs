@@ -22,21 +22,21 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        text.color = Color.yellow;
+        //text.color = Color.yellow;
         text.fontSize = hoveredTextSize;
         image.color = hoveredImageColor;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        text.color = Color.white;
+        //text.color = Color.white;
         text.fontSize = originalTextSize;
         image.color = originalImageColor;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        text.color = Color.white;
+        //text.color = Color.white;
         text.fontSize = originalTextSize;
         image.color = originalImageColor;
     }

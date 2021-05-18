@@ -133,9 +133,9 @@ public class WeaponController : MonoBehaviour
     {
         m_ShootAudioSource = GetComponent<AudioSource>();
         originRotation = transform.localRotation;
-        inputHandler = GameObject.Find("Player").GetComponent<InputHandler>();
-        playerWeaponsManager = GameObject.Find("Player").GetComponent<PlayerWeaponsManager>();
-        playerCharacterController = GameObject.Find("Player").GetComponent<PlayerCharacterController>();
+        inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<InputHandler>();
+        playerWeaponsManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWeaponsManager>();
+        playerCharacterController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacterController>();
         PlayerCamera = GameObject.Find("PlayerCamera").GetComponent<Camera>();
         weaponCollider = GetComponent<BoxCollider>();
         anim = GetComponent<Animator>();
