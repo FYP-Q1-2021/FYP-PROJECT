@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 7464471281778866187}
   - component: {fileID: 3619323537099188345}
   m_Layer: 13
-  m_Name: Player
+  m_Name: Range
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,8 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingWeapons:
+  - {fileID: 5452717059416474640, guid: 39e33aef5f0975240ab384b8356bc40c, type: 3}
   - {fileID: 6556453474611291031, guid: 496d0e117b044174d98420b79e238b63, type: 3}
-  - {fileID: -1613313636849291283, guid: 56dd36720b9092346b9e6e7613a785b8, type: 3}
   defaultWeaponPosition: {fileID: 7464471281699851395}
   downWeaponPosition: {fileID: 7464471282707216826}
   weaponParentSocket: {fileID: 7464471283553063956}
