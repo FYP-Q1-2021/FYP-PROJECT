@@ -926,6 +926,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2092322548}
     m_Modifications:
+    - target: {fileID: 1666053943038166214, guid: d1b406a9e51284343b7000668b552a3a,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 7464471281778866184, guid: 53c4ef801fa0e2c48acd162bf19aab10,
+        type: 3}
     - target: {fileID: 3844096114144490229, guid: d1b406a9e51284343b7000668b552a3a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2553,6 +2559,12 @@ PrefabInstance:
       propertyPath: m_text
       value: Crush those filthy heads with this huge spiky hammer
       objectReference: {fileID: 0}
+    - target: {fileID: 1666053943038166214, guid: d1b406a9e51284343b7000668b552a3a,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 7464471281778866184, guid: 53c4ef801fa0e2c48acd162bf19aab10,
+        type: 3}
     - target: {fileID: 3844096114144490229, guid: d1b406a9e51284343b7000668b552a3a,
         type: 3}
       propertyPath: m_Pivot.x
