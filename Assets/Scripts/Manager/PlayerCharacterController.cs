@@ -55,6 +55,7 @@ public class PlayerCharacterController : MonoBehaviour
     public bool isDamageBuffed;
     public bool isAtackSpeedBuffed;
     public bool isInvincible;
+    public bool hasKey;
 
     float m_FootstepDistanceCounter;
 
@@ -74,6 +75,7 @@ public class PlayerCharacterController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         playerBody = GetComponent<Transform>();
         ground = GameObject.Find("GroundCheck").gameObject.GetComponent<Transform>();
+        hasKey = false;
     }
 
     // Update is called once per frame
