@@ -32,9 +32,9 @@ public class WeaponPickup : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         weaponCollider = GetComponent<BoxCollider>();
         gunContainer = GameObject.Find("WeaponParentSocket").GetComponent<Transform>();
-        weaponsManager = GameObject.Find("Player").GetComponent<PlayerWeaponsManager>();
-        player = GameObject.Find("Player").GetComponent<Transform>();
-        inputHandler = GameObject.Find("Player").GetComponent<InputHandler>();
+        weaponsManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWeaponsManager>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<InputHandler>();
         fpsCam = GameObject.Find("PlayerCamera").GetComponent<Transform>();
 
         weaponController.enabled = true;

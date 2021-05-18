@@ -24,6 +24,7 @@ public class GameEndingManager : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
         player.OnDamaged += OnPlayerDeath;
     }
 
