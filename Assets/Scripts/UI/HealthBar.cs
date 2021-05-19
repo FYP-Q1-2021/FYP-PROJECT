@@ -16,11 +16,13 @@ public class HealthBar : MonoBehaviour
         slider.value = health.GetMaxHealth();
 
         health.OnDamaged += UpdateHealthBar;
+        health.OnHeal += UpdateHealthBar;
     }
 
     void OnDestroy()
     {
         health.OnDamaged -= UpdateHealthBar;
+        health.OnHeal -= UpdateHealthBar;
     }
 
     public void UpdateHealthBar()

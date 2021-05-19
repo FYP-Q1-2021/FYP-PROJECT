@@ -89,7 +89,7 @@ MonoBehaviour:
   clip: {fileID: 0}
   MuzzleFlashPrefab: {fileID: 0}
   UnparentMuzzleFlash: 0
-  delayBetweenShots: 0.3
+  delayBetweenShots: 0.5
   bulletSpreadAngle: 0
   bulletsPerShot: 1
   recoilForce: 1
@@ -99,22 +99,22 @@ MonoBehaviour:
   swaySmoothness: 10
   AutomaticReload: 1
   HasPhysicalBullets: 0
-  ClipSize: 12
+  ClipSize: 8
   ShellCasing: {fileID: 0}
   EjectionPort: {fileID: 0}
   ShellCasingEjectionForce: 2
   ShellPoolSize: 1
   AmmoReloadRate: 1
   AmmoReloadDelay: 2
-  MaxAmmo: 50
+  MaxAmmo: 8
   hasDurability: 1
-  weaponDurability: 500
-  weaponMaxDurability: 500
+  weaponDurability: 100
+  weaponMaxDurability: 100
   weaponDecayAmount: 1
   canRestoreDurability: 1
   ShootSfx: {fileID: 0}
-  damage: 15
-  baseDamage: 15
+  damage: 100
+  baseDamage: 100
   isWeaponActive: 0
   buffDamageMultiplier: 0
   attackATime: 0

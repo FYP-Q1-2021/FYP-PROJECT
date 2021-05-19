@@ -65,7 +65,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160a20aac546fb84f94f5499c03bf48e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restoreAmount: 40
+  ammoToReplenish: 20
+  restoreAmount: 20
   pickupVFX: {fileID: 5833010190915074319, guid: 5d242d3e2f098af4d8b64509ab311bca,
     type: 3}
   pickupSFX: {fileID: 0}
@@ -263,17 +264,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 45fe1beb32a56814d81153805ce87d58,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45fe1beb32a56814d81153805ce87d58,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45fe1beb32a56814d81153805ce87d58,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 45fe1beb32a56814d81153805ce87d58,
         type: 3}

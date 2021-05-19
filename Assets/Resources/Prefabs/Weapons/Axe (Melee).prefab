@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 2120557397774187433}
   - component: {fileID: 1245259935084792524}
   m_Layer: 0
-  m_Name: axe
+  m_Name: Axe (Melee)
   m_TagString: Melee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,13 +258,13 @@ MonoBehaviour:
   AmmoReloadDelay: 2
   MaxAmmo: 8
   hasDurability: 1
-  weaponDurability: 100
-  weaponMaxDurability: 100
+  weaponDurability: 75
+  weaponMaxDurability: 75
   weaponDecayAmount: 1
   canRestoreDurability: 1
   ShootSfx: {fileID: 0}
   damage: 0
-  baseDamage: 20
+  baseDamage: 25
   isWeaponActive: 1
   buffDamageMultiplier: 0
   attackATime: 0

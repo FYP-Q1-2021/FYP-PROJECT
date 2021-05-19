@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     [SerializeField] private bool isAPlayer;
 
     public event Action OnDamaged;
+    public event Action OnHeal;
     public bool CanPickup;
     PlayerCharacterController playerCharacterController;
 
@@ -47,12 +48,12 @@ public class Health : MonoBehaviour
     public void Damage(float damage)
     {
         DealDamage(damage);
-        OnDamaged?.Invoke();
     }
 
     public void Heal(float heal)
     {
         currentHealth += heal;
+        OnHeal?.Invoke();
     }
 
     public void ResetHealth()
@@ -62,10 +63,11 @@ public class Health : MonoBehaviour
 
     void DealDamage(float damage)
     {
-        if (isAPlayer && !playerCharacterController.isInvincible)
+        if ((isAPlayer && !playerCharacterController.isInvincible) || !isAPlayer)
+        {
             currentHealth -= damage;
-        else if (!isAPlayer)
-            currentHealth -= damage;
+            OnDamaged?.Invoke();
+        }
     }
 
     public void DamageOverTime(float damageAmount, float duration, float delayBetweenDamage)
@@ -80,7 +82,6 @@ public class Health : MonoBehaviour
             DealDamage(damageAmount);
             duration -= delayBetweenDamage;
             yield return new WaitForSeconds(delayBetweenDamage);
-
         }
     }
 }
