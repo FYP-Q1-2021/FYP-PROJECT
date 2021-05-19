@@ -510,7 +510,6 @@ GameObject:
   - component: {fileID: 3823441478872110373}
   - component: {fileID: 3823441478872110372}
   - component: {fileID: 923926249955838121}
-  - component: {fileID: 6877436941422679694}
   m_Layer: 9
   m_Name: PirateSprite
   m_TagString: Untagged
@@ -571,7 +570,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 69a44142cc137c24eb59d33e447b1caf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0a9073fd4834f314b9de473dc872761e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -627,18 +626,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 1
---- !u!114 &6877436941422679694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3823441478872110362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 995e02aadb0d5cb44a8145f4dd3d3ab5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3823441478592061857
 PrefabInstance:
   m_ObjectHideFlags: 0
