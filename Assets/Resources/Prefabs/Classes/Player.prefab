@@ -155,7 +155,8 @@ MonoBehaviour:
   isDamageBuffed: 0
   isAtackSpeedBuffed: 0
   isInvincible: 0
-  bottomCameraLock: 40
+  hasKey: 0
+  bottomCameraLock: 50
   upCameraLock: -30
 --- !u!114 &7464471281778866191
 MonoBehaviour:
@@ -185,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingWeapons:
   - {fileID: 6556453474611291031, guid: 496d0e117b044174d98420b79e238b63, type: 3}
-  - {fileID: -1613313636849291283, guid: 56dd36720b9092346b9e6e7613a785b8, type: 3}
+  - {fileID: 4708226013869502396, guid: 8090baad94443534a88f6e94b3a74f0c, type: 3}
   defaultWeaponPosition: {fileID: 7464471281699851395}
   downWeaponPosition: {fileID: 7464471282707216826}
   weaponParentSocket: {fileID: 7464471283553063956}
