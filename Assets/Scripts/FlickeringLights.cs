@@ -5,12 +5,19 @@ using UnityEngine;
 public class FlickeringLights : MonoBehaviour
 {
 
-    public float shortFlicker = 0.5f;
-    public float longFlicker = 1f;
+    public float minFlickerRange = 0.5f;
+    public float maxFlickerRange = 1f;
+
+    public int minBurst = 1;
+    public int maxBurst = 5;
+
+    [SerializeField]
+    int burst;
+    bool isBurst;
     [SerializeField]
     float delayBetweenFlicker;
     bool isFlickering;
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -22,12 +29,29 @@ public class FlickeringLights : MonoBehaviour
 
     IEnumerator Flicker()
     {
+        // offs the light
+        // get a random float and waits for it to turn on the light again
+        // gets a new random float and allows for next set of flicker
+
+
         isFlickering = true;
-        this.gameObject.GetComponent<Light>().enabled = false;
-        delayBetweenFlicker = Random.Range(shortFlicker, longFlicker);
-        yield return new WaitForSeconds(delayBetweenFlicker);
-        this.gameObject.GetComponent<Light>().enabled = true;
-        delayBetweenFlicker = Random.Range(shortFlicker, longFlicker);
+        burst = Random.Range(minBurst, maxBurst);
+        delayBetweenFlicker = Random.Range(minFlickerRange, maxFlickerRange);
+
+        //this.gameObject.GetComponent<Light>().enabled = false;
+        //yield return new WaitForSeconds(delayBetweenFlicker);
+        //this.gameObject.GetComponent<Light>().enabled = true;
+
+        while (burst > 1)
+        {
+            this.gameObject.GetComponent<Light>().enabled = false;
+            yield return new WaitForSeconds(delayBetweenFlicker);
+            this.gameObject.GetComponent<Light>().enabled = true;
+            yield return new WaitForSeconds(delayBetweenFlicker);
+            burst--;
+        }
+
+        delayBetweenFlicker = Random.Range(minFlickerRange, maxFlickerRange);
         yield return new WaitForSeconds(delayBetweenFlicker);
         isFlickering = false;
     }
