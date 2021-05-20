@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
+using System;
 
 public class SpawnTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject objectToSpawn;
+
+    public event Action OnSpawnBoss;
 
     private bool isPassed;
 
@@ -11,8 +14,8 @@ public class SpawnTrigger : MonoBehaviour
         if (!isPassed)
         {
             isPassed = true;
-            if(objectToSpawn != null)
-                objectToSpawn.SetActive(true);
+            objectToSpawn.SetActive(true);
+            OnSpawnBoss?.Invoke();
         }
     }
 }

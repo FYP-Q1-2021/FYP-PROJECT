@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 public class ChestSpawnManager : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class ChestSpawnManager : MonoBehaviour
     [SerializeField] private GameObject item;
     private Transform player;
     private InputHandler inputHandler;
+    public event Action OnInteract;
 
     void Start()
     {
@@ -24,6 +26,7 @@ public class ChestSpawnManager : MonoBehaviour
             if(inputHandler.GetInteractKeyDown())
             {
                 Instantiate(item, transform.position, Quaternion.identity);
+                OnInteract?.Invoke();
                 gameObject.SetActive(false);
             }
         }
