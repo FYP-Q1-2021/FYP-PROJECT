@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using System;
 
 public class Devil : Enemy
 {
@@ -55,6 +56,8 @@ public class Devil : Enemy
     private Phase currentPhase;
 
     private float eruptionRange;
+
+    public event Action OnDeath;
 
     #region Inherited functions
     protected override void Start()
@@ -188,8 +191,8 @@ public class Devil : Enemy
                 yield return null;
             }
 
-            float x = eruptionCoord.position.x + Random.Range(-eruptionRange, eruptionRange);
-            float z = eruptionCoord.position.z + Random.Range(-eruptionRange, eruptionRange);
+            float x = eruptionCoord.position.x + UnityEngine.Random.Range(-eruptionRange, eruptionRange);
+            float z = eruptionCoord.position.z + UnityEngine.Random.Range(-eruptionRange, eruptionRange);
 
             // Check the location of where the spell would be cast
             // Find another position if there is already a spell near it
@@ -273,7 +276,10 @@ public class Devil : Enemy
         }
 
         if (health.GetCurrentHealth() < 1)
+        {
             SetState(State.DEAD);
+            OnDeath?.Invoke();
+        }
     }
 
     private void OnTransitionToPhase3Event()
