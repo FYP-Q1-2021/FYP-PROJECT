@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 /// <summary>
 /// Checks if scene has been loaded
 /// </summary>
 public class SceneLoadManager : MonoBehaviour
 {
+    public event Action OnSceneFinishedLoading;
+
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -27,7 +30,6 @@ public class SceneLoadManager : MonoBehaviour
         else
         {
             PlayerSpawnManager.Instance.isReturning = false;
-
 
             if (SceneManager.GetActiveScene().name == "Playtest3")
             {
@@ -52,6 +54,8 @@ public class SceneLoadManager : MonoBehaviour
         PlayerSpawnManager.Instance.player.GetComponent<CharacterController>().enabled = true;
 
         DestroyedObjectManager.Instance.DeleteDestroyedObjectsAfterReload();
+
+        OnSceneFinishedLoading?.Invoke();
     }
 
     void OnDisable()
