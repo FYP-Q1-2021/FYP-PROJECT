@@ -20,7 +20,7 @@ public class DialogueEvent : MonoBehaviour
     [SerializeField] private SceneLoadManager sceneLoadManager;
     [SerializeField] private Goblin goblin;
     [SerializeField] private OnTriggerEvent goblinViewingPoint;
-    [SerializeField] private SphereCollider barrier;
+    [SerializeField] private OnBarrierTriggerEvent barrier;
     [SerializeField] private ChestSpawnManager chest;
 
     void Start()
@@ -35,9 +35,7 @@ public class DialogueEvent : MonoBehaviour
                 goblinViewingPoint.OnTrigger += TriggerDialogue;
         }
         else if (barrier)
-        {
-            // Subscribe to barrier
-        }
+            barrier.OnTrigger += TriggerDialogue;
         else if (chest)
             chest.OnInteract += TriggerDialogue;
     }
@@ -53,9 +51,7 @@ public class DialogueEvent : MonoBehaviour
                 goblinViewingPoint.OnTrigger -= TriggerDialogue;
         }
         else if (barrier)
-        {
-            // Unsubscribe to barrier
-        }
+            barrier.OnTrigger -= TriggerDialogue;
         else if (chest)
             chest.OnInteract -= TriggerDialogue;
     }
