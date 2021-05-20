@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using System;
 
 public class Goblin : BasicEnemy
 {
@@ -8,6 +9,8 @@ public class Goblin : BasicEnemy
     private GoblinAnimationEvents goblinAnimationEvents;
 
     private Health health;
+
+    public event Action OnDeath;
 
     void Awake()
     {
@@ -196,7 +199,10 @@ public class Goblin : BasicEnemy
     private void OnDamagedEvent()
     {
         if(health.GetCurrentHealth() < 1f)
+        {
             SetState(State.DEAD);
+            OnDeath?.Invoke();
+        }
     }
 
     private void OnLastAttackAnimationFrameEvent()
