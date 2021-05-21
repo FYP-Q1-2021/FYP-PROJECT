@@ -61,4 +61,9 @@ public class DialogueManager : MonoBehaviour
 
         isCoroutineRunning = false;
     }
+
+    public void DisableDialogueBox()
+    {
+        dialogueBox.SetActive(false);
+    }
 }

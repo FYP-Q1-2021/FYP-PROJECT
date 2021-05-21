@@ -54,6 +54,7 @@ public class SceneLoadManager : MonoBehaviour
         PlayerSpawnManager.Instance.player.GetComponent<CharacterController>().enabled = true;
 
         DestroyedObjectManager.Instance.DeleteDestroyedObjectsAfterReload();
+        FinishedDialogueEventsManager.Instance.DeleteFinishedDialogueEventsAfterReload();
 
         OnSceneFinishedLoading?.Invoke();
     }

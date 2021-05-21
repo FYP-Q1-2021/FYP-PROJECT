@@ -22,6 +22,7 @@ public enum DialogueTrigger
 public class DialogueEvent : MonoBehaviour
 {
     public DialogueTrigger trigger;
+    [SerializeField] private bool runOnce;
 
     [SerializeField] private SceneLoadManager sceneLoadManager;
     [SerializeField] private Goblin goblin;
@@ -71,5 +72,25 @@ public class DialogueEvent : MonoBehaviour
     {
         DialogueManager.Instance.ShowDialogue(trigger);
         ObjectiveManager.Instance.ShowObjective(trigger);
+        if (runOnce)
+            FinishedDialogueEventsManager.Instance.AddToFinishedDialogueEventsList(gameObject);
+    }
+
+    public void UnsubscribeImmediately()
+    {
+        if (sceneLoadManager)
+            sceneLoadManager.OnSceneFinishedLoading -= TriggerDialogue;
+        else if (goblin)
+            goblin.OnDeath -= TriggerDialogue;
+        else if (triggerEvent)
+            triggerEvent.OnTrigger -= TriggerDialogue;
+        else if (barrier)
+            barrier.OnTrigger -= TriggerDialogue;
+        else if (chest)
+            chest.OnInteract -= TriggerDialogue;
+        else if (bossSpawnTrigger)
+            bossSpawnTrigger.OnSpawnBoss += TriggerDialogue;
+        else if (devil)
+            devil.OnDeath -= TriggerDialogue;
     }
 }
