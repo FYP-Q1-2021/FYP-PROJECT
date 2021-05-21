@@ -28,6 +28,7 @@ public class ChestSpawnManager : MonoBehaviour
                 Instantiate(item, transform.position, Quaternion.identity);
                 OnInteract?.Invoke();
                 gameObject.SetActive(false);
+                UsedChestsManager.Instance.AddToUsedChestsList(gameObject);
             }
         }
     }

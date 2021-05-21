@@ -55,6 +55,7 @@ public class SceneLoadManager : MonoBehaviour
 
         DestroyedObjectManager.Instance.DeleteDestroyedObjectsAfterReload();
         FinishedDialogueEventsManager.Instance.DeleteFinishedDialogueEventsAfterReload();
+        UsedChestsManager.Instance.DeleteUsedChestsAfterReload();
 
         OnSceneFinishedLoading?.Invoke();
     }
