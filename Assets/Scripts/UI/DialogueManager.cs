@@ -39,15 +39,21 @@ public class DialogueManager : MonoBehaviour
                 text.text = dialogueDatas[i].dialogue;
                 if (isCoroutineRunning)
                     StopCoroutine("Dialogue");
-                StartCoroutine("Dialogue");
+                StartCoroutine("Dialogue", trigger);
                 return;
             }
         }
     }
 
-    IEnumerator Dialogue()
+    IEnumerator Dialogue(DialogueTrigger trigger)
     {
         isCoroutineRunning = true;
+
+        if (trigger == DialogueTrigger.FIRST_GOBLIN_SLAYED)
+        {
+            dialogueBox.SetActive(false);
+            yield return new WaitForSeconds(3f);
+        }
 
         dialogueBox.SetActive(true);
         yield return new WaitForSeconds(duration);
