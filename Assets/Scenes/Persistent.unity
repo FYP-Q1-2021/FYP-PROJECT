@@ -1581,6 +1581,7 @@ GameObject:
   - component: {fileID: 994957196}
   - component: {fileID: 994957195}
   - component: {fileID: 994957197}
+  - component: {fileID: 994957199}
   - component: {fileID: 994957193}
   m_Layer: 0
   m_Name: GameManager
@@ -1673,6 +1674,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005fa61c9bc10bf4a811f0883899a9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &994957199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994957192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dbf2f51d3c20934f8de05771191771b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishedDialogueEventsList: []
 --- !u!1 &1114272190
 GameObject:
   m_ObjectHideFlags: 0
@@ -2379,7 +2393,7 @@ MonoBehaviour:
   - trigger: 1
     dialogue: Gotta somehow get past that goblin
   - trigger: 2
-    dialogue: This crates looks destroyable...
+    dialogue: This barrels looks destroyable...
   - trigger: 3
     dialogue: Looks like I need to activate something to get past this
   - trigger: 4
@@ -2911,6 +2925,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 0}
+--- !u!1 &1843137133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1843137135}
+  - component: {fileID: 1843137134}
+  m_Layer: 0
+  m_Name: ObjectiveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1843137134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843137133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b1c1b75f631eb4ea4c2754d6b013a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveDatas:
+  - trigger: 1
+    dialogue: Slay the goblin
+  - trigger: 2
+    dialogue: disable
+  - trigger: 3
+    dialogue: Find a key to enter the barrier
+  - trigger: 4
+    dialogue: disable
+  objective: {fileID: 570776509}
+--- !u!4 &1843137135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843137133}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1860538709
 GameObject:
   m_ObjectHideFlags: 0
