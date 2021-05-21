@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4371387, g: 0.48486298, b: 0.5651341, a: 1}
+  m_IndirectSpecularColor: {r: 0.43713847, g: 0.4848627, b: 0.565133, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1805,6 +1805,11 @@ PrefabInstance:
       propertyPath: goblin
       value: 
       objectReference: {fileID: 1140214160}
+    - target: {fileID: 3041339750044710882, guid: fb2e5ca41635a884ab159f20d616cab3,
+        type: 3}
+      propertyPath: runOnce
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3041339750044710882, guid: fb2e5ca41635a884ab159f20d616cab3,
         type: 3}
       propertyPath: trigger
@@ -7325,6 +7330,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3041339750044710882, guid: fb2e5ca41635a884ab159f20d616cab3,
+        type: 3}
+      propertyPath: runOnce
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3041339750044710882, guid: fb2e5ca41635a884ab159f20d616cab3,
         type: 3}
       propertyPath: trigger

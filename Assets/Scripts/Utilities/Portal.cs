@@ -25,6 +25,7 @@ public class Portal : MonoBehaviour
     {
         if (!isTriggered)
         {
+            DialogueManager.Instance.DisableDialogueBox();
             playerCharacterController.enabled = false;
             if (backToPreviousRoom)
             {
