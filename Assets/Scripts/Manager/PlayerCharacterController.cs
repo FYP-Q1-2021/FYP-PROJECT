@@ -81,49 +81,50 @@ public class PlayerCharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool wasGrounded = isGrounded;
-        MouseLook();
 
-        GroundCheck();
 
-        isSprinting = inputHandler.GetSprintInputHeld();
-        float speedModifier = isSprinting ? sprintSpeedModifier : 1f;
-        speedModifier = isSpeedBuffed ? buffSpeedModifier : speedModifier;
-        playerSpeed = basePlayerSpeed * speedModifier;
+            bool wasGrounded = isGrounded;
+            MouseLook();
 
-        Vector3 worldspaceMoveInput = transform.TransformVector(inputHandler.GetMoveInput());
-        characterController.Move(worldspaceMoveInput * playerSpeed * Time.deltaTime);
+            GroundCheck();
 
-        if (isGrounded && inputHandler.GetJumpInputDown())
-        {
-            velocity.y = Mathf.Sqrt(jumpStrength * -2f * gravity);
-            // play sound
-            AudioSource.PlayOneShot(JumpSfx);
-        }
+            isSprinting = inputHandler.GetSprintInputHeld();
+            float speedModifier = isSprinting ? sprintSpeedModifier : 1f;
+            speedModifier = isSpeedBuffed ? buffSpeedModifier : speedModifier;
+            playerSpeed = basePlayerSpeed * speedModifier;
 
-        // landing
-        if (isGrounded && !wasGrounded)
-        {
-            AudioSource.PlayOneShot(LandSfx);
-        }
+            Vector3 worldspaceMoveInput = transform.TransformVector(inputHandler.GetMoveInput());
+            characterController.Move(worldspaceMoveInput * playerSpeed * Time.deltaTime);
 
-        // footsteps sound
-        float chosenFootstepSfxFrequency =
-            (isSprinting ? FootstepSfxFrequencyWhileSprinting : FootstepSfxFrequency);
-        if (m_FootstepDistanceCounter >= 1f / chosenFootstepSfxFrequency)
-        {
-            m_FootstepDistanceCounter = 0f;
-            AudioSource.PlayOneShot(FootstepSfx);
-        }
+            if (isGrounded && inputHandler.GetJumpInputDown())
+            {
+                velocity.y = Mathf.Sqrt(jumpStrength * -2f * gravity);
+                // play sound
+                AudioSource.PlayOneShot(JumpSfx);
+            }
 
-        // keep track of distance traveled for footsteps sound
-        m_FootstepDistanceCounter += velocity.magnitude * Time.deltaTime;
+            // landing
+            if (isGrounded && !wasGrounded)
+            {
+                AudioSource.PlayOneShot(LandSfx);
+            }
 
-        velocity.y += gravity * Time.deltaTime;
-        characterController.Move(velocity * Time.deltaTime);
+            // footsteps sound
+            float chosenFootstepSfxFrequency =
+                (isSprinting ? FootstepSfxFrequencyWhileSprinting : FootstepSfxFrequency);
+            if (m_FootstepDistanceCounter >= 1f / chosenFootstepSfxFrequency)
+            {
+                m_FootstepDistanceCounter = 0f;
+                AudioSource.PlayOneShot(FootstepSfx);
+            }
 
-        
+            // keep track of distance traveled for footsteps sound
+            m_FootstepDistanceCounter += velocity.magnitude * Time.deltaTime;
+
+            velocity.y += gravity * Time.deltaTime;
+            characterController.Move(velocity * Time.deltaTime);
     }
+
 
     void GroundCheck()
     {

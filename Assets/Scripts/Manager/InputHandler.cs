@@ -24,6 +24,11 @@ public class InputHandler : MonoBehaviour
         m_FireInputWasHeld = GetAttackInputHeld();
     }
 
+    bool isGamePaused()
+    {
+        return PauseSystem.isPaused;
+    }
+
     bool CanProcessInput()
     {
         return Cursor.lockState == CursorLockMode.Locked;
@@ -36,7 +41,7 @@ public class InputHandler : MonoBehaviour
 
     public bool GetAttackInputHeld()
     {
-        if (CanProcessInput())
+        if (CanProcessInput() && !isGamePaused())
         {
             return Input.GetMouseButton(0);
         }
@@ -55,7 +60,7 @@ public class InputHandler : MonoBehaviour
 
     public bool GetAimInputHeld()
     {
-        if (CanProcessInput())
+        if (CanProcessInput() && !isGamePaused())
         {
            
             bool i = Input.GetMouseButton(1);
@@ -67,7 +72,7 @@ public class InputHandler : MonoBehaviour
 
     public bool GetDropKeyDown()
     {
-        if (CanProcessInput())
+        if (CanProcessInput() && !isGamePaused())
         {
             return Input.GetButtonDown("Drop");
         }
@@ -76,7 +81,7 @@ public class InputHandler : MonoBehaviour
 
     public bool GetWeaponDropKeyDown()
     {
-        if(CanProcessInput())
+        if(CanProcessInput() && !isGamePaused())
         {
             return Input.GetButtonDown("Weapon Drop");
         }
@@ -85,7 +90,7 @@ public class InputHandler : MonoBehaviour
 
     public bool GetBlockInputDown()
     {
-        if (CanProcessInput())
+        if (CanProcessInput() && !isGamePaused())
         {
             return Input.GetMouseButtonDown(1);
         }
@@ -94,7 +99,7 @@ public class InputHandler : MonoBehaviour
 
     public bool GetInteractKeyDown()
     {
-        if (CanProcessInput())
+        if (CanProcessInput() && !isGamePaused())
         {
             return Input.GetButtonDown("Interact");
         }
@@ -103,7 +108,7 @@ public class InputHandler : MonoBehaviour
 
     public bool GetJumpInputDown()
     {
-        if (CanProcessInput())
+        if (CanProcessInput() && !isGamePaused())
         {
             return Input.GetButtonDown("Jump");
         }
@@ -113,7 +118,7 @@ public class InputHandler : MonoBehaviour
 
     public bool GetJumpInputHeld()
     {
-        if (CanProcessInput())
+        if (CanProcessInput() && !isGamePaused())
         {
             return Input.GetButton("Jump");
         }
@@ -123,7 +128,7 @@ public class InputHandler : MonoBehaviour
     }
     public bool GetSprintInputHeld()
     {
-        if (CanProcessInput())
+        if (CanProcessInput() && !isGamePaused())
         {
             return Input.GetButton("Sprint");
         }
@@ -133,7 +138,7 @@ public class InputHandler : MonoBehaviour
 
     public int GetSelectWeaponInput()
     {
-        if(CanProcessInput())
+        if(CanProcessInput() && !isGamePaused())
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
                 return 1;
@@ -155,7 +160,7 @@ public class InputHandler : MonoBehaviour
     public Vector3 GetMoveInput()
     {
 
-        if (CanProcessInput())
+        if (CanProcessInput() && !isGamePaused())
         {
             Vector3 move = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
             // constrain move input to a maximum magnitude of 1, otherwise diagonal movement might exceed the max move speed defined
@@ -180,7 +185,7 @@ public class InputHandler : MonoBehaviour
 
     float GetMouseOrStickLookAxis(string mouseInputName, string stickInputName)
     {
-        if (CanProcessInput())
+        if (CanProcessInput() && !isGamePaused())
         {
 
             bool isGamepad = Input.GetAxis(stickInputName) != 0f;

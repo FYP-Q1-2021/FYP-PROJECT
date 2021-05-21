@@ -41,7 +41,7 @@ public class DurabilityPickup : MonoBehaviour
             if (pickupVFX)
             {
                 GameObject pickupVFXInstance = Instantiate(pickupVFX, gameObject.transform.position, pickupVFX.transform.rotation);
-                pickupVFXInstance.transform.SetParent(null);
+                pickupVFXInstance.transform.SetParent(GameObject.Find("Player").transform);
                 pickupVFXInstance.SetActive(true);
                 Destroy(pickupVFXInstance, pickupVFXDuration);
             }

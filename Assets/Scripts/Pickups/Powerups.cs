@@ -44,9 +44,10 @@ public class Powerups : MonoBehaviour
         {
             playerCharacterController.Buff(powerupType, true);
 
-            collider.enabled = false;
-            renderer.enabled = false;
-            this.enabled = false;
+            gameObject.SetActive(false);
+            //collider.enabled = false;
+            //renderer.enabled = false;
+            //this.enabled = false;
 
             // play shoot SFX
             if (pickupSFX)

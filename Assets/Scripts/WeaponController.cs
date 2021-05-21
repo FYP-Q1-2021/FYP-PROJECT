@@ -112,7 +112,7 @@ public class WeaponController : MonoBehaviour
     public Vector3 MuzzleWorldVelocity { get; private set; }
     public GameObject Owner { get; set; }
     public GameObject SourcePrefab { get; set; }
-    float m_CurrentAmmo;
+    public float m_CurrentAmmo;
     Vector3 m_LastMuzzlePosition;
 
     [SerializeField]

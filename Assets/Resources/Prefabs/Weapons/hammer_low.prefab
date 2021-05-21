@@ -148,14 +148,14 @@ MonoBehaviour:
   swaySmoothness: 10
   AutomaticReload: 1
   HasPhysicalBullets: 0
-  ClipSize: 30
+  ClipSize: 0
   ShellCasing: {fileID: 0}
   EjectionPort: {fileID: 0}
   ShellCasingEjectionForce: 2
   ShellPoolSize: 1
   AmmoReloadRate: 1
   AmmoReloadDelay: 2
-  MaxAmmo: 8
+  MaxAmmo: 0
   hasDurability: 1
   weaponDurability: 20
   weaponMaxDurability: 20
@@ -166,6 +166,7 @@ MonoBehaviour:
   baseDamage: 50
   isWeaponActive: 0
   buffDamageMultiplier: 1.25
+  m_CurrentAmmo: 0
   attackATime: 0
 --- !u!114 &6352682892799656524
 MonoBehaviour:

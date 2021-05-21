@@ -249,14 +249,14 @@ MonoBehaviour:
   swaySmoothness: 10
   AutomaticReload: 1
   HasPhysicalBullets: 0
-  ClipSize: 30
+  ClipSize: 0
   ShellCasing: {fileID: 0}
   EjectionPort: {fileID: 0}
   ShellCasingEjectionForce: 2
   ShellPoolSize: 1
   AmmoReloadRate: 1
   AmmoReloadDelay: 2
-  MaxAmmo: 8
+  MaxAmmo: 0
   hasDurability: 1
   weaponDurability: 100
   weaponMaxDurability: 100
@@ -266,7 +266,8 @@ MonoBehaviour:
   damage: 0
   baseDamage: 20
   isWeaponActive: 1
-  buffDamageMultiplier: 0
+  buffDamageMultiplier: 1.25
+  m_CurrentAmmo: 0
   attackATime: 0
 --- !u!65 &1489039966894372443
 BoxCollider:
