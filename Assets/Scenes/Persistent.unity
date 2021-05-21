@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4368166, g: 0.4844514, b: 0.5647057, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1070,6 +1070,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b110e50718d3d59429ec632c03b4bb8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  classes:
+  - {fileID: 7464471281778866184, guid: 3f2796537dea74949b51a89a763db901, type: 3}
+  - {fileID: 7464471281778866184, guid: 53c4ef801fa0e2c48acd162bf19aab10, type: 3}
+  - {fileID: 7464471281778866184, guid: b3c5eb9a5cb3a9d409791851d7936434, type: 3}
 --- !u!114 &636248491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2372,6 +2376,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b110e50718d3d59429ec632c03b4bb8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  classes:
+  - {fileID: 7464471281778866184, guid: 3f2796537dea74949b51a89a763db901, type: 3}
+  - {fileID: 7464471281778866184, guid: 53c4ef801fa0e2c48acd162bf19aab10, type: 3}
+  - {fileID: 7464471281778866184, guid: b3c5eb9a5cb3a9d409791851d7936434, type: 3}
 --- !u!1 &1535586799
 GameObject:
   m_ObjectHideFlags: 0
