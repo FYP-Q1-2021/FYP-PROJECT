@@ -4,6 +4,8 @@ using System;
 public class SpawnTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject objectToSpawn;
+    [SerializeField] private GameObject vfx;
+    [SerializeField] private Transform spawnPosition;
 
     public event Action OnSpawnBoss;
 
@@ -16,6 +18,8 @@ public class SpawnTrigger : MonoBehaviour
             isPassed = true;
             objectToSpawn.SetActive(true);
             OnSpawnBoss?.Invoke();
+            GameObject effects = Instantiate(vfx, spawnPosition.position, spawnPosition.rotation);
+            Destroy(effects, 10f);
         }
     }
 }
