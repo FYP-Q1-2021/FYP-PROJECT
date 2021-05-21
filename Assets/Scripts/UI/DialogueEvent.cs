@@ -70,5 +70,6 @@ public class DialogueEvent : MonoBehaviour
     public void TriggerDialogue()
     {
         DialogueManager.Instance.ShowDialogue(trigger);
+        ObjectiveManager.Instance.ShowObjective(trigger);
     }
 }
