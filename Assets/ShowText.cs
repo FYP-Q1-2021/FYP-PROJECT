@@ -25,6 +25,6 @@ public class ShowText : MonoBehaviour
         playerAmmo = weaponinstance.m_CurrentAmmo;
         playerMaxAmmo = weaponinstance.MaxAmmo;
 
-        ammo.text = "CurrentAmmo: " + playerAmmo.ToString();
+        ammo.text = "Current Ammo: " + playerAmmo.ToString();
     }
 }
