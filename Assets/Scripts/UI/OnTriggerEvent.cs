@@ -11,24 +11,29 @@ public class OnTriggerEvent : MonoBehaviour
     private Devil devil;
     private bool showWarning = true;
 
+    void Awake()
+    {
+        if (bossRoom)
+            devil = GameObject.Find("Devil").GetComponent<Devil>();
+    }
+
     void Start()
     {
         if (bossRoom)
         {
-            devil = GameObject.Find("Devil").GetComponent<Devil>();
             devil.OnDeath += DeactivateWarning;
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if(!triggered && other.name == "Player")
+        if (!triggered && other.name == "Player")
         {
-            if(bossRoom && showWarning)
+            if (bossRoom && showWarning)
             {
                 OnTrigger?.Invoke();
             }
-            else if(!bossRoom)
+            else if (!bossRoom)
             {
                 OnTrigger?.Invoke();
                 triggered = true;
@@ -38,7 +43,7 @@ public class OnTriggerEvent : MonoBehaviour
 
     private void OnDestroy()
     {
-        if(bossRoom)
+        if (bossRoom)
             devil.OnDeath -= DeactivateWarning;
     }
 

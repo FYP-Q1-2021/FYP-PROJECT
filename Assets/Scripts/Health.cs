@@ -12,6 +12,8 @@ public class Health : MonoBehaviour
 
     public event Action OnDamaged;
     public event Action OnHeal;
+    public bool isInvincible;
+
     public bool CanPickup;
     PlayerCharacterController playerCharacterController;
 
@@ -35,6 +37,7 @@ public class Health : MonoBehaviour
     {
         CanPickup = currentHealth < maxHealth ? true : false;
     }
+
     public float GetMaxHealth()
     {
         return maxHealth;
@@ -63,7 +66,7 @@ public class Health : MonoBehaviour
 
     void DealDamage(float damage)
     {
-        if ((isAPlayer && !playerCharacterController.isInvincible) || !isAPlayer)
+        if ((isAPlayer && !playerCharacterController.isInvincible) || !isInvincible)
         {
             currentHealth -= damage;
             OnDamaged?.Invoke();

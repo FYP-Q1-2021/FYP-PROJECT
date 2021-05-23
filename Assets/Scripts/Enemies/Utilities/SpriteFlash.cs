@@ -13,10 +13,6 @@ public class SpriteFlash : MonoBehaviour
     private IEnumerator flashCoroutine;
     private bool usingDefaultMaterial = true;
 
-    private bool canBeInvulnerable;
-
-    private Imp imp;
-
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -29,8 +25,6 @@ public class SpriteFlash : MonoBehaviour
 
         health = GetComponentInParent<Health>();
         health.OnDamaged += OnDamagedEvent;
-
-        imp = transform.parent.GetComponent<Imp>();
     }
 
     void OnDisable()
@@ -82,9 +76,6 @@ public class SpriteFlash : MonoBehaviour
 
     private void OnDamagedEvent()
     {
-        if (imp && imp.justSpawned)
-            return;
-
         Flash();
     }
 }

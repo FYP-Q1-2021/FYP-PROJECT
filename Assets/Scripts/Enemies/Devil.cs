@@ -15,6 +15,11 @@ public class Devil : Enemy
     [SerializeField] private float rangedAttackRange = 50f;
     [SerializeField] private float meleeAttackRange = 10f;
 
+    [Header("Starting Phase")]
+    [SerializeField] private float invincibilityDuration = 5f;
+    private bool isInvincibleCoroutineRunning;
+    [SerializeField] private GameObject canvas;
+
     [Header("Phase 1")]
     [SerializeField] private float rippleCooldown = 4f;
     private float rippleCooldownTimer = 0f;
@@ -59,6 +64,15 @@ public class Devil : Enemy
 
     public event Action OnDeath;
 
+    void Awake()
+    {
+        staff = GetComponentInChildren<Staff>();
+        ripple = GetComponentInChildren<Ripple>();
+        health = GetComponent<Health>();
+        transitionManager = GameObject.Find("DevilPhaseManager").GetComponent<DevilTransitionManager>();
+        geyserLayerMask = LayerMask.GetMask("Spell");
+    }
+
     #region Inherited functions
     protected override void Start()
     {
@@ -66,18 +80,14 @@ public class Devil : Enemy
 
         gameObject.SetActive(false);
 
-        staff = GetComponentInChildren<Staff>();
-
-        ripple = GetComponentInChildren<Ripple>();
         ripple.gameObject.SetActive(false);
 
-        health = GetComponent<Health>();
         health.OnDamaged += OnDamagedEvent;
+        health.isInvincible = true;
 
-        transitionManager = GameObject.Find("DevilPhaseManager").GetComponent<DevilTransitionManager>();
+        canvas.SetActive(false);
+
         transitionManager.OnTransitionToPhase3 += OnTransitionToPhase3Event;
-
-        geyserLayerMask = LayerMask.GetMask("Spell");
 
         // To be removed when events is added to eruption
         timeBetweenClusterEruptions += 6f;
@@ -94,7 +104,14 @@ public class Devil : Enemy
         switch (state)
         {
             case State.IDLE:
-                CheckPlayerPosition();
+                if (health.isInvincible)
+                {
+                    if(!isInvincibleCoroutineRunning)
+                        StartCoroutine("InvulnerableState");
+                    return;
+                }
+                else
+                    CheckPlayerPosition();
                 break;
             case State.MELEE_MODE:
                 CheckPlayerPosition();
@@ -170,6 +187,15 @@ public class Devil : Enemy
     #endregion
 
     #region Coroutines
+    IEnumerator InvulnerableState()
+    {
+        isInvincibleCoroutineRunning = true;
+        yield return new WaitForSeconds(invincibilityDuration);
+        health.isInvincible = false;
+        canvas.SetActive(true);
+        isInvincibleCoroutineRunning = false;
+    }
+
     IEnumerator GeyserAttack()
     {
         yield return new WaitForSeconds(eruptionCooldown);

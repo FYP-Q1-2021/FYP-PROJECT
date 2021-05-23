@@ -20,7 +20,6 @@ public class Imp : BasicEnemy
     private float idleElapsedTime = 0f;
 
     [SerializeField] private float invincibilityDuration = 0.5f;
-    public bool justSpawned;
 
     private Health health;
 
@@ -42,7 +41,7 @@ public class Imp : BasicEnemy
         {
             Destroy(GetComponent<FlyingWaypointsManager>());
             SetState(State.IDLE);
-            justSpawned = true;
+            health.isInvincible = true;
             StartCoroutine("InvulnerableState");
         }
         else
@@ -62,12 +61,11 @@ public class Imp : BasicEnemy
                 {
                     if (isSpawnedByDevil)
                     {
-                        if (idleElapsedTime < idleDuration)
+                        if (idleElapsedTime < idleDuration && health.isInvincible)
                         {
                             currentSpeed = Mathf.SmoothStep(initialSpeed, finalSpeed, idleElapsedTime / idleDuration);
                             transform.position += transform.forward * currentSpeed * Time.deltaTime;
                             idleElapsedTime += simulationSpeed * Time.deltaTime;
-                            //StartCoroutine("SpawnForce");
                         }
                         else
                             SetState(State.CHASE);
@@ -249,20 +247,11 @@ public class Imp : BasicEnemy
     IEnumerator InvulnerableState()
     {
         yield return new WaitForSeconds(invincibilityDuration);
-        justSpawned = false;
+        health.isInvincible = false;
     }
 
     private void OnDamagedEvent()
     {
-        if (isSpawnedByDevil)
-        {
-            if (justSpawned)
-            {
-                health.ResetHealth();
-                return;
-            }
-        }
-
         if (health.GetCurrentHealth() < 1)
         {
             if (isSpawnedByDevil)
