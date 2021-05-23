@@ -1543,6 +1543,8 @@ MonoBehaviour:
   state: 0
   rangedAttackRange: 22
   meleeAttackRange: 10
+  invincibilityDuration: 5
+  canvas: {fileID: 1496208108041995249}
   rippleCooldown: 4
   eruptionCooldown: 3
   staffCooldown: 3
@@ -1580,6 +1582,7 @@ MonoBehaviour:
   maxHealth: 999
   currentHealth: 0
   isAPlayer: 0
+  isInvincible: 0
   CanPickup: 0
 --- !u!114 &3856772997199573030
 MonoBehaviour:
