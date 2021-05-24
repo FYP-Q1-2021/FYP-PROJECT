@@ -34,6 +34,7 @@ public class Devil : Enemy
 
     [Header("Phase 2")]
     [SerializeField] private float hPToPhase2 = 750f;
+    [SerializeField] private GameObject splitVFX;
 
     [Header("Phase 3")]
     [SerializeField] private float timeBetweenClusterEruptions = 5f;
@@ -295,6 +296,8 @@ public class Devil : Enemy
             if (health.GetCurrentHealth() < hPToPhase2 + 1)
             {
                 currentPhase = Phase.PHASE_2;
+                GameObject effects = Instantiate(splitVFX, transform.position, transform.rotation);
+                Destroy(effects, 10f);
                 SpawnImps();
                 Destroy(ripple.gameObject);
                 gameObject.SetActive(false);
