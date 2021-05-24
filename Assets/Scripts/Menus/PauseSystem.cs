@@ -8,17 +8,16 @@ public class PauseSystem : MonoBehaviour
     public static bool isPaused = false;
 
     public GameObject pauseMenu;
+    public GameObject inGameUI;
     
     
     void Start()
     {
         pauseMenu.SetActive(false);
-
     }
-    // Update is called once per frame
+
     void Update()
     {
-
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(isPaused)
@@ -30,14 +29,13 @@ public class PauseSystem : MonoBehaviour
                 PauseGame();
             }
         }
-
-        Debug.Log(Time.timeScale);
     }
 
     public void PauseGame()
     {
         //GameObject.Find("Dialogue Box").SetActive(false);
         pauseMenu.SetActive(true);
+        inGameUI.SetActive(false);
         isPaused = true;
         Time.timeScale = 0f;
 
@@ -47,8 +45,8 @@ public class PauseSystem : MonoBehaviour
     {
         //GameObject.Find("Dialogue Box").SetActive(true);
         pauseMenu.SetActive(false);
+        inGameUI.SetActive(true);
         isPaused = false;
         Time.timeScale = 1f;
-
     }
 }
