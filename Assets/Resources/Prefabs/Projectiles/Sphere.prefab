@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCharacterController: {fileID: 0}
+  bulletHolePrefab: {fileID: 0}
   Radius: 0.01
   Root: {fileID: 130968076244739200}
   Tip: {fileID: 8617275582188700784}
@@ -111,7 +112,7 @@ MonoBehaviour:
   InheritWeaponVelocity: 0
   damage: 40
   baseDamage: 40
-  isDamageOverTime: 1
+  isDamageOverTime: 0
   delayBetweenTicks: 1
   duration: 4
   RadiusColor: {r: 0.42973477, g: 0.8207547, b: 0.8207547, a: 0.2}
