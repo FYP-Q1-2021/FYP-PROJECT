@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerUpHandler, IPointerDownHandler
 {
     private Image image;
     private Color originalImageColor;
@@ -28,7 +28,6 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         if(!enlargeButton)
         {
-            //text.color = Color.yellow;
             text.fontSize = hoveredTextSize;
             image.color = hoveredImageColor;
         }
@@ -42,7 +41,6 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         if(!enlargeButton)
         {
-            //text.color = Color.white;
             text.fontSize = originalTextSize;
             image.color = originalImageColor;
         }
@@ -56,13 +54,20 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         if (!enlargeButton)
         {
-            //text.color = Color.white;
             text.fontSize = originalTextSize;
             image.color = originalImageColor;
         }
-        else
-        {
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        if(enlargeButton)
+            transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (enlargeButton)
             transform.localScale = cachedScale;
-        }
     }
 }
