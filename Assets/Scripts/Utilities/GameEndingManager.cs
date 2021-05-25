@@ -10,9 +10,8 @@ public class GameEndingManager : MonoBehaviour
     [SerializeField] private float endingCanvasFadeDuration = 1f;
     private readonly float fadeSpeed = 1f;
     [SerializeField] private CanvasGroup endingCanvas;
+    [SerializeField] private CanvasGroup winCanvas;
     private float timer;
-    public bool winEnding;
-    public bool loseEnding;
 
     void Awake()
     {
@@ -31,6 +30,17 @@ public class GameEndingManager : MonoBehaviour
     void OnDisable()
     {
         player.OnDamaged -= OnPlayerDeath;
+    }
+
+    public void WinEnding()
+    {
+        inGameCanvas.gameObject.SetActive(false);
+        winCanvas.gameObject.SetActive(true);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        StartCoroutine("WinScreen");
     }
 
     private void OnPlayerDeath()
@@ -55,6 +65,16 @@ public class GameEndingManager : MonoBehaviour
         {
             timer += fadeSpeed * Time.deltaTime;
             endingCanvas.alpha = timer / endingCanvasFadeDuration;
+            yield return null;
+        }
+    }
+
+    IEnumerator WinScreen()
+    {
+        while (winCanvas.alpha < 1f)
+        {
+            timer += fadeSpeed * Time.deltaTime;
+            winCanvas.alpha = timer / endingCanvasFadeDuration;
             yield return null;
         }
     }

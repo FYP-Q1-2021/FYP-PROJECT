@@ -20,9 +20,7 @@ public class OnTriggerEvent : MonoBehaviour
     void Start()
     {
         if (bossRoom)
-        {
             devil.OnDeath += DeactivateWarning;
-        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -32,6 +30,10 @@ public class OnTriggerEvent : MonoBehaviour
             if (bossRoom && showWarning)
             {
                 OnTrigger?.Invoke();
+            }
+            else if(bossRoom && !showWarning)
+            {
+                GameEndingManager.Instance.WinEnding();
             }
             else if (!bossRoom)
             {
